@@ -1,0 +1,270 @@
+body {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0; 
+}
+
+
+/* cabecalho do site */
+
+.header{
+    background-color:#28a746 ;
+position: relative;
+width: 100%;
+top: 0;
+}
+.div-header h1{
+    background-color: #e34f26;
+    margin: 0;
+   padding: 0;
+   font-size: 2.4rem;
+   padding-block: 17px;
+}
+
+.header div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1%;
+   
+}
+.navigation ul {
+display: flex;
+justify-content: center;
+list-style: none;
+padding: 0px;
+}
+
+.navigation ul li{
+    margin: 0 19px;
+    padding-top: 1%;
+    font-size: 1.6rem;
+}
+
+.navigation ul li a {
+text-decoration: none;
+color: #fff;
+font-weight: bold;
+
+padding: 10px;
+transition: background-color 0.9s ease;
+}
+.navigation ul li a:hover {
+    background-color: #28524D; 
+    border-radius: 5px;
+}
+
+/*primeira secao*/
+.sec1{
+   width: 100%;
+   }
+
+ h1{
+font-size: 3.4rem;
+padding-block: 1.7%;
+text-align: center;
+}
+.info{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.h1skills{
+    width: 55%;
+    background-color: #1572b6;
+    margin: auto;
+}
+.sec1 h2{
+    font-size: 3rem;
+}
+.infoOne{
+    background-color: #e34f2646;
+   margin: auto;
+  line-height: 3.1rem;
+  border-radius: 10px;
+}
+.infoOne p{
+ font-size: 2.5rem;
+ 
+}
+.infoTwo{
+    background-color: #f8972067;
+    margin: auto;
+    line-height: 3.1rem;
+    border-radius: 9px;
+}
+.infoTwo p{
+    font-size: 2.5rem;
+}
+.infoTree{
+    background-color: #28a74674;
+    margin: auto;
+}
+.infoTree{
+    font-size: 2.5rem;
+    line-height: 3.1rem;
+    border-radius: 9px;
+}
+info p{
+    font-size: 1.9rem;
+    padding-bottom: 27px;
+    width: 57%;
+}
+.imgs{
+    background-color: #45c6b7;
+ width: 95%;
+ margin: auto;
+    height: 27%;
+    margin-bottom: 22px;  
+  border-radius: 12px;
+}
+
+.imgs img{
+height: 844px;
+
+}
+.image{
+    padding-block: 42px;
+    height: 96px;
+position: relative;
+left: 27%;
+}
+
+.image img{
+padding-left: 1.5%;
+border-radius: 52%;
+padding-left: 18px;
+margin-left: 44px;
+border: 5px solid rgb(0, 255, 128);
+}
+
+
+/*linguagens ultilizadas*/
+.skills-icons {
+    display: flex;
+    gap: 2%;
+    justify-content: center; 
+}
+
+
+
+/*icones*/
+.skills-icons i {
+    color: var(--color-black);
+    font-size: 3.9rem;
+    transition: color 0.3s;
+}
+
+.skills-icons i:hover {
+    cursor: pointer;
+}
+
+/* Cores específicas para cada ícone das skills */
+.skills-icons .fa-html5:hover {
+    color: #e34f26;
+}
+
+.skills-icons .fa-css3-alt:hover {
+    color: #1572b6;
+}
+
+.skills-icons .fa-js:hover {
+    color: #f7df1e;
+}
+
+
+.skills-icons .fa-db:hover {
+    color: #f2f2f2; 
+}
+
+.skills-icons .fa-php:hover {
+    color: #4f938b; 
+}
+
+.skills-icons .fa-java:hover {
+    color: #f89820; 
+}
+.skills-icons .fa-python:hover {
+    color: #306998; 
+}
+
+
+
+
+
+
+
+
+
+
+.fomrulario{
+    margin-top: 33px;
+    background: linear-gradient(135deg, #28a745, #74d19c)
+}
+.forms{
+   height: 933px;
+   width: 40%;
+    margin: auto;
+    background: linear-gradient(135deg, #28a745, #74d19c)
+}
+
+.forms h1{
+    color: #fff;
+}
+
+
+.forms input{
+    background-color: #ffffff;
+   display: flex;
+   flex-direction: column;
+   margin: auto;
+   margin-bottom: 36px;
+   height: 82px;
+    width: 86%;
+    margin-top: 126px;
+    border-radius: 9px;
+    font-size: 1.4rem;
+    box-shadow: 3px 1px 20px 3px ;
+    border: 3px solid green;
+    box-shadow: 3px 3px 20px 3px rgba(0, 128, 0, 0.5);
+}
+
+.parcerias {
+    margin-right: 134px;
+    }
+
+    .image img{
+        padding-block: 4%;
+        height: 188px;
+        padding-left: 33px;
+    width: 188px;
+    border: none;
+    background-color: #1572b6;
+    position: relative;
+    }
+
+.fot p  {
+    text-align: center;
+padding-top: 9px;
+}
+
+.fot p a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.9s ease;
+    
+}
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #42807d; 
+    color: white; 
+    text-align: center; 
+    padding: 10px 0; 
+}

@@ -1,0 +1,137 @@
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+
+
+/* cabecalho do site */
+
+.header{
+    background-color:#28a746 ;
+position: relative;
+width: 100%;
+top: 0;
+}
+
+
+.header div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1%;
+   
+}
+.navigation ul {
+display: flex;
+justify-content: center;
+list-style: none;
+padding: 0px;
+}
+
+.navigation ul li{
+    margin: 0 19px;
+    padding-top: 1%;
+    font-size: 1.6rem;
+}
+
+.navigation ul li a {
+text-decoration: none;
+color: #fff;
+font-weight: bold;
+padding: 10px;
+transition: background-color 0.9s ease;
+}
+.navigation ul li a:hover {
+    background-color: #28524D; 
+    border-radius: 5px;
+}
+img{
+    width: 14%;
+    height: 26%;
+margin: auto;
+margin-block: 70px;
+
+}
+
+.descripition-ccr{
+    width: 44%;
+margin: auto;
+font-size: 2.3rem;
+line-height: 3.4rem;
+}
+
+.information{
+    font-size: 2.2rem;
+ 
+width: 88%;
+display: flex;
+margin: auto;
+margin-top: 11%;
+}
+
+.informationTwo{
+margin: 0;
+font-size: 2.9rem;
+
+}
+
+
+.info-extra{
+font-size: 2.2rem;
+text-align: center;
+}
+
+
+.move{
+    position: relative; 
+    animation: slide-in 2s ease-out forwards; 
+    opacity: 0;
+}
+
+@keyframes slide-in {
+    22% {
+        transform: translateY(50%); 
+        opacity: 0; 
+    }
+    100% {
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+
+
+
+.fot, p  {
+    text-align: center;
+padding-top: 9px;
+}
+
+.fot p a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.9s ease;
+    
+}
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #42807d; 
+    color: white; 
+    text-align: center; 
+    padding: 10px 0; 
+}
