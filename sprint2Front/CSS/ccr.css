@@ -72,11 +72,16 @@ line-height: 3.4rem;
 
 .information{
     font-size: 2.2rem;
- 
 width: 88%;
 display: flex;
 margin: auto;
-margin-top: 11%;
+margin-top: 5%;
+}
+.informationOne{
+    text-align: center;
+  
+    font-size: 2.9rem;
+    padding-right:83px ;
 }
 
 .informationTwo{
@@ -87,8 +92,10 @@ font-size: 2.9rem;
 
 
 .info-extra{
+    margin-top: 3%;
 font-size: 2.2rem;
 text-align: center;
+padding-block: 42px;
 }
 
 

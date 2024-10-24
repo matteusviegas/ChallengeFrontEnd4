@@ -1,159 +1,122 @@
-
-
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
     margin: 0; 
-}
-
-body {
-    font-family: Arial, sans-serif;
     background-color: #f0f0f0;
 }
 
-
-
-/* cabecalho do site */
-
-.header{
-    background-color:#28a746 ;
-position: relative;
-width: 100%;
-top: 0;
+/* Cabeçalho do site */
+.header {
+    background-color: #28a746;
+    position: relative;
+    width: 100%;
+    top: 0;
+    padding: 10px 0; 
 }
 
-
-.header div{
+.header div {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 1%;
-   
-}
-.navigation ul {
-display: flex;
-justify-content: center;
-list-style: none;
-padding: 0px;
 }
 
-.navigation ul li{
-    margin: 0 19px;
-    padding-top: 1%;
-    font-size: 1.6rem;
+.navigation ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.navigation ul li {
+    margin: 0 20px;
 }
 
 .navigation ul li a {
-text-decoration: none;
-color: #fff;
-font-weight: bold;
-padding: 10px;
-transition: background-color 0.9s ease;
-}
-.navigation ul li a:hover {
-    background-color: #28524D; 
-    border-radius: 5px;
-}
-.header h1{
-    font-size: 2.2rem;
-    margin: 0;
-    padding: 0;
-}
-h1{
-    text-align: center;
-    padding-block: 1%;
-    font-size: 5rem;
-}
-.matteus{
-   
-   height: 833px;
-   width: 100%;
-    background-color: #28524D;
-}
-.matteus img{
-height: 333px;
-width: 10%;
-position: relative;
-left: 45%;
-top: 15%;
-}
-.descripition {
-text-align: center;
-color: #fff;
-font-size: 2.1rem;
-margin-top: 173px;
-
-}
-.pedro{
-  
-    height: 833px;
-    width: 100%;
-     background-color: #97aca9;
-}
-.pedro img{
-    height: 333px;
-    width: 10%;
-    position: relative;
-    left: 45%;
-    top: 15%;
-}
-.descripitionn{
-    text-align: center;
-    color: #0c1719;
-    font-size: 2.1rem;
-    margin-top: 173px;
-    
-}
-.sulamita{
-   
-    height: 833px;
-    width: 100%;
-     background-color: #28524D;
- }
- .sulamita img{
-    height: 333px;
-    width: 10%;
-    position: relative;
-    left: 45%;
-    top: 15%;
-    }
-    .descripition {
-        text-align: center;
-        color: #fff;
-        font-size: 2.1rem;
-        margin-top: 173px;
-        
-        }
-        .but{
-            padding: 16px;
-            width: 233px;
-border-radius: 7px;
-margin: auto;   
-margin-block: 73px; 
-color: #fff;
-            text-align: center;
-            background-color: #28a745;
-
-
-        }
-
-
-        
-
-.fot, p  {
-    text-align: center;
-padding-top: 9px;
-}
-
-.fot p a{
     text-decoration: none;
     color: #fff;
     font-weight: bold;
     padding: 10px;
-    transition: background-color 0.9s ease;
-    
+    transition: background-color 0.3s ease;
 }
+
+.navigation ul li a:hover {
+    background-color: #28524D; 
+    border-radius: 5px;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+
+
+/* Estilos do Título da Seção */
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+/* Seção da Equipe */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.membro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #28524D;
+    width: 19%;
+    max-width: 400px; 
+    margin: 44px 0; 
+    padding: 15px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease; 
+}
+
+.membro:hover {
+    transform: scale(1.35); /* Expande o membro da equipe ao passar o mouse */
+}
+
+.membro img {
+    height: 200px; /* Tamanho da imagem */
+    width: auto; /* Mantém a proporção */
+    border-radius: 10px; /* Bordas arredondadas nas imagens */
+}
+
+.descripition {
+    text-align: center;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 10px; /* Ajusta a margem */
+}
+
+.but {
+    padding: 16px;
+    width: 200px;
+    height: 60px;
+    border-radius: 7px;
+    margin: 40px auto; /* Centraliza o botão */
+    color: #fff;
+    text-align: center;
+    background-color: #28a745;
+    transition: background-color 0.3s ease;
+}
+
+.but:hover {
+    background-color: #ffffff; 
+    color:  #28a745;
+}
+
+
+/* Rodapé */
 footer {
     position: relative;
     left: 0;
@@ -163,4 +126,17 @@ footer {
     color: white; 
     text-align: center; 
     padding: 10px 0; 
+}
+
+.fot, p {
+    text-align: center;
+    padding-top: 9px;
+}
+
+.fot p a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.9s ease;
 }

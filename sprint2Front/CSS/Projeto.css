@@ -14,6 +14,7 @@ position: relative;
 width: 100%;
 top: 0;
 }
+
 .div-header h1{
     background-color: #e34f26;
     margin: 0;
@@ -56,9 +57,24 @@ transition: background-color 0.9s ease;
 }
 
 /*primeira secao*/
+
+
 .sec1{
    width: 100%;
    }
+
+.sec1 h2{
+    background: linear-gradient(45deg, #249d40, hsl(132, 82%, 42%));
+    margin: 92px auto;
+    color: white;
+    width: 27%;
+    font-size: 24px;
+    padding: 15px;
+
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
 
  h1{
 font-size: 3.4rem;
@@ -71,24 +87,23 @@ text-align: center;
     margin: auto;
 }
 
-.h1skills{
-    width: 55%;
-    background-color: #1572b6;
-    margin: auto;
-}
 .sec1 h2{
     font-size: 3rem;
 }
+
 .infoOne{
-    background-color: #e34f2646;
+    font-family: 'Poppins', sans-serif;
+background-color: #1b73b148;
    margin: auto;
   line-height: 3.1rem;
   border-radius: 10px;
 }
+
 .infoOne p{
  font-size: 2.5rem;
  
 }
+
 .infoTwo{
     background-color: #f8972067;
     margin: auto;
@@ -113,32 +128,19 @@ info p{
     width: 57%;
 }
 .imgs{
-    background-color: #45c6b7;
+    background-color: #296f67;
  width: 95%;
  margin: auto;
-    height: 27%;
+    height: 657px;
     margin-bottom: 22px;  
   border-radius: 12px;
 }
 
 .imgs img{
-height: 844px;
-
-}
-.image{
-    padding-block: 42px;
-    height: 96px;
-position: relative;
-left: 27%;
+    height: 423px;
+    padding-top: 133px;
 }
 
-.image img{
-padding-left: 1.5%;
-border-radius: 52%;
-padding-left: 18px;
-margin-left: 44px;
-border: 5px solid rgb(0, 255, 128);
-}
 
 
 /*linguagens ultilizadas*/
@@ -146,6 +148,17 @@ border: 5px solid rgb(0, 255, 128);
     display: flex;
     gap: 2%;
     justify-content: center; 
+padding: 22px;
+    margin: 0;
+}
+
+
+
+.h1skills{
+    width: 40%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #87a4b8;
+    margin: 4% auto 22px;
 }
 
 
@@ -194,24 +207,24 @@ border: 5px solid rgb(0, 255, 128);
 
 
 
-
-
-
-
+/*formulario*/
 
 .fomrulario{
-    margin-top: 33px;
-    background: linear-gradient(135deg, #28a745, #74d19c)
-}
+    margin-top: 13px;
+  
+} 
 .forms{
-   height: 933px;
-   width: 40%;
-    margin: auto;
-    background: linear-gradient(135deg, #28a745, #74d19c)
+
+   height: 600px;
+   width: 30%;
+    margin: 6% auto;
+    background: linear-gradient(135deg, #28a745, #74d19c);
+    border-radius: 12px;
 }
 
 .forms h1{
-    color: #fff;
+    color: #000000;
+    margin-top: 11px;
 }
 
 
@@ -221,30 +234,60 @@ border: 5px solid rgb(0, 255, 128);
    flex-direction: column;
    margin: auto;
    margin-bottom: 36px;
-   height: 82px;
-    width: 86%;
-    margin-top: 126px;
+   height: 62px;
+    width: 80%;
+    margin-top: 26px;
     border-radius: 9px;
-    font-size: 1.4rem;
-    box-shadow: 3px 1px 20px 3px ;
     border: 3px solid green;
     box-shadow: 3px 3px 20px 3px rgba(0, 128, 0, 0.5);
+
+}
+input::placeholder {
+    color: #969696; 
+    font-size: 22px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ 
+  }
+.bot{
+    width: 230px;
+    border-radius: 15px;
+    height: 57px;
+    background-color: #249d40;
+border: 2px solid rgb(0, 255, 0);
+font-size: 1.3rem;
+color: #fff;
+}
+.bot:hover{
+    background-color:#ffffff ;
+    color: rgb(0, 255, 0)
+}
+  .parcerias {
+    background-color: #328527; /* Cor de fundo */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o conteúdo */
+margin-bottom: 82px;
 }
 
-.parcerias {
-    margin-right: 134px;
-    }
+.image {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    
+}
 
-    .image img{
-        padding-block: 4%;
-        height: 188px;
-        padding-left: 33px;
-    width: 188px;
-    border: none;
-    background-color: #1572b6;
-    position: relative;
-    }
+.image img {
+    width: 150px;  
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform .3s; 
+}
 
+.image img:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+
+/*footer*/
 .fot p  {
     text-align: center;
 padding-top: 9px;

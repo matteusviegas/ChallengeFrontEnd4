@@ -5,11 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Projeto.css">
+    <link rel="stylesheet" href="../CSS/Projeto.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -22,22 +19,32 @@
             <h1 >FUTURE STATION</h1>
             <nav class="navigation">
                 <ul>
-                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="../index.html">HOME</a></li>
                     <li><a href="#">PROJETO</a></li>
-                    <li><a href="equipe.html">EQUIPE</a></li>
-                    <li><a href="ccr.html">CCR</a></li>
+                    <li><a href="../html/equipe.html">EQUIPE</a></li>
+                    <li><a href="../html/ccr.html">CCR</a></li>
                 </ul>
             </nav>
         </div>
 
     </header>
     <main>
+
+        
+
+
+
+
+
+
+
         <h1>PROJETO</h1>
 
         <div class="sec1">
-            <div class="info">
-                <div class="infoOne">
-                    <h2>Solução e funcionalidades</h2>
+            <div class="info expandDiv ">
+                <h2 class="expandir">Solução e funcionalidades</h2>
+                <div class="infoOne content  ">
+                   
                     <p>O projeto da Future Station oferece uma solução inovadora que integra um chatbot interativo, um painel de avisos e uma ferramenta para análises de horários de pico, facilitando a comunicação e o gerenciamento de dados em tempo real</p>
                     <p><strong>Chatbot interativo:</strong> O chatbot da Future Station é capaz de atender dúvidas frequentes, realizar agendamentos e fornecer orientações, oferecendo suporte 24/7 aos usuários.</p>
                     <p><strong>Painel de Avisos:</strong> O painel centraliza informações importantes, como atualizações, prazos e notificações relevantes, garantindo que todos estejam informados em tempo hábil</p>
@@ -48,13 +55,15 @@
                         omnis hic facere doloribus placeat praesentium!</p>
                 </div>
 
-                <div class="infoTwo">
-                    <h2>Nossa visão</h2>
+                <h2 class="expandir" >Nossa visão</h2>
+                <div class="infoTwo content2 ">
+                 
                     <p>Ser a plataforma líder em soluções de automação interativa e gestão inteligente de dados, melhorando a eficiência e a comunicação em ambientes corporativos e educacionais</p>
 
                 </div>
-                <div class="infoTree">
-                    <h2>Nossa Missão</h2>
+                <h2 class="expandir">Nossa Missão</h2>
+                <div class="infoTree content3 ">
+                   
                     <p>Proporcionar uma experiência fluida e personalizada através de soluções tecnológicas avançadas, promovendo a agilidade, a inovação e o acesso rápido à informação.
                         Essa abordagem da Future Station visa transformar a maneira como as organizações se comunicam e gerenciam suas operações.</p>
                     
@@ -63,10 +72,12 @@
 
 
                 <div class="imgs">
-                    <img src="https://th.bing.com/th/id/OIP.Rg7oA__SnEHPblXvH5g46AAAAA?w=263&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                    <img src="../IMG_LOGO/Logo_Alura.jfif"
                         alt="">
             
                 </div>
+
+
                 <h1 class="h1skills">MY SKILLS</h1>
             
                 <div class="skills-icons">
@@ -89,16 +100,19 @@
                         <form action="">
                             <h1>Sugestoes</h1>
                             <label for="form">Sugestoes</label>
-                            <input type="text" placeholder="informe um nome:">
-                            <input type="text" placeholder="informe seu E-mail">
+                            <input type="text" placeholder="informe um nome:" required>
+                            <input type="email" placeholder="informe seu E-mail" required>
                             <input type="text" placeholder="Digite a sua sugestao">
+                          <button class="bot">Enviar</button>
+
                         </form>
                     </div>
+                    
                     <section class="parcerias ">
                         <div class="image">
-                            <img src="IMG_LOGO/Logo_Alura.jfif" alt="">
-                            <img src="IMG_LOGO/Logo_CCR.jfif" alt="">
-                            <img src="IMG_LOGO/Logo_Faip.jfif" alt="">
+                            <img src="../IMG_LOGO/Logo_Alura.jfif" alt="">
+                            <img src="../IMG_LOGO/Logo_Faip.jfif" alt="">
+                            <img src="../IMG_LOGO/Logo_CCR.jfif" alt="">
                         </div>
             
                 </section>
@@ -111,7 +125,7 @@
         <p><a href="#">Team</a> | <a href="#">Project</a> | <a href="#">CCR</a></p>
         <p>&copy; Todos os direitos reservados. Group SPM | Future Station</p>
     </footer>
-
+<script src="../js/projeto.js"></script>
 </body>
 
 </html>

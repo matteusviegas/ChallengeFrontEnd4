@@ -1,0 +1,146 @@
+@media (min-width: 576px){
+  
+*{
+    text-align: center;
+}
+body{
+
+}
+}
+
+/*  parte das informacoes*/
+.navigation{
+    background-color: rgb(39, 130, 210);
+    position: absolute;
+    top: 4vh;
+    height:60vh ;
+    width: 50vw;
+    right: 0;
+
+
+}
+.header ul{
+    font-size: 1.0rem;
+    display: flex;
+    flex-direction: column;
+padding-block: 12px;
+padding-bottom: 12px;
+}
+ li{
+    padding-bottom: 32px;
+}
+.section-container{
+    width: 100;
+}
+
+.content-item{
+    background-color: rgba(0, 0, 0, 0.421);
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container img{
+    width: 100%;
+}
+
+.description-container{
+    background-color: rgb(71, 87, 82);
+width: 93%;
+text-align: center;
+border-radius: 8px;
+padding-bottom: 14px;
+}
+
+.description-container p{
+width: 77%;
+margin: auto;
+padding-bottom: 6px;
+}
+
+
+.card{
+    width: 29%;
+    margin: auto;
+    margin-bottom: 29px;
+    display: flex;
+flex-direction:column;
+ 
+}
+
+.avisos h1{
+    font-size: 1.7rem;
+    
+    padding-bottom: 32px;
+}
+.avisos h2{
+font-size: 1.7rem;
+width: 99%;
+margin: auto;
+padding-bottom: 18px;
+}
+.card p{
+    width: 100%;
+font-size: 0.97rem;
+
+}
+
+
+.info-button{
+    width: 78%;
+    margin: auto;
+    border-radius: 4px;
+}
+.sec3{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.sec3 h1{
+    font-size: 2.8rem;
+    width: 77%;
+    margin-left: 38px;
+}
+.divOne{
+    width: 79%;
+}
+.divOne h3{
+  
+  text-align: center;
+  margin: auto;
+  font-size: 1.7rem;
+  margin-top: 27px;
+  padding-block: 22px;
+  background-color: rgba(48, 255, 2, 0.766);
+  border-radius: 12px;
+  width: 86%;
+
+}
+.paragrafo{
+padding: 12px;
+    font-size: 1.1rem;
+    margin: auto;background-color: rgb(242, 224, 200);
+    border-radius: 5%;
+margin-top: 5%;
+}
+.divTwo{
+    width: 79%;
+    margin: auto;
+}
+.divTwo h3{
+  
+text-align: center;
+margin: auto;
+font-size: 1.7rem;
+margin-top: 27px;
+padding-block: 22px;
+background-color: rgba(48, 255, 2, 0.766);
+border-radius: 12px;
+width: 86%;
+}
+.divTwo{
+ margin-right: 90px;   
+}
+.fot{
+    
+}

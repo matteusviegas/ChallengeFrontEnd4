@@ -1,4 +1,6 @@
-
+*{
+    box-sizing: border-box;
+}
 
 body {
     display: flex;
@@ -176,12 +178,14 @@ transition: background-color 0.9s ease;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+
+
 }
 
 .card {
     background: linear-gradient(135deg, #28a745, #000000b7);
     padding: 20px;
-    width: 16%;
+    width: 21%;
     border-radius: 10px;
     margin: 20px 66px 59px 68px;
     text-align: center;
@@ -195,7 +199,7 @@ overflow: hidden;
 }
 
 .card h2:hover {
-color: #3fa728;
+color: #d0ff00;
 }
 
 
@@ -212,7 +216,23 @@ color: #3fa728;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
 .info-button{
-height: 1%;
+   background-color: #2cc731;
+   height: 21%;      
+   color: white; 
+            border: none;
+            border-radius: 7%; 
+            padding: 15px 32px;
+            text-align: center; 
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px; 
+            margin: 4px 2px; 
+            cursor: pointer;
+            transition: background-color .22s ease;
+}
+.info-button:hover{
+background-color: rgb(255, 255, 255);
+color: rgb(47, 255, 10);
 }
 
 .amarelas{
@@ -239,15 +259,19 @@ padding-bottom: 13%;
 font-size: 4.1rem;
 padding-block: 2%;
 font-weight: bold;
+
+margin-right: auto;
+width: 92%;
 }
 
 .sec3 h3{
-    font-size: 4.0rem;
-    padding-left: 4%;
+    font-size: 3.8rem;
+text-align: center;
+margin: 15px;
 }
 
 .sec3 p {
-    font-size: 2.0rem;
+    font-size: 1.4rem;
     width: 58%;
 }
 
@@ -270,7 +294,7 @@ text-align:start ;
 }
 
     .divTwo {
-    width: 60%; 
+    width: 50%; 
     margin-left: 49%; 
     margin-top: 30px; 
 }
