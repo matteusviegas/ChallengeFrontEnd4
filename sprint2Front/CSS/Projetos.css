@@ -68,12 +68,11 @@ transition: background-color 0.9s ease;
     margin: 92px auto;
     color: white;
     width: 27%;
-    font-size: 24px;
     padding: 15px;
-
+height: 42px;
     cursor: pointer;
     text-align: center;
-    transition: background-color 0.3s ease;
+    border-radius: 10px;
 }
 
  h1{
@@ -88,17 +87,31 @@ text-align: center;
 }
 
 .sec1 h2{
-    font-size: 3rem;
+    position: relative;
+    font-size: 2rem;
+    z-index: 99;
 }
 
 .infoOne{
+    position: relative;
     font-family: 'Poppins', sans-serif;
-background-color: #1b73b148;
+background-color: #0d77c2b9;
    margin: auto;
   line-height: 3.1rem;
   border-radius: 10px;
+  transform: translateY(-95% ) scaleY(0);
+  transition: 1s;
 }
 
+.sec1 h2:hover ~ .infoOne{
+    transform: translateY(0) scaleY(1);
+
+}
+
+
+.active{
+    transform: translateY(0) scale(1);
+}
 .infoOne p{
  font-size: 2.5rem;
  
@@ -127,17 +140,33 @@ info p{
     padding-bottom: 27px;
     width: 57%;
 }
-.imgs{
+
+
+
+/*carrosel das imgs*/
+
+.carrossel{
     background-color: #296f67;
- width: 95%;
+ width: 75%;
  margin: auto;
     height: 657px;
     margin-bottom: 22px;  
   border-radius: 12px;
+  filter: drop-shadow();
+  overflow: hidden;
 }
 
-.imgs img{
-    height: 423px;
+.container{
+    width: 1222px;
+    background-color: #924a4a;
+    display: flex;
+    transition: 0.8s ease-in-out;
+    transform: translateX(0);
+}
+
+.container img{
+   
+    height: 623px;
     padding-top: 133px;
 }
 

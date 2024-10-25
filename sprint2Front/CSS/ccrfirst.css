@@ -1,0 +1,16 @@
+
+@media  screen and (min-width: 576px){
+*{
+    margin: 0px;
+}
+
+img{
+    
+    height: 511px;
+}
+
+.descripition-ccr {
+font-size: 1rem;
+background-color: aqua;
+}
+}

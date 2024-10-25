@@ -1,0 +1,30 @@
+h1{
+    font-size: 1.8rem;
+}
+.membro{
+    width: 70%;
+        padding: 15px; 
+        border-radius: 10px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        transition: transform 0.2s ease; 
+    }
+    
+.membro img{
+
+height: 191px;
+width: 52%;
+
+}
+.membro h3 p{
+    font-size: 1.9rem;
+}
+    .membro:hover {
+        transform: scale(1.1); /* Expande o membro da equipe ao passar o mouse */
+    }
+    
+
+
+.but{
+    font-size: 1rem;
+    width: 50%;
+}
