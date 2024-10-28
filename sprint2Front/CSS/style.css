@@ -1,19 +1,35 @@
-*{
+
+
+/*desktop*/
+* {
     box-sizing: border-box;
 }
+
+
+
+
+
+
+
+
 
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
-    margin: 0; 
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
+
 .info {
-    display: none; /* Esconde as informações inicialmente */
+    display: none;
+    /* Esconde as informações inicialmente */
 }
 
 .hover-div:hover .info {
-    display: block; /* Mostra as informações ao passar o mouse */
+    display: block;
+    /* Mostra as informações ao passar o mouse */
 }
 
 .hover-div {
@@ -22,72 +38,74 @@ body {
     border: 1px solid #ccc;
     cursor: pointer;
 }
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+
+/* Cabeçalho */
+.header {
+    background-color: #28a746;
+    position: relative;
+    width: 100%;
+    top: 0;
 }
 
-
-
-/* cabecalho do site */
-
-.header{
-    background-color:#28a746 ;
-position: relative;
-width: 100%;
-top: 0;
-}
-
-
-.header div{
+.header div {
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 1%;
-   
-}
-.navigation ul {
-display: flex;
-justify-content: center;
-list-style: none;
-padding: 0px;
 }
 
-.navigation ul li{
+.navigation ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.navigation ul li {
     margin: 0 19px;
     padding-top: 1%;
     font-size: 1.6rem;
 }
 
 .navigation ul li a {
-text-decoration: none;
-color: #fff;
-font-weight: bold;
-padding: 10px;
-transition: background-color 0.9s ease;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.9s ease;
 }
+
 .navigation ul li a:hover {
-    background-color: #28524D; 
+    background-color: #28524D;
     border-radius: 5px;
 }
-.header h1{
+
+.header h1 {
     background-color: #00000043;
 }
-/* primeira seção - 1/3 */
 
+
+
+
+
+
+
+
+
+
+/* Primeira seção */
 .section-container {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    gap: 30px; 
-    margin: 30px auto; 
-    width: 80%; 
+    gap: 30px;
+    margin: 30px auto;
+    width: 80%;
 }
 
 .content-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0px; 
     padding: 11px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -106,9 +124,8 @@ transition: background-color 0.9s ease;
     padding-block: 22px;
 }
 
-.image-container, h3 {
-
-  font-size: 1.6rem;
+h3 {
+    font-size: 1.6rem;
     font-weight: bold;
     margin-top: 10px;
 }
@@ -120,50 +137,26 @@ transition: background-color 0.9s ease;
 }
 
 .description-container p {
- font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     width: 17%;
 }
 
-
-.sec1 h1{
+.sec1 h1 {
     font-size: 2.5rem;
     padding-block: 1.7%;
-    }
-    .avisos{
-        background: linear-gradient(175deg, #24803af3, #0eb62a9b);
-    width: 99%;
-    border-radius: 8px;
-    margin: auto;
-    }
-    .avisos h1{
-    font-size: 1.9rem;
-    font-weight: bold;
-    text-align: center;
-    padding-block: 2%;
-    
-    }
-    .avisos h2{
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    padding-left: 3%;
-    font-size: 2.1rem;
-    }
-    .avisos p{
-    
-    color: #fff;
-    font-size: 1.3rem;
-    width: 17%;
-    padding-bottom: 4%;
-    
-    
-    }
-/* segunda seção - 2/3 */
+}
 
+/* Segunda seção */
 .sec2 {
     padding: 20px;
     background-color: #00000043;
+}
+
+.avisos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .avisos h1 {
@@ -173,101 +166,94 @@ transition: background-color 0.9s ease;
     margin-bottom: 3%;
 }
 
-/* Estilos para os cards */
-.avisos {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-
-
-}
-
 .card {
     background: linear-gradient(135deg, #28a745, #000000b7);
     padding: 20px;
-    width: 21%;
+    width: 31%;
     border-radius: 10px;
-    margin: 20px 66px 59px 68px;
+    margin: 30px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-overflow: hidden;
+    overflow: hidden;
 }
 
 .card h2 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     margin-bottom: 1.5%;
+    padding-bottom: 22px;
 }
 
 .card h2:hover {
-color: #d0ff00;
+    color: #d0ff00;
 }
-
 
 .card p {
     font-size: 1.2rem;
     padding: 20px;
     white-space: nowrap;
-    
 }
-
 
 .card:hover {
     transform: translateY(-15px);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
-.info-button{
-   background-color: #2cc731;
-   height: 21%;      
-   color: white; 
-            border: none;
-            border-radius: 7%; 
-            padding: 15px 32px;
-            text-align: center; 
-            text-decoration: none;
-            display: inline-block;
-            font-size: 18px; 
-            margin: 4px 2px; 
-            cursor: pointer;
-            transition: background-color .22s ease;
-}
-.info-button:hover{
-background-color: rgb(255, 255, 255);
-color: rgb(47, 255, 10);
+
+.info-button {
+    background-color: #2cc731;
+    height: 21%;
+    color: white;
+    border: none;
+    border-radius: 7%;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.22s ease;
 }
 
-.amarelas{
+.info-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(47, 255, 10);
+}
+
+/* Barras coloridas */
+.amarelas,
+.cinza,
+.verde {
+    height: 6px;
+}
+
+.amarelas {
     background-color: yellow;
-    height: 6px;
 }
-.cinza{
-    background-color:#c1d7d3;
-    height: 6px;
+
+.cinza {
+    background-color: #c1d7d3;
 }
-.verde{
+
+.verde {
     background-color: rgb(0, 255, 115);
-    height: 6px;
-}
-/* terceira secao 3 -3  */
-.sec3{
-width: 100vw;
-text-align: center;
-padding-bottom: 13%;
 }
 
-
-.sec3 h1{
-font-size: 4.1rem;
-padding-block: 2%;
-font-weight: bold;
-
-margin-right: auto;
-width: 92%;
+/* Terceira seção */
+.sec3 {
+    width: 100vw;
+    text-align: center;
+    padding-bottom: 13%;
 }
 
-.sec3 h3{
+.sec3 h1 {
+    font-size: 4.1rem;
+    padding-block: 2%;
+    font-weight: bold;
+    width: 92%;
+    margin-right: auto;
+}
+
+.sec3 h3 {
     font-size: 3.8rem;
-text-align: center;
-margin: 15px;
+    margin: 15px;
 }
 
 .sec3 p {
@@ -275,134 +261,1024 @@ margin: 15px;
     width: 58%;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-margin-top: 20px;
+    margin-top: 20px;
 }
-
 
 .divOne {
     width: 60%;
     margin-left: 5%;
 }
 
-.divOne h3 {
-text-align:start ;
-
+.divTwo {
+    width: 50%;
+    margin-left: 49%;
+    margin-top: 30px;
 }
 
-    .divTwo {
-    width: 50%; 
-    margin-left: 49%; 
-    margin-top: 30px; 
-}
-
-
-.divTwo p{
-
-margin-left: 21%
-}
-
-
-
-
-
-.move-title {
-    position: relative; 
-
-    animation: slide-in 2s ease-out forwards; 
-    opacity: 0; 
-}
-.move-titlee{
-    position: relative; 
-    animation: slide-in 2s ease-out forwards; 
-    opacity: 0;
-
-}
-
-
-.paragrafo{
-    position: relative; 
-    animation: slide-in 2s ease-out forwards; 
-    opacity: 0;
-}
-.padrao{
-    position: relative; 
-    animation: slide-on 2s ease-out forwards; 
-    opacity: 0;
-    
-}
-
-/* dinamicidade */
-
-
-@keyframes slide-on {
-    22% {
-        transform: translatex(-50%); 
-        opacity: 0; 
-    }
-    100% {
-        transform: translateX(0); 
-        opacity: 1; 
-    }
-}
-
-
-
+/* Animações */
 @keyframes slide-in {
     22% {
-        transform: translatey(-50%); 
-        opacity: 0; 
+        transform: translateY(-50%);
+        opacity: 0;
     }
+
     100% {
-        transform: translateX(0); 
-        opacity: 1; 
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
-
-
-
-
-   /* .fot{
-    background-color: #42807D;
-    margin-top: 11px;
-    color: white;
-    
-    position: absolute;
-    bottom: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-
-}
-    */
-
-
-.fot, p  {
-    text-align: center;
-padding-top: 9px;
+.move-title,
+.paragrafo,
+.padrao {
+    position: relative;
+    animation: slide-in 2s ease-out forwards;
+    opacity: 0;
 }
 
-.fot p a{
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px;
-    transition: background-color 0.9s ease;
-    
-}
-
+/* Rodapé */
 footer {
     position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #42807d; 
-    color: white; 
-    text-align: center; 
-    padding: 10px 0; 
+    background-color: #42807d;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer p a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.9s ease;
+}
+
+
+/*mobile*/
+
+@media (max-width: 576px) {
+
+    * {
+        text-align: center;
+    
+
+}
+
+.header{
+    background-color: #42807D;
+}
+
+.header h1{
+    width: 50%;
+    margin: auto;
+    background-color: #42807D;
+}
+
+
+/* Estilos do botão do menu hambúrguer */
+.menu-toggle {
+    display: none; 
+    flex-direction: column; 
+    cursor: pointer; 
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    height: 3px; /* Altura das barras do botão */
+    width: 30px; /* Largura das barras do botão */
+    background-color: #11ff00; /* Cor das barras */
+    margin: 5px auto; /* Espaço entre as barras */
+}
+
+
+   
+
+    .navigation {
+        display: none; 
+    }
+
+    .mobile-nav {
+        
+        flex-direction: column; 
+        background-color: #28a746;
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 28vh; 
+        align-items: center; 
+        justify-content: center; 
+        z-index: 1000; 
+        display: none; 
+    }
+
+    .mobile-nav.active {
+        display: flex; 
+   
+    }
+
+    .mobile-nav li {
+        margin: 20px 0; 
+ 
+    }
+    .mobile-nav  ul {
+      list-style-type: none;
+   color: #fff;
+   width: 41%;
+    }
+
+    .mobile-nav li a {
+     text-decoration: none;
+      font-size: 1.9rem; color: #fff;
+       
+    }
+
+.mobile-nav li a:hover {
+    background-color: #11dd1b;
+    color: #ffffff; 
+border-radius: 7%;
+padding: 4%;
+}
+
+/* informacoes  */
+
+
+.content-item {
+ 
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    margin-top: 22%;
+}
+
+.image-container{
+height: 333px;
+width: 88%;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+
+
+.description-container {
+    background-color: rgb(236, 241, 236);
+
+    width: 88%;
+    text-align: center;
+    border-radius: 8px;
+    padding-bottom: 14px;
+  
+}
+
+.description-container h3{
+    font-size: 1.9rem;
+}
+
+.description-container p {
+    width: 77%;
+    margin: auto;
+    padding-bottom: 6px;
+  
+}
+
+
+.card {
+    width: 68%;
+    margin: auto;
+    margin-bottom: 29px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.avisos h1 {
+    font-size: 1.7rem;
+
+    padding-bottom: 32px;
+}
+
+.avisos h2 {
+    font-size: 1.7rem;
+    width: 99%;
+    margin: auto;
+    padding-bottom: 18px;
+}
+
+.card p {
+    width: 100%;
+    font-size: 1rem;
+    color: #fff;
+}
+
+
+.info-button {
+    width: 78%;
+    margin: auto;
+    border-radius: 4px;
+}
+
+.sec3 {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.sec3 h1 {
+    font-size: 2.1rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.divOne {
+    width: 89%;
+    margin: auto;
+}
+
+.divOne h3 {
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    font-size: 1.7rem;
+
+    padding-block: 12px;
+    background-color: #42807D;
+color:#fff ;
+    border-radius: 19px;
+    width: 48%;
+
+}
+
+.paragrafo {
+    padding: 12px;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 2rem;
+    margin: auto;
+    border-radius: 5%;
+    margin-top: 5%;
+}
+
+.divTwo {
+    width: 89%;
+    margin: auto;
+    margin-left: 0;
+}
+
+.divTwo h3 {
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    font-size: 1.6rem;
+
+    padding-block: 12px;
+    background-color: #42807D;
+color: #fff;
+    border-radius: 19px;
+    width: 64%;
+height: 58px;
+}
+
+
+.divTwo {
+
+    margin:34px auto;
+}
+
+.footer{
+   
+
+}
+
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: portrait) {
+ 
+.header{
+    background-color: #42807D;
+
+}
+.header h1{
+    width: 40%;
+    margin: auto;
+    font-size: 3rem;
+    margin-bottom: 5%;
+    background-color: #42807D;
+
+}
+.menu-toggle {
+        display: none; /* Oculta o botão de menu */
+    }
+
+    .mobile-nav {
+        display: none; /* Oculta o menu de navegação móvel */
+    }
+
+    .header {
+        padding: 10px;
+    }
+    .div-header ul {
+        background-color: #42807D;
+margin-top: 0;
+    }
+
+    .navigation{
+        margin: auto;
+    }
+    .navigation ul {
+        flex-direction: row; /* Coluna para tablet em pé */
+       
+    }
+
+    .navigation ul li {
+        margin: 10px 0;
+        font-size: 1.4rem; /* Tamanho menor para tablet em pé */
+        padding-left: 9%;
+    }
+
+    .section-container {
+        flex-direction: column; /* Coluna para a seção de conteúdo */
+        width: 90%;
+    }
+
+   /*f*/
+   .content-item{
+display: flex;
+flex-direction: column;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+
+   }
+   .content-item h1{
+color: #000000;
+font-size: 2.8rem;
+margin-bottom: 3%;
+   }
+
+   .image-container img{
+height: 333px;
+   }
+
+   .description-container{
+width: 79%;
+border-radius: 2%;
+   }
+   
+   .description-container h3{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 4%;
+   }
+
+   .description-container p{
+    width: 100%;
+text-align: center;  
+padding-bottom: 3%;
+}
+   .sec2 {
+        padding: 15px;
+    }
+
+    .card {
+        width: 75%; 
+        margin: 15px auto;
+    }
+
+    .avisos h1 {
+        font-size: 2.5rem; 
+        margin-bottom: 10%;
+    }
+
+    .sec3 h3 {
+        font-size: 2.7rem; 
+    }
+.sec3 h1{ 
+font-size: 2.6rem;  
+margin: auto;
+margin-top: 5%;
+}
+    .avisos p {
+        font-size: 1.5rem;
+        text-align: end;
+        padding: 0;
+    }
+
+    .divOne {
+margin: 9% auto 15%;
+}
+
+.divOne h3{
+    background-color: #42807D;
+    color: #fff;
+    padding: 2%;
+    border-radius: 13px;
+
+}
+.divOne p{
+font-size: 22px;
+width: 100%;
+font-size: 1.9rem;
+
+line-height: 2.6rem;
+}
+
+
+  
+
+
+.divTwo {
+    
+    width: 70%;
+    margin: auto;
+    
+}
+
+ 
+.divTwo h3{
+    
+    background-color: #42807D;
+    padding: 3%;
+    border-radius: 13px;
+width: 100%;
+    font-size: 2.1rem;
+    color: #fff;
+}
+
+
+.divTwo p{
+    font-size: 22px;
+    width: 100%;
+    font-size: 1.9rem;
+    
+    line-height: 2.6rem;
+    }
+    
+    
+footer{
+    height: 123px;
+}
+    footer p {
+        
+        font-size: 1.4rem;
+    
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: landscape) {
+
+    .header {
+        background-color: #42807D;
+        padding: 10px;
+    }
+
+    
+    .header h1 {
+        width: 30%; 
+        margin: auto;
+    
+        font-size: 3rem;
+        margin-bottom: 5%;
+        background-color: #42807D;
+    }
+
+    .menu-toggle {
+        display: none; /
+    }
+
+    .mobile-nav {
+        display: none; 
+    }
+
+    .div-header ul {
+        background-color: #42807D;
+        margin-top: 0;
+    }
+
+    .navigation {
+        margin: auto;
+    }
+
+    .navigation ul {
+        flex-direction: row;
+    }
+
+    .navigation ul li {
+        margin: 10px 20px; 
+        font-size: 1.6rem; 
+        padding-left: 0; 
+    }
+
+    .section-container {
+        flex-direction: row;
+        width: 96%;
+    }
+
+    .content-item {
+        display: flex;
+        flex-direction: column;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+    }
+
+    .content-item h1 {
+        
+        font-size: 2.3rem;
+        margin-bottom: 3%;
+    }
+
+    .image-container img {
+        height: 279px;
+    }
+
+    .description-container {
+        width: 92%;
+        border-radius: 2%;
+    }
+
+    .description-container h3 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 4%;
+    }
+
+    .description-container p {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 3%;
+    }
+
+    .sec2 {
+        padding: 15px;
+    }
+
+    .card {
+        width: 76%; 
+        margin: 22px auto;
+    }
+
+    .avisos h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10%;
+    }
+
+    .sec3 h3 {
+        font-size: 2.7rem;
+    }
+
+    .sec3 h1 {
+        font-size: 2.6rem;
+        margin: auto;
+        margin-top: 5%;
+    }
+
+    .avisos p {
+        font-size: 1.5rem;
+        text-align: end;
+        padding: 0;
+    }
+
+    .divOne {
+        margin: 9% auto 15%;
+    }
+
+    .divOne h3 {
+        background-color: #42807D;
+        color: #fff;
+        padding: 2%;
+        border-radius: 13px;
+    }
+
+    .divOne p {
+        font-size: 22px;
+        width: 100%;
+        font-size: 1.9rem;
+        line-height: 2.6rem;
+    }
+
+    .divTwo {
+        width: 70%;
+        margin: auto;
+    }
+
+    .divTwo h3 {
+        background-color: #42807D;
+        padding: 3%;
+        border-radius: 13px;
+        width: 100%;
+        font-size: 2.1rem;
+        color: #fff;
+    }
+
+    .divTwo p {
+        font-size: 22px;
+        width: 100%;
+        font-size: 1.9rem;
+        line-height: 2.6rem;
+    }
+
+    footer {
+        height: 123px;
+    }
+
+    footer p {
+        font-size: 1.4rem;
+    }
+}
+
+
+
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+    .header {
+        background-color: #42807D;
+    height: 200px;
+    }
+
+    .header h1 {
+        width: 30%;
+        margin: auto;
+        font-size: 3rem;
+
+        background-color: #42807D;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .header {
+        padding: 10px;
+    
+    }
+
+    .div-header ul {
+        background-color: #42807D;
+        margin-top: 0;
+     
+    }
+
+    .navigation {
+
+        margin: 1% auto 22% 30%;
+      
+    }
+
+    .navigation ul {
+        flex-direction: row;
+       
+    }
+
+    .navigation ul li {
+        margin: 10px 0;
+        font-size: 1.1rem;
+        padding-left: 21%;
+        margin-top: 4%;
+    }
+
+   
+    .section-container {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        transition: transform 0.5s ease;
+    }
+
+    .content-item {
+        display: flex;
+        flex-direction: row;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        margin: 15px 0;
+        height: 378px;
+    }
+
+  
+
+    .image-container {
+       
+
+        margin-bottom: 4%;
+    }
+
+    .image-container img {
+        height: 290px;
+        width: 100%;
+    
+    }
+
+    .description-container {
+        flex: 2;
+        border-radius: 2%;
+padding-left: 6%;
+margin-top: 4%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+
+    .description-container h3 {
+        text-align: start;
+        font-size: 2rem;
+        margin-bottom: 4%;
+    }
+
+    .description-container p {
+        width: 100%;
+        text-align: start;  
+        padding-bottom: 3%;
+        font-size: 1.5rem;
+    }
+
+    .sec2 {
+        padding: 15px;
+    }
+
+    .card {
+        width: 70%; 
+        margin: 15px auto;
+    }
+
+    .avisos h1 {
+        font-size: 2.5rem; 
+        margin-bottom: 10%;
+    }
+
+    .sec3 h3 {
+        font-size: 2.7rem; 
+    }
+
+    .sec3 h1 { 
+        font-size: 2.6rem;  
+        margin: auto;
+        margin-top: 5%;
+    }
+
+    .avisos p {
+        font-size: 1.5rem;
+        text-align: end;
+        padding: 0;
+    }
+
+    .sec3 h1{
+font-size: 2.6rem;
+
+
+    }
+    .divOne {
+        margin: 9% 3% 15%;
+    }
+
+    .divOne h3 {
+        background-color: #42807D;
+        color: #fff;
+       font-size: 2rem;
+        padding: 2%;
+        border-radius: 13px;
+    }
+
+    .divOne p {
+        font-size: 22px;
+        width: 100%;
+        font-size: 1.9rem;
+        line-height: 2.6rem;
+    }
+
+    .divTwo {
+        width: 70%;
+        margin-left: 26%;
+    }
+
+    .divTwo h3 {
+        background-color: #42807D;
+ 
+        padding: 3%;
+        border-radius: 13px;
+        width: 70%;
+        margin: auto;
+        font-size: 2rem;
+        color: #fff;
+        height: 70px;
+    }
+
+    .divTwo p {
+        font-size: 22px;
+        width: 100%;
+        font-size: 1.9rem;
+        line-height: 2.6rem;
+    }
+
+    footer {
+        height: 123px;
+    }
+
+    footer p {
+        font-size: 1.4rem;
+    }
+}
+
+
+
+@media only screen and (min-width: 1441px) {
+    .header {
+        background-color: #42807D;
+
+    }
+
+    .header h1 {
+        width: 15%;
+        margin: auto;
+        font-size: 6rem;
+      margin-bottom: 1%;
+ 
+        background-color: #42807D;
+    }
+
+    .menu-toggle,
+    .mobile-nav {
+        display: none;
+    }
+
+    .div-header ul {
+        background-color: #42807D;
+        margin-top: 0;
+    }
+
+    .navigation {
+        margin: auto;
+    }
+
+    .navigation ul {
+        flex-direction: row;
+    }
+
+    .navigation ul li {
+        margin: 15px 0;
+        font-size: 1.8rem;
+        padding-left: 5%;
+    }
+
+    .section-container {
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        transition: transform 0.5s ease;
+    }
+
+    .content-item {
+        display: flex;
+        flex-direction: row;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        margin: 25px 0;
+        height: 600px;
+    }
+
+    .content-item h1 {
+        position: relative;
+        left: 7%;
+        bottom: 19px;
+        color: #000000;
+        margin-top: 0;
+        text-align: center;
+        font-size: 2.8rem;
+        margin-bottom: 1%;
+    }
+
+    .image-container {
+        flex: 1;
+        padding-right: 20px;
+    }
+
+    .image-container img {
+        height: 400px;
+        width: 100%;
+        object-fit: cover;
+        padding-left: 9%;
+    }
+
+    .description-container {
+        flex: 2;
+        border-radius: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .description-container h3 {
+        text-align: start;
+        font-size: 2.5rem;
+        margin-bottom: 4%;
+        margin-left: 3%;
+    }
+
+    .description-container p {
+        width: 100%;
+        text-align: start;
+        padding-bottom: 3%;
+        margin-left: 4%;
+        font-size: 1.7rem;
+    }
+
+    .sec2 {
+        padding: 20px;
+    }
+
+    .avisos h1 {
+        font-size: 4.5rem;
+        margin-bottom: 10%;
+    }
+
+    .card {
+        width: 34%;
+        height: 343px;
+        margin: 10px ;
+    }
+
+
+
+    .sec3 h3 {
+        font-size: 3rem;
+    }
+
+    .sec3 h1 {
+        font-size: 5rem;
+        margin: auto;
+        margin-top: 5%;
+    }
+
+    .avisos p {
+        font-size: 1.7rem;
+        text-align: end;
+        padding: 0;
+    }
+
+    .divOne {
+        margin: 7% 1%;
+   
+    }
+
+    .divOne h3 {
+        background-color: #42807D;
+        font-size: 2.8rem;
+        width: 58%;
+    margin-left: 20%;
+        color: #fff;
+        padding: 2%;
+        border-radius: 13px;
+    }
+
+    .divOne p {
+        font-size: 3rem;
+        width: 100%;
+        line-height: 2.8rem;
+    }
+
+    .divTwo {
+
+        width:44%;
+        margin-top: 12%;
+    }
+
+    .divTwo h3 {
+        background-color: #42807D;
+        padding: 3%;
+        border-radius: 13px;
+        font-size: 2.3rem;
+        color: #fff;
+    }
+
+    .divTwo p {
+        font-size: 3rem;
+        width: 100%;
+        line-height: 3.7rem;
+    }
+
+    footer {
+        height: 150px;
+    }
+
+    footer p {
+        font-size: 1.6rem;
+    }
 }
