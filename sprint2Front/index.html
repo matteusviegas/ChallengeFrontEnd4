@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
-    
+    <link rel="stylesheet" href="CSS/MOBILE.CSS/home.css">
+    <link rel="stylesheet" href="CSS/TABLETEMPE.CSS/home.css">
+    <link rel="stylesheet" href="CSS/TABLETDEITADO.CSS/home.css">
 
+    <link rel="stylesheet" href="CSS/NOTBOOK.CSS/home.css">
 
     <!--icone menu burguer-->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />    
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
 
 
 
@@ -19,8 +23,8 @@
 <body>
     <header class="header">
         <div class="div-header">
-            <h1 class="title">FUTURE  <span style="color: rgb(255, 255, 255);">STATION</span></h1>
-         
+            <h1 class="title">FUTURE <span style="color: rgb(255, 255, 255);">STATION</span></h1>
+
             <nav class="navigation">
                 <ul>
                     <li><a href="#">HOME</a></li>
@@ -91,50 +95,68 @@
                     <h2>LINHA 4 AMARELA</h2>
                     <div class="amarelas"></div>
                     <p>Informações sobre o tráfego da linha 4.</p>
-                    <button class="info-button botao">saber mais</button>
+                    <button class="info-button botao" data-informacao="info-linha-amarela">saber mais</button>
                 </div>
 
                 <div class="card">
                     <h2>LINHA 8 DIAMANTE</h2>
                     <div class="cinza"></div>
                     <p>Informações sobre o tráfego da linha 8.</p>
-                    <button class="info-button botao">saber mais</button>
+                    <button class="info-button botao" data-informacao ="info-diamante">saber mais</button>
                 </div>
 
                 <div class="card">
                     <h2>LINHA 9 ESMERALDA</h2>
                     <div class="verde"></div>
                     <p>Informações sobre o tráfego da linha 9.</p>
-                    <button class="info-button botao">saiba mais </button>
+                    <button class="info-button botao" data-informacao="info-esmeralda">saiba mais </button>
+                </div>
+                <div class="info-card" id="info-amarela">
+                    <h1>Linha 4 Amarela:</h1>
+                    <p> O tráfego está 30% acima do normal devido a um aumento no número de passageiros durante o horário de pico. Recomenda-se evitar viagens entre 17h e 19h. A operação será reforçada com mais trens em circulação.</p>
+                </div>
+                
+                <div class="info-card" id="info-diamante">
+                    <h1>Linha 8 Diamante:</h1>
+                    <p>Registra-se uma atraso de 15% nas viagens devido a obras de manutenção. Os passageiros são aconselhados a planejar suas viagens com antecedência e considerar alternativas, especialmente no período da manhã.</p>
+                </div>
+                
+                <div class="info-card" id="info-esmeralda">
+                    <h1>Linha 9 Esmeralda:</h1>
+                    <p>A linha opera com uma capacidade reduzida de 20%, em decorrência de problemas técnicos. O atendimento ao cliente está disponível para informações sobre possíveis compensações para passageiros afetados.</p>
                 </div>
             </div>
+       
         </section>
 
 
 
 
+        </div>
+        <!-- terceira secao -->
+        <section class="sec3">
+            <h1 class="move-title">PROBLEMAS ENFRENTADOS</h1>
+
+            <div class="divOne">
+                <h3 class="move-titlee">Superlotação</h3>
+                <p class="paragrafo">Durante os horários de pico, o fluxo de passageiros nas estações de metrô aumenta
+                    consideravelmente, o que pode causar uma superlotação intensa nas plataformas e nos trens. Essa
+                    aglomeração dificulta o embarque e desembarque de passageiros, tornando o processo mais demorado e,
+                    muitas vezes, desconfortável.</p>
             </div>
-            <!-- terceira secao -->
-            <section class="sec3">
-                <h1 class="move-title">PROBLEMAS ENFRENTADOS</h1>
 
-                <div class="divOne">
-                    <h3 class="move-titlee">Superlotação</h3>
-                    <p class="paragrafo">Durante horários de pico, as estações podem ficar extremamente lotadas,
-                        dificultando o embarque e desembarque.</p>
-                </div>
+            <div class="divTwo">
+                <h3 class="move-titlee">Falta de respostas ágeis</h3>
+                <p class="paragrafo">A falta de respostas rápidas e claras em situações de emergência no metrô cria um
+                    ambiente de insegurança e desinformação para os passageiros. Sem orientação oficial, muitos acabam
+                    recorrendo a boatos, o que aumenta a ansiedade e o estresse no local. </p>
+            </div>
+        </section>
 
-                <div class="divTwo">
-                    <h3 class="move-titlee">Falta de respostas ágeis</h3>
-                    <p class="paragrafo">A falta de respostas em situações de emergência no metrô gera insegurança e
-                        desinformação.</p>
-                </div>
-            </section>
-
-            <footer class="fot">
-                <p><a href="#">Team</a> | <a href="#">Project</a> | <a href="#">CCR</a></p>
-                <p>&copy; Todos os direitos reservados. Group SPM | Future Station</p>
-            </footer>
+        <footer class="fot">
+            <p><a href="#">Team</a> | <a href="#">Project</a> | <a href="#">CCR</a></p>
+            <p>&copy; Todos os direitos reservados. Group SPM | Future Station</p>
+        </footer>
     </main>
 
 

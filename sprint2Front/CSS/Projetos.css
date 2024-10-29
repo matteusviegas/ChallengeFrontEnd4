@@ -1,8 +1,23 @@
-/*abordar jeitos harmonicos ontologia taxonomia processo para */
+
+
+
+
+
+/*cabecalho do site*/
 body{
 padding: 0;
 margin: 0;
 }
+
+
+
+/*ocultamento do menu burguer*/
+
+.menu-toggle,
+.mobile-nav {
+    display: none;
+}
+
 .header {
     background-color: #42807D;
 
@@ -19,10 +34,6 @@ margin: 0;
     background-color: #42807D;
 }
 
-.menu-toggle,
-.mobile-nav {
-    display: none;
-}
 
 .div-header ul {
     background-color: #42807D;
@@ -92,75 +103,70 @@ font-size: 2rem;
     margin: 0;
 }
 
-.sec1 h2 {
-    margin: 12px auto 0;
 
-    width: 27%;
-    padding: 15px;
-    height: 42px;
-    cursor: pointer;
-    text-align: start;
-    border-radius: 10px;
-}
-
+/*titulo principal*/
 h1 {
-    font-size: 4.5rem;
-    padding-block: 1.7%;
-    text-align: center;
-}
+     font-size: 4.5rem;
+     padding-block: 1.7%;
+     text-align: center;
+ }
+ 
+
 
 .info {
-    
-    text-align: center;
-    width: 80%;
-    margin: auto;
+
+    width: 90%;
+
 }
 
+/*subtituto*/
+
 h2.expandir {
-    width: 100%;
+    width: 95%;
     font-size: 3.5rem;
+    margin-left: 2%;
+    margin-bottom: 2.5%;
 }
 
 .infoOne {
     position: relative;
     font-family: 'Poppins', sans-serif;
     text-align: start;
-    margin: 0;
+    margin: auto;
     padding: 0;
     line-height: 3.5rem;
+   margin-left: 2%;
+   margin-top: 3%;
+}
+
+.paragrafoOne {
+margin-bottom: 3%;
+}
+
+.paragrafoTwo{
+    margin-bottom: 3%;
+  
+}
+.paragrafoTre{
+    margin-bottom: 3%;
+
+}
+.infoTwo  {
+    margin-left: 2%;
+    font-size: 2.4rem;
+}
+
+
+.infoTree {
    
-}
-
-
-.infoOne p {
-    font-size: 2.5rem;
-
-}
-
-.infoTwo {
-    margin: auto;
     line-height: 3.1rem;
-    border-radius: 9px;
-}
-
-.infoTwo p {
-    font-size: 2.5rem;
-}
-
-.infoTree {
-    margin: auto;
-}
-
-.infoTree {
-    font-size: 2.5rem;
-    line-height: 3.1rem;
-    border-radius: 9px;
+    margin-left: 2%;
 }
 
 .info p {
-    font-size: 1.9rem;
+    font-size: 2.3rem;
     padding-bottom: 27px;
-    width: 57%;
+    width: 77%;
 }
 
 
@@ -168,8 +174,7 @@ h2.expandir {
 /* Carrossel das imagens */
 .carrossel {
     width: 100%;
-    max-width: 600px;
-    /* Pode ajustar conforme necessário */
+    max-width: 1200px;
     margin: auto;
     margin-bottom: 22px;
     border-radius: 12px;
@@ -185,6 +190,7 @@ h2.expandir {
 
 .container img {
     width: 100%;
+    height: 833px;
     object-fit: cover;
 }
 
@@ -206,7 +212,7 @@ h2.expandir {
 /*icones*/
 .skills-icons i {
     color: var(--color-black);
-    font-size: 3.9rem;
+    font-size: 6rem;
     transition: color 0.3s;
 }
 
@@ -217,31 +223,38 @@ h2.expandir {
 /* Cores dos ícones da skills */
 .skills-icons .fa-html5:hover {
     color: #e34f26;
+    transform: scale(1.35)
 }
 
 .skills-icons .fa-css3-alt:hover {
     color: #1572b6;
+    transform: scale(1.35)
 }
 
 .skills-icons .fa-js:hover {
     color: #f7df1e;
+    transform: scale(1.35)
 }
 
 
 .skills-icons .fa-db:hover {
     color: #f2f2f2;
+    transform: scale(1.35)
 }
 
 .skills-icons .fa-php:hover {
     color: #4f938b;
+    transform: scale(1.35)
 }
 
 .skills-icons .fa-java:hover {
     color: #f89820;
+    transform: scale(1.35)
 }
 
 .skills-icons .fa-python:hover {
     color: #306998;
+    transform: scale(1.35)
 }
 
 
@@ -257,16 +270,16 @@ h2.expandir {
 
 .forms {
 
-    height: 600px;
-    width: 30%;
+    height: 800px;
+    width: 32%;
     margin: 6% auto;
     background: linear-gradient(135deg, #28a745, #74d19c);
     border-radius: 12px;
 }
 
 .forms h1 {
-    color: #000000;
-    margin-top: 11px;
+
+    margin-bottom: 9%;
 }
 
 
@@ -275,8 +288,8 @@ h2.expandir {
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-bottom: 36px;
-    height: 62px;
+    margin-bottom: 76px;
+    height: 78px;
     width: 80%;
     margin-top: 26px;
     border-radius: 9px;
@@ -287,20 +300,20 @@ h2.expandir {
 
 input::placeholder {
     color: #969696;
-    font-size: 15px;
-    padding-right: 2%;
+    font-size: 25px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
 .bot {
-    width: 230px;
+    width: 68%;
     border-radius: 15px;
-    height: 57px;
+    height: 77px;
     background-color: #249d40;
     border: 2px solid rgb(0, 255, 0);
-    font-size: 1.3rem;
+    font-size: 1.9rem;
     color: #fff;
+    margin-left: 15%;
 }
 
 .bot:hover {
@@ -309,23 +322,24 @@ input::placeholder {
 }
 
 .parcerias {
-    /* Cor de fundo */
     padding: 20px;
-    /* Espaçamento interno */
     text-align: center;
-    /* Centraliza o conteúdo */
     margin-bottom: 82px;
+}
+.parcerias h1{
+    margin-top: 0;
+font-size: 7.4rem;
 }
 
 .image {
     display: flex;
     justify-content: center;
-    gap: 70px;
+    gap: 130px;
 
 }
 
 .image img {
-    width: 150px;
+    width: 200px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform .3s;
@@ -333,7 +347,7 @@ input::placeholder {
 
 .image img:hover {
     transform: scale(1.05);
-    /* Efeito de zoom ao passar o mouse */
+    
 }
 
 
@@ -365,1073 +379,6 @@ footer {
 
 
 
-
-
-@media screen and (max-width: 576px) {
-
-*{
-margin: auto;
-}
-
-    /* Estilos do botão do menu hambúrguer */
-    .menu-toggle {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        z-index: 1001;
-    }
-
-    .menu-toggle span {
-        height: 3px;
-        
-        width: 30px;
-       
-        background-color: #11ff00;
-    
-        margin: 5px auto;
-       
-    }
-
-
-
-
-    .navigation {
-        display: none;
-    }
-
-    .mobile-nav {
-
-        flex-direction: column;
-        background-color: #28a746;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 28vh;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        display: none;
-    }
-
-    .mobile-nav.active {
-        display: flex;
-
-    }
-
-    .mobile-nav li {
-        margin: 20px 0;
-
-    }
-
-    .mobile-nav ul {
-        list-style-type: none;
-        color: #fff;
-        width: 41%;
-    }
-
-    .mobile-nav li a {
-        text-decoration: none;
-        font-size: 1.9rem;
-        color: #fff;
-
-    }
-
-    .mobile-nav li a:hover {
-        background-color: #11dd1b;
-        color: #ffffff;
-        border-radius: 7%;
-        padding: 4%;
-    }
-
-
-
-    /*INFORMACOES*/
-
-    h1 {
-        margin: 5% auto 0;
-        font-size: 2.6rem;
-    }
-
-    h2.expandir {
-
-        margin-top: 5%;
-        font-size: 2rem !important;
-        line-height: 1.4;
-        margin-bottom: 0 !important;
-        padding: 0 !important;
-    }
-
-
-    .info {
-        width: 90%;
-        padding: 10px;
-    }
-
-
-    .expandDiv h2 {
-
-        font-size: 1.6rem;
-        line-height: 1.4;
-        width: 90%;
-
-    }
-
-
-    .sec1 p {
-        font-size: 4.2rem;
-    }
-
-
-
-    .infoOne {
-        background-color: #fff;
-        line-height: 1.8rem;
-        padding: 10px;
-        width: 100%;
-
-    }
-
-    .infoOne p {
-        background-color: #eff3ef;
-        width: 93%;
-        margin: auto;
-        font-size: 1.4rem;
-        line-height: 2rem;
-        border-radius: 13px;
-        margin-bottom: 5%;
-        padding: 3%;
-        text-align: start;
-    }
-
-    /* Ajustes de tamanho de fonte e largura para mobile */
-
-
-
-    .infoTwo {
-        width: 97%;
-        margin: auto;
-        background-color: #eff3ef;
-        margin-left: 3%;
-    }
-
-    .infoTree {
-        width: 96%;
-        line-height: 1.7rem;
-    }
-
-    .infoTwo p,
-    .infoTree p {
-        background-color: #eff3ef;
-        width: 93%;
-        margin: auto;
-        font-size: 1.4rem;
-        line-height: 2rem;
-        border-radius: 13px;
-
-        padding: 3%;
-        text-align: start;
-    }
-
-    .carrossel {
-        display: flex;
-        height: auto;
-        width: 290px;
-        max-width: 100%;
-        border-radius: 4%;
-        padding-bottom: 10%;
-        margin: 0 auto;
-       
-    }
-
-
-    .container {
-        margin-top: 10%;
-        background-color: #11ff00;
-        display: flex;
-        gap: 10px;
-        scroll-snap-type: x mandatory;
-        /* Facilita o deslizamento */
-
-    }
-        .container img {
-            height: auto;
-            width: 100%;
-            max-width: 300px;
-            border-radius: 4%;
-
-        }
-
-
-
-        .sec1 h1 {
-            width: 100%;
-            margin-top: 22px;
-            margin-bottom: 0;
-        }
-
-
-
-
-
-
-
-        .h1skills {
-            font-size: 2.6rem;
-            margin-top: 5%;
-            text-align: center;
-        }
-
-        .skills-icons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 5%;
-            padding: 10px;
-        }
-
-        .skills-icons i {
-            margin: 0;
-            padding-left: 1%;
-        }
-
-
-
-    
-
-        .skills-icons i {
-            margin-top: 0;
-            font-size: 3.3rem;
-            margin: 0;
-        }
-
-
-
-
-
-        .formulario {
-            width: 100%;
-            padding: 10px;/
-        }
-
-        .forms {
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            width: 94%;
-            max-width: 80%;
-            height: 433px;
-
-        }
-
-        .forms h1 {
-            font-size: 2rem;
-            margin: auto;
-            margin-bottom: 0;
-        }
-
-        .forms input {
-            height: 40px;
-            margin-top: 14px;
-            font-size: 15px;
-            width: 79%;
-        }
-
-
-
-
-        .parcerias {
-            margin-top: 7%;
-            height: auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px 0;
-
-        }
-
-        .parcerias h1 {
-            height: 60px;
-            width: 50%;
-            border-radius: 9px;
-
-            font-size: 3rem;
-            margin-bottom: 8%;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        .image {
-            width: 80%;
-            margin: 5px auto;
-            display: flex;
-            justify-content: center;
-
-        }
-
-        .image img {
-            height: auto;
-            width: 30%;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-    }
-
-    
-
-
-
-
-    @media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: portrait) {
-body{
-
-margin: 0;
-}
-    
-
-
-.header{
-    background-color: #42807D;
-
-}
-
-
-.header h1{
-    width: 40%;
-    margin: 0 auto ;
-    font-size: 3rem;
-  margin-right: 42%;
-    background-color: #42807D;
-
-}
-.menu-toggle {
-        display: none; 
-    }
-
-    .mobile-nav {
-        display: none; 
-    }
-
-    .header {
-        padding: 10px;
-    }
-    .div-header ul {
-        background-color: #42807D;
-margin-top: 0;
-    }
-
-    .navigation{
-        margin: auto;
-    }
-    .navigation ul {
-        flex-direction: row; 
-       
-    }
-
-    .navigation ul li {
-        margin: 10px 0;
-        font-size: 1.4rem; 
-        padding-left: 9%;
-    }
-
-    
-    h1 {
-        font-size: 2.6rem;
-        margin-bottom: 0;
-    }
-
-    h2.expandir {
-
-        margin-top: 5%;
-        font-size: 2.6rem !important;
-        line-height: 1.4;
-        margin-bottom: 5% !important;
-        padding: 0 !important;
-    }
-
-
-    .info {
-        width: 90%;
-        padding: 10px;
-    }
-
-
-    .expandDiv h2 {
-
-        font-size: 1.6rem;
-        line-height: 1.4;
-        width: 90%;
-
-    }
-
-
-    .sec1 p {
-        font-size: 4.2rem;
-    }
-
-
-
-    .infoOne {
-        background-color: #fff;
-        line-height: 1.8rem;
-        padding: 10px;
-        width: 100%;
-
-    }
-
-    .infoOne p {
-        background-color: #eff3ef;
-        width: 93%;
-        margin: auto;
-        font-size: 1.4rem;
-        line-height: 2rem;
-        border-radius: 13px;
-        margin-bottom: 5%;
-        padding: 3%;
-        text-align: start;
-    }
-
-
-
-
-    .infoTwo {
-        width: 97%;
-        margin: auto;
-        background-color: #eff3ef;
-        margin-left: 3%;
-    }
-
-    .infoTree {
-        width: 96%;
-        line-height: 1.7rem;
-    }
-
-    .infoTwo p,
-    .infoTree p {
-        background-color: #eff3ef;
-        width: 93%;
-        margin: auto;
-        font-size: 1.4rem;
-        line-height: 2rem;
-        border-radius: 13px;
-
-        padding: 3%;
-        text-align: start;
-        margin-bottom: 10%;
-    }
-
-    .carrossel {
-        display: flex;
-        height: 400px; 
-        width: 80%; 
-        max-width: 100%;
-        border-radius: 4%;
-        overflow: hidden; 
-        margin: 0 auto;
-    }
-    
-    .container {
-        
-        display: flex;
-        transition: transform 0.5s ease; 
-    }
-    
-    .container img {
-        height: 100%; 
-        width: auto; 
-        border-radius: 4%;
-    }
-    
-
-        .sec1 h1 {
-            width: 100%;
-            margin-top: 22px;
-            margin-bottom: 0;
-        }
-
-
-
-
-
-
-
-
-
-
-        h1.h1skills {
-            font-size: 3rem;
-            margin-top: 10%;
-            text-align: center;
-        }
-
-        .skills-icons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-           
-            padding: 10px;
-        }
-
-        .skills-icons i {
-            margin: 0;
-            padding-left: 1%;
-        }
-
-
-
-    
-
-        .skills-icons i {
-            margin-top: 0;
-            font-size: 3.3rem;
-            margin: 0;
-        }
-
-
-
-
-
-        .formulario {
-            width: 100%;
-            padding: 10px;/
-        }
-
-        .forms {
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            width: 94%;
-            max-width: 80%;
-            height: 533px;
-
-        }
-
-        .forms h1 {
-            color: #fff;
-            font-size: 2.8rem;
-            margin: auto;
-            margin-bottom: 0;
-        }
-
-        .forms input {
-            height: 50px;
-            margin-top: 50px;
-            font-size: 15px;
-            width: 82%;
-        }
-
-
-
-
-        .parcerias {
-            margin-top: 7%;
-            height: auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px 0;
-
-        }
-
-        .parcerias h1 {
-            height: 60px;
-            width: 50%;
-            border-radius: 9px;
-
-            font-size: 4rem;
-            margin-bottom: 8%;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        .image {
-            width: 80%;
-            margin: 5px auto;
-            display: flex;
-            justify-content: center;
-
-        }
-
-        .image img {
-            height: auto;
-            width: 30%;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-
-}
-
-@media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: landscape) {
-    body {
-        margin: 0;
-    }
-
-    .header {
-        background-color: #42807D;
-    }
-
-    .header h1 {
-        width: 40%;
-        margin: 0 auto 0;
-    
-        font-size: 3rem;
-        background-color: #42807D;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-
-    .mobile-nav {
-        display: none;
-    }
-
-    .header {
-        padding: 10px;
-    }
-
-    .div-header ul {
-        background-color: #42807D;
-        margin-top: 0;
-    }
-
-    .navigation {
-        margin: auto;
-    }
-
-    .navigation ul {
-        flex-direction: row; 
-    }
-
-    .navigation ul li {
-        margin: 10px 0;
-        font-size: 1.4rem; 
-        padding-left: 9%;
-    }
-
-    h1 {
-        margin: 5% auto 0;
-        font-size: 3.5rem;
-        
-    }
-
-    h2.expandir {
-        margin-top: 5%;
-        font-size: 2.7rem !important;
-        line-height: 1.4;
-        margin-bottom: 5% !important;
-        padding: 0 !important;
-    }
-
-    .info {
-        width: 90%;
-        padding: 10px;
-    }
-
-    .expandDiv h2 {
-        font-size: 1.6rem;
-        line-height: 1.4;
-        width: 90%;
-    }
-
-    .sec1 p {
-        font-size: 4.2rem;
-    }
-
-    .infoOne {
-        line-height: 1.8rem;
-        padding: 10px;
-        width: 100%;
-    }
-
-    .infoOne p {
-        background-color: #eff3ef;
-        width: 93%;
-        margin: auto;
-        font-size: 1.6rem;
-        line-height: 2rem;
-        border-radius: 13px;
-        margin-bottom: 5%;
-        padding: 3%;
-        text-align: start;
-    }
-
-    .infoTwo {
-        width: 97%;
-        margin: auto;
-        background-color: #eff3ef;
-        margin-left: 3%;
-    }
-
-    .infoTree {
-        width: 96%;
-        line-height: 1.7rem;
-    }
-
-    .infoTwo p,
-    .infoTree p {
-        background-color: #eff3ef;
-        width: 93%;
-        margin: auto;
-        font-size: 1.4rem;
-        line-height: 2rem;
-        border-radius: 13px;
-        padding: 3%;
-        text-align: start;
-        margin-bottom: 10%;
-    }
-
-    .carrossel {
-        display: flex;
-        height: 400px; 
-        width: 95%; 
-        max-width: 100%;
-        border-radius: 4%;
-        overflow: hidden; 
-        margin: 0 auto;
-    }
-
-    .container {
-        display: flex;
-        transition: transform 0.5s ease; 
-    }
-
-    .container img {
-        height: 100%; 
-        width: auto; 
-        border-radius: 4%;
-    }
-
-    .sec1 h1 {
-        width: 100%;
-        margin-top: 22px;
-        margin-bottom: 0;
-    }
-
-    h1.h1skills {
-        font-size: 3.2rem;
-        margin-top: 10%;
-        margin-bottom: 3%;
-        text-align: center;
-    }
-
-    .skills-icons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 10px;
-    }
-
-    .skills-icons i {
-        margin: 0;
-        padding-left: 1%;
-    }
-
-    .skills-icons i {
-        margin-top: 0;
-        font-size: 4rem;
-        margin: 0;
-    }
-
-    .formulario {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .forms {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        width: 94%;
-        max-width: 80%;
-        height: 533px;
-    }
-
-    .forms h1 {
-        color: #fff;
-        font-size: 2.8rem;
-        margin: auto;
-        margin-bottom: 0;
-    }
-
-    .forms input {
-        height: 50px;
-        margin-top: 50px;
-        font-size: 15px;
-        width: 87%;
-    }
-
-    .parcerias {
-        margin-top: 7%;
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 20px 0;
-    }
-
-    .parcerias h1 {
-        height: 60px;
-        width: 50%;
-        border-radius: 9px;
-        font-size: 4rem;
-        margin-bottom: 8%;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-
-    .image {
-        width: 80%;
-        margin: 5px auto;
-        display: flex;
-        justify-content: center;
-    }
-
-    .image img {
-        height: auto;
-        width: 30%;
-        object-fit: contain;
-        border-radius: 8px;
-    }
-    footer{
-        height: 101px;
-        font-size: 1.5rem;
-    }
-    footer p{
-margin-top: 0;
-    }
-}
-
-
-@media only screen and (min-width: 1024px) and (max-width: 1440px) {
-    body {
-        margin: 0;
-    }
-
-    .header {
-        background-color: #42807D;
-        height: 103px;
-    }
-
-    .header h1 {
-        width: 30%;
-        position: relative;
-        bottom: 28px;
-        margin-left:26% ;
-        font-size: 3.4rem;
-        background-color: #42807D;
-        margin-bottom: 0;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-
-    .mobile-nav {
-        display: none;
-    }
-
-    .header {
-        padding: 15px;
-    }
-
-    .div-header ul {
-        margin-top: 0;
-    }
-
-    .navigation {
-        margin: auto;
-    }
-
-    .navigation ul {
-        flex-direction: row;
-    }
-
-    .navigation ul li {
-       position: relative;
-       bottom: 29px;
-       right: 9%;
-        font-size: 1.3rem;
-        padding-left: 5%;
-    }
-
-    h1 {
-        margin: 5% auto 0;
-        font-size: 3.5rem;
-    }
-
-    h2.expandir {
-        margin-top: 5%;
-        font-size: 3rem !important;
-        line-height: 1.5;
-        margin-bottom: 5% !important;
-        padding: 0 !important;
-    }
-
-    .info {
-        width: 80%;
-        padding: 15px;
-    }
-
-    .expandDiv h2 {
-        font-size: 1.5rem;
-        line-height: 1.5;
-        width: 80%;
-    }
-
-    .sec1 p {
-        font-size: 3.5rem;
-    }
-
-    .infoOne {
-        background-color: #fff;
-        line-height: 1.6rem;
-        padding: 15px;
-        width: 100%;
-    }
-
-    .infoOne p {
-        background-color: #eff3ef;
-        width: 90%;
-        margin: auto;
-        font-size: 1.6rem;
-        line-height: 1.8rem;
-        border-radius: 10px;
-        margin-bottom: 5%;
-        padding: 4%;
-        text-align: start;
-    }
-
-    .infoTwo {
-        width: 90%;
-        margin: auto;
-        background-color: #eff3ef;
-        margin-left: 5%;
-    }
-
-    .infoTree {
-        width: 90%;
-        line-height: 1.5rem;
-    }
-
-    .infoTwo p,
-    .infoTree p {
-        background-color: #eff3ef;
-        width: 90%;
-        margin: auto;
-        font-size: 1.6rem;
-        line-height: 1.8rem;
-        border-radius: 10px;
-        padding: 4%;
-        text-align: start;
-        margin-bottom: 10%;
-    }
-
-    .carrossel {
-        display: flex;
-        height: 400px;
-        width: 70%;
-        max-width: 100%;
-        border-radius: 4%;
-        overflow: hidden;
-        margin: 0 auto;
-    }
-
-    .container {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
-
-    .container img {
-        height: 100%;
-        width: auto;
-        border-radius: 4%;
-    }
-
-    .sec1 h1 {
-        width: 100%;
-        margin-top: 20px;
-        margin-bottom: 0;
-    }
-
-    h1.h1skills {
-        font-size: 3.5rem;
-        margin-top: 10%;
-        text-align: center;
-    }
-
-    .skills-icons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 15px;
-    }
-
-    .skills-icons i {
-        margin: 0;
-        padding-left: 1%;
-        font-size: 4.3rem;
-    }
-
-    .formulario {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .forms {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        width:70%;
-        max-width: 80%;
-        height: 633px;
-    }
-
-    .forms h1 {
-        color: #0b0b0b;
-        font-size: 3.4rem;
-        margin: auto;
-        margin-bottom: 0;
-    }
-
-    .forms input {
-        height: 60px;
-        margin-top: 60px;
-        font-size: 15px;
-        width: 80%;
-    }
-
-    .parcerias {
-        margin-top: 5%;
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 20px 0;
-    }
-
-    .parcerias h1 {
-        height: 60px;
-        width: 50%;
-        border-radius: 9px;
-        font-size: 3.5rem;
-        margin-bottom: 8%;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-
-    .image {
-        width: 80%;
-        margin: 5px auto;
-        display: flex;
-        justify-content: center;
-    }
-
-    .image img {
-        height: auto;
-        width: 30%;
-        object-fit: contain;
-        border-radius: 8px;
-    }
-}
 
 
 

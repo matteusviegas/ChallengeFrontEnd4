@@ -78,12 +78,13 @@ margin: auto;
 margin-top: 5%;
 }
 .informationOne{
+    margin-top: 4.2%;
     text-align: center;
-  
     font-size: 2.9rem;
     padding-right:83px ;
 }
-
+.informationOne p{
+}
 .informationTwo{
 margin: 0;
 font-size: 2.9rem;
