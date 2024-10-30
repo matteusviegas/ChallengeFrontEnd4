@@ -57,7 +57,7 @@
 
     h2.expandir {
         margin-top: 5%;
-        font-size: 2.7rem !important;
+        font-size: 2.5rem !important;
         line-height: 1.4;
         margin-bottom: 5% !important;
         padding: 0 !important;
@@ -68,9 +68,11 @@
         padding: 10px;
     }
 
+    .infoOne{
+        margin: 0;
+    }
     .expandDiv h2 {
         font-size: 1.6rem;
-        line-height: 1.4;
         width: 90%;
     }
 
@@ -88,7 +90,7 @@
         background-color: #eff3ef;
         width: 93%;
         margin: auto;
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         line-height: 2rem;
         border-radius: 13px;
         margin-bottom: 5%;
@@ -122,9 +124,11 @@
     }
 
     .carrossel {
+        background-color: #42807D;
+
         display: flex;
-        height: 400px; 
-        width: 95%; 
+        height: 350px; 
+        width: 100%; 
         max-width: 100%;
         border-radius: 4%;
         overflow: hidden; 
@@ -137,7 +141,7 @@
     }
 
     .container img {
-        height: 100%; 
+        height: 373px; 
         width: auto; 
         border-radius: 4%;
     }
@@ -156,21 +160,20 @@
     }
 
     .skills-icons {
+        margin: auto;
+        margin-left: 4%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         padding: 10px;
     }
 
-    .skills-icons i {
-        margin: 0;
-        padding-left: 1%;
-    }
 
     .skills-icons i {
         margin-top: 0;
-        font-size: 4rem;
-        margin: 0;
+        font-size: 3.3rem;
+        margin: 1%;
+        padding-left: 1%;
     }
 
     .formulario {
@@ -195,14 +198,13 @@
     }
 
     .forms input {
-        height: 50px;
-        margin-top: 50px;
+        margin-top: 5px;
         font-size: 15px;
         width: 87%;
     }
 
     .parcerias {
-        margin-top: 7%;
+
         height: auto;
         display: flex;
         flex-wrap: wrap;
@@ -231,6 +233,17 @@
         width: 30%;
         object-fit: contain;
         border-radius: 8px;
+    }
+    .bot{
+        width: 66%;
+        margin: auto;
+        margin-left: 17%;
+        height: 55px;
+        border-radius: 9px;
+    }
+    .parcerias img{
+        display: flex;
+        gap: 10px;
     }
     footer{
         height: 101px;

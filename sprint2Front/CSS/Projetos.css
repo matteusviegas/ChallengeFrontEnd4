@@ -1,9 +1,4 @@
 
-
-
-
-
-/*cabecalho do site*/
 body{
 padding: 0;
 margin: 0;
@@ -95,6 +90,11 @@ font-size: 2rem;
     border-radius: 5px;
 }
 
+
+
+
+
+
 /*primeira secao*/
 
 
@@ -124,7 +124,7 @@ h1 {
 h2.expandir {
     width: 95%;
     font-size: 3.5rem;
-    margin-left: 2%;
+    margin-left: 5%;
     margin-bottom: 2.5%;
 }
 
@@ -135,10 +135,12 @@ h2.expandir {
     margin: auto;
     padding: 0;
     line-height: 3.5rem;
-   margin-left: 2%;
+   margin-left: 5%;
    margin-top: 3%;
 }
 
+
+/*paragrafos de funções e funcionalidades*/
 .paragrafoOne {
 margin-bottom: 3%;
 }
@@ -151,8 +153,11 @@ margin-bottom: 3%;
     margin-bottom: 3%;
 
 }
+
+/*informações */
+
 .infoTwo  {
-    margin-left: 2%;
+    margin-left: 5%;
     font-size: 2.4rem;
 }
 
@@ -160,8 +165,9 @@ margin-bottom: 3%;
 .infoTree {
    
     line-height: 3.1rem;
-    margin-left: 2%;
+    margin-left: 5%;
 }
+/*paragrafo da informação*/
 
 .info p {
     font-size: 2.3rem;
@@ -172,36 +178,47 @@ margin-bottom: 3%;
 
 
 /* Carrossel das imagens */
-.carrossel {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    margin-bottom: 22px;
-    border-radius: 12px;
 
-    overflow: hidden;
+.secao-ilustrativa{
+margin: auto;
 }
 
-.container {
+.carrossel {
+    width: 100%;
+    max-width: 1500px;
+    margin: 12% auto 6%;
+    border-radius: 12px;
+background-position: left;
+    overflow: hidden;
+    margin-left: 11%;
+}
+
+.container {  
     display: flex;
     transition: transform 0.8s ease-in-out;
     width: 100%;
+
 }
 
 .container img {
     width: 100%;
-    height: 833px;
+    height: 663px;
     object-fit: cover;
 }
 
 
 /*linguagens ultilizadas*/
+
+.h1skills{
+   font-size: 5.8rem;
+    width: 48%;
+    margin-left: 9%;
+}
 .skills-icons {
-    display: flex;
     gap: 2%;
     justify-content: center;
     padding: 22px;
-    margin: 0;
+    margin-left: 29%;
 }
 
 
@@ -211,8 +228,10 @@ margin-bottom: 3%;
 
 /*icones*/
 .skills-icons i {
+    text-align: center;
     color: var(--color-black);
     font-size: 6rem;
+    margin-left: 4%;
     transition: color 0.3s;
 }
 
@@ -270,75 +289,84 @@ margin-bottom: 3%;
 
 .forms {
 
-    height: 800px;
+    height: 780px;
     width: 32%;
     margin: 6% auto;
+    margin-left: 39%;
     background: linear-gradient(135deg, #28a745, #74d19c);
     border-radius: 12px;
 }
 
 .forms h1 {
+position: relative;
+top: 33px;
+font-size: 4.5rem;
 
-    margin-bottom: 9%;
-}
-
-
-.forms input {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-bottom: 76px;
-    height: 78px;
-    width: 80%;
-    margin-top: 26px;
-    border-radius: 9px;
-    border: 3px solid green;
-    box-shadow: 3px 3px 20px 3px rgba(0, 128, 0, 0.5);
 
 }
 
-input::placeholder {
-    color: #969696;
-    font-size: 25px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
+
+
+
+
+.forms input, .forms textarea {
+    background-color: transparent; 
+    margin: 10px auto;
+    padding: 20px; 
+    width: 88%;
+    border: none; 
+    border-bottom: 2px solid #2A6FB2; 
+    box-shadow: none; 
+    font-size: 1.6rem; 
+    margin-left: 3%;
+    margin-bottom: 7%;
 }
 
-.bot {
-    width: 68%;
-    border-radius: 15px;
-    height: 77px;
-    background-color: #249d40;
-    border: 2px solid rgb(0, 255, 0);
-    font-size: 1.9rem;
+
+
+input::placeholder, textarea::placeholder {
+    color: #becac3; 
+}
+
+
+.bot{
+    background-color: #42807D;
+    height: 70px;
+    width: 43%;
+    border-radius: 22px;
     color: #fff;
-    margin-left: 15%;
+    font-size: 1.7rem;
+    margin-left: 28%;
+    margin-top: 6%;
 }
 
-.bot:hover {
-    background-color: #ffffff;
-    color: rgb(0, 255, 0)
+.bot:hover{
+    background-color: #fff;
+    color: #42807D;
 }
-
 .parcerias {
     padding: 20px;
     text-align: center;
     margin-bottom: 82px;
 }
 .parcerias h1{
+    text-align: center;
     margin-top: 0;
-font-size: 7.4rem;
+font-size: 6.4rem;
+width: 50%;
+margin-left:30%;
 }
 
 .image {
     display: flex;
     justify-content: center;
     gap: 130px;
-
+margin-left: 11%;
 }
 
 .image img {
+    
     width: 200px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

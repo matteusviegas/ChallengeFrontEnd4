@@ -1,0 +1,72 @@
+@media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: landscape) {
+    body {
+        padding: 0;
+        margin: auto;
+    }
+    
+    *{
+        margin: auto;
+    text-align: center;
+
+    }
+    .container {
+        width: 80%;
+        padding: 20px;
+        margin: auto;
+    }
+.header{
+    width: 100%;
+}
+    .header h1 {
+        font-size: 2.9rem;
+        text-align: center;
+        margin: auto;
+        width: 55%;
+        
+    }
+.navigation{
+    margin: 2% auto;
+}
+    .navigation ul li a {
+        font-size: 1.2rem;
+        margin: 8% auto;
+    }
+
+    img {
+        width: 43%;
+        height: auto;
+        margin-top: 5%;
+    }
+
+    .descripition-ccr {
+        width: 85%;
+        font-size: 1.3rem;
+        text-align: center;
+        line-height: 2.5rem;
+        margin: auto;
+    }
+
+    .information {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5%;
+        margin-top: 19%;
+        width: 79%;
+    }
+
+    .informationOne, .informationTwo {
+        font-size: 1.3rem;
+        width: 38%;
+        text-align: center;
+    }
+    
+    .info-extra {
+        margin: 11% auto 2%;
+        width: 55%;
+        font-size: 1.5rem;
+        text-align: center;
+        padding-block: 45px;
+    }
+}

@@ -1,0 +1,75 @@
+
+@media only screen and (min-width: 1440px) and (max-width: 1920px) {
+   
+
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    header {
+        width: 80%;
+    }
+
+
+    
+    .membroOne,
+    .membroTwo,
+    .membroThree {
+        width: 100%;
+        height: 498px;
+        padding: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
+    }
+
+    .membroOne img {
+        margin-top: 3%;
+        height: auto;
+        width:16%;
+    }
+
+    .membroTwo img {
+        margin-top: 3%;
+        height: auto;
+        width: 16%;
+    }
+
+    .membroThree img {
+        margin-top: 3%;
+        height: auto;
+        width: 16%;
+    }
+
+    .membroOne:hover {
+        transform: scale(1.1);
+    }
+    .membroTwo:hover {
+        transform: scale(1.1);
+    }
+    .membroThree:hover {
+        transform: scale(1.1);
+    }
+
+    .descripition {
+        font-size: 1.8rem;
+        width: 85%;
+    }
+    .descripition h3 {
+        margin: 2% auto 0;
+        font-size: 2.7rem;
+    }
+    .descripition p {
+        margin: auto;
+        font-size: 2rem;
+    }
+    .but {
+        font-size: 1.6rem;
+        width: 35%;
+        height: 28px;
+    }
+    .but h2 {
+        font-size: 1.7rem;
+        margin: 0;
+    }
+}

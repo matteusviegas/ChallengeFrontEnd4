@@ -1,64 +1,91 @@
 
-
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; 
     margin: 0; 
-}
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
 }
 
 
+/*ocultamento do menu burguer*/
 
-/* cabecalho do site */
+.menu-toggle,
+.mobile-nav {
+    display: none;
+}
 
-.header{
-    background-color:#28a746 ;
-position: relative;
-width: 100%;
-top: 0;
+.header {
+    background-color: #42807D;
+
 }
 
 
-.header div{
+.header div {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 1%;
-   
-}
-.navigation ul {
-display: flex;
-justify-content: center;
-list-style: none;
-padding: 0px;
+
 }
 
-.navigation ul li{
-    margin: 0 19px;
-    padding-top: 1%;
-    font-size: 1.6rem;
+
+.navigation {
+    margin: auto;
+}
+
+
+.navigation ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0px;
+}
+
+.navigation ul li {
+    margin: 0 6% 4%;
+  
 }
 
 .navigation ul li a {
-text-decoration: none;
-color: #fff;
-font-weight: bold;
-padding: 10px;
-transition: background-color 0.9s ease;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+font-size: 2rem;
+    padding: 10px;
+    transition: background-color 0.9s ease;
 }
+
 .navigation ul li a:hover {
-    background-color: #28524D; 
+    background-color: #28524D;
     border-radius: 5px;
 }
+
+
+
+
+
+
+.header h1 {
+
+margin: 1% auto 1%;
+    width: 82%;
+     font-weight: bold;
+    margin-left: 222px;
+    font-size: 5.6rem;
+
+    
+}
+
+
+
+
+
+
+
 img{
-    width: 14%;
-    height: 26%;
-margin: auto;
+    width: 21%;
+    height: 522px;
+margin: 0 auto 1%;
 margin-block: 70px;
 
 }
@@ -66,8 +93,8 @@ margin-block: 70px;
 .descripition-ccr{
     width: 44%;
 margin: auto;
-font-size: 2.3rem;
-line-height: 3.4rem;
+font-size: 2.8rem;
+line-height: 3.3rem;
 }
 
 .information{
@@ -75,28 +102,31 @@ line-height: 3.4rem;
 width: 88%;
 display: flex;
 margin: auto;
-margin-top: 5%;
+margin-top: 8%;
 }
+
 .informationOne{
-    margin-top: 4.2%;
     text-align: center;
     font-size: 2.9rem;
+    width: 55%;
+    margin-right: 13%;
     padding-right:83px ;
 }
-.informationOne p{
-}
+
+
 .informationTwo{
 margin: 0;
+width: 54%;
 font-size: 2.9rem;
-
+text-align: center;
 }
 
 
 .info-extra{
     margin-top: 3%;
-font-size: 2.2rem;
+font-size: 3rem;
 text-align: center;
-padding-block: 42px;
+padding-block: 55px;
 }
 
 
@@ -108,7 +138,7 @@ padding-block: 42px;
 
 @keyframes slide-in {
     22% {
-        transform: translateY(50%); 
+        transform: translateY(-50%); 
         opacity: 0; 
     }
     100% {

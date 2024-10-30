@@ -5,39 +5,102 @@ body {
     background-color: #f0f0f0;
 }
 
-/* Cabeçalho do site */
-.header {
-    background-color: #28a746;
-    position: relative;
-    width: 100%;
-    top: 0;
-    padding: 10px 0; 
-}
 
-.header div {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
 
-.navigation ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
+body{
     padding: 0;
-}
+    margin: 0;
+    }
+    
+    
+    
+    /*ocultamento do menu burguer*/
+    
+    .menu-toggle,
+    .mobile-nav {
+        display: none;
+    }
+    
+    .header {
+        background-color: #42807D;
+    
+    }
+    
+    .header h1 {
+    
+    
+        width: 15%;
+    
+        font-size: 6rem;
+      margin-bottom: 1%;
+    
+        background-color: #42807D;
+    }
+    
+    
+    .div-header ul {
+        background-color: #42807D;
+        margin-top: 0;
+    }
+    
+    .navigation {
+        margin: auto;
+    }
+    
+    .navigation ul {
+        flex-direction: row;
+    }
+    
+    
+    
+    
+    .div-header h1 {
+    
+        margin: 0 auto;
+        margin-bottom: 1%;
+        padding: 0;
+        font-size: 3rem;
+        padding-block: 17px;
+    }
+    
+    .header div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 1%;
+    
+    }
+    
+    .navigation ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0px;
+    }
+    
+    .navigation ul li {
+        margin: 0 19px;
+        padding-top: 1%;
+        font-size: 1.6rem;
+    }
+    
+    .navigation ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+    font-size: 2rem;
+        padding: 10px;
+        transition: background-color 0.9s ease;
+    }
+    
+    .navigation ul li a:hover {
+        background-color: #28524D;
+        border-radius: 5px;
+    }
+    
 
-.navigation ul li {
-    margin: 0 20px;
-}
 
-.navigation ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px;
-    transition: background-color 0.3s ease;
-}
+
 
 .navigation ul li a:hover {
     background-color: #28524D; 
@@ -87,8 +150,8 @@ section {
 
 .membroOne img {
     margin-top: 3.5%;
-    height: 424px; 
-  width: 13%;
+    height:auto; 
+  width: 16%;
     border-radius: 10px; 
 }
 
@@ -150,8 +213,8 @@ section {
 
 .but {
     padding: 16px;
-    width: 20%;
-    height: 70px;
+    width: 21%;
+    height: 50px;
     border-radius: 7px;
     margin: 5% auto; 
     color: #fff;
@@ -159,8 +222,10 @@ section {
     background-color: #28a745;
     transition: background-color 0.3s ease;
 }
-
-.but:hover {
+.but h2{
+font-size: 2rem;
+width: 100%;
+}.but:hover {
     background-color: #ffffff; 
     color:  #28a745;
 }
