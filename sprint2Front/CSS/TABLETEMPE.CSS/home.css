@@ -1,165 +1,228 @@
-
-
 @media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: portrait) {
- 
-    .header{
-        background-color: #42807D;
+
+
     
+
+    /* Ocultando o menu */
+   .menu_box {
+        display: none; 
     }
-    .header h1{
-        width: 40%;
+    .menu_toggle{
+        display: none;
+    }
+
+    .header {
+        background-color: #42807D;
+        height: 198px;
+        width: 100%;
+    }
+
+    .header h1 {
+        width: 50%;
         margin: auto;
-        font-size: 3rem;
-        margin-bottom: 5%;
         background-color: #42807D;
-    
+        font-size: 3rem;
+        margin-top: 1.5%;
     }
-    .menu-toggle {
-            display: none; /* Oculta o botão de menu */
-        }
-    
-        .mobile-nav {
-            display: none;  
-        }
+
+    .navigation ul {
+        margin-top: 1%;
+        margin-right: 5.5%;
+    }
+
+
+    .navigation ul li {
+        margin-left: 7%;
+    }
+
+
+    .navigation ul li a {
+        font-size: 1.2rem;
+        padding: 0;
+
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease, font-weight 0.3s ease;
+        position: relative;
+    }
+
+    .navigation ul li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0;
+        height: 2px;
+        background-color: #00ff5e;
+        transition: width 0.3s ease;
+    }
+
+
+
+    .navigation ul li a:hover::after {
+        width: 100%;
+       
+    }
+
+
+
+
+
+    .section-container {
+        flex-direction: column;
+    }
+
     
 
-        .navigation{
-            margin: auto;
-        }
 
-        
-        .navigation ul {
-            flex-direction: row; 
-           
-        }
-    
-        .navigation ul li {
-            margin: 10px 0;
-            font-size: 1.4rem;
-            padding-left: 9%;
-        }
-    
-        .section-container {
-            flex-direction: column; 
-        }
-    
-    
-       .content-item{
-    display: flex;
-    flex-direction: column;
+
+    .content-item {
+        display: flex;
+        flex-direction: column;
         background-color: #f9f9f9;
         border: 1px solid #ddd;
-    height: 580px;
-       }
-       .content-item h1{
-    color: #000000;
-    font-size: 2.3rem;
-    margin-bottom: 3%;
-       }
-    
-       .image-container img{
-    height: 333px;
-       }
-    
-       .description-container{
-    width: 79%;
-    border-radius: 2%;
-       }
-       
-       .description-container h3{
+        height: 580px;
+    }
+
+    .content-item h1 {
+        color: #000000;
+        font-size: 2.3rem;
+        margin-bottom: 3%;
+    }
+
+    .image-container img {
+        height: 333px;
+    }
+
+    .description-container {
+        width: 79%;
+        border-radius: 2%;
+    }
+
+    .description-container h3 {
         text-align: center;
         font-size: 1.9rem;
         margin-bottom: 4%;
-       }
-    
-       .description-container p{
-        width: 100%;
-    text-align: center;  
-   padding-bottom: 2%;
-    }
-     
-    
-    /*secao dos cards*/
-    .sec2 {
-            padding: 15px;
-        }
-    
-        .card {
-            width: 76%; 
-            margin: 15px auto;
-        }
-    
-        .avisos h1 {
-            font-size: 2.5rem; 
-            margin-bottom: 10%;
-        }
-    
-        .sec3 h3 {
-            font-size: 2.7rem; 
-        }
-    .sec3 h1{ 
-    font-size: 2.6rem;  
-    margin: auto;
-    margin-top: 5%;
-    }
-        .avisos p {
-            font-size: 1.5rem;
-            padding: 2%;
-        }
-    
-        .divOne {
-    margin: 9% auto 15%;
-    }
-    
-    .divOne h3{
-font-size: 2.5rem;
     }
 
-    .divOne p{
-width: 100%;
-    font-size: 1.6rem;
-    
-    line-height: 2rem;
-    }
-    
-    
-      
-    
-    
-    .divTwo {
-        
-        width: 70%;
-        margin: auto;
-        
-    }
-    
-     
-    .divTwo h3{
-        
-    
-        border-radius: 13px;
-    width: 100%;
-        font-size: 2.1rem;
-        
-    }
-    
-    
-    .divTwo p{
+    .description-container p {
         width: 100%;
-        font-size: 1.6rem;
-        
-        line-height: 2.6rem;
-        }
-        
-        
-    footer{
-        height: 123px;
+        text-align: center;
+        padding-bottom: 2%;
     }
-        footer p {
-            
-            font-size: 1.4rem;
-        
-        }
+
+
+    /*secao dos cards*/
+    .sec2 {
+        padding: 15px;
+    }
+
+    .card {
+        width: 76%;
+        margin: 23px auto;
+    }
+
+
+    .card:hover .titulo-card1 {
+        color: #fff200;
+    }
+
+
+
+    .card:hover .titulo-card2 {
+        color: #e1e1e1;
+    }
+
+    .card:hover .titulo-card3 {
+        color: #00ff04;
+    }
+
+
+    /*ocultamento dos cards*/
+
+    .info-card {
+        display: none;
     }
     
+    .avisos h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10%;
+    }
+
+    .sec3 h3 {
+        font-size: 2.7rem;
+    }
+
+    .sec3 h1 {
+        font-size: 2.2rem;
+        margin: auto;
+        margin-top: 5%;
+    }
+
+    .avisos p {
+        font-size: 1.5rem;
+        padding: 2%;
+    }
+
+
     
+    .divOne {
+        margin: 9% auto 15% 7%;
+        width: 73%;
+    }
+
+    .divOne h3 {
+        text-align: start;
+        font-size: 2.1rem;
+        margin: 0;
+    }
+
+    .divOne p {
+        width: 100%;
+        font-size: 1.1rem;
+text-align: start;
+        line-height: 1.7rem;
+    }
+
+
+
+
+
+    .divTwo {
+
+        width: 67%;
+        margin: 5% 0 1% 26%;
+
+    }
+
+
+    .divTwo h3 {
+margin-top: 3%;
+text-align: start;
+margin: 0;
+        border-radius: 13px;
+        width: 100%;
+        font-size: 2rem;
+
+    }
+
+
+    .divTwo p {
+        width: 100%;
+        font-size: 1.1rem;
+
+        line-height: 1.8rem;
+    }
+
+
+    .fot{
+        height: 84px;
+        width: 100%;
+        padding: 17px;
+    }
+    .fot p{
+margin: 1% auto 2%;
+        font-size: 15px;
+    }
+        
+}

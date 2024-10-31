@@ -2,28 +2,33 @@
 @media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: landscape) {
 
   
-    /*ocultamento do menu burguer*/
-    .menu-toggle {
-        display: none; /
-    }
+    
 
-    .mobile-nav {
-        display: none; 
-    }
+    /* Ocultando o menu */
+   .menu_box {
+    display: none; 
+}
+.menu_toggle{
+    display: none;
+}
 
 
 
     .header {
-        height: 160px;
-        padding: 10px;
+        margin: 0%   ;
+        height: 190px;
         background-color: #42807D;
-    }
 
-    
-    .header h1 {
-        background-color: #42807D;
-margin: 1% auto 2%;    
-        font-size: 2.8rem;
+    }
+.div-header{
+    margin: 0;
+    padding: 0;
+}
+
+    h1.title { 
+    margin: 0;
+    width: 55%;
+    background-color: #42807D;
     }
 
 
@@ -41,32 +46,49 @@ margin: 1% auto 2%;
 
     .section-container {
         flex-direction: row;
-        width: 96%;
+        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding: 10px 0;
+    
     }
 
     .content-item {
         display: flex;
-        flex-direction: column;
-        margin: auto;
-        height: 455px;
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
+flex-direction: column;
+        flex: 0 0 auto; 
+    width: 85%; 
+    max-width: 450px; 
+    height: 358px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    scroll-snap-align: start; 
     }
 
     .content-item h1 {
-        
-        font-size: 1.9rem;
-        margin-bottom: 1%;
+        margin: 0;
+        font-size: 1.7rem;
+        margin: 1% auto 2%;
+      
     }
 
     .image-container img {
-        height: 249px;
+        height: 211px;
+        padding-top: 5%;
+    position: relative;
+    bottom: 5%;
+    }
+
+    .image-container {
+width: 80%;
+height: 191px;
     }
 
     .description-container {
-        width: 92%;
-        position: relative;
-        position: relative;
+        width: 62%;
+     
         bottom: 4%;
        
     }
@@ -74,14 +96,16 @@ margin: 1% auto 2%;
     .description-container h3 {
         text-align: center;
         font-size: 1.5rem;
-        margin-bottom: 4%;
+    
+        margin:  18% auto 3%;
     }
 
     .description-container p {
-        width: 100%;
+        width: 80%;
+        margin: auto;
         font-size: 1.2rem;
         text-align: center;
-        padding-bottom: 3%;
+        padding-bottom: 1%;
     }
 /*secoes dos cads*/
     
@@ -96,6 +120,23 @@ margin: 0 auto 5%;
         margin: 22px auto;
     }
 
+
+    .card:hover .titulo-card1 {
+        color: #fff200;
+    }
+
+
+
+    .card:hover .titulo-card2 {
+        color: #e1e1e1;
+    }
+
+    .card:hover .titulo-card3 {
+        color: #00ff04;
+    }
+
+
+    
 
     .sec3 h3 {
         font-size: 2.8rem;
@@ -114,30 +155,36 @@ margin: 0 auto 5%;
         margin: auto;
         margin-top: 5%;
     }
-
+ 
 
     .divOne {
-        margin: 7% auto 10%;
+        margin: 18% auto 10% 5%;
+        width: 80%;
+        
     }
 
     .divOne h3 {
-    font-size: 2rem;
+        text-align: start;
+    font-size: 2.2rem;
+    margin: 1% 0 3.5% 0%;
     }
 
     .divOne p {
         width: 100%;
-        font-size: 1.5rem;
-        line-height: 2.6rem;
+        margin: 0;
+        text-align: start;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
     }
 
     .divTwo {
-        width: 70%;
-        margin: auto;
+        width: 78%;
+        margin:  20% auto 0 20%;
     }
 
     .divTwo h3 {
-    
-        margin:  auto ;
+    text-align: start;
+        margin:  5% auto 0 ;
         border-radius: 13px;
         font-size: 2rem;
        
@@ -146,8 +193,8 @@ margin: 0 auto 5%;
     .divTwo p {
         font-size: 22px;
         width: 100%;
-        font-size: 1.5rem;
-        line-height: 2.6rem;
+        font-size: 1.3rem;
+        line-height: 1.9rem;
     }
 
     footer {

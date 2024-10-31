@@ -1,4 +1,5 @@
-@media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: portrait) {
+
+@media only screen and (min-width: 1440px) and (max-width: 1920px) {
     body {
         padding: 0;
     }
@@ -15,7 +16,7 @@ header{
     height: 152px;
 }
     .header h1 {
-width: 50%;
+width: 90%;
         font-size: 2.5rem;
         margin: 1% auto 3%;
         text-align: center;
@@ -33,7 +34,8 @@ width: 50%;
     }
 
     .descripition-ccr {
-        width: 90%;
+        width: 40%;
+        
         font-size: 1.4rem;
         text-align: start;
         line-height: 2.2rem;
@@ -43,33 +45,29 @@ width: 50%;
     .information {
         flex-direction: wrap;
         align-items: center;
-
-        margin-top: 2%;
+        margin-top: 8%;
     }
-.paragrafoThree{
-    margin-top: 0%;
-margin-bottom: 0%;    
-}
+
     .informationOne {
         font-size: 1.3rem;
         width: 50%;
-       margin-top: 24%;
+       margin: 0;
        margin-left: 2%;
     }
     .paragrafoTwo{
-        margin-top: 0% ;
+        margin-top: 2%;
     }
-  .paragrafoFour{
-    margin-bottom: 12%;
-  }
+    .paragrafoThree{
+        margin: 8% auto 0 18%
+    }
+     
     .informationTwo{
         position: relative;
-        right: 55px;
-  
+        right: 88px;
         font-size: 1.3rem;
         width: 89%;
-        margin:22% auto 2%;
-        margin-left: 4%;
+        margin: 0;
+        
 
     }
 

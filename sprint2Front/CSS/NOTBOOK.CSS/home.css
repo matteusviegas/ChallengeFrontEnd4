@@ -1,61 +1,130 @@
-
-
 @media only screen and (min-width: 1024px) and (max-width: 1440px) {
-    .header {
-        background-color: #42807D;
-    height: 200px;
+
+
+
+
+
+    * {
+         margin: 0;
+        padding: 0;
     }
 
-    .header h1 {
-        width: 30%;
-        margin: auto;
-        font-size: 3rem;
 
-        background-color: #42807D;
+    /* Ocultando o menu */
+    .menu_box {
+        display: none; 
     }
-
-    .menu-toggle {
+    .menu_toggle{
         display: none;
     }
-
-    .mobile-nav {
-        display: none;
-    }
-
-    .header {
-        padding: 10px;
     
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
     }
 
-    .div-header ul {
+
+    .info {
+        display: none;
+    }
+
+    .hover-div:hover .info {
+        display: block;
+    }
+
+
+    .hover-div {
+
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    
+
+    /* Cabeçalho */
+    .header {
+        position: relative;
+        width: 100%;
+        height: 202px;
+
         background-color: #42807D;
-        margin-top: 0;
-     
+        top: 0;
     }
 
-    .navigation {
 
-        margin: 1% auto 22% 30%;
-      
+    .header .div-header h1 {
+        font-size: 3.7rem;
+        width: 26%;
+        margin: 0% auto;
+        color: #000;
+    }
+
+
+    .header div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
     }
 
     .navigation ul {
-        flex-direction: row;
-       
+        display: flex;
+        justify-content: center;
+        list-style: none;
+
+        padding: 0;
     }
+
 
     .navigation ul li {
-        margin: 10px 0;
-        font-size: 1.1rem;
-        padding-left: 21%;
-        margin-top: 4%;
+
+        font-size: 2rem;
     }
 
-   
+    .navigation ul li a {
+        position: relative;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding-left: 8px;
+        font-size: 1.4rem;
+        margin: 0;
+        transition: background-color 0.9s ease;
+    }
+
+
+    .navigation ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        width: 0;
+        height: 3px;
+        background-color: #00ff5e;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .navigation ul li a:hover::after {
+        width: 100%;
+        left: 0;
+    }
+
+
+
+
+
+
+
+
+
     .section-container {
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 95%;
         transition: transform 0.5s ease;
     }
 
@@ -65,32 +134,37 @@
         background-color: #f9f9f9;
         border: 1px solid #ddd;
         margin: 15px 0;
-        height: 378px;
+        height: 338px;
     }
 
-  
+
 
     .image-container {
-       
 
-        margin-bottom: 4%;
+        margin: 3% auto 2% 2%;
+        margin-bottom: 2%;
     }
 
     .image-container img {
-        height: 290px;
+        height: 240px;
         width: 100%;
-    
+        padding: 0;
+    }
+
+    .image-container h1 {
+        font-size: 2rem;
+        margin: 3% auto 5%;
     }
 
     .description-container {
         flex: 2;
         border-radius: 2%;
-padding-left: 6%;
-margin-top: 4%;
+        padding-left: 4%;
+
         display: flex;
         flex-direction: column;
         justify-content: center;
-        
+
     }
 
     .description-container h3 {
@@ -101,87 +175,128 @@ margin-top: 4%;
 
     .description-container p {
         width: 100%;
-        text-align: start;  
+        margin: 0;
+        text-align: start;
         padding-bottom: 3%;
         font-size: 1.5rem;
+    }
+
+    .card {
+
+        width: 40%;
+        height: 271px;
+
+    }
+    
+    /*ocultamento dos cards*/
+
+.info-card {
+    display: none;
+}
+
+
+
+
+
+.card:hover .titulo-card1 {
+    color: #fff200;
+}
+
+
+
+.card:hover .titulo-card2 {
+    color: #e1e1e1;
+}
+
+.card:hover .titulo-card3 {
+    color: #00ff04;
+}
+
+
+    .card h2 {
+        margin-top: 5%;
+    }
+
+    .avisos h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10%;
+    }
+
+    .sec3 h3 {
+        font-size: 2.7rem;
+    }
+
+    .sec3 h1 {
+        font-size: 2.6rem;
+        margin: auto;
+        margin-top: 5% auto 1%;
+    }
+
+    .avisos p {
+        margin-top: 5.5%;
+        font-size: 1.3rem;
+        text-align: end;
+        padding: 0;
+    }
+
+    .info-button {
+        margin-top: 8%;
+        width: 63%;
+        border-radius: 9px;
+        font-size: 1.4rem;
+
     }
 
     .sec2 {
         padding: 15px;
     }
 
-    .card {
-        width: 70%; 
-        margin: 15px auto;
-    }
-
-    .avisos h1 {
-        font-size: 2.5rem; 
-        margin-bottom: 10%;
-    }
-
-    .sec3 h3 {
-        font-size: 2.7rem; 
-    }
-
-    .sec3 h1 { 
-        font-size: 2.6rem;  
-        margin: auto;
-        margin-top: 5%;
-    }
-
-    .avisos p {
-        font-size: 1.5rem;
-        text-align: end;
-        padding: 0;
-    }
-
-    .sec3 h1{
-font-size: 2.6rem;
+    .sec3 h1 {
+        font-size: 2.7rem;
 
 
     }
+
     .divOne {
-        margin: 9% 3% 15%;
+        margin: 10% 3% 15%;
     }
 
     .divOne h3 {
-        background-color: #42807D;
-        color: #fff;
-       font-size: 2rem;
-        padding: 2%;
-        border-radius: 13px;
+        text-align: start;
+      font-size: 2.2rem;
+      padding: 1px;
+        padding: 2% 0% 4%;
+        margin: 0;
     }
 
     .divOne p {
         font-size: 22px;
         width: 100%;
-        font-size: 1.9rem;
-        line-height: 2.6rem;
+        font-size: 1.4rem;
+        text-align: start;
+        line-height: 2rem;
     }
 
     .divTwo {
         width: 70%;
-        margin-left: 26%;
+        margin-left: 43%;
     }
 
     .divTwo h3 {
-        background-color: #42807D;
- 
-        padding: 3%;
-        border-radius: 13px;
-        width: 70%;
+        text-align: start;
+        padding: 0%;
+     
+        width: 100%;
         margin: auto;
         font-size: 2rem;
-        color: #fff;
-        height: 70px;
+        height: 60px;
     }
 
     .divTwo p {
         font-size: 22px;
-        width: 100%;
-        font-size: 1.9rem;
-        line-height: 2.6rem;
+        width: 80%;
+        font-size: 1.2rem;
+        line-height: 1.9rem;
     }
 
     footer {
@@ -192,4 +307,3 @@ font-size: 2.6rem;
         font-size: 1.4rem;
     }
 }
-

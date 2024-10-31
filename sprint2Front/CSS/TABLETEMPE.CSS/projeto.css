@@ -2,11 +2,19 @@
 
 @media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: portrait) {
     body{
-    
-    margin: 0;
+  
+    margin: auto;
     }
         
-    
+  
+
+    /* Ocultando o menu */
+    .menu_box {
+        display: none; 
+    }
+    .menu_toggle{
+        display: none;
+    }  
     
     .header{
         background-color: #42807D;
@@ -22,13 +30,7 @@
         background-color: #42807D;
     
     }
-    .menu-toggle {
-            display: none; 
-        }
     
-        .mobile-nav {
-            display: none; 
-        }
     
         .header {
             padding: 10px;
@@ -52,6 +54,8 @@
             padding-left: 9%;
         }
     
+
+   
         
         h1 {
             font-size: 2.6rem;
@@ -60,52 +64,50 @@
     
         h2.expandir {
     
-            margin-top: 5%;
-            font-size: 2.6rem !important;
+            margin: 9% 4% 2%;
+            font-size: 2.2rem !important;
             line-height: 1.4;
-            margin-bottom: 5% !important;
+            text-align: start;
+           
             padding: 0 !important;
         }
     
     
         .info {
             width: 90%;
-            padding: 10px;
         }
     
     
         .expandDiv h2 {
     
-            font-size: 1.6rem;
-            line-height: 1.4;
-            width: 90%;
+            font-size: 1rem;
+            line-height: 1.3;
+            width: 97%;
     
         }
     
     
         .sec1 p {
-            font-size: 4.2rem;
+            font-size: 2.2rem;
         }
     
     
     
         .infoOne {
-            background-color: #fff;
+           
             line-height: 1.8rem;
-            padding: 10px;
+            
             width: 100%;
     margin: 0;
         }
     
         .infoOne p {
-            background-color: #eff3ef;
+           
             width: 93%;
             margin: auto;
             font-size: 1.4rem;
             line-height: 2rem;
-            border-radius: 13px;
-            margin-bottom: 5%;
-            padding: 3%;
+            margin-bottom: 2%;
             text-align: start;
         }
     
@@ -114,9 +116,9 @@
     
         .infoTwo {
             width: 97%;
-            margin: auto;
-            background-color: #eff3ef;
-            margin-left: 3%;
+            margin: 2% 4%;
+            
+           
         }
     
         .infoTree {
@@ -126,14 +128,13 @@
     
         .infoTwo p,
         .infoTree p {
-            background-color: #eff3ef;
             width: 93%;
-            margin: auto;
+            margin: 0;
             font-size: 1.4rem;
-            line-height: 2rem;
-            border-radius: 13px;
+            line-height: 1.7rem;
+           
     
-            padding: 3%;
+            padding: 0%;
             text-align: start;
             margin-bottom: 10%;
         }
@@ -224,22 +225,22 @@
                 display: block;
                 width: 84%;
                 max-width: 80%;
-                height: 533px;
+                height: 573px;
     
             }
     
             .forms h1 {
                 color: #fff;
-                font-size: 2.7rem;
-                margin: auto;
+                font-size: 2.6rem;
+               padding-bottom: 10%;
                 margin-bottom: 0;
             }
     
             .forms input {
-                height: 10px;
+                height: 0px;
                 font-size: 15px;
-                width: 78%;
-                margin-left: 5%;
+                width: 75%;
+                margin: 6% 5%;
             }
     
     .bot{
@@ -247,6 +248,7 @@
         width: 71%;
         margin-left: 14%;
         border-radius: 9px;
+        
     }
     .bot:hover{
         background-color: #fff;
@@ -278,7 +280,7 @@
                 margin: 5px auto;
                 display: flex;
                 justify-content: center;
-    
+    gap: 70px;
             }
     
             .image img {
@@ -286,6 +288,7 @@
                 width: 30%;
                 object-fit: contain;
                 border-radius: 8px;
+           
             }
     
     

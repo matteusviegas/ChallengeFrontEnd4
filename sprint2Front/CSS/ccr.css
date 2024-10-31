@@ -8,30 +8,36 @@ body {
 }
 
 
-/*ocultamento do menu burguer*/
 
-.menu-toggle,
-.mobile-nav {
-    display: none;
+.div-header{
+    padding: 0;
 }
 
 .header {
     background-color: #42807D;
+width: 100%;
+}
+
+.header-title {
+    width: 15%;
+    font-size: 6rem;
+    margin-bottom: 1%;
 
 }
 
 
-.header div {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-
-}
 
 
 .navigation {
     margin: auto;
 }
+
+.navigation ul {
+    flex-direction: row;
+}
+
+
+
 
 
 .navigation ul {
@@ -39,19 +45,21 @@ body {
     justify-content: center;
     list-style: none;
     padding: 0px;
+    margin-left: 6%;
 }
 
 .navigation ul li {
-    margin: 0 6% 4%;
-  
+    margin: 0 19px;
+    padding-top: 1%;
+    font-size: 1.6rem;
 }
 
 .navigation ul li a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-font-size: 2rem;
-    padding: 10px;
+    font-size: 1.6rem;
+    padding: 14px;
     transition: background-color 0.9s ease;
 }
 
@@ -62,18 +70,17 @@ font-size: 2rem;
 
 
 
-
+.secaoOne{
+width: 100%;
+}
 
 
 .header h1 {
-
-margin: 1% auto 1%;
-    width: 82%;
-     font-weight: bold;
-    margin-left: 222px;
-    font-size: 5.6rem;
-
-    
+    font-size: 4rem;
+    width: 15%;
+  color: #000;
+    margin: 0 auto 0;
+    padding: 0;
 }
 
 
@@ -84,9 +91,9 @@ margin: 1% auto 1%;
 
 img{
     width: 21%;
-    height: 522px;
+    height: 422px;
 margin: 0 auto 1%;
-margin-block: 70px;
+margin-block: 40px;
 
 }
 
@@ -112,7 +119,9 @@ margin-top: 8%;
     margin-right: 13%;
     padding-right:83px ;
 }
-
+.paragrafoThree{
+    margin: 9% auto 12%;
+}
 
 .informationTwo{
 margin: 0;

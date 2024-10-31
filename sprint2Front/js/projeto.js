@@ -4,8 +4,8 @@ const menuToggle = document.getElementById('menu-toggle');
 const mobileNav = document.querySelector('.mobile-nav');
 
 menuToggle.addEventListener('click', () => {
-    mobileNav.classList.toggle('active'); // Adiciona ou remove a classe 'active'
-    menuToggle.classList.toggle('active'); // Para animar o botão do menu
+    mobileNav.classList.toggle('active'); 
+    menuToggle.classList.toggle('active'); 
 });
 Width = 600
 let contador = 0;
@@ -14,10 +14,10 @@ const slider = () => {
     if (contador >= img.length) {
         contador = 0;
     }
-    // Calcule a largura do carrossel
-    const slideWidth = document.querySelector('.carrossel').offsetWidth; // largura do carrossel
-    box.style.transform = `translateX(${-contador * Width}px)`; // Usar a largura do carrossel
+    
+    const slideWidth = document.querySelector('.carrossel').offsetWidth; 
+    box.style.transform = `translateX(${-contador * Width}px)`; 
 }
 
-// Execute o slider a cada 2 segundos
+
 setInterval(slider, 2000);

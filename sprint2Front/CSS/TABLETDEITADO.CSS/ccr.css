@@ -56,12 +56,33 @@
         width: 79%;
     }
 
-    .informationOne, .informationTwo {
+    .informationOne{
+        margin-left: 5%;
         font-size: 1.3rem;
         width: 38%;
+        text-align: center; 
+    }
+    
+    
+    .informationTwo {
+        font-size: 1.3rem;
+        width: 38%;
+        margin-right: 3%;
         text-align: center;
     }
     
+
+
+
+
+    .paragrafoOne, .paragrafoThree{
+    margin-bottom: 11%;
+}
+
+.paragrafoTwo, .paragrafoFour{
+    margin-top: 12%;
+}
+
     .info-extra {
         margin: 11% auto 2%;
         width: 55%;

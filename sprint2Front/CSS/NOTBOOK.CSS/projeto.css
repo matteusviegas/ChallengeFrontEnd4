@@ -6,6 +6,16 @@
         margin: 0;
     }
 
+    
+
+    /* Ocultando o menu */
+    .menu_box {
+        display: none; 
+    }
+    .menu_toggle{
+        display: none;
+    }
+
     .header {
         background-color: #42807D;
         height: 103px;
@@ -21,13 +31,6 @@
         margin-bottom: 0;
     }
 
-    .menu-toggle {
-        display: none;
-    }
-
-    .mobile-nav {
-        display: none;
-    }
 
     .header {
         padding: 15px;
@@ -59,7 +62,8 @@
     }
 
     h2.expandir {
-        margin-top: 5%;
+        margin:2%;
+        text-align: start;
         font-size: 3rem !important;
         line-height: 1.5;
         margin-bottom: 5% !important;
@@ -67,7 +71,7 @@
     }
 
     .info {
-        width: 80%;
+        width: 88%;
         padding: 15px;
     }
 
@@ -82,47 +86,44 @@
     }
 
     .infoOne {
-        background-color: #fff;
         line-height: 1.6rem;
         padding: 15px;
         width: 100%;
+        margin: 0;
     }
 
     .infoOne p {
-        background-color: #eff3ef;
-        width: 90%;
+        width: 98%;
         margin: auto;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         line-height: 1.8rem;
-        border-radius: 10px;
-        margin-bottom: 5%;
-        padding: 4%;
+    
+        margin-bottom: 4%;
+       
         text-align: start;
     }
 
     .infoTwo {
         width: 90%;
         margin: auto;
-        background-color: #eff3ef;
         margin-left: 5%;
     }
 
     .infoTree {
-        width: 90%;
+        width: 95%;
         line-height: 1.5rem;
     }
 
     .infoTwo p,
     .infoTree p {
-        background-color: #eff3ef;
         width: 90%;
-        margin: auto;
+        margin: 0;
         font-size: 1.6rem;
         line-height: 1.8rem;
         border-radius: 10px;
-        padding: 4%;
+     
         text-align: start;
-        margin-bottom: 10%;
+        margin-bottom: 18%;
     }
 
     .carrossel {
@@ -154,11 +155,12 @@
 
     h1.h1skills {
         font-size: 3.5rem;
-        margin-top: 10%;
+        margin: 10% 0 2.5%;
         text-align: center;
     }
 
     .skills-icons {
+margin: auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -182,23 +184,28 @@
         display: block;
         width:70%;
         max-width: 80%;
-        height: 633px;
+        height: 833px;
     }
 
     .forms h1 {
+        padding-bottom: 5%;
         color: #0b0b0b;
-        font-size: 3.4rem;
-        margin: auto;
+        font-size: 3.8rem;
+        text-align: start;
+        margin: 3% auto 7% 5%;
         margin-bottom: 0;
     }
 
     .forms input {
         height: 60px;
-        margin-top: 60px;
+        margin-bottom: 7%;
         font-size: 15px;
         width: 80%;
     }
 
+    .forms textarea{
+margin-bottom: 4%;
+    }
     .parcerias {
         margin-top: 5%;
         height: auto;

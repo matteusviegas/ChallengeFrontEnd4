@@ -6,7 +6,7 @@
     }
 
     .container {
-        width: 80%;
+        width: 100%;
         margin: auto;
         padding: 15px;
     }
@@ -62,19 +62,42 @@
     }
 
     .informationOne {
-        margin-left: 14%;
+        margin: 0%;
         text-align: end;
         font-size: 1.4rem;
         width: 73%;
+        padding: 0;
     }
-
+ 
     .informationTwo {
         margin: 0;
-        margin-left: 12%;
         font-size: 1.4rem;
         text-align: center;
-        margin-left: 21%;
         margin-top: 13%;
+        width: 100%;
+    }
+
+
+    .paragrafoOne{
+        text-align: start;
+        width: 100%;
+        margin: 10% 0;
+    }
+    .paragrafoTwo{
+        text-align: end;
+        width: 90%;
+       margin-left: 42%;
+    }
+
+
+    .paragrafoThree{
+text-align: start;
+width: 88%;
+margin-top: 11%; 
+}
+    .paragrafoFour{
+        text-align: end;
+    margin-left:22% ;        
     }
 
 

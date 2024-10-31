@@ -1,94 +1,130 @@
     @media (max-width: 576px) {
 
-        * {
-            text-align: center;
-margin: auto;
 
+
+        /*ocultando a li*/
+
+        .navigation {
+            display: none; 
+        }
+
+        .menu_box {
+            display: block; 
+        }
+
+
+
+
+        /*header*/
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
 
         .header {
             background-color: #42807D;
-        }
-
-        .header h1 {
-            width: 50%;
-            margin: auto;
-            background-color: #42807D;
-        }
-
-
-        /* Estilos do botão do menu hambúrguer */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .menu-toggle span {
-            height: 3px;
-            /* Altura das barras do botão */
-            width: 30px;
-            /* Largura das barras do botão */
-            background-color: #11ff00;
-            /* Cor das barras */
-            margin: 5px auto;
-            /* Espaço entre as barras */
-        }
-
-
-
-
-        .navigation {
-            display: none;
-        }
-
-        .mobile-nav {
-
-            flex-direction: column;
-            background-color: #28a746;
-            position: absolute;
-            top: 0;
-            left: 0;
+            height: 168px;
             width: 100%;
-            height: 28vh;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
+            position: relative;
+            text-align: center;
+        }
+
+
+      
+        /*menu burguer*/
+
+        .menu_toggle {
             display: none;
         }
 
-        .mobile-nav.active {
-            display: flex;
-
+        .menu_btn {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 1;
         }
 
-        .mobile-nav li {
-            margin: 20px 0;
-
+        .menu_btn span,
+        .menu_btn span::before,
+        .menu_btn span::after {
+            display: block;
+            background-color: #2ecc19;
+            height: 3px;
+            width: 100%;
+            transition: transform 0.25s ease;
+            position: relative;
         }
 
-        .mobile-nav ul {
-            list-style-type: none;
-            color: #fff;
-            width: 41%;
+        .menu_btn span::before,
+        .menu_btn span::after {
+            content: '';
+            position: absolute;
         }
 
-        .mobile-nav li a {
+        .menu_btn span::before {
+            transform: translateY(-8px);
+        }
+
+        .menu_btn span::after {
+            transform: translateY(8px);
+        }
+
+        .menu_toggle:checked+.menu_btn span {
+            transform: rotate(45deg);
+        }
+
+        .menu_toggle:checked+.menu_btn span::before {
+            transform: rotate(90deg);
+        }
+
+        .menu_toggle:checked+.menu_btn span::after {
+            transform: rotate(90deg);
+        }
+
+        .menu_box {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 200px;
+            height: 183px;
+            background-color: #eeeeeedc;
+            padding-top: 11px;
+            border-radius: 7px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            transition: left 0.25s ease;
+        }
+
+        .menu_toggle:checked~.menu_box {
+            left: 0;
+            
+        }
+
+        .menu_box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu_item {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
             text-decoration: none;
-            font-size: 1.9rem;
-            color: #fff;
-
+            font-weight: 600;
+            transition: color 0.25s;
         }
 
-        .mobile-nav li a:hover {
-            background-color: #11dd1b;
-            color: #ffffff;
-            border-radius: 7%;
-            padding: 4%;
+        .menu_item:hover {
+            color: #00ea27;
         }
 
-        /* informacoes  */
+
+
+        /* informacoes  das estaçoes */
 
 
         .content-item {
@@ -100,19 +136,26 @@ margin: auto;
             margin-top: 22%;
         }
 
+        /*titulo  das informações*/
+        .content-item h1 {
+            margin-top: 2%;
+            font-size: 1.9rem;
+        }
+
+        /*img das informações */
         .image-container {
             height: 333px;
             width: 88%;
         }
 
+        /*imagem */
         .image-container img {
             width: 100%;
         }
 
-
+        /*descrição*/
 
         .description-container {
-            background-color: rgb(236, 241, 236);
 
             width: 88%;
             text-align: center;
@@ -122,20 +165,29 @@ margin: auto;
         }
 
         .description-container h3 {
-            font-size: 1.9rem;
+            font-size: 1.6rem;
+            margin-bottom: 6%;
         }
 
         .description-container p {
             width: 77%;
+            font-size: 1.3rem;
             margin: auto;
             padding-bottom: 6px;
 
         }
 
+        .sec2 {
+
+            background-color: #fffefe;
+        }
+
+
+        /*seção dos cards*/
 
         .card {
-            width: 68%;
-            margin: auto;
+            width: 78%;
+            margin: 7% auto;
             margin-bottom: 29px;
             display: flex;
             flex-direction: column;
@@ -155,18 +207,47 @@ margin: auto;
             padding-bottom: 18px;
         }
 
-        .card p {
-            width: 100%;
-            font-size: 1rem;
-            color: #fff;
+
+        /*hover dos cards*/
+        .card:hover .titulo-card1 {
+            color: #fff200;
         }
 
 
+
+        .card:hover .titulo-card2 {
+            color: #e1e1e1;
+        }
+
+        .card:hover .titulo-card3 {
+            color: #00ff04;
+        }
+
+
+        .card p {
+            width: 100%;
+            font-size: 1.1rem;
+
+}
+
+
+
+/*botão*/
         .info-button {
             width: 78%;
             margin: auto;
             border-radius: 4px;
         }
+
+/*ocultamentos das informações dos cards*/
+        .info-card {
+            display: none; 
+        }
+        
+
+/*seção 3*/
+
+
 
         .sec3 {
             display: flex;
@@ -176,54 +257,73 @@ margin: auto;
 
         .sec3 h1 {
 
-            font-size: 1.7rem;
+            font-size: 1.8rem;
             width: 80%;
-          margin: 4% auto;
+            margin: 4% auto;
         }
 
         .divOne {
-            width: 80%;
+            width: 95%;
             margin: auto;
             text-align: start;
         }
 
         .divOne h3 {
             margin: auto;
-            text-align: center;
-            font-size: 1.7rem;
+            text-align: start;
+            font-size: 2rem;
+            margin: 7% 0 0% 2%;
+            padding-block: 7px;
+            border-radius: 14px;
+            width: 100%;
 
-            padding-block: 12px;
-            border-radius: 19px;
-            width: 40%;
+        }
 
+        .divOne p {
+            margin-top: 3%;
+            font-size: 1rem;
+            text-align: start;
+            width: 90%;
         }
 
         .paragrafo {
             padding: 12px;
-            line-height: 1.8rem;
-            margin: auto;
-        width: 100%;
+            line-height: 1.4rem;
+            width: 100%;
+            box-sizing: border-box;
+            white-space: normal;
+            margin: 0px auto 0 0;
+            padding-top: 0;
         }
 
         .divTwo {
-            width: 100%;
+            width: 90%;
             margin: auto;
             margin-left: 0;
+            margin-top: 0;
         }
+
+
+
+        .divTwo p {
+            padding: 0;
+            margin-top: 2%;
+            font-size: 1rem;
+            text-align: start;
+            width: 90%;
+            background-color: none;
+        }
+
 
         .divTwo h3 {
 
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            text-align: center;
+            margin: 0 auto 2% 0%;
+            text-align: start;
             font-size: 1.8rem;
-
-            padding-block: 12px;
-            
-            border-radius: 19px;
-            width: 64%;
-            height: 58px;
+            margin: 10% 0 0% 0%;
+            padding-block: 7px;
+            border-radius: 14px;
+            width: 100%;
         }
 
 
@@ -232,5 +332,14 @@ margin: auto;
             margin: 34px auto;
         }
 
-      
+        .fot {
+            height: 74px;
+            width: 100%;
+            padding: 17px;
+        }
+
+        .fot p {
+            margin-bottom: 2%;
+            font-size: 15px;
+        }
     }
