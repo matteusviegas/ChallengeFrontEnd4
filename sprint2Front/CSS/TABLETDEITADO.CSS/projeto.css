@@ -1,21 +1,18 @@
-
-
-
 @media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: landscape) {
     body {
         margin: 0;
     }
 
 
-    
 
     /* Ocultando o menu */
-   .menu_box {
-    display: none; 
-}
-.menu_toggle{
-    display: none;
-}
+    .menu_box {
+        display: none;
+    }
+
+    .menu_toggle {
+        display: none;
+    }
 
     .header {
         background-color: #42807D;
@@ -24,7 +21,7 @@
     .header h1 {
         width: 40%;
         margin: 0 auto 0;
-    
+
         font-size: 3rem;
         background-color: #42807D;
     }
@@ -51,19 +48,19 @@
     }
 
     .navigation ul {
-        flex-direction: row; 
+        flex-direction: row;
     }
 
     .navigation ul li {
         margin: 10px 0;
-        font-size: 1.4rem; 
+        font-size: 1.4rem;
         padding-left: 9%;
     }
 
     h1 {
         margin: 5% auto 0;
         font-size: 3.5rem;
-        
+
     }
 
     h2.expandir {
@@ -79,9 +76,10 @@
         padding: 10px;
     }
 
-    .infoOne{
+    .infoOne {
         margin: 0;
     }
+
     .expandDiv h2 {
         margin: 1% 0 3% 2.5%;
         font-size: 1.3rem;
@@ -92,10 +90,12 @@
     .sec1 p {
         font-size: 4.2rem;
     }
-
+h2{
+    color: #000;
+}
     .infoOne {
         line-height: 1.3rem;
-       
+
         width: 100%;
     }
 
@@ -113,7 +113,7 @@
     .infoTwo {
         width: 97%;
         margin: auto;
-      
+
     }
 
     .infoTree {
@@ -129,7 +129,7 @@
         line-height: 2rem;
         padding: 1%;
         text-align: start;
-        margin: 2% 0% 22%; 
+        margin: 2% 0% 22%;
 
     }
 
@@ -137,22 +137,22 @@
         background-color: #42807D;
 
         display: flex;
-        height: 350px; 
-        width: 100%; 
+        height: 350px;
+        width: 100%;
         max-width: 100%;
         border-radius: 4%;
-        overflow: hidden; 
+        overflow: hidden;
         margin: 0 auto;
     }
 
     .container {
         display: flex;
-        transition: transform 0.5s ease; 
+        transition: transform 0.5s ease;
     }
 
     .container img {
-        height: 373px; 
-        width: auto; 
+        height: 373px;
+        width: auto;
         border-radius: 4%;
     }
 
@@ -163,16 +163,16 @@
     }
 
     h1.h1skills {
-        font-size: 3.2rem;
+        font-size: 2.8rem;
         margin-top: 10%;
-        margin-bottom: 3%;
+        margin-bottom: 8%;
         text-align: center;
     }
 
     .skills-icons {
         margin: auto;
-        margin-left: 4%;
-        display: flex;
+        margin-left: 14%;
+        display: block;
         flex-wrap: wrap;
         justify-content: center;
         padding: 10px;
@@ -187,8 +187,8 @@
     }
 
     .formulario {
-        width: 100%;
-    
+        width: 88%;
+
     }
 
     .forms {
@@ -200,91 +200,80 @@
         height: 563px;
     }
 
-    .forms h1 {
-        color: #fff;
-        font-size: 2.8rem;
-        margin: auto;
-      padding-bottom: 9%;
-    }
 
-    .forms input {
-     margin-bottom: 7%;
-        font-size: 15px;
-        width: 87%;
-    }
-    .forms textarea{
-        margin-bottom: 9%;
-    }
-.bot{
-    background-color: #0dc526;
-}
 
+   
+    
+
+
+
+   
     .parcerias {
-
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 20px 0;
-    }
-
-    .parcerias h1 {
-        height: 60px;
-        width: 50%;
-        border-radius: 9px;
-        font-size: 4rem;
-        margin-bottom: 8%;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-
-    .image {
-        width: 80%;
-        margin: 5px auto;
-        display: flex;
-        justify-content: center;
-    }
-
-    .image img {
-        height: auto;
-        width: 30%;
-        object-fit: contain;
-        border-radius: 8px;
-    }
-    .bot{
-        width: 66%;
+        padding: 20px;
         margin: auto;
-        margin-left: 17%;
-        height: 55px;
-        border-radius: 9px;
+        text-align: center;
+        margin-bottom: 82px;
     }
+    .parcerias h1{
+        text-align: center;
+        margin-top: 0;
+        padding-bottom: 19%;
+    font-size: 6rem;
+    width: 50%;
+    margin: auto;
+    }
+    
     .image {
-        width: 80%;
-        margin: 44px auto;
         display: flex;
         justify-content: center;
-gap: 70px;
-  
-    .parcerias img{
-        display: flex;
-        gap: 10px;
+        gap: 120px;
+    margin-left: 21%;
+    margin-top: 17%;
+    margin-bottom:  17%;
     }
-      /* Rodapé */
-.fot {
+    
+    .image img {
+        
+        width: 100px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform .3s;
+    }
+          
+/* Rodapé */
+footer {
     position: relative;
-    left: 0;
-    bottom: 0;
+    
     width: 100%;
-    height: 111px;
+    height:103px;
     background-color: #42807d;
     color: white;
     text-align: center;
+    padding: 10px 0;
 }
 
-footer p a {
+footer p, a {
+   
     text-decoration: none;
     color: #fff;
+    font-size: 1.7rem;
     font-weight: bold;
-    padding: 10px;
+   padding: 0px;
     transition: background-color 0.9s ease;
+    margin: 0.5% 2%  1.5% 0%;
+padding-left: 2%;
+
 }
+
+
+footer.fot p:last-of-type {
+position: relative;
+
+    font-size: 1.2rem;
+  margin: 0% 1.5% 4% 0%;
+  color: #000;
+  padding: 0;
 }
+
+
+    }

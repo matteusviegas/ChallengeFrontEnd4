@@ -24,18 +24,21 @@
         margin-top: 3%;
         height: auto;
         width: 24%;
+        margin-bottom: 0;
     }
 
     .membroTwo img {
-        margin-top: 7%;
+        margin-top: 3%;
         height: auto;
         width: 24%;
+        margin-bottom: 0;
     }
 
     .membroThree img {
-        margin-top:7% ;
+        margin-top:3% ;
         height: auto;
         width: 24%;
+        margin-bottom: 0;
     }
 
     .membroOne:hover {
@@ -56,24 +59,41 @@
         width: 70%;
     }
 
-  
-    .descripition h3 {
-        margin: 8% auto 0;
-    }
-    .descripition p {
-        margin: auto;
-    }
-
-
-    /*botao*/
-    .but {
+    .descripition {
         font-size: 1.2rem;
-        width: 40%;
-        height: 30px;
+        width: 55%;
+
     }
-    .but h2 {
-        font-size: 1.4rem;
+
+    .descripitionOne  {
+        margin-bottom: 0;
+        font-size: 1.8rem;
+    }
+    .descripitionTwo  {
+        margin: 1% auto 0;
+        font-size: 1.8rem;
+    }
+    .descripitionThree  {
+        margin: 1% auto 0;
+        font-size: 1.8rem;
+    }
+    .fab {
+        font-size: 28px;
+        margin: 0 10px;
+        color: #000;
+      position: relative;
+      left: 33%;
+      top: 9%;
+    }
+
+    h3 {
+        margin: 3%;
+        width: 100%;
+    }
+    
+    p {
         margin: 0;
     }
+    
 
 }

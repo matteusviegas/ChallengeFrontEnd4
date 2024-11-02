@@ -1,43 +1,38 @@
 @media only screen and (min-width: 1450px) and (max-width: 1690px) {
-   
-
-
     h1 {
-        font-size: 3rem;
+        font-size: 3.8rem;
     }
 
     header {
-        width: 80%;
+        width: 75%;
     }
 
-
-    
     .membroOne,
     .membroTwo,
     .membroThree {
         width: 100%;
-        height: 498px;
-        padding: 25px;
+        height: 420px;
+        padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: transform 0.2s ease;
     }
 
     .membroOne img {
-        margin-top: 3%;
+        margin-top: 5%;
         height: auto;
-        width:16%;
+        width: 20%;
     }
 
     .membroTwo img {
-        margin-top: 3%;
-        height: auto;
-        width: 16%;
+        margin-top: 5%;
+        height: 230px;
+        width: 20%;
     }
 
     .membroThree img {
-        margin-top: 3%;
-        height: auto;
-        width: 16%;
+        margin-top: 5%;
+        height: 230px;
+        width: 20%;
     }
 
     .membroOne:hover {
@@ -51,24 +46,24 @@
     }
 
     .descripition {
-        font-size: 1.8rem;
-        width: 85%;
+        font-size: 1.9rem;
+        width: 80%;
+      
     }
     .descripition h3 {
-        margin: 2% auto 0;
-        font-size: 2.7rem;
+        margin: 4% auto 0;
     }
     .descripition p {
         margin: auto;
-        font-size: 2rem;
     }
     .but {
-        font-size: 1.6rem;
-        width: 35%;
-        height: 28px;
+        font-size: 1.4rem;
+        width: 40%;
+        height: 30px;
+        margin: 10% auto 10%;
     }
     .but h2 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
         margin: 0;
     }
 }

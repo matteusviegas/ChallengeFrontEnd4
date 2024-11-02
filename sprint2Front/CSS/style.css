@@ -1,22 +1,20 @@
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
+    overflow-x: hidden;
+    width: 100%;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    
+    background-color: #f4f4f4; 
 }
 
 
-
-
-    /* Ocultando o menu */
     .menu_box {
         display: none; 
     }
@@ -43,18 +41,19 @@ body {
 
 /* Cabeçalho */
 .header {
-    background-color: #28524D;
+    background-color: #42807D;
     position: relative;
     width: 100%;
-    height: 242px;
+    height: 277px;
     top: 0;
     margin:0 ;
 }
 
 
 .header .div-header h1 {
-    font-size: 3.9rem;
-    margin: 0.5% auto 0%;
+    font-size: 4.8rem;
+    width: 5%;
+    margin: 0.5% 42% 0% ;
     color: #000; 
 }
 
@@ -70,14 +69,14 @@ body {
     display: flex;
     justify-content: center;
     list-style: none;
- 
+ margin: 1% 0 6% 3%;
     padding: 0;
 }
 
 
 .navigation ul li {
-padding: 2%;
-    font-size: 2rem;
+padding-right:3.5% ;
+    
 }
 
 .navigation ul li a {
@@ -86,7 +85,7 @@ padding: 2%;
     color: #fff;
     font-weight: bold;
     padding-left: 8px ;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     
     margin: 0;
     transition: background-color 0.9s ease;
@@ -107,15 +106,6 @@ padding: 2%;
     width: 100%;
     left: 0; 
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -144,6 +134,10 @@ padding: 2%;
     flex: 1;
     text-align: center;
 }
+.image-container h1{
+    font-size: 2.2rem;
+    margin-top: 3.5%;
+}
 
 .image-container img {
     max-width: 100%;
@@ -159,6 +153,9 @@ h3 {
 }
 
 .description-container {
+ position: relative;
+ bottom: 36px;
+ left: 26px;
     flex: 3;
     font-size: 1.5rem;
     text-align: start;
@@ -167,110 +164,90 @@ h3 {
 .description-container p {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
-    width: 17%;
+    width: 20%;
 }
 
-.sec1 h1 {
-    font-size: 2.5rem;
-    padding-block: 1.7%;
-}
 
 /* Segunda seção */
 .sec2 {
-    padding: 20px;
-    background-color: #00000043;
+    padding: 10px; 
 }
 
 .avisos {
+    background-color: #189e97;
+    border-radius: 15px;
+    width: 90%; 
+    height: auto; 
+    margin: 4% auto 8%; 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap: 5px; 
 }
 
 .avisos h1 {
-    font-size: 2.9rem;
-    text-align: center;
+    font-size: 5rem; 
+    font-weight: bold;
+    text-align: start;
+    color: #000000;
+    margin: 3% 0% 0% 2% !important ;
+}
+
+.avisos h2 p {
+   margin: 0;
+   font-size: 1.9rem; 
+   width: 29%;
+}
+
+.sec3 {
+    background-color: #fff;
+}
+
+.linha_amarela h2,
+.linha_diamante h2,
+.linha_esmeralda h2 {
     color: #fff;
-    margin-bottom: 3%;
-}
-.sec3{
-}
-
-.card {
-    background: linear-gradient(135deg, #28a745, #000000b7);
-    padding: 20px;
-    width: 24%;
-    border-radius: 10px;
-    margin:  2% 30px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
+    font-size: 2.5rem; 
+    margin: 4% 0% 0% 8%;
+    width: 32%;
 }
 
-.card h2 {
-    font-size: 1.9rem;
-    margin-bottom: 1.5%;
-    padding-bottom: 22px;
-}
-
-
-
-.card p {
-    font-size: 1.2rem;
-    padding: 20px;
-    white-space: nowrap;
-}
-
-.card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.info-button {
-    background-color: #2cc731;
-    height: 21%;
-    color: white;
-    border: none;
-    border-radius: 7%;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 18px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition: background-color 0.22s ease;
-}
-
-.info-button:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(47, 255, 10);
+.linha_amarela p,
+.linha_diamante p,
+.linha_esmeralda p {
+    font-size: 2.3rem; 
+    margin: 0% 2% 4% 8%;
+    width: 36%;
 }
 
 /* Barras coloridas */
 .amarelas,
 .cinza,
 .verde {
-    height: 6px;
+    height: 30px; 
+    border-radius: 50%;
+    width: 1.8%;
+    position: relative;
+    bottom: 40px; 
+    left: 77px;
+}
+
+.linha_esmeralda p{
+    margin-left: 8%;
 }
 
 .amarelas {
-    background-color: yellow;
+    background-color: rgb(22, 255, 1);
 }
 
 .cinza {
-    background-color: #c1d7d3;
+    background-color: #f6ff00;
 }
 
 .verde {
-    background-color: rgb(0, 255, 115);
+    background-color: rgb(255, 34, 0);
 }
 
-
-
-    /*ocultamento dos cards*/
-
-    .info-card {
-        display: none;
-    }
 
 
 /* Terceira seção */
@@ -281,22 +258,22 @@ h3 {
 }
 
 .sec3 h1 {
-    font-size: 4rem;
-    padding-block: 2%;
+    font-size: 3.5rem;
+ margin: 0% 0 0 3%;
     font-weight: bold;
     width: 92%;
-    margin-right: auto;
+  
 }
 
 .sec3 h3 {
-    font-size: 3.8rem;
+    font-size: 2.8rem;
     text-align: start;
-    margin: 15% 0 3%;
+    margin: 15% 0 2.6%;
 }
 
 .sec3 p {
-    font-size: 2.4rem;
-    width: 58%;
+    font-size: 2rem;
+    width: 70%;
     text-align: start;
 }
 
@@ -308,50 +285,61 @@ h3 {
 }
 
 .divOne {
-    width: 60%;
-    margin-left: 2%;
+    width: 68%;
+    margin-left: 2.5%;
+}
+
+
+
+.divOne h3{
+font-size: 2.8rem;
 }
 
 .divTwo {
-    width: 50%;
-    margin-left: 67%;
-    margin-top: 30px;
+    width: 67%;
+    margin-left: 52%;
+   
 }
 
-/* Animações */
-@keyframes slide-in {
-    22% {
-        transform: translateY(-50%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
 
 
 .divTwo p{
 text-align: start;
+font-size: 2rem;
 }
+
+
 /* Rodapé */
 footer {
     position: relative;
-    left: 0;
-    bottom: 0;
+    
     width: 100%;
+    height:133px;
     background-color: #42807d;
     color: white;
     text-align: center;
     padding: 10px 0;
 }
 
-footer p a {
+footer p, a {
+   
     text-decoration: none;
     color: #fff;
+    font-size: 1.7rem;
     font-weight: bold;
-    padding: 10px;
+   padding: 0px;
     transition: background-color 0.9s ease;
+    margin: 0.5% 2%  1.5% 0%;
+padding-left: 2%;
+
 }
 
+
+footer.fot p:last-of-type {
+position: relative;
+
+    font-size: 1.5rem;
+  margin: 0% 1.5% 4% 0%;
+  color: #000;
+  padding: 0;
+}

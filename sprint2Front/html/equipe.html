@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/equipe.css">
     <link rel="stylesheet" href="../CSS/MOBILE.CSS/equipe.css">
     <link rel="stylesheet" href="../CSS/TABLETDEITADO.CSS/equipe.css">
     <link rel="stylesheet" href="../CSS/TABLETEMPE.CSS/equipe.css">
-    <link rel="stylesheet" href="../CSS/NOTBOOK.CSS/equipe.css">
+    <link rel="stylesheet" href="../CSS/NOTEBOOK/equipe.css">
     <link rel="stylesheet" href="../CSS/Desktop/equipe.css">
     <title>Document</title>
 </head>
 <body>
     <header class="header">
         <div class="div-header">
-            <h1>FUTURE  <span style="color: rgb(255, 255, 255);">STATION</span></h1>
+            <h1 class="title">FUTURE <span style="color: rgb(255, 255, 255);">STATION</span></h1>
             <nav class="navigation">
                 <ul>
                     <li><a href="../index.html">HOME</a></li>
@@ -23,6 +25,10 @@
                     <li><a href="../html/ccr.html">CCR</a></li>
                 </ul>
             </nav>
+            
+            
+            <input type="checkbox" id="menu_toggle" class="menu_toggle">
+            
             <label class="menu_btn" for="menu_toggle">
                 <span></span>
             </label>
@@ -37,6 +43,7 @@
             </nav>
         </div>
     </header>
+    
 
     <main>
         <h1>EQUIPE</h1>
@@ -45,31 +52,37 @@
         <section>
             <div class="membroOne">
                 <img src="../integrantes/integrante_matteus.jpg" alt="Matteus Viegas Dos Santos">
-                <div class="descripition">
+                <div class="descripitionOne">
                     <h3>Matteus Viegas Dos Santos</h3>
                     <p>RM 561090</p>
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-linkedin"></i>
+                    
                 </div>
             </div>
 
             <div class="membroTwo">
                 <img src="../integrantes/membro.png" alt="Pedro Henquire">
-                <div class="descripition">
+                <div class="descripitionTwo">
                     <h3>Pedro Henquire</h3>
-                    <p>RM</p>
+                    <p>RM 561178</p>
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-linkedin"></i>
                 </div>
             </div>
 
             <div class="membroThree">
                 <img src="../integrantes/integrante_sulamita.jpg" alt="Sulamita Viegas Dos Santos">
-                <div class="descripition">
+                <div class="descripitionThree">
                     <h3>Sulamita Viegas Dos Santos</h3>
                     <p>RM 561019</p>
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-linkedin"></i>
                 </div>
             </div>    
         </section>
-        <div class="but">
-            <h2>VOLTAR AO INICIO</h2>
-        </div>
+        <button    id="scrollToTop" >voltar ao topo</button>
+
     </main>
 
     <footer>
@@ -79,6 +92,6 @@
     </footer>
 
 
-    <script src="projetos.js"></script>
+    <script src="../js/equipe.js"></script>
 </body>
 </html>

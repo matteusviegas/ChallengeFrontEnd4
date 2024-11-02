@@ -2,48 +2,67 @@
 @media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: landscape) {
 
   
-    
-
+   
     /* Ocultando o menu */
-   .menu_box {
-    display: none; 
-}
-.menu_toggle{
-    display: none;
-}
-
-
+    .menu_box {
+        display: none; 
+    }
+    .menu_toggle{
+        display: none;
+    }
 
     .header {
-        margin: 0%   ;
-        height: 190px;
         background-color: #42807D;
-
-    }
-.div-header{
-    margin: 0;
-    padding: 0;
-}
-
-    h1.title { 
-    margin: 0;
-    width: 55%;
-    background-color: #42807D;
-    }
-
-
-    .div-header ul {
-      
-        margin-top: 0;
+        height: 198px;
+        width: 100%;
     }
 
     
-
-    .navigation ul li {
-        margin: 10px 20px; 
-        font-size: 1.3rem; 
+    .header .title {
+        width: 40% !important;
+        font-size: 3.3rem !important;
+        margin: 2% 3% 2% 30%!important;
     }
 
+    .navigation ul {
+        margin-top: 1%;
+        margin-right: 5.5%;
+    }
+
+
+    .navigation ul li {
+        margin-left: 7%;
+    }
+
+
+    .navigation ul li a {
+        font-size: 1.2rem;
+        padding: 0;
+
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease, font-weight 0.3s ease;
+        position: relative;
+    }
+
+    .navigation ul li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0;
+        height: 2px;
+        background-color: #00ff5e;
+        transition: width 0.3s ease;
+    }
+
+
+
+    .navigation ul li a:hover::after {
+        width: 100%;
+       
+    }
+    
     .section-container {
         flex-direction: row;
         width: 100%;
@@ -135,7 +154,6 @@ margin: 0 auto 5%;
         color: #00ff04;
     }
 
-
     
 
     .sec3 h3 {
@@ -151,7 +169,7 @@ margin: 0 auto 5%;
 
 
     .sec3 h1 {
-        font-size: 2.3rem;
+        font-size: 2.1rem;
         margin: auto;
         margin-top: 5%;
     }
@@ -165,7 +183,7 @@ margin: 0 auto 5%;
 
     .divOne h3 {
         text-align: start;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     margin: 1% 0 3.5% 0%;
     }
 
@@ -174,7 +192,7 @@ margin: 0 auto 5%;
         margin: 0;
         text-align: start;
         font-size: 1.3rem;
-        line-height: 1.8rem;
+        line-height: 1.5rem;
     }
 
     .divTwo {
@@ -186,7 +204,7 @@ margin: 0 auto 5%;
     text-align: start;
         margin:  5% auto 0 ;
         border-radius: 13px;
-        font-size: 2rem;
+        font-size: 1.8rem;
        
     }
 
@@ -194,15 +212,34 @@ margin: 0 auto 5%;
         font-size: 22px;
         width: 100%;
         font-size: 1.3rem;
-        line-height: 1.9rem;
+        line-height: 1.6rem
+    }
+    .fot {
+            padding-bottom: 0;
+        width: 100%;
+        height: 56px;
+        padding: 17px;
+        background-color: #42807D;
+        text-align: center;
     }
 
-    footer {
-        height: 123px;
+    .fot p  {
+padding: 0%;
+margin-top: 1%;
+margin-bottom: 0%;
+        font-size: 17px;
+        color: #000000;
+    
     }
 
-    footer p {
-        font-size: 1.4rem;
+    .fot p a {
+       margin: 1% 7% 0% 0%;
+        font-size: 22px;
+        padding: 0;
     }
+    .fot p:last-of-type {
+        margin-right: 8%;
+        text-align: center; 
+}
 }
 

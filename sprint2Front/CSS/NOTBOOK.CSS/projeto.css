@@ -84,7 +84,9 @@
     .sec1 p {
         font-size: 3.5rem;
     }
-
+h2.expandir{
+    color: #000;
+}
     .infoOne {
         line-height: 1.6rem;
         padding: 15px;
@@ -105,10 +107,15 @@
 
     .infoTwo {
         width: 90%;
-        margin: auto;
-        margin-left: 5%;
+        margin: 0;
+        margin-left: 2%;
     }
-
+    .paragrafoTwo{
+        margin: 1%;
+    }
+    .infoTree{
+        margin-left: 2%;
+    }
     .infoTree {
         width: 95%;
         line-height: 1.5rem;
@@ -157,11 +164,15 @@
         font-size: 3.5rem;
         margin: 10% 0 2.5%;
         text-align: center;
+        margin: auto;
+        margin-bottom: 4%;
     }
 
     .skills-icons {
+
+text-align: center;
 margin: auto;
-        display: flex;
+        display: block;
         flex-wrap: wrap;
         justify-content: center;
         padding: 15px;
@@ -174,7 +185,8 @@ margin: auto;
     }
 
     .formulario {
-        width: 100%;
+        height: 793px;
+        width: 70%;
         padding: 15px;
     }
 
@@ -206,35 +218,38 @@ margin: auto;
     .forms textarea{
 margin-bottom: 4%;
     }
+  
+   
     .parcerias {
-        margin-top: 5%;
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 20px 0;
+        padding: 20px;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 82px;
     }
-
-    .parcerias h1 {
-        height: 60px;
-        width: 50%;
-        border-radius: 9px;
-        font-size: 3.5rem;
-        margin-bottom: 8%;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    .parcerias h1{
+        text-align: center;
+        margin-top: 0;
+        padding-bottom: 19%;
+    font-size: 7rem;
+    width: 50%;
+    margin: auto;
     }
-
+    
     .image {
-        width: 80%;
-        margin: 5px auto;
         display: flex;
         justify-content: center;
+        gap: 120px;
+    margin-left: 21%;
+    margin-top: 10%;
+    margin-bottom:  13%;
     }
-
+    
     .image img {
-        height: auto;
-        width: 30%;
-        object-fit: contain;
+       
+height: 100px;
+        width: 100px;
         border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform .3s;
     }
 }

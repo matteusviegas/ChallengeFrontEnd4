@@ -1,38 +1,42 @@
-@media only screen and (min-width: 900px) and (max-width: 1440px) {
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
     h1 {
-        font-size: 3.8rem;
+        font-size: 3rem;
     }
 
     header {
-        width: 75%;
+        height: 122px;
+        width: 70%;
     }
 
     .membroOne,
     .membroTwo,
     .membroThree {
         width: 100%;
-        height: 420px;
-        padding: 20px;
+        height: 430px;
+        padding: 6px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: transform 0.2s ease;
     }
 
     .membroOne img {
-        margin-top: 5%;
+        margin-top: 3%;
         height: auto;
-        width: 20%;
+        width: 14%;
+        margin-bottom: 0;
     }
 
     .membroTwo img {
-        margin-top: 5%;
-        height: 230px;
-        width: 20%;
+        margin-top: 3%;
+        height: auto;
+        width: 14%;
+        margin-bottom: 0;
     }
 
     .membroThree img {
-        margin-top: 5%;
-        height: 230px;
-        width: 20%;
+        margin-top:3% ;
+        height: auto;
+        width: 14%;
+        margin-bottom: 0;
     }
 
     .membroOne:hover {
@@ -45,25 +49,47 @@
         transform: scale(1.1);
     }
 
+
+
     .descripition {
-        font-size: 1.9rem;
-        width: 80%;
-      
+        font-size: 1.8rem;
+        margin: 0 auto;
+        width: 70%;
     }
-    .descripition h3 {
-        margin: 4% auto 0;
+
+    .descripition {
+        font-size: 1.2rem;
+        width: 55%;
+
     }
-    .descripition p {
-        margin: auto;
+
+    .descripitionOne  {
+        margin-bottom: 0;
+        font-size: 1.8rem;
     }
-    .but {
-        font-size: 1.4rem;
-        width: 40%;
-        height: 30px;
-        margin: 10% auto 10%;
+    .descripitionTwo  {
+        margin: 1% auto 0;
+        font-size: 1.8rem;
     }
-    .but h2 {
-        font-size: 1.6rem;
+    .descripitionThree  {
+        margin: 1% auto 0;
+        font-size: 1.8rem;
+    }
+    .fab {
+        font-size: 28px;
+        margin: 0 10px;
+        color: #000;
+      position: relative;
+      left: 39%;
+      top: 9%;
+    }
+
+    h3 {
+        margin: 3%;
+        width: 100%;
+    }
+    
+    p {
         margin: 0;
     }
 }

@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/projetos.css">
-    <link rel="stylesheet" href="../CSS/MOBILE.CSS/projeto.css" media="(max-width: 576px)">
+    <link rel="stylesheet" href="../CSS/Desktop/projeto.css">
+    <link rel="stylesheet" href="../CSS/MOBILE.CSS/projeto.css">
     <link rel="stylesheet" href="../CSS/TABLETEMPE.CSS/projeto.css">
     <link rel="stylesheet" href="../CSS/TABLETDEITADO.CSS/projeto.css">
-    <link rel="stylesheet" href="../CSS/NOTBOOK.CSS/projeto.css">
+    <link rel="stylesheet" href="../CSS/NOTEBOOK/projeto.css">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -34,7 +35,7 @@
         <label class="menu_btn" for="menu_toggle">
             <span></span>
         </label>
-        
+
         <nav class="menu_box">
             <ul>
                 <li><a href="../index.html" class="menu_item">Home</a></li>
@@ -94,81 +95,97 @@
                 </div>
                 </section>
 
-
                 <div class="secao-ilustrativa">
                     <div class="carrossel">
                         <div class="container">
-                            <img src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg"> <img
-                                src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg">
-                            <img src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg"> <img
-                                src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg">
-                            <img src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg"> <img
-                                src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg">
-                            <img src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg"> <img
-                                src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg">
-                            <img src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg"> <img
-                                src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg">
-                            <img src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg"> <img
-                                src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg">
-                            <img src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg"> <img
-                                src="https://images03.brasildefato.com.br/ed7ef857bab79545598b0f2104af7996.jpeg">
-                        </div>
+                            <img src="../img/imgmetro1.png">
+                            <img src="../img/imgmetro2.png">
+                            <img src="../img/imgmetro3.png">
+                            <img src="../img/imgmetro1.png">
+                            <img src="../img/imgmetro2.png">
+                            <img src="../img/imgmetro3.png">
+                            <img src="../img/imgmetro1.png">
+                            <img src="../img/imgmetro2.png">
+                            <img src="../img/imgmetro3.png">
 
+                        </div>
+                        <!--botao das imgs-->
+                        <button class="prev botaoo" onclick="mudaSlide(-1)">&#10094;</button>
+                        <button class="next botaoo" onclick="mudaSlide(1)">&#10095;</button>
 
                     </div>
+
                 </div>
 
 
+            </div>
+        </div>
 
 
 
-                <div class="skills-icons">
-                    <h1 class="h1skills">MY SKILLS</h1>
-                    <i class="fab fa-html5"></i>
-                    <i class="fab fa-css3-alt"></i>
-                    <i class="fab fa-js"></i>
-                    <i class="fab fa-db"></i>
-                    <i class="fab fa-php"></i>
-                    <i class="fab fa-java"></i>
-                    <i class="fab fa-python"></i>
-                </div>
 
 
-                <section class="formulario">
+        <div class="skills-icons">
+            <h1 class="h1skills">MY SKILLS</h1>
+            <i class="fab fa-html5"></i>
+            <i class="fab fa-css3-alt"></i>
+            <i class="fab fa-js"></i>
+            <i class="fab fa-db"></i>
+            <i class="fab fa-php"></i>
+            <i class="fab fa-java"></i>
+            <i class="fab fa-python"></i>
+        </div>
 
 
-                    <div class="forms">
+
+        <section class="formulario">
+            <div class="form-container">
+                <h2 class="titulo-formulario">Formulário de Sugestões</h2>
+                <form id="suggestionForm">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+                    <span class="error" id="nameError"></span>
+        
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    <span class="error" id="emailError"></span>
+        
+                    <label for="suggestion">Sugestão:</label>
+                    <textarea id="suggestion" name="suggestion" rows="4" placeholder="Digite sua sugestão" required></textarea>
+                    <span class="error" id="suggestionError"></span>
+        
+                    <button type="submit" class="botao">Enviar Sugestão</button>
+                </form>
+            </div>
+        </section>
+        
+
+     
+            <h1>parcerias</h1>
+            <div class="image">
+
+                <a href="https://www.exemplo.com/" target="_blank">
+                    <img src="../IMG_LOGO/Logo_Alura.jfif" alt="alura">
+                </a>
+                <a href="https://www.exemplo.com/" target="_blank">
+                    <img src="../IMG_LOGO/Logo_Faip.jfif" alt="fiap">
+                </a>
+                <a href="https://www.exemplo.com/" target="_blank">
+                    <img src="../IMG_LOGO/Logo_CCR.jfif" alt="ccr">
+                </a>
+                <section class="parcerias ">
 
 
-                        <form action="">
-                            <h1>Sugestoes</h1>
+            </div>
 
-                            <input type="text" placeholder="Seu Nome" required>
-                            <input type="email" placeholder="Seu E-mail" required>
-                            <textarea placeholder="Sua Sugestão" required></textarea>
-                            <button class="bot">Enviar Sugestão</button>
-
-                        </form>
-                    </div>
-
-                    <section class="parcerias ">
-                        <h1>parcerias</h1>
-                        <div class="image">
-
-                            <img src="../IMG_LOGO/Logo_Alura.jfif" alt="">
-                            <img src="../IMG_LOGO/Logo_Faip.jfif" alt="">
-                            <img src="../IMG_LOGO/Logo_CCR.jfif" alt="">
-
-                        </div>
-
-                    </section>
+        </section>
     </main>
 
 
 
 
     <footer class="fot">
-        <p><a href="#">Team</a> | <a href="#">Project</a> | <a href="#">CCR</a></p>
+        <p><a href="../html/equipe.html">Team</a> | <a href="../html/projeto.html">Project</a> | <a href="ccr.html">CCR</a></p>
         <p>&copy; Todos os direitos reservados. Group SPM | Future Station</p>
     </footer>
     <script src="../js/projeto.js"></script>
