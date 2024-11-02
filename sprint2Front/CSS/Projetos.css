@@ -44,14 +44,14 @@ html, body {
     background-color: #42807D;
     position: relative;
     width: 100%;
-    height: 281px;
+    height: 231px;
     top: 0;
     margin:0 ;
 }
 
 
 .header .div-header h1 {
-    font-size: 4.8rem;
+    font-size: 4rem;
     width: 11%;
     margin: 0.5% 33% 0% ;
     color: #000; 
@@ -85,7 +85,7 @@ padding-right:3.5% ;
     color: #fff;
     font-weight: bold;
     padding-left: 8px ;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     
     margin-top: 4%;
     transition: background-color 0.9s ease;
@@ -120,10 +120,7 @@ padding-right:3.5% ;
     }
 
 
-    
-    
-    /*ocultamento do menu burguer*/
-    
+
     
     
     
@@ -158,7 +155,8 @@ padding-right:3.5% ;
         text-align: start;
         font-size: 2.7rem;
         margin-left: 5%;
-        margin-bottom: 2%;
+        margin-bottom: 3.5%;
+        margin-top: 6%;
     }
     
     .infoOne {
@@ -194,7 +192,9 @@ padding-right:3.5% ;
         font-size: 2.6rem;
        margin-bottom: 0;
     }
-    
+    .infoTwo p{
+        margin-bottom: 0;
+    }
     
     .infoTree {
      
@@ -216,15 +216,17 @@ padding-right:3.5% ;
     
     
     /* Carrossel das imagens */
+
     .secao-ilustrativa {
+
         margin: auto;
-        margin-left: 10%;
+        margin-left: 11.5%;
     }
 
     .carrossel {
         position: relative;
         width: 100%;
-        max-width: 995px;
+        max-width: 1220px;
         margin: 12% auto 6%;
         overflow: hidden;
         border-radius: 12px;
@@ -274,13 +276,14 @@ padding-right:3.5% ;
     .h1skills{
        font-size: 5rem;
         width: 48%;
-        margin-left: 13%;
+        margin-left: 11%;
     }
     .skills-icons {
         gap: 1;
         justify-content: center;
         padding: 1px;
         margin-left: 22%;
+        
         
     }
     
@@ -293,7 +296,7 @@ padding-right:3.5% ;
     .skills-icons i {
         text-align: center;
         color: var(--color-black);
-        font-size: 7rem;
+        font-size: 6rem;
         margin-left: 4%;
         padding-left: 0;
         transition: color 0.3s;
@@ -345,9 +348,11 @@ padding-right:3.5% ;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 1033px;
+        height: 733px;
         width: 40%;
         margin: auto;
+        margin-top: 13%;
+        margin-bottom: 10%;
     }
     
     .form-container {
@@ -362,7 +367,7 @@ padding-right:3.5% ;
         text-align: center;
      
         color: #fff;
-        font-size: 3rem;
+        font-size: 2rem;
         margin-bottom: 7%;
         margin-top: 0;
     }
@@ -370,17 +375,17 @@ padding-right:3.5% ;
     label {
         display: block;
         margin-bottom: 10px;
-        font-size: 1.5rem; 
+        font-size: 1.6rem; 
     }
     
     input[type="text"],
     input[type="email"],
     textarea {
         width: 100%;
-        padding: 23px; 
+        padding: 19px; 
         margin-bottom: 40px; 
         border: 1px solid #ccc;
-        border-radius: 14px;
+        border-radius: 16px;
         box-sizing: border-box;
         font-size: 16px; 
     }
@@ -389,8 +394,18 @@ padding-right:3.5% ;
     input[type="email"]:focus,
     textarea:focus {
         border-color: #000000;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
+
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #c4bcbc; 
+        font-family:Arial, Helvetica, sans-serif; 
+        opacity: 1; 
+    }
+    
+
     
     .botao {
         width: 100%;
@@ -400,7 +415,7 @@ padding-right:3.5% ;
         ;
         color: rgb(221, 221, 221);
         border: none;
-        border-radius: 14px;
+        border-radius: 17px;
         cursor: pointer;
         font-size: 1.5rem; 
         margin-top: 2%;
@@ -425,26 +440,19 @@ padding-right:3.5% ;
         text-align: center;
         margin-bottom: 82px;
     }
-    .parcerias h1{
-        text-align: center;
-        margin-top: 0;
-        padding-bottom: 14%;
-    font-size: 6rem;
-    width: 50%;
-    margin: auto;
-    }
+   
     
     .image {
         display: flex;
         justify-content: center;
-        gap: 190px;
-    margin-left: 21%;
+        gap: 130px;
+    margin-left: 25.5%;
     margin-bottom: 7%;
     }
     
     .image img {
         
-        width: 200px;
+        width: 160px;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: transform .3s;
@@ -455,13 +463,30 @@ padding-right:3.5% ;
         
     }
     
-  
+    
+#scrollToTop {
+    background-color: #42807D;
+    color: white;
+    height: 73px;
+    width: 22%;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+margin: 8% 41%  9%;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    display: none;
+}
+
+    
 /* Rodapé */
 footer {
     position: relative;
     
     width: 100%;
-    height:133px;
+    height:103px;
     background-color: #42807d;
     color: white;
     text-align: center;
@@ -472,11 +497,11 @@ footer p, a {
    
     text-decoration: none;
     color: #fff;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     font-weight: bold;
    padding: 0px;
     transition: background-color 0.9s ease;
-    margin: 0.5% 2%  1.5% 0%;
+    margin: 0.5% 3%  1.5% 0%;
 padding-left: 2%;
 
 }
@@ -485,9 +510,8 @@ padding-left: 2%;
 footer.fot p:last-of-type {
 position: relative;
 
-    font-size: 1.5rem;
-  margin: 0% 1.5% 4% 0%;
+    font-size: 1.2rem;
+  margin: 0% 1.5% 4% 0.5%;
   color: #000;
   padding: 0;
 }
-

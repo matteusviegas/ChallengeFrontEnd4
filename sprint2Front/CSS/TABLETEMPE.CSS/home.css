@@ -95,7 +95,8 @@
     }
 
     .description-container {
-        width: 79%;
+        width: 72%;
+    margin: 8% 12% 4% 0%;
        
     }
 
@@ -112,56 +113,90 @@
     }
 
 
-    /*secao dos cards*/
-    .sec2 {
-        padding: 15px;
-    }
-
-    .card {
-        width: 76%;
-        margin: 23px auto;
-    }
 
 
-    .card:hover .titulo-card1 {
-        color: #fff200;
-    }
+     /*seção 3*/
 
 
-
-    .card:hover .titulo-card2 {
-        color: #e1e1e1;
-    }
-
-    .card:hover .titulo-card3 {
-        color: #00ff04;
-    }
-
-
-    /*ocultamento dos cards*/
-
-    .info-card {
-        display: none;
+     .avisos {
+        background-color: #42807D;
+        border-radius: 15px;
+        width: 70%; 
+        height: 484px; 
+        margin: 1% auto 8%;
     }
     
-    .avisos h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10%;
+    
+    .avisos h2{
+        color: #Fff;
+    }
+    
+    
+    .avisos h2 p {
+       margin: 0;
+       font-size: 1.9rem; 
+       width: 29%;
+       display: flex;
+       
+
+    }
+    
+   
+    .linha {
+        display: flex;
+ 
+        align-items: center;
+        margin-bottom:5px;
+        font-size: 1.1rem;
+    margin-left: 0%;
     }
 
-    .sec3 h3 {
-        font-size: 2.7rem;
-    }
 
-    .sec3 h1 {
-        font-size: 2.2rem;
-        margin: auto;
+
+    .linha_esmeralda, .linha_diamante, .linha_amarela {
+        margin-top: 2%;
+    }
+    
+    .amarelas, .cinza, .verde {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin: 9px 15px 11px 22px;
+      margin-bottom: 10%;
+        background-color: #00ff5e;
+    }
+    
+    .amarelas {
+        background-color: yellow;
+    }
+    
+    .cinza {
+        background-color: rgb(0, 255, 119);
+    }
+    
+    .verde {
+        background-color: rgb(255, 42, 5);
+    }
+    
+
+
+    .texto h2, .texto p {
+        margin: 0;
+        padding: 0;
+    }
+    
+
+
+
+
+    .sec3 {
+        background-color: #fff;
+    }
+    
+    
+    .sec3 h1{
         margin-top: 5%;
-    }
-
-    .avisos p {
-        font-size: 1.5rem;
-        padding: 2%;
+        font-size: 2.4rem;
     }
 
 

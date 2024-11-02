@@ -126,33 +126,81 @@ height: 191px;
         text-align: center;
         padding-bottom: 1%;
     }
-/*secoes dos cads*/
+/*secoes dos avisos*/
     
 
-.avisos h1 {
-    font-size: 2.4rem;
-margin: 0 auto 5%;
+
+
+
+.avisos {
+    background-color: #42807D;
+    border-radius: 15px;
+    width: 90%; 
+    height: 484px; 
+    margin: 1% auto 8%;
 }
 
-    .card {
-        width: 78%; 
-        margin: 22px auto;
-    }
+
+.avisos h2{
+    color: #Fff;
+}
 
 
-    .card:hover .titulo-card1 {
-        color: #fff200;
-    }
+.avisos h2 p {
+   margin: 0;
+   font-size: 1.1rem; 
+   width: 29%;
+   display: flex;
+   
+
+}
+
+
+.linha {
+    display: flex;
+
+    align-items: center;
+    margin-bottom:5px;
+    font-size: 1.2rem;
+margin-left: 0%;
+}
 
 
 
-    .card:hover .titulo-card2 {
-        color: #e1e1e1;
-    }
+.linha_esmeralda, .linha_diamante, .linha_amarela {
+    margin-top: 2%;
+}
 
-    .card:hover .titulo-card3 {
-        color: #00ff04;
-    }
+.amarelas, .cinza, .verde {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 29px 20px 11px 19px;
+  margin-bottom: 10%;
+    background-color: #00ff5e;
+}
+
+.amarelas {
+    background-color: yellow;
+}
+
+.cinza {
+    background-color: rgb(0, 255, 119);
+}
+
+.verde {
+    background-color: rgb(255, 42, 5);
+}
+
+
+
+.texto h2, .texto p {
+    margin: 0;
+    padding: 0;
+}
+
+
+
 
     
 
@@ -160,11 +208,6 @@ margin: 0 auto 5%;
         font-size: 2.8rem;
     }
 
-    .avisos p {
-        font-size: 1.5rem;
-        text-align: end;
-        padding: 0;
-    }
 
 
 

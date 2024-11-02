@@ -163,9 +163,9 @@
 
     h2.expandir {
         text-align: start;
-        margin: 5% 0 2% 3%;
+        margin: 5% 0 2% 4%;
         font-size: 1.4rem !important;
-        line-height: 1.4;
+        line-height: 1.3;
         margin-bottom: 0 !important;
         padding: 0 !important;
     }
@@ -245,12 +245,13 @@
 
     .secao-ilustrativa {
         margin-right: 9%;
+        overflow: hidden;
     }
 
     .carrossel {
         display: flex;
         height: auto;
-        width: 290px;
+        width: 390px;
         max-width: 100%;
         border-radius: 4%;
         padding-bottom: 6%;
@@ -263,7 +264,7 @@
         margin-top: 10%;
         display: flex;
         gap: 10px;
-
+        transition: transform 0.3s ease; 
     }
 
     .container img {
@@ -390,8 +391,8 @@
 
     .form-container {
         padding: 20px;
-        width: 100%;
-        height: 535px;
+        width: 90%;
+        height: 565px;
     }
 
     h2 {
@@ -409,7 +410,8 @@
     textarea {
         padding: 8px;
         font-size: 14px;
-        margin-bottom: 7%;
+        margin-bottom: 13%;
+        border-radius: 9px;
     }
 
     input[type="text"]:nth-of-type(1),
@@ -444,35 +446,30 @@
        
         height: auto;
         display: flex;
-        flex-wrap: wrap;
+     
         justify-content: center;
-        padding: 25px 0;
+     
     }
 
     #suggestionForm {
         height: 222px;
     }
 
-    .parcerias h1 {
-        width: 40%;
-        border-radius: 9px;
-        font-size: 3rem;
-        margin: 8% auto 18% 21%;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
     .image {
         width: 100%; 
         display: flex;
         justify-content: center; 
         gap: 44px; 
-        margin: 10% auto 4% 10%; 
-        flex-wrap: wrap; 
+        margin: 10% auto 4% 1%; 
+        flex-wrap: wrap;
     }
     
     .image img {
-        height: 79px;
-        width: auto; 
+        height: 99px;
+        width: auto;
         max-width: 100%; 
+     
+        flex: 1 1 auto;
         border-radius: 8px;
     }
     

@@ -44,7 +44,7 @@ body {
     background-color: #42807D;
     position: relative;
     width: 100%;
-    height: 277px;
+    height: 235px;
     top: 0;
     margin:0 ;
 }
@@ -53,7 +53,7 @@ body {
 .header .div-header h1 {
     font-size: 4.8rem;
     width: 5%;
-    margin: 0.5% 42% 0% ;
+    margin: 0.5% 40% 0% ;
     color: #000; 
 }
 
@@ -85,7 +85,7 @@ padding-right:3.5% ;
     color: #fff;
     font-weight: bold;
     padding-left: 8px ;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     
     margin: 0;
     transition: background-color 0.9s ease;
@@ -174,24 +174,23 @@ h3 {
 }
 
 .avisos {
-    background-color: #189e97;
+    background-color: #42807D;
     border-radius: 15px;
     width: 90%; 
-    height: auto; 
+    height: 644px; 
     margin: 4% auto 8%; 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 5px; 
+    gap: px;
+    
 }
 
-.avisos h1 {
-    font-size: 5rem; 
-    font-weight: bold;
-    text-align: start;
-    color: #000000;
-    margin: 3% 0% 0% 2% !important ;
+
+.avisos h2{
+    color: #Fff;
 }
+
 
 .avisos h2 p {
    margin: 0;
@@ -203,50 +202,43 @@ h3 {
     background-color: #fff;
 }
 
-.linha_amarela h2,
-.linha_diamante h2,
-.linha_esmeralda h2 {
-    color: #fff;
-    font-size: 2.5rem; 
-    margin: 4% 0% 0% 8%;
-    width: 32%;
+
+
+.linha {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1%;
+
+    font-size: 1.7rem;
+margin-left: 5%;
 }
 
-.linha_amarela p,
-.linha_diamante p,
-.linha_esmeralda p {
-    font-size: 2.3rem; 
-    margin: 0% 2% 4% 8%;
-    width: 36%;
-}
-
-/* Barras coloridas */
-.amarelas,
-.cinza,
-.verde {
-    height: 30px; 
+.amarelas, .cinza, .verde {
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    width: 1.8%;
-    position: relative;
-    bottom: 40px; 
-    left: 77px;
-}
-
-.linha_esmeralda p{
-    margin-left: 8%;
+    margin-right: 27px;
+    margin-bottom: 2%;
+    background-color: #00ff5e;
 }
 
 .amarelas {
-    background-color: rgb(22, 255, 1);
+    background-color: yellow;
 }
 
 .cinza {
-    background-color: #f6ff00;
+    background-color: rgb(0, 255, 119);
 }
 
 .verde {
-    background-color: rgb(255, 34, 0);
+    background-color: rgb(255, 42, 5);
 }
+
+.texto h2, .texto p {
+    margin: 0;
+    padding: 0;
+}
+
 
 
 
@@ -309,12 +301,30 @@ font-size: 2rem;
 }
 
 
+
+#scrollToTop {
+    background-color: #42807D;
+    color: white;
+    height: 73px;
+    width: 22%;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+margin: 8% 41%  9%;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+  
+}
+
+
 /* Rodapé */
 footer {
     position: relative;
     
     width: 100%;
-    height:133px;
+    height:103px;
     background-color: #42807d;
     color: white;
     text-align: center;
@@ -325,11 +335,11 @@ footer p, a {
    
     text-decoration: none;
     color: #fff;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     font-weight: bold;
    padding: 0px;
     transition: background-color 0.9s ease;
-    margin: 0.5% 2%  1.5% 0%;
+    margin: 0.5% 3%  1.5% 0%;
 padding-left: 2%;
 
 }
@@ -338,8 +348,8 @@ padding-left: 2%;
 footer.fot p:last-of-type {
 position: relative;
 
-    font-size: 1.5rem;
-  margin: 0% 1.5% 4% 0%;
+    font-size: 1.2rem;
+  margin: 0% 1.5% 4% 1.5%;
   color: #000;
   padding: 0;
 }

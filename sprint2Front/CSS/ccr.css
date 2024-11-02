@@ -1,14 +1,13 @@
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-    margin: 0; 
-
+    overflow-x: hidden;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4; 
 }
 
 
-    /* Ocultando o menu */
     .menu_box {
         display: none; 
     }
@@ -17,25 +16,30 @@ body {
     }
 
 
-.div-header{
-    padding: 0;
+.info {
+    display: none;
 }
+
+.hover-div:hover .info {
+    display: block;
+}
+
 
 /* Cabeçalho */
 .header {
     background-color: #42807D;
     position: relative;
     width: 100%;
-    height: 277px;
+    height: 235px;
     top: 0;
     margin:0 ;
 }
 
 
-.header .div-header h1 {
-    font-size: 4.8rem;
-    width: 5%;
-    margin: 0.5% 42% 0% ;
+.title {
+    font-size: 5.5rem;
+    width: 6%;
+    margin: 2% 40% 0% ;
     color: #000; 
 }
 
@@ -67,7 +71,7 @@ padding-right:3.5% ;
     color: #fff;
     font-weight: bold;
     padding-left: 8px ;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     
     margin: 0;
     transition: background-color 0.9s ease;
@@ -90,6 +94,11 @@ padding-right:3.5% ;
 }
 
 
+
+
+
+
+
 .secaoOne{
 width: 100%;
 }
@@ -110,23 +119,25 @@ width: 100%;
 
 
 img{
-    width: 21%;
+    width: auto;
     height: 422px;
-margin: 0 auto 1%;
+  margin-left: 36%;
 margin-block: 40px;
 
 }
 
 .descripition-ccr{
-    width: 44%;
+    width: 60%;
 margin: auto;
-font-size: 2.8rem;
+text-align: center;
+font-size: 2.4rem;
 line-height: 3.3rem;
 }
 
 .information{
+   
     font-size: 2.2rem;
-width: 88%;
+width: 98%;
 display: flex;
 margin: auto;
 margin-top: 8%;
@@ -135,24 +146,25 @@ margin-top: 8%;
 .informationOne{
     text-align: center;
     font-size: 2.9rem;
-    width: 55%;
+    width: 49%;
     margin-right: 13%;
     padding-right:83px ;
 }
 .paragrafoThree{
-    margin: 1.5% auto 12%;
+  
+    margin: 6% auto 6%;
 }
 
 .informationTwo{
 margin: 0;
-width: 54%;
+width: 50%;
 font-size: 2.9rem;
 text-align: center;
 }
 
 
 .info-extra{
-    margin-top: 3%;
+    margin-top: 15%;
 font-size: 3rem;
 text-align: center;
 padding-block: 55px;
@@ -177,28 +189,55 @@ padding-block: 55px;
 }
 
 
-
-
-.fot, p  {
+#scrollToTop {
+    background-color: #42807D;
+    color: white;
+    height: 73px;
+    width: 22%;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+margin: 8% 41%  9%;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
     text-align: center;
-padding-top: 9px;
+    display: none;
 }
 
-.fot p a{
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px;
-    transition: background-color 0.9s ease;
-    
-}
+
+
+/* Rodapé */
 footer {
     position: relative;
-    left: 0;
-    bottom: 0;
+    
     width: 100%;
-    background-color: #42807d; 
-    color: white; 
-    text-align: center; 
-    padding: 10px 0; 
+    height:103px;
+    background-color: #42807d;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer p, a {
+   
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+   padding: 0px;
+    transition: background-color 0.9s ease;
+    margin: 0.5% 3%  1.5% 0%;
+padding-left: 2%;
+
+}
+
+
+footer.fot p:last-of-type {
+position: relative;
+
+    font-size: 1.2rem;
+  margin: 0% 1.5% 4% 1.5%;
+  color: #000;
+  padding: 0;
 }

@@ -163,15 +163,15 @@ h2{
     }
 
     h1.h1skills {
+        width: 53%;
         font-size: 2.8rem;
-        margin-top: 10%;
-        margin-bottom: 8%;
-        text-align: center;
+      margin-left: 18%;
+      margin-bottom: 10%;
     }
 
     .skills-icons {
         margin: auto;
-        margin-left: 14%;
+        margin-left: 6%;
         display: block;
         flex-wrap: wrap;
         justify-content: center;
@@ -181,14 +181,15 @@ h2{
 
     .skills-icons i {
         margin-top: 0;
-        font-size: 3.3rem;
+        font-size: 3.9rem;
         margin: 1%;
-        padding-left: 1%;
+        padding-left: 3%;
     }
 
     .formulario {
         width: 88%;
-
+        margin-top: 2%;
+height:844px;
     }
 
     .forms {
@@ -228,7 +229,7 @@ h2{
         justify-content: center;
         gap: 120px;
     margin-left: 21%;
-    margin-top: 17%;
+    margin-top: 13%;
     margin-bottom:  17%;
     }
     

@@ -212,92 +212,84 @@ margin: 8% 15% 3% 0%;
             padding: 0;
         }
 
-        .avisos {
-            background-color: #189e97;
-            border-radius: 15px;
-            width: 79%; 
-            height: auto; 
-            margin: 4% auto 8%; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            gap: 5px; 
-        }
-        
-        .avisos h1 {
-            font-size: 1.4rem; 
-            font-weight: bold;
-            text-align: start;
-            color: #000000;
-            
-      text-align: center;  }
-        
-        .avisos h2, p {
-           margin: 0;
-           font-size: 1.3rem; 
-           width: 29%;
-        }
-        
-        .sec3 {
-            background-color: #fff;
-        }
-        
-        .linha_amarela h2,
-        .linha_diamante h2,
-        .linha_esmeralda h2 {
-            color: #fff;
-            font-size: 1.4rem; 
-            margin: 4% 0% 0% 8%;
-            width: 100%;
-        }
-        
-        .linha_amarela p,
-        .linha_diamante p,
-        .linha_esmeralda p {
-            font-size: 1.3rem; 
-            margin: 0% 2% 4% 1%;
-            width: 100%;
-        }
-        
-        /* Barras coloridas */
-        .amarelas,
-        .cinza,
-        .verde {
-            height: 15px; 
-            border-radius: 50%;
-            width: 7%;
-            position: relative;
-            bottom: 40px; 
-            right: 88px;
-        }
-        
-        .linha_esmeralda p{
-            margin-left: 11%;
-            width: 90%;
-        }
-        
-        .amarelas {
-            background-color: rgb(22, 255, 1);
-        }
-        
-        .cinza {
-            background-color: #f6ff00;
-        }
-        
-        .verde {
-            background-color: rgb(255, 34, 0);
-        }
-        
-        
+     
+
+    /*seção 3*/
 
 
-    /*ocultamentos das informações dos cards*/
-    .info-card {
-        display: none;
+    .avisos {
+        background-color: #42807D;
+        border-radius: 15px;
+        width: 85%; 
+        height: 544px; 
+        margin: 1% auto 8%;
+    }
+    
+    
+    .avisos h2{
+        color: #Fff;
+    }
+    
+    
+    .avisos h2 p {
+       margin: 0;
+       font-size: 1.5rem; 
+       width: 29%;
+       display: flex;
+       
+
+    }
+    
+    .sec3 {
+        background-color: #fff;
+    }
+    
+    
+    
+    .linha {
+        display: flex;
+ 
+        align-items: center;
+        margin-bottom:5px;
+        font-size: 1.1rem;
+    margin-left: 0%;
     }
 
 
-    /*seção 3*/
+
+    .linha_esmeralda, .linha_diamante, .linha_amarela {
+        margin-top: 2%;
+    }
+    
+    .amarelas, .cinza, .verde {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin: 9px 15px 11px 22px;
+      margin-bottom: 10%;
+        background-color: #00ff5e;
+    }
+    
+    .amarelas {
+        background-color: yellow;
+    }
+    
+    .cinza {
+        background-color: rgb(0, 255, 119);
+    }
+    
+    .verde {
+        background-color: rgb(255, 42, 5);
+    }
+    
+
+
+    .texto h2, .texto p {
+        margin: 0;
+        padding: 0;
+    }
+    
+
 
 
 
