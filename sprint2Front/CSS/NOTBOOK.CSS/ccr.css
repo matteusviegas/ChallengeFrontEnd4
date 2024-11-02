@@ -35,7 +35,7 @@
     }
 
     .descripition-ccr {
-        width: 85%;
+        width: 80%;
         font-size: 1.8rem;
         text-align: start;
         line-height: 2rem;
@@ -59,10 +59,19 @@
     .informationTwo {
         font-size: 1.7rem;
         width: 40%;
-        margin: 8% 5%;
+        margin: 5% 4% 17% 0%; 
         text-align: center;
     }
 
+    .paragrafoFour{
+        margin-top: 4%;
+    }
+    .paragrafoTwo{
+        margin-top: 3%;
+    }
+    .paragrafoThree{
+        margin-bottom: 1%;
+    }
     .info-extra {
         margin: 3% auto 15%;
         width: 50%;

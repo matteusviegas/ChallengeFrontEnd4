@@ -58,26 +58,74 @@
         width: 70%;
     }
 
-    .descripition {
-        font-size: 1.2rem;
-        width: 55%;
+ 
 
-    }
 
     .descripitionOne  {
         margin-bottom: 0;
         font-size: 1.8rem;
     }
+
+
+
+
+    .descripitionOne h3 {
+        margin-bottom: 3.5%;
+    font-size: 1.7rem;
+    }
+    .descripitionOne p {
+        margin-bottom: 0%;
+    font-size: 1.4rem;
+    }
+
+
+    .iconsOne{
+      margin-right: 49%;
+      top: 17%;
+    }
+    
+    .iconsTwo{
+        margin-right: 38%;
+        top: 17%;
+      }
+
+      .iconsThree{
+        margin-right: 49%;
+        top: 17%;
+      }
+
+    .descripitionTwo h3 {
+        margin-bottom: 3.5%;
+    font-size: 2.1rem;
+    }
+    .descripitionTwo p {
+        margin-bottom: 0%;
+    font-size: 1.4rem;
+    
+    }
+
+
     .descripitionTwo  {
         margin: 1% auto 0;
         font-size: 1.8rem;
     }
-    .descripitionThree  {
-        margin: 1% auto 0;
-        font-size: 1.8rem;
+
+ 
+    .descripitionThree h3 {
+        margin-bottom: 3.5%;
+    font-size: 1.7rem;
     }
+    .descripitionThree p {
+        margin-bottom: 0%;
+    font-size: 1.4rem;
+    }
+
+
+  
+
+
     .fab {
-        font-size: 28px;
+        font-size: 41px;
         margin: 0 10px;
         color: #000;
       position: relative;
@@ -85,12 +133,4 @@
       top: 9%;
     }
 
-    h3 {
-        margin: 3%;
-        width: 100%;
-    }
-    
-    p {
-        margin: 0;
-    }
 }

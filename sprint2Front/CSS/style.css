@@ -264,7 +264,7 @@ margin-left: 5%;
 }
 
 .sec3 p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: 70%;
     text-align: start;
 }
@@ -289,7 +289,7 @@ font-size: 2.8rem;
 
 .divTwo {
     width: 67%;
-    margin-left: 52%;
+    margin-left: 47%;
    
 }
 
@@ -297,7 +297,7 @@ font-size: 2.8rem;
 
 .divTwo p{
 text-align: start;
-font-size: 2rem;
+font-size: 1.7rem;
 }
 
 
@@ -310,7 +310,7 @@ font-size: 2rem;
     border: none;
     border-radius: 5px;
     padding: 0 15px;
-margin: 8% 41%  9%;
+margin: 15% 35%  0%;
     font-size: 16px;
     cursor: pointer;
     display: inline-block;

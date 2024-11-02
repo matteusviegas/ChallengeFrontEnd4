@@ -114,11 +114,11 @@ padding-right:3.5% ;
 /*img dos icons*/
 .fab {
     font-size: 55px;
-    margin: 0 10px;
+    padding-left: 8px;
     color: #000;
   position: relative;
-  left: 36%;
-  bottom: 6%;
+  left: 21%;
+  top: 20%;
 }
 
 
@@ -138,6 +138,9 @@ section {
     align-items: center;
 }
 
+
+/*primeiro membro */
+
 .membroOne {
     display: flex;
     flex-direction: column;
@@ -153,7 +156,7 @@ section {
 
 
 .membroOne img {
-    margin-top: 2%;
+    margin-top: 4%;
     height: auto;
     width: 11%;
     border-radius: 10px;
@@ -163,10 +166,31 @@ section {
 
 .descripitionOne {
     font-size: 2.4rem;
+    
+    
+}
+.descripitionOne h3{
+    color: #fff;
+    margin: 7% 0 5% 0 ;
+    font-size: 2.3rem;
+}
+
+.descripitionOne p{
+    color: #fff;
+    margin: auto;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.iconsOne{
+    position:relative;
+    left:10%;
+    
+    top: 17%;
 }
 
 
-
+/*segundo membro */
 .membroTwo {
     display: flex;
     flex-direction: column;
@@ -181,7 +205,7 @@ section {
 }
 
 .membroTwo img {
-    margin-top: 2%;
+    margin-top: 4%;
     height: auto;
     width: 12%;
     border-radius: 10px;
@@ -191,6 +215,28 @@ section {
 }
 
 
+.descripitionTwo h3{
+    margin: 8% 0% 3% 0%;
+    font-size: 2.3rem;
+   
+}
+
+.descripitionTwo p{
+    font-size: 2rem;
+    margin: 4% auto;
+    text-align: center;
+}
+
+.iconsTwo{
+    position: relative;
+    top: 7%;
+    right: 2%;
+}
+
+
+
+
+/* terceiro membro  */
 .membroThree {
     display: flex;
     flex-direction: column;
@@ -211,7 +257,7 @@ section {
     border-radius: 10px;
 }
 .descripitionThree {
-    font-size: 2.4rem;
+    font-size: 2rem;
     
 }
 
@@ -220,30 +266,50 @@ section {
 .descripition {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.9rem;
+    font-size: 2rem;
 }
 
+.descripitionThree h3{
+    color: #fff;
+    margin: 5% auto;
+    font-size: 2.3rem;
+}
+
+.descripitionThree p{
+    color: #fff;
+    margin: auto;
+    text-align: center;
+}
 
 
 .descripition p {
-margin: auto;
+margin: 0 ;
 }
 
+
+.iconsThree{
+
+    position: relative;
+    top: 16%;
+    left: 11%;
+
+}
 
 #scrollToTop {
     background-color: #42807D;
     color: white;
-    height: 73px;
-    width: 22%;
+    height: 55px;
+    width: 16%;
     border: none;
-    border-radius: 5px;
+    border-radius: 19px;
     padding: 0 15px;
-margin: 8% 41%  9%;
+margin: 8% 41%  10%;
     font-size: 16px;
     cursor: pointer;
     display: inline-block;
     text-align: center;
     display: none;
+    font-size: 1.7rem;
 }
 
 

@@ -1,9 +1,14 @@
 @media (max-width: 576px) {
-
     * {
-        margin: auto;
+        margin: 0;
         padding: 0;
         box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
     }
 
     .header {
@@ -11,21 +16,14 @@
         background-color: #42807D;
         height: 80px !important;
         width: 100%;
-
         text-align: center;
     }
 
-
     .title {
         width: 90% !important;
-        font-size: 2rem !important;
-        margin: 4% 1% 0% 3% !important;
+        font-size: 1.5rem !important;
+        margin: 2% 1% 0% 1% !important;
     }
-
-
-
-
-    /*ocultando a li*/
 
     .navigation {
         display: none;
@@ -35,79 +33,15 @@
         display: block;
     }
 
-
-
-
-    /*header*/
-
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
-
-    .header {
-        background-color: #42807D;
-        height: 168px;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        text-align: center;
-    }
-
-
-
-    /*menu burguer*/
-
-    .menu_toggle {
-        display: none;
-    }
-
     .menu_btn {
         position: fixed;
         top: 36px;
-        left: 416px;
+        left: 50%;
+        transform: translateX(-50%);
         width: 30px;
         height: 30px;
         cursor: pointer;
         z-index: 1;
-    }
-
-    .menu_btn span,
-    .menu_btn span::before,
-    .menu_btn span::after {
-        display: block;
-        background-color: #2ecc19;
-        height: 3px;
-        width: 100%;
-        transition: transform 0.25s ease;
-        position: relative;
-    }
-
-    .menu_btn span::before,
-    .menu_btn span::after {
-        content: '';
-        position: absolute;
-    }
-
-    .menu_btn span::before {
-        transform: translateY(-8px);
-    }
-
-    .menu_btn span::after {
-        transform: translateY(8px);
-    }
-
-    .menu_toggle:checked+.menu_btn span {
-        transform: rotate(45deg);
-    }
-
-    .menu_toggle:checked+.menu_btn span::before {
-        transform: rotate(90deg);
-    }
-
-    .menu_toggle:checked+.menu_btn span::after {
-        transform: rotate(90deg);
     }
 
     .menu_box {
@@ -115,9 +49,9 @@
         top: 0;
         left: 100%;
         width: 200px;
-        height: 213px;
+        height: auto;
         background-color: #eeeeeedc;
-        padding-top: 11px;
+        padding: 11px 0;
         border-radius: 7px;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
         transition: left 0.25s ease;
@@ -125,7 +59,6 @@
 
     .menu_toggle:checked~.menu_box {
         left: calc(100% - 200px);
-
     }
 
     .menu_box ul {
@@ -141,132 +74,147 @@
         text-decoration: none;
         font-weight: 600;
         transition: color 0.25s;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .menu_item:hover {
         color: #00ea27;
     }
 
-
-
-
-
-
-
-
-
+    main h1{
+        font-size: 2.5rem;
+        padding-block: 10%;
+    }
     .membroOne {
         width: 100%;
-        height: 310px;
-        padding: 0px;
+        height: auto;
+        padding: 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: transform 0.2s ease;
         border-radius: 0;
+        text-align: 111px;
     }
 
     .membroTwo {
         width: 100%;
-        height: 310px;
-        padding: 0px;
+        height: auto;
+        padding: 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: transform 0.2s ease;
         border-radius: 0;
+        text-align: center;
     }
+
 
     .membroThree {
         width: 100%;
-        height: 310px;
-        padding: 0px;
+        height: auto;
+        padding: 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: transform 0.2s ease;
         border-radius: 0;
+        text-align: center;
     }
 
-    /*imagens dos colaboradores */
-    .membroOne img {
-        margin-top: 8.9%;
-        margin-bottom: 0;
-        height: auto;
-        width: 26%;
-        border-radius: 3px;
-
-    }
-
-    .membroTwo img {
-        margin-top: 8.9%;
-        height: auto;
-        width: 28%;
-        border-radius: 3px;
-        margin-bottom: 0;
-    }
-
-
+    .membroOne img,
+    .membroTwo img,
     .membroThree img {
-        margin-top: 8.9%;
-        height: auto;
-        width: 28%;
+        margin: 10% 0 4% 0;
+        height: 141px;
+        width: auto;
         border-radius: 3px;
-        margin-bottom: 0;
-    }
-
-    /*transcissao de cada secão*/
-
-    .membroOne:hover {
-        transform: scale(1.1);
-
-    }
-
-    .membroTwo:hover {
-        transform: scale(1.1);
     }
 
 
+
+
+    .membroOne:hover,
+    .membroTwo:hover,
     .membroThree:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
-
-
-    /*descrição dos membros*/
 
     .descripition {
-        font-size: 1.2rem;
-        width: 55%;
+        font-size: 1rem;
+        width: 80%;
+        margin: 6% auto 0;
+    }
 
+
+    .descripitionOne h3 {
+        font-size: 1.1rem; 
+        margin: 4% 0 4% 0;
+    }
+    .descripitionOne p{
+        font-size: 1rem;
     }
 
-    .descripitionOne  {
-        margin: 6% auto 0;
-        font-size: 1.2rem;
+
+    .descripitionTwo h3 {
+        font-size: 1.1rem; 
+        margin: 4% 0 4% 0;
     }
-    .descripitionTwo  {
-        margin: 6% auto 0;
-        font-size: 1.2rem;
+    .descripitionTwo p{
+        font-size: 1rem;
     }
-    .descripitionThree  {
-        margin: 6% auto 0;
-        font-size: 1.2rem;
+
+
+    .descripitionThree h3 {
+        font-size: 1.1rem; 
+        margin: 4% 0 4% 0;
     }
+    .descripitionThree p{
+        font-size: 1rem;
+    }
+
     .fab {
-        font-size: 28px;
-        margin: 0 10px;
+        font-size: 24px;
+        margin: 0 5px;
         color: #000;
-      position: relative;
-      left: 33%;
-      top: 9%;
+        position: relative;
+        top: 9%;
     }
 
 
-    .but {
-        margin: 11% auto 15%;
-        font-size: 1rem;
-        width: 50%;
-        height: 20px;
-    }
 
-    .but h2 {
-        font-size: 1rem;
-        margin: 0;
-    }
+    .iconsOne{
+    
+        margin-right: 46%;
+        margin-bottom: 4%;
+        }
+        .iconsTwo{
+         display: flex;
+         width: 55%;
+            margin-left: 7%;
+        margin-bottom: 16%;
+        }.iconsThree{
+            position: relative;
+            margin-right: 49%;
+        margin-bottom: 4%;
+        }
+        
 
+        #scrollToTop {
+            background-color: #42807D;
+            color: white;
+            height: 55px;
+            width: 59%;
+            border: none;
+            border-radius: 10px;
+            padding: 0 15px;
+        margin: 8% 22%  10%;
+            font-size: 10px;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            display: none;
+            font-size: 1.7rem;
+        }
+        
+        
+        .botao-verde:hover {
+            background-color: #6ac5c0;
+            color: #fff
+        }
+        
 }

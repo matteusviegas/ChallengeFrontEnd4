@@ -12,14 +12,14 @@
     .membroTwo,
     .membroThree {
         width: 100%;
-        height: 430px;
+        height: 480px;
         padding: 6px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: transform 0.2s ease;
     }
 
     .membroOne img {
-        margin-top: 3%;
+        margin-top: 2%;
         height: auto;
         width: 14%;
         margin-bottom: 0;
@@ -33,20 +33,10 @@
     }
 
     .membroThree img {
-        margin-top:3% ;
+        margin-top:2% ;
         height: auto;
         width: 14%;
         margin-bottom: 0;
-    }
-
-    .membroOne:hover {
-        transform: scale(1.1);
-    }
-    .membroTwo:hover {
-        transform: scale(1.1);
-    }
-    .membroThree:hover {
-        transform: scale(1.1);
     }
 
 
@@ -75,21 +65,102 @@
         margin: 1% auto 0;
         font-size: 1.8rem;
     }
+   
+
+
+
+
+
+
+    .descripitionOne h3 {
+        margin-bottom: 3.5%;
+    font-size: 1.7rem;
+    }
+    .descripitionOne p {
+        margin-bottom: 0%;
+    font-size: 1.4rem;
+    }
+
+
+    .iconsOne{
+      margin-right: 49%;
+      top: 18%;
+      
+    }
+    
+    .iconsTwo{
+        margin-right: 2%;
+        top: 10%;
+        right: 21%;
+      }
+
+      .iconsThree{
+        margin-right: 49%;
+        top: 17%;
+      }
+
+    .descripitionTwo h3 {
+        margin-bottom: 3.5%;
+    font-size: 2.1rem;
+    }
+    .descripitionTwo p {
+        margin-bottom: 0%;
+    font-size: 1.4rem;
+    
+    }
+
+
+    .descripitionTwo  {
+        margin: 1% auto 0;
+        font-size: 1.8rem;
+    }
+
+ 
+    .descripitionThree h3 {
+        margin-bottom: 3.5%;
+    font-size: 1.7rem;
+    }
+    .descripitionThree p {
+        margin-bottom: 0%;
+    font-size: 1.4rem;
+    }
+
+
+  
+
+
     .fab {
-        font-size: 28px;
+        font-size: 54px;
         margin: 0 10px;
         color: #000;
       position: relative;
-      left: 39%;
+      left: 33%;
       top: 9%;
     }
 
-    h3 {
-        margin: 3%;
-        width: 100%;
+    #scrollToTop {
+        background-color: #42807D;
+        color: white;
+        height: 55px;
+        width: 59%;
+        border: none;
+        border-radius: 10px;
+        padding: 0 15px;
+    margin: 8% 22%  10%;
+        font-size: 10px;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        display: none;
+        font-size: 1.7rem;
     }
     
-    p {
-        margin: 0;
+    
+    .botao-verde:hover {
+        background-color: #6ac5c0;
+        color: #fff
     }
+    
+
+
 }

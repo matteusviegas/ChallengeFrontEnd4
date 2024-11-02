@@ -47,29 +47,30 @@ width: 50%;
         margin-top: 2%;
     }
 .paragrafoThree{
-    margin-top: 0%;
+    margin-top: 4%;
 margin-bottom: 0%;    
 }
     .informationOne {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         width: 50%;
-       margin-top: 24%;
-       margin-left: 2%;
+       margin-top: 25%;
+       margin-left: 5%;
+       margin-right: 0;
+       padding: 0;
     }
     .paragrafoTwo{
-        margin-top: 0% ;
+        margin-top: 1% ;
     }
   .paragrafoFour{
-    margin-bottom: 12%;
+    margin-top: 3%;
+    width: 77%;
   }
     .informationTwo{
-        position: relative;
-        right: 55px;
-  
-        font-size: 1.3rem;
-        width: 89%;
-        margin:22% auto 2%;
-        margin-left: 4%;
+    
+        font-size: 1rem;
+        width: 50%;
+margin-top: 23.5%;
+        margin-left: 7%;
 
     }
 
@@ -77,10 +78,10 @@ margin-bottom: 0%;
 
 
     .info-extra {
-        margin: 0 auto 5%;
+        margin: 17% auto 15%;
         margin-right: 14%;
         width: 70%;
-        font-size: 1.7rem;
+        font-size: 1.4rem;
         text-align: center;
         padding-block: 30px;
     }

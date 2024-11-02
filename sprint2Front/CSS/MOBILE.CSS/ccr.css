@@ -159,7 +159,8 @@
     img {
         width: 35%;
         height: 162px;
-        margin: 10% auto 1%;
+        width: auto;
+        margin: 10% auto 10% 31%;
 
 
     }
@@ -168,9 +169,9 @@
     .descripition-ccr {
         width: 88%;
 
-        font-size: 1.2rem;
+        font-size: 1rem;
         text-align: start;
-        line-height: 2rem;
+        line-height: 1.6rem;
     }
 
 
@@ -202,31 +203,59 @@
     .paragrafoOne{
         text-align: start;
         width: 100%;
-        margin: 10% 0;
+     margin-left: 5%;
+     margin-top: 13%;
+        font-size: 1.1rem;
     }
     .paragrafoTwo{
         text-align: end;
-        width: 90%;
-       margin-left: 42%;
+        width: 97%;
+       margin-left: 30%;
+       margin-top: 13%;
+       font-size: 1.1rem;
     }
 
 
     .paragrafoThree{
 text-align: start;
-width: 88%;
-margin-top: 11%; 
+width: 80%;
+margin-top: 5%; 
+margin-right: 17%;
+margin-bottom: 0;
+font-size: 1.1rem;
 }
     .paragrafoFour{
         text-align: end;
-    margin-left:22% ;        
+    margin-right:7% ;  
+    font-size: 1.1rem;    
+    margin-top: 8%;  
+    width: 78%;
     }
 
 
     .info-extra {
-        margin-top: 3%;
-        font-size: 1.8rem;
+        margin-top: 13%;
+        font-size: 1.2rem;
         text-align: center;
         padding-block: 55px;
     }
+
+    
+#scrollToTop {
+    background-color: #42807D;
+    color: white;
+    height: 73px;
+    width: 22%;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+margin: 8% 41%  9%;
+    font-size: 16px;
+    cursor: pointer;
+   
+    text-align: center;
+    display: none;
+}
+
 
 }
