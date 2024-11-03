@@ -6,10 +6,21 @@
         box-sizing: border-box;
     }
 
+    /*menu burguer*/
+
+    
+    
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden; 
+    }
+
+
     .header {
         overflow-x: hidden;
         background-color: #42807D;
-        height: 80px !important;
+        height: 86px !important;
         width: 100%;
 
         text-align: center;
@@ -19,7 +30,7 @@
     .title {
         width: 90% !important;
         font-size: 2rem !important;
-        margin: 2.5% 1% 0% 3% !important;
+        margin: 5% 1% 0% 5% !important;
     }
 
 
@@ -109,24 +120,34 @@
     .menu_toggle:checked+.menu_btn span::after {
         transform: rotate(90deg);
     }
-
     .menu_box {
         position: fixed;
-        top: 0;
-        left: 100%;
-        width: 200px;
-        height: 213px;
+        top: 0; 
+        left: 0; 
+        width: 200px; 
+        height: 24%; 
         background-color: #eeeeeedc;
         padding-top: 11px;
         border-radius: 7px;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-        transition: left 0.25s ease;
+        transition: transform 0.25s ease; 
+        transform: translateX(-100%); 
     }
 
-    .menu_toggle:checked~.menu_box {
-        left: calc(100% - 200px);
 
-    }
+   
+.menu_toggle:checked ~ .menu_box {
+transform: translateX(0); 
+}   
+
+/* Menu Button */
+.menu_btn {
+position: fixed;
+top: 36px; 
+left: 16px; 
+cursor: pointer;
+z-index: 1;
+}
 
     .menu_box ul {
         list-style: none;
@@ -147,6 +168,8 @@
     .menu_item:hover {
         color: #00ea27;
     }
+
+
 
 
 
@@ -193,7 +216,7 @@
     .infoOne {
 
         line-height: 1.6rem;
-
+        overflow-wrap: break-word;
 
         width: 100%;
         margin: 0;
@@ -298,12 +321,13 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 10px;
-        margin: 0 auto;
+        margin: 3% 0% 12%;
         padding: 10px;
     }
     
     .skills-icons i {
         font-size: 2rem;
+        padding-left: 2%;
     }
     
 
@@ -340,7 +364,7 @@
         background-color: transparent;
         margin: 50px auto;
         padding: 44px;
-        width: 88%;
+        width: 99%;
         height: 11px;
 
         font-size: 1.3rem;
@@ -350,7 +374,7 @@
     .forms textarea {
         height: 22px;
         font-size: 1.7rem;
-        width: 77%;
+        width: 99%;
         margin-bottom: 0%;
         text-decoration: none;
     }
@@ -361,17 +385,6 @@
         color: #949c9c;
     }
 
-
-    .bot {
-        background-color: #fff;
-        height: 47px;
-        width: 59%;
-        border-radius: 12px;
-        color: #00ff15;
-        font-size: 1.4rem;
-        margin-left: 22%;
-        margin-top: 6%;
-    }
 
 
 
@@ -385,7 +398,7 @@
 
 
     .formulario {
-        height: auto;
+        height: 633px;
         width: 90%;
     }
 
@@ -443,7 +456,7 @@
 
     .parcerias {
         margin-top: 9%;
-       
+       margin-bottom: 0;
         height: auto;
         display: flex;
      
@@ -460,7 +473,7 @@
         display: flex;
         justify-content: center; 
         gap: 44px; 
-        margin: 10% auto 4% 1%; 
+        margin: 14%  0% 1%; 
         flex-wrap: wrap;
     }
     
@@ -475,31 +488,44 @@
     
 
 
-
-
-    .fot {
-
-        width: 100%;
-        height:74px;
-     
-        background-color: #42807D;
-        text-align: center;
+  
+#scrollToTop {
+    background-color: #42807D;
+    color: white;
+    height: 53px;
+    width: 35%;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+margin: 4% 5%     13% 33%;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+  
+}
+    
+    #scrollToTop:hover{
+    background-color: #13c030;
+    color: #ffffff;
     }
 
+    
+   
+    .fot p {
+        font-size: 15px; 
+    }
 
     .fot p a {
-        margin: 1% 7% 0% 0%;
-        font-size: 15px;
-        padding: 0;
         font-size: 1rem;
+        margin: 77px 0;
     }
 
-    footer.fot p:last-of-type {
-        color: rgb(5, 5, 5); 
-        font-weight: bold; 
-        font-size: 14px;
-        margin-bottom: 0;
+    .fot p:last-of-type {
+        font-size: 0.9rem; 
+        margin-top: 5px;
     }
+
     
 
 

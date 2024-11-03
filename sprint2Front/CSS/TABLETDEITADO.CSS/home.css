@@ -107,7 +107,8 @@ height: 191px;
 
     .description-container {
         width: 62%;
-     
+        margin-top: 2%;
+     margin-right: 13%;
         bottom: 4%;
        
     }
@@ -219,14 +220,14 @@ margin-left: 0%;
  
 
     .divOne {
-        margin: 18% auto 10% 5%;
-        width: 80%;
+        margin: 18% auto 10% 8%;
+        width: 68%;
         
     }
 
     .divOne h3 {
         text-align: start;
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     margin: 1% 0 3.5% 0%;
     }
 
@@ -234,18 +235,18 @@ margin-left: 0%;
         width: 100%;
         margin: 0;
         text-align: start;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         line-height: 1.5rem;
     }
 
     .divTwo {
-        width: 78%;
-        margin:  20% auto 0 20%;
+        width: 65%;
+        margin:  20% 4% 3% 30%;
     }
 
     .divTwo h3 {
     text-align: start;
-        margin:  5% auto 0 ;
+        margin:  5% auto 3% ;
         border-radius: 13px;
         font-size: 1.8rem;
        
@@ -254,7 +255,7 @@ margin-left: 0%;
     .divTwo p {
         font-size: 22px;
         width: 100%;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         line-height: 1.6rem
     }
     .fot {
@@ -266,23 +267,52 @@ margin-left: 0%;
         text-align: center;
     }
 
-    .fot p  {
-padding: 0%;
-margin-top: 1%;
-margin-bottom: 0%;
-        font-size: 17px;
-        color: #000000;
-    
-    }
-
-    .fot p a {
-       margin: 1% 7% 0% 0%;
-        font-size: 22px;
-        padding: 0;
-    }
-    .fot p:last-of-type {
-        margin-right: 8%;
-        text-align: center; 
+   
+#scrollToTop {
+    background-color: #42807D;
+    color: white;
+    height: 54px;
+    width: 46%;
+    border: none;
+    border-radius: 11px;
+    padding: 0 15px;
+margin: 17% 26.5%  0%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+  
 }
+       
+    .fot {
+        margin: 0;
+        padding: 0;
+    width: 100%;
+    height: 100px;
+    padding: 17px;
+    background-color: #42807D;
+    text-align: center;
+}
+
+.fot p  {
+padding: 0%;
+margin-top: 0%;
+margin-bottom: 1%;
+margin-right: 5%;
+    font-size: 17px;
+    color: #000000;
+
+}
+
+
+
+.fot p a {
+   margin: 0 25px;
+    font-size: 18px;
+    padding: 0;
+    
+}
+
+
 }
 

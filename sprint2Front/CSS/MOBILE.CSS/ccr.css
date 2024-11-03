@@ -25,6 +25,43 @@
 
 
 
+
+
+    /*header*/
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .header {
+        background-color: #42807D;
+        height: 168px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        text-align: center;
+    }
+
+    .header {
+        background-color: #42807D;
+        height: 80px !important;
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .title {
+        width: 100% !important;
+        font-size: 2rem !important;
+        margin: 8% 4% 0% 15% !important;
+    }
+
+
+
+
     /*ocultando a li*/
 
     .navigation {
@@ -51,7 +88,10 @@
         width: 100%;
         margin: 0;
         padding: 0;
-        position: relative;
+      
+        display: flex;
+        justify-content: center;
+
         text-align: center;
     }
 
@@ -64,15 +104,16 @@
     }
 
     .menu_btn {
-        position: fixed;
-        top: 36px;
-        left: 416px;
+       
         width: 30px;
         height: 30px;
         cursor: pointer;
+        margin: 7% 1% 0% 18%;
+    
         z-index: 1;
     }
 
+    
     .menu_btn span,
     .menu_btn span::before,
     .menu_btn span::after {
@@ -112,7 +153,7 @@
 
     .menu_box {
         position: fixed;
-        top: 0;
+        top: 120;
         left: 100%;
         width: 200px;
         height: 213px;
@@ -147,10 +188,6 @@
     .menu_item:hover {
         color: #00ea27;
     }
-
-
-
-
 
 
 
@@ -255,6 +292,32 @@ margin: 8% 41%  9%;
    
     text-align: center;
     display: none;
+}
+
+
+
+.fot {
+
+    width: 100%;
+    height:74px;
+ 
+    background-color: #42807D;
+    text-align: center;
+}
+
+
+.fot p a {
+    margin: 1% 7% 0% 0%;
+    font-size: 15px;
+    padding: 0;
+    font-size: 1.1rem;
+}
+
+footer.fot p:last-of-type {
+   
+    font-weight: bold; 
+    font-size: 1rem;
+    margin-bottom: 0;
 }
 
 

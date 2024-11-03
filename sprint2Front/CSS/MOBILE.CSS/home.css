@@ -1,14 +1,24 @@
     @media (max-width: 576px) {
 
         * {
-            margin: auto;
             padding: 0;
+             margin: 0;
             box-sizing: border-box;
         }
     
+
+    
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; 
+        }
+    
+    
         .header {
+            overflow-x: hidden;
             background-color: #42807D;
-            height: 80px !important;
+            height: 86px !important;
             width: 100%;
     
             text-align: center;
@@ -18,7 +28,7 @@
         .title {
             width: 90% !important;
             font-size: 2rem !important;
-            margin: 4% 1% 0% 3% !important;
+            margin: 5% 1% 0% 5% !important;
         }
     
     
@@ -108,24 +118,34 @@
         .menu_toggle:checked+.menu_btn span::after {
             transform: rotate(90deg);
         }
-    
         .menu_box {
             position: fixed;
-            top: 0;
-            left: 100%;
-            width: 200px;
-            height: 213px;
+            top: 0; 
+            left: 0; 
+            width: 200px; 
+            height: 24%; 
             background-color: #eeeeeedc;
             padding-top: 11px;
             border-radius: 7px;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-            transition: left 0.25s ease;
+            transition: transform 0.25s ease; 
+            transform: translateX(-100%); 
         }
-    
-        .menu_toggle:checked~.menu_box {
-            left: calc(100% - 200px);
-    
-        }
+
+
+       
+.menu_toggle:checked ~ .menu_box {
+    transform: translateX(0); 
+}   
+
+/* Menu Button */
+.menu_btn {
+    position: fixed;
+    top: 36px; 
+    left: 16px; 
+    cursor: pointer;
+    z-index: 1;
+}
     
         .menu_box ul {
             list-style: none;
@@ -146,7 +166,6 @@
         .menu_item:hover {
             color: #00ea27;
         }
-    
     
     
     
@@ -250,7 +269,7 @@ margin: 8% 15% 3% 0%;
         display: flex;
  
         align-items: center;
-        margin-bottom:5px;
+margin: 3px 0 ;
         font-size: 1.1rem;
     margin-left: 0%;
     }
@@ -258,7 +277,7 @@ margin: 8% 15% 3% 0%;
 
 
     .linha_esmeralda, .linha_diamante, .linha_amarela {
-        margin-top: 2%;
+        margin-top: 1%;
     }
     
     .amarelas, .cinza, .verde {
@@ -379,41 +398,71 @@ margin: 8% 15% 3% 0%;
     background-color: #42807D;
     color: white;
     height: 53px;
-    width: 29%;
+    width: 35%;
     border: none;
     border-radius: 5px;
     padding: 0 15px;
-margin: 15% 35%  0%;
+margin: 15% 35%     3% 33%;
     font-size: 16px;
     cursor: pointer;
     display: inline-block;
     text-align: center;
   
 }
+.fot {
+    width: 100%;
+    height: auto; /* Mantém a altura automática para melhor adaptação */
+    background-color: #42807D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 0; /* Adiciona padding para espaçamento */
+}
 
-    .fot {
+.fot p {
+    margin: 5px 0; /* Reduz margens para telas menores */
+    font-size: 17px; /* Aumenta um pouco para melhorar a legibilidade */
+    color: #ffffff;
+}
 
-        width: 100%;
-        height:74px;
-     
-        background-color: #42807D;
-        text-align: center;
-    }
+.fot p a {
+    margin: 10px 0; 
+    font-size: 1.2rem; 
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.fot p a:hover {
+    color: #000000; 
+}
+
+.fot p:last-of-type {
+    margin-top: 10px;
+    font-size: 1.4rem; 
+    color: #000000;
+    font-weight: bold;
+}
 
 
-    .fot p a {
-        margin: 1% 7% 0% 0%;
-        font-size: 15px;
-        padding: 0;
-        font-size: 1.1rem;
-    }
 
-    footer.fot p:last-of-type {
-       
-        font-weight: bold; 
-        font-size: 1rem;
-        margin-bottom: 0;
+    .fot p {
+        font-size: 15px; 
+        margin: 5px 0;
     }
     
+
+    .fot p a {
+        font-size: 1rem;
+        margin: 77px 0;
+    }
+
+    .fot p:last-of-type {
+        font-size: 0.9rem; 
+        margin-top: 5px;
+    }
+
+
    
     }

@@ -156,9 +156,9 @@
     }
 
     .image-container h1 {
-        font-size: 2rem;
+        font-size: 2.1rem;
         text-align: start;
-        margin: 1% auto 6%;
+        margin: 1% 3% 6% 11%;
     }
 
     .description-container {
@@ -186,12 +186,6 @@ padding-top: 4%;
         font-size: 1.5rem;
     }
 
-    .card {
-
-        width: 40%;
-        height: 271px;
-
-    }
     
     /*ocultamento dos cards*/
 
@@ -202,30 +196,6 @@ padding-top: 4%;
 
 
 
-
-.card:hover .titulo-card1 {
-    color: #fff200;
-}
-
-
-
-.card:hover .titulo-card2 {
-    color: #e1e1e1;
-}
-
-.card:hover .titulo-card3 {
-    color: #00ff04;
-}
-
-
-    .card h2 {
-        margin-top: 5%;
-    }
-
-    .avisos h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10%;
-    }
 
     .sec3 h3 {
         font-size: 2.7rem;
@@ -288,6 +258,25 @@ padding-top: 4%;
         width: 80%;
         font-size: 1.2rem;
         line-height: 1.9rem;
+    }
+
+
+
+
+    #scrollToTop {
+        background-color: #42807D;
+        color: white;
+        height: 73px;
+        width: 26%;
+        border: none;
+        border-radius: 15px;
+        padding: 0 15px;
+    margin: 12% 38.5%  0%;
+        font-size: 1.8rem;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+      
     }
 
 

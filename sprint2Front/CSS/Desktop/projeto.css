@@ -16,45 +16,79 @@
         display: none;
     }
 
+  
+    /* Cabeçalho */
     .header {
+   
+        width: 100%;
+        height: 202px;
+
         background-color: #42807D;
-        height: 103px;
-    }
-
-    .header h1 {
-        width: 30%;
-        position: relative;
-        bottom: 28px;
-        margin-left:26% ;
-        font-size: 3.4rem;
-        background-color: #42807D;
-        margin-bottom: 0;
+        top: 0;
     }
 
 
-    .header {
-        padding: 15px;
+    .header .div-header h1 {
+        font-size: 3.7rem;
+        width: 26%;
+        margin: 0% auto;
+        color: #000;
     }
 
-    .div-header ul {
-        margin-top: 0;
-    }
 
-    .navigation {
-        margin: auto;
+    .header div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
     }
 
     .navigation ul {
-        flex-direction: row;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+
+        padding: 0;
     }
 
+
     .navigation ul li {
-       position: relative;
-       bottom: 29px;
-       right: 9%;
-        font-size: 1.3rem;
-        padding-left: 5%;
+
+        font-size: 1.8rem;
     }
+
+    .navigation ul li a {
+        position: relative;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding-left: 8px;
+        font-size: 1.4rem;
+        margin: 0;
+        transition: background-color 0.9s ease;
+    }
+
+
+    .navigation ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        width: 0;
+        height: 3px;
+        background-color: #00ff5e;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .navigation ul li a:hover::after {
+        width: 100%;
+        left: 0;
+    }
+
+
+
+
+
+
 
     h1 {
         margin: 5% auto 0;

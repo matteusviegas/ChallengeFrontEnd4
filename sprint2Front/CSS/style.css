@@ -44,7 +44,7 @@ body {
     background-color: #42807D;
     position: relative;
     width: 100%;
-    height: 235px;
+    height: 240px;
     top: 0;
     margin:0 ;
 }
@@ -53,7 +53,7 @@ body {
 .header .div-header h1 {
     font-size: 4.8rem;
     width: 5%;
-    margin: 0.5% 40% 0% ;
+    margin: 0.5% 41.5% 0% ;
     color: #000; 
 }
 
@@ -76,6 +76,7 @@ body {
 
 .navigation ul li {
 padding-right:3.5% ;
+margin-top: 0;
     
 }
 
@@ -308,48 +309,55 @@ font-size: 1.7rem;
     height: 73px;
     width: 22%;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 0 15px;
-margin: 15% 35%  0%;
-    font-size: 16px;
+margin: 12% 38.5%  0%;
+    font-size: 1.8rem;
     cursor: pointer;
     display: inline-block;
     text-align: center;
   
 }
 
-
-/* Rodapé */
-footer {
-    position: relative;
-    
-    width: 100%;
-    height:103px;
-    background-color: #42807d;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+#scrollToTop:hover{
+background-color: #13c030;
+color: #ffffff;
 }
-
-footer p, a {
+.fot {
    
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.3rem;
-    font-weight: bold;
-   padding: 0px;
-    transition: background-color 0.9s ease;
-    margin: 0.5% 3%  1.5% 0%;
-padding-left: 2%;
-
+    width: 100%;
+    height: 87px;
+    background-color: #42807D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
+.fot p {
+    margin: 0;
+    font-size: 17px;
+    color: #ffffff;
+}
 
-footer.fot p:last-of-type {
-position: relative;
+.fot p a {
+    margin:  33px;
+    
+    font-size: 20px;
+    
+    color: #ffffff;
+    text-decoration: none;
+}
 
-    font-size: 1.2rem;
-  margin: 0% 1.5% 4% 1.5%;
-  color: #000;
-  padding: 0;
+.fot p a:hover {
+    color: #000000; 
+}
+
+.fot p:last-of-type {
+    margin-top: 18px;
+    font-size: 1.4rem; 
+    font-size: 1rem;
+    color: #000000;
+    font-weight: bold;
 }

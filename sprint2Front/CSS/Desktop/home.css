@@ -3,51 +3,110 @@
 
 
 
-
-    /* Ocultando o menu */
-    .menu_box {
-        display: none; 
-    }
-    .menu_toggle{
-        display: none;
-    }
-
-
-    @keyframes slide-in {
-        0% {
-            transform: translateX(-100%); 
-            opacity: 0;
-        }
-        100% {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    /*cabecalho de projetos*/
     body {
         overflow-x: hidden;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        
+        background-color: #f4f4f4; 
     }
-
+    
+    
+        .menu_box {
+            display: none; 
+        }
+        .menu_toggle{
+            display: none;
+        }
+    
+    
+    .info {
+        display: none;
+    }
+    
+    .hover-div:hover .info {
+        display: block;
+    }
+    
+    
+    .hover-div {
+      
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+    
+    /* Cabeçalho */
     .header {
         background-color: #42807D;
-width: 100%;
+        position: relative;
+        width: 100%;
+        height: 240px;
+        top: 0;
+        margin:0 ;
     }
-
-    .header h1 {
-        width: 15%;
-        margin: auto;
-        font-size: 1.5rem;
-  
-        background-color: #42807D;
+    
+    
+    .header .div-header h1 {
+        font-size: 4.8rem;
+        width: 5%;
+        margin: 0.5% 41.5% 0% ;
+        color: #000; 
     }
-
+    
+    
+    .header div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    
+    }
+    
+    .navigation ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+     margin: 1% 0 6% 3%;
+        padding: 0;
+    }
+    
+    
     .navigation ul li {
-        margin: 15px 0;
-        font-size: 1.8rem;
-        padding-left: 5%;
+    padding-right:3.5% ;
+    margin-top: 0;
+        
     }
-
-
+    
+    .navigation ul li a {
+        position: relative;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding-left: 8px ;
+        font-size: 1.2rem;
+        
+        margin: 0;
+        transition: background-color 0.9s ease;
+    }
+    
+    
+    .navigation ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        width: 0;
+        height: 3px;
+        background-color: #00ff5e;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+    
+    .navigation ul li a:hover::after {
+        width: 100%;
+        left: 0; 
+    }
+    
+    
+    
 
     
     
@@ -56,7 +115,7 @@ width: 100%;
         flex-direction: row;       
         background-color: #f9f9f9;
         border: 1px solid #ddd;
-        height: 405px;
+        height: 377px;
         transition: transform 0.5s ease;
 
     }
@@ -72,8 +131,8 @@ width: 100%;
         font-size: 2.2rem;
         width: 100%;
         position: relative;
-        left: 2%;
-        bottom: 1%;
+        left: 4.5%;
+        bottom: 0.5%;
         margin-bottom: 7%;
     }
 
@@ -89,13 +148,13 @@ padding: 0;
 
     .description-container {
      position: relative;
-     bottom: 18%;
+     bottom: 11%;
      left: 5%;
     }
 
     .description-container h3 {
         text-align: start;
-        font-size: 2.4rem;
+        font-size: 2.0rem;
         margin-bottom: 1.5%;
     }
 
@@ -166,6 +225,7 @@ padding: 0;
     
     .divOne {
         margin: 7% 1%;
+        width: 60%;
         opacity: 0;
         transform: translateY(-100px);
         transition: opacity 0.8s ease, transform 3s ease;
@@ -181,6 +241,7 @@ padding: 0;
         text-align: start;
         padding: 2%;
         border-radius: 13px;
+        margin-bottom: 2%;
     }
     
     .divOne p {
@@ -195,9 +256,9 @@ padding: 0;
 
 
     .divTwo {
-        width: 48%;
+        width: 58%;
         margin-top: 10%;
-      
+      margin-left: 42%;
         opacity: 0;
         transform: translateY(-100px);
         transition: opacity 0.8s ease, transform 3s ease;
@@ -212,13 +273,14 @@ padding: 0;
     .divTwo h3 {
         font-size: 2.7rem;
         text-align: start;
+        margin-bottom: 5%;
     }
     
     .divTwo p {
         font-size: 1.5rem;
         width: 100%;
         text-align: start;
-        line-height: 2rem;
+        line-height: 2.2rem;
         margin-right: 11%;
     }
     

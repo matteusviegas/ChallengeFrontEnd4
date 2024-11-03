@@ -61,6 +61,16 @@ function validateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
+infoButtons.forEach((button, index) => {
+    button.addEventListener('click', () => showCard(index));
+});
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.info-button') && !e.target.closest('.info-card')) {
+        infoCards.forEach(card => card.classList.remove('active'));
+    }
+});
+
 
 const scrollToTopButton = document.getElementById("scrollToTop");
 
