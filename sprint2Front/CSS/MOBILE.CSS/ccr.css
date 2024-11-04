@@ -34,19 +34,17 @@
         font-family: Arial, sans-serif;
     }
 
-    .header {
-        background-color: #42807D;
-        height: 168px;
-        width: 100%;
+    /*header*/
+
+    body {
         margin: 0;
-        padding: 0;
-        position: relative;
-        text-align: center;
+        font-family: Arial, sans-serif;
     }
 
     .header {
+        overflow-x: hidden;
         background-color: #42807D;
-        height: 80px !important;
+        height: 86px !important;
         width: 100%;
 
         text-align: center;
@@ -54,9 +52,9 @@
 
 
     .title {
-        width: 100% !important;
+        width: 90% !important;
         font-size: 2rem !important;
-        margin: 8% 4% 0% 15% !important;
+        margin: 5% 1% 0% 5% !important;
     }
 
 
@@ -88,10 +86,7 @@
         width: 100%;
         margin: 0;
         padding: 0;
-      
-        display: flex;
-        justify-content: center;
-
+        position: relative;
         text-align: center;
     }
 
@@ -100,20 +95,19 @@
     /*menu burguer*/
 
     .menu_toggle {
-        display: none;
+      
     }
 
     .menu_btn {
-       
+        position: fixed;
+        top: 36px;
+        left: 416px;
         width: 30px;
         height: 30px;
         cursor: pointer;
-        margin: 7% 1% 0% 18%;
-    
         z-index: 1;
     }
 
-    
     .menu_btn span,
     .menu_btn span::before,
     .menu_btn span::after {
@@ -150,24 +144,34 @@
     .menu_toggle:checked+.menu_btn span::after {
         transform: rotate(90deg);
     }
-
     .menu_box {
         position: fixed;
-        top: 120;
-        left: 100%;
-        width: 200px;
-        height: 213px;
+        top: 0; 
+        left: 0; 
+        width: 200px; 
+        height: 24%; 
         background-color: #eeeeeedc;
         padding-top: 11px;
         border-radius: 7px;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-        transition: left 0.25s ease;
+        transition: transform 0.25s ease; 
+        transform: translateX(-100%); 
     }
 
-    .menu_toggle:checked~.menu_box {
-        left: calc(100% - 200px);
 
-    }
+   
+.menu_toggle:checked ~ .menu_box {
+transform: translateX(0); 
+}   
+
+/* Menu Button */
+.menu_btn {
+position: fixed;
+top: 36px; 
+left: 16px; 
+cursor: pointer;
+z-index: 1;
+}
 
     .menu_box ul {
         list-style: none;
@@ -188,6 +192,8 @@
     .menu_item:hover {
         color: #00ea27;
     }
+
+
 
 
 

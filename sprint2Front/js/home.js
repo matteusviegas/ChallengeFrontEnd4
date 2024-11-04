@@ -1,11 +1,11 @@
 // Lógica do menu burger
-const menuToggle = document.getElementById('menu_toggle'); // ID correto
-const mobileNav = document.querySelector('.menu_box'); // Atualizei a seleção
-
+const menuToggle = document.getElementById('menu_toggle'); 
+const mobileNav = document.querySelector('.menu_box');
 menuToggle.addEventListener('click', () => {
-    mobileNav.classList.toggle('active'); // Adiciona ou remove a classe 'active'
-    menuToggle.classList.toggle('active'); // Para animar o botão do menu
+    mobileNav.classList.toggle('active'); 
+    menuToggle.classList.toggle('active'); 
 });
+
 
 // Lógica da transição da informação
 window.addEventListener('scroll', function () {
@@ -33,7 +33,7 @@ const showCard = (index) => {
         infoCards[index].classList.add('active');
     }
 };
-
+/*efeito do botao*/
 infoButtons.forEach((button, index) => {
     button.addEventListener('click', () => showCard(index));
 });
@@ -64,3 +64,20 @@ scrollToTopButton.onclick = function () {
         behavior: 'smooth' 
     });
 };
+
+/*efeito dos containers*/
+
+// Lógica da transição da informação
+window.addEventListener('scroll', function () {
+    const section = document.querySelector('.sec2');
+    const linhas = document.querySelectorAll('.linha');
+
+    const sectionTop = section.getBoundingClientRect().top;
+    const sectionHeight = window.innerHeight * 0.3;
+
+    if (sectionTop < sectionHeight) {
+        linhas.forEach(linha => {
+            linha.classList.add('visible'); 
+        });
+    }
+});
