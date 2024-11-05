@@ -9,167 +9,151 @@
 
     
         body {
+        
             margin: 0;
             font-family: Arial, sans-serif;
             overflow-x: hidden; 
+        
         }
     
-    
-        .header {
-            overflow-x: hidden;
-            background-color: #42807D;
-            height: 86px !important;
-            width: 100%;
-    
-            text-align: center;
-        }
-    
-    
-        .title {
-            width: 90% !important;
-            font-size: 2rem !important;
-            margin: 5% 1% 0% 5% !important;
-        }
-    
-    
-    
-    
-        /*ocultando a li*/
-    
-        .navigation {
-            display: none;
-        }
-    
-        .menu_box {
-            display: block;
-        }
-    
-    
-    
-    
-        /*header*/
-    
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-    
-        .header {
-            background-color: #42807D;
-            height: 168px;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            text-align: center;
-        }
-    
-    
-    
-        /*menu burguer*/
-    
-        .menu_toggle {
-            display: none;
-        }
-    
-        .menu_btn {
-            position: fixed;
-            top: 36px;
-            left: 416px;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            z-index: 1;
-        }
-    
-        .menu_btn span,
-        .menu_btn span::before,
-        .menu_btn span::after {
-            display: block;
-            background-color: #2ecc19;
-            height: 3px;
-            width: 100%;
-            transition: transform 0.25s ease;
-            position: relative;
-        }
-    
-        .menu_btn span::before,
-        .menu_btn span::after {
-            content: '';
-            position: absolute;
-        }
-    
-        .menu_btn span::before {
-            transform: translateY(-8px);
-        }
-    
-        .menu_btn span::after {
-            transform: translateY(8px);
-        }
-    
-        .menu_toggle:checked+.menu_btn span {
-            transform: rotate(45deg);
-        }
-    
-        .menu_toggle:checked+.menu_btn span::before {
-            transform: rotate(90deg);
-        }
-    
-        .menu_toggle:checked+.menu_btn span::after {
-            transform: rotate(90deg);
-        }
-        .menu_box {
-            position: fixed;
-            top: 0; 
-            left: 0; 
-            width: 200px; 
-            height: 24%; 
-            background-color: #eeeeeedc;
-            padding-top: 11px;
-            border-radius: 7px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.25s ease; 
-            transform: translateX(-100%); 
-        }
+
+    /* Estilos do Header */
+.header {
+    overflow-x: hidden;
+    background-color: #42807D;
+    height: 86px !important;
+    width: 100%;
+    text-align: center;
+}
+
+/* Título */
+.title {
+    width: 90% !important;
+    font-size: 2rem !important;
+    margin: 5% 1% 0% 5% !important;
+}
 
 
-       
-.menu_toggle:checked ~ .menu_box {
-    transform: translateX(0); 
-}   
+/* Ocultando a lista de navegação */
+.navigation {
+    display: none;
+}
 
-/* Menu Button */
+.menu_box {
+    display: block;
+}
+
+/* Estilos gerais do Body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+    background-color: #42807D;
+    height: 168px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+
+/* Menu hambúrguer */
+.menu_toggle {
+    display: none;
+}
+
 .menu_btn {
     position: fixed;
-    top: 36px; 
-    left: 16px; 
+    top: 36px;
+    right: 26px; 
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     z-index: 1;
 }
-    
-        .menu_box ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-    
-        .menu_item {
-            display: block;
-            padding: 10px 20px;
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.25s;
-            font-size: 1.5rem;
-        }
-    
-        .menu_item:hover {
-            color: #00ea27;
-        }
-    
-    
-    
-    
+
+.menu_btn span,
+.menu_btn span::before,
+.menu_btn span::after {
+    display: block;
+    background-color: #2ecc19;
+    height: 3px;
+    width: 100%;
+    transition: transform 0.25s ease;
+    position: relative;
+}
+
+.menu_btn span::before,
+.menu_btn span::after {
+    content: '';
+    position: absolute;
+}
+
+.menu_btn span::before {
+    transform: translateY(-8px);
+}
+
+.menu_btn span::after {
+    transform: translateY(8px);
+}
+
+.menu_toggle:checked + .menu_btn span {
+    transform: rotate(45deg);
+}
+
+.menu_toggle:checked + .menu_btn span::before {
+    transform: rotate(90deg);
+}
+
+.menu_toggle:checked + .menu_btn span::after {
+    transform: rotate(90deg);
+}
+
+.menu_box {
+    position: fixed;
+    top: 0;
+    right: 0; 
+    width: 200px;
+    height: 25.5%;
+    background-color: #eeeeeee7;
+    padding-top: 15px;
+    border-radius: 7px 0 0 7px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease;
+    transform: translateX(100%); 
+}
+
+.menu_toggle:checked ~ .menu_box {
+    transform: translateX(0); 
+}
+
+.menu_box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu_item {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.25s;
+    font-size: 1.5rem;
+}
+
+.menu_item:hover {
+    color: #00ea27;
+}
+
+
+
+
+
 
 
 
@@ -195,12 +179,13 @@
         /*img das informações */
         .image-container {
             height: 333px;
-            width: 88%;
+            width: 100%;
         }
 
         /*imagem */
         .image-container img {
             width: 100%;
+            height: auto;
         }
 
         /*descrição*/
@@ -229,6 +214,7 @@ margin: 8% 15% 3% 0%;
 
         .sec2 {
             padding: 0;
+            height: 557px;
         }
 
      
@@ -240,19 +226,21 @@ margin: 8% 15% 3% 0%;
         background-color: #42807D;
         border-radius: 15px;
         width: 85%; 
-        height: 544px; 
-        margin: 1% auto 8%;
+        height: 404px; 
+        margin: 21% auto 8%;
     }
     
     
     .avisos h2{
         color: #Fff;
+        font-size: 1.2rem;
+      
     }
     
     
     .avisos h2 p {
        margin: 0;
-       font-size: 1.5rem; 
+       font-size: 1.8rem; 
        width: 29%;
        display: flex;
        
@@ -261,6 +249,9 @@ margin: 8% 15% 3% 0%;
     
     .sec3 {
         background-color: #fff;
+        height: 877px;
+        padding-bottom: 0px;
+        
     }
     
     
@@ -269,7 +260,7 @@ margin: 8% 15% 3% 0%;
         display: flex;
  
         align-items: center;
-margin: 3px 0 ;
+margin: 1px 0 ;
         font-size: 1.1rem;
     margin-left: 0%;
     }
@@ -278,6 +269,7 @@ margin: 3px 0 ;
 
     .linha_esmeralda, .linha_diamante, .linha_amarela {
         margin-top: 1%;
+        gap: 10px;
     }
     
     .amarelas, .cinza, .verde {
@@ -327,7 +319,7 @@ margin: 3px 0 ;
 
     .divOne {
         width: 95%;
-        margin: auto;
+        margin-top: 5% ;
         text-align: start;
     }
 
@@ -343,7 +335,7 @@ margin: 3px 0 ;
     }
 
     .divOne p {
-        margin: 3% 0 0 5%;
+        margin: 3.5% 0 0 5%;
         font-size: 1rem;
         text-align: start;
         width: 90%;
@@ -361,7 +353,7 @@ margin: 3px 0 ;
 
     .divTwo {
         width: 90%;
-        margin: 0;
+        margin-top: 0%;
 
     }
 
@@ -402,7 +394,7 @@ margin: 3px 0 ;
     border: none;
     border-radius: 5px;
     padding: 0 15px;
-margin: 15% 35%     3% 33%;
+margin: 14% 35%     3% 33%;
     font-size: 16px;
     cursor: pointer;
     display: inline-block;
@@ -410,26 +402,27 @@ margin: 15% 35%     3% 33%;
   
 }
 .fot {
+    position: static;
     width: 100%;
-    height: auto; /* Mantém a altura automática para melhor adaptação */
+    height: auto;
     background-color: #42807D;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px 0; /* Adiciona padding para espaçamento */
+  
 }
 
 .fot p {
-    margin: 5px 0; /* Reduz margens para telas menores */
-    font-size: 17px; /* Aumenta um pouco para melhorar a legibilidade */
+    margin: 5px 0; 
+    font-size: 17px; 
     color: #ffffff;
 }
 
 .fot p a {
-    margin: 10px 0; 
-    font-size: 1.2rem; 
+    margin: 15px 0; 
+    font-size: 1rem; 
     color: #ffffff;
     text-decoration: none;
 }
@@ -449,13 +442,13 @@ margin: 15% 35%     3% 33%;
 
     .fot p {
         font-size: 15px; 
-        margin: 5px 0;
+        margin-top: 15px ;
     }
     
 
     .fot p a {
         font-size: 1rem;
-        margin: 77px 0;
+        margin: 70px 22px;
     }
 
     .fot p:last-of-type {

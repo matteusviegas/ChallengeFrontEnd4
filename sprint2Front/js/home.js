@@ -81,3 +81,22 @@ window.addEventListener('scroll', function () {
         });
     }
 });
+
+
+/*logica das listas*/
+
+
+const linhas = document.querySelectorAll('.linha');
+
+function mostrarLinhas() {
+    linhas.forEach(linha => {
+        if (linha.getBoundingClientRect().top < window.innerHeight) {
+            linha.classList.add('show');
+        }
+    });
+}
+
+window.onscroll = mostrarLinhas;
+mostrarLinhas();
+
+

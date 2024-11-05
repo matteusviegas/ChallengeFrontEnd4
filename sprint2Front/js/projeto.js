@@ -1,6 +1,8 @@
 const box = document.querySelector(".container");
 const imgs = document.querySelectorAll(".container img");
 
+
+/*logica do carrossel*/
 let contador = 0;
 
 const mostraSlides = () => {
@@ -16,6 +18,9 @@ const mudaSlide = (n) => {
     }
     mostraSlides();
 };
+
+
+
 
 document.getElementById('prev').addEventListener('click', () => mudaSlide(-1));
 document.getElementById('next').addEventListener('click', () => mudaSlide(1));
@@ -56,6 +61,8 @@ document.getElementById('suggestionForm').addEventListener('submit', function(ev
     }
 });
 
+/*logica email*/
+
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
@@ -72,6 +79,7 @@ document.addEventListener('click', (e) => {
 });
 
 
+
 const scrollToTopButton = document.getElementById("scrollToTop");
 
 
@@ -83,7 +91,6 @@ window.onscroll = function () {
     }
 };
 
-
 scrollToTopButton.onclick = function () {
     
     window.scrollTo({
@@ -91,3 +98,4 @@ scrollToTopButton.onclick = function () {
         behavior: 'smooth' 
     });
 };
+

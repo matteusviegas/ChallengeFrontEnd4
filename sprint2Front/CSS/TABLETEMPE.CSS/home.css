@@ -73,7 +73,9 @@
 
     
 
-
+body{
+    background-color: #fff;
+}
 
     .content-item {
         display: flex;
@@ -81,6 +83,7 @@
         background-color: #f9f9f9;
         border: 1px solid #ddd;
         height: 592px;
+        margin-top: 11%;
     }
 
     .content-item h1 {
@@ -115,8 +118,12 @@
 
 
 
-     /*seção 3*/
-
+     /*seção 2*/
+.sec2{
+   margin-top: 19%;
+    height: 600px;
+    background-color: #fff;
+}
 
      .avisos {
         background-color: #42807D;
@@ -154,14 +161,14 @@
 
 
     .linha_esmeralda, .linha_diamante, .linha_amarela {
-        margin-top: 2%;
+      margin-left: 3%;
     }
     
     .amarelas, .cinza, .verde {
         width: 15px;
         height: 15px;
         border-radius: 50%;
-        margin: 9px 15px 11px 22px;
+        margin: 23px 15px 11px 22px;
       margin-bottom: 10%;
         background-color: #00ff5e;
     }
@@ -183,6 +190,7 @@
     .texto h2, .texto p {
         margin: 0;
         padding: 0;
+        font-size: 1.6rem;
     }
     
 
@@ -191,6 +199,7 @@
 
     .sec3 {
         background-color: #fff;
+        height: 904px;
     }
     
     
@@ -258,7 +267,7 @@ margin: 0;
     border: none;
     border-radius: 11px;
     padding: 0 15px;
-margin: 17% 26.5%  0%;
+margin: 17% 2.5%  0%;
     font-size: 1.8rem;
     cursor: pointer;
     display: inline-block;

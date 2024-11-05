@@ -23,7 +23,7 @@
     .title {
         width: 90% !important;
         font-size: 2rem !important;
-        margin: 5% 1% 0% 5% !important;
+        margin: 4% 1% 0% 5% !important;
     }
 
 
@@ -58,6 +58,19 @@
         position: relative;
         text-align: center;
     }
+
+
+    /*ocultando a li*/
+
+    .navigation {
+        display: none;
+    }
+
+    .menu_box {
+        display: block;
+    }
+
+
 
 
 
@@ -168,7 +181,7 @@ z-index: 1;
 
 
     main h1{
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         padding-block: 10%;
     }
     .membroOne {
@@ -283,18 +296,18 @@ z-index: 1;
         #scrollToTop {
             background-color: #42807D;
             color: white;
-            height: 55px;
+            height: 45px;
             width: 59%;
             border: none;
             border-radius: 10px;
             padding: 0 15px;
-        margin: 8% 22%  10%;
-            font-size: 10px;
+        margin: 20% 22%  22%;
+          
             cursor: pointer;
             display: inline-block;
             text-align: center;
             display: none;
-            font-size: 1.7rem;
+            font-size: 1.3rem;
         }
         
         
@@ -304,29 +317,62 @@ z-index: 1;
         }
         
 
-    .fot {
-
-        width: 100%;
-        height:74px;
-     
-        background-color: #42807D;
-        text-align: center;
-    }
-
-
-    .fot p a {
-        margin: 1% 7% 0% 0%;
-        font-size: 15px;
-        padding: 0;
-        font-size: 1.1rem;
-    }
-
-    footer.fot p:last-of-type {
-       
-        font-weight: bold; 
-        font-size: 1rem;
-        margin-bottom: 0;
-    }
+        .fot {
+            position: static;
+            width: 100%;
+            height: auto;
+            background-color: #42807D;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+          
+        }
+        
+        .fot p {
+            margin: 5px 0; 
+            font-size: 17px; 
+            color: #ffffff;
+        }
+        
+        .fot p a {
+            margin: 15px 0; 
+            font-size: 1rem; 
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .fot p a:hover {
+            color: #000000; 
+        }
+        
+        .fot p:last-of-type {
+            margin-top: 10px;
+            font-size: 1.4rem; 
+            color: #000000;
+            font-weight: bold;
+        }
+        
+        
+        
+            .fot p {
+                font-size: 15px; 
+                margin-top: 15px ;
+            }
+            
+        
+            .fot p a {
+                font-size: 1rem;
+                margin: 70px 22px;
+            }
+        
+            .fot p:last-of-type {
+                font-size: 0.9rem; 
+                margin-top: 5px;
+            }
+        
+        
     
         
 }

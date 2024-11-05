@@ -14,6 +14,9 @@ body {
     background-color: #f4f4f4; 
 }
 
+body{
+    background-color: #fff;
+}
 
     .menu_box {
         display: none; 
@@ -47,7 +50,8 @@ body {
 
 .sec2 {
     height: 100vh;
-    background: #f0f0f0;
+background-color: #fff;
+
 }
 
 .section-container {
@@ -276,6 +280,9 @@ margin-left: 5%;
     background-color: #00ff5e;
 }
 
+
+
+/*cores da linha*/
 .amarelas {
     background-color: yellow;
 }
@@ -288,9 +295,22 @@ margin-left: 5%;
     background-color: rgb(255, 42, 5);
 }
 
+
+
 .texto h2, .texto p {
     margin: 0;
     padding: 0;
+}
+
+.linha {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.9s ease;
+}
+
+.linha.show {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 
@@ -356,6 +376,8 @@ font-size: 1.7rem;
 
 
 
+
+
 #scrollToTop {
     background-color: #42807D;
     color: white;
@@ -376,6 +398,11 @@ margin: 12% 38.5%  2% 38%;
 background-color: #13c030;
 color: #ffffff;
 }
+
+
+
+
+
 .fot {
    
     width: 100%;
@@ -385,6 +412,7 @@ color: #ffffff;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 8%;
     text-align: center;
 }
 

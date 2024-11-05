@@ -18,57 +18,61 @@
 
   
     /* Cabeçalho */
+    
+    /* Cabeçalho */
     .header {
-   
-        width: 100%;
-        height: 202px;
-
         background-color: #42807D;
+        position: relative;
+        width: 100%;
+        height: 240px;
         top: 0;
+        margin:0 ;
     }
-
-
+    
+    
     .header .div-header h1 {
-        font-size: 3.7rem;
-        width: 26%;
-        margin: 0% auto;
-        color: #000;
+        font-size: 4.4rem;
+        width: 5%;
+        margin: 0.5% 40.5% 0% ;
+        color: #000; 
     }
-
-
+    
+    
     .header div {
         display: flex;
         flex-direction: column;
         text-align: center;
-        margin: 0;
+    
     }
-
+    
     .navigation ul {
         display: flex;
         justify-content: center;
         list-style: none;
-
+     margin: 0% 0 6% 3%;
         padding: 0;
     }
-
-
+    
+    
     .navigation ul li {
-
-        font-size: 1.8rem;
+    padding-right:2% ;
+    margin-top: 0;
+        
     }
-
+    
     .navigation ul li a {
         position: relative;
         text-decoration: none;
         color: #fff;
         font-weight: bold;
-        padding-left: 8px;
-        font-size: 1.4rem;
+        padding-left: 8px ;
+        font-size: 1.2rem;
+        
         margin: 0;
         transition: background-color 0.9s ease;
     }
-
-
+    
+    
     .navigation ul li a::after {
         content: "";
         position: absolute;
@@ -78,12 +82,11 @@
         background-color: #00ff5e;
         transition: width 0.3s ease, left 0.3s ease;
     }
-
+    
     .navigation ul li a:hover::after {
         width: 100%;
-        left: 0;
+        left: 0; 
     }
-
 
 
 
@@ -100,7 +103,7 @@
         text-align: start;
         font-size: 3rem !important;
         line-height: 1.5;
-        margin-bottom: 5% !important;
+        margin-bottom: 3% !important;
         padding: 0 !important;
     }
 
@@ -186,7 +189,7 @@ h2.expandir{
         max-width: 100%;
         border-radius: 4%;
         overflow: hidden;
-        margin: 0 auto;
+        margin: 0 auto 8%;
     }
 
     .container {
@@ -220,8 +223,8 @@ h2.expandir{
         justify-content: center;
       align-items: center;
         padding: 15px;
-        margin: 1% auto;
-width: 100%;
+        margin: 1% 2% 0% 3%;
+width: 90%;
     }
 
     .skills-icons i {
@@ -231,8 +234,8 @@ width: 100%;
     }
 
     .formulario {
-        height: 793px;
-        width: 59%;
+        height: 763px;
+        width: 50%;
         padding: 15px;
         margin-top: 11%;
     }
@@ -266,7 +269,11 @@ width: 100%;
 margin-bottom: 4%;
     }
   
-   
+   .botao{
+    width: 80%;
+position: relative;
+left: 9%;
+   }
     .parcerias {
         padding: 20px;
         margin: auto;
@@ -286,9 +293,9 @@ margin-bottom: 4%;
         display: flex;
         justify-content: center;
         gap: 120px;
-    margin-left: 18%;
-    margin-top: 10%;
-    margin-bottom:  13%;
+    margin-left: 27%;
+    margin-top: 8%;
+    margin-bottom:  10%;
     }
     
     .image img {
