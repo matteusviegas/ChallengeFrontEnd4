@@ -319,6 +319,12 @@ body {
     }
     
 
+    .skills-icons i {
+        margin-top: 0;
+        font-size: 3.2rem;
+        margin: 0;
+    }
+
 
 
 
@@ -377,12 +383,6 @@ body {
 
 
 
-    .skills-icons i {
-        margin-top: 0;
-        font-size: 3.3rem;
-        margin: 0;
-    }
-
 
 
     .formulario {
@@ -398,7 +398,7 @@ body {
     }
 
     h2 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
         padding-bottom: 1%;
         padding-top: 3%;
     }

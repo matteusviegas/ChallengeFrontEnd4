@@ -261,7 +261,7 @@ padding: 0;
 
 
     .divTwo {
-        width: 58%;
+        width: 55%;
         margin-top: 10%;
       margin-left: 42%;
         opacity: 0;
@@ -291,6 +291,22 @@ padding: 0;
     
 
 
+
+    #scrollToTop {
+        background-color: #42807D;
+        color: white;
+        height: 73px;
+        width: 30%;
+        border: none;
+        border-radius: 15px;
+        padding: 0 15px;
+    margin: 12% 35.5%  0%;
+        font-size: 1.8rem;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+      
+    }
 
 
 

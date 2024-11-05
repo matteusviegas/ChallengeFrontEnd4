@@ -65,7 +65,6 @@ scrollToTopButton.onclick = function () {
     });
 };
 
-/*efeito dos containers*/
 
 // Lógica da transição da informação
 window.addEventListener('scroll', function () {

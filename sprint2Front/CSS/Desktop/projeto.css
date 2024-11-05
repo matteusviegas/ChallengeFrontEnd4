@@ -184,8 +184,8 @@ h2.expandir{
 
     .carrossel {
         display: flex;
-        height: 400px;
-        width: 70%;
+        height: 500px;
+        width: 100%;
         max-width: 100%;
         border-radius: 4%;
         overflow: hidden;
@@ -293,7 +293,7 @@ left: 9%;
         display: flex;
         justify-content: center;
         gap: 120px;
-    margin-left: 27%;
+    margin-left: 30%;
     margin-top: 8%;
     margin-bottom:  10%;
     }

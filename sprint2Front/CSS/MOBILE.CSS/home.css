@@ -9,7 +9,7 @@
 
     
         body {
-        
+    width: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
             overflow-x: hidden; 
@@ -324,15 +324,16 @@ margin: 1px 0 ;
     }
 
     .divOne h3 {
-
+margin-left: 5.5%;
         text-align: start;
         font-size: 1.7rem;
-        margin: 7% 0 0% 7%;
+   
         padding-block: 7px;
         border-radius: 14px;
-        width: 100%;
+        width: 70%;
 
     }
+    
 
     .divOne p {
         margin: 3.5% 0 0 5%;
@@ -352,7 +353,7 @@ margin: 1px 0 ;
     }
 
     .divTwo {
-        width: 90%;
+        width: 87%;
         margin-top: 0%;
 
     }
@@ -373,8 +374,8 @@ margin: 1px 0 ;
 
         margin: 0 auto 2% 17%;
         text-align: start;
-        font-size: 1.6rem;
-        margin: 10% 0 0% 06%;
+        font-size: 1.4rem;
+        margin: 10% 0 5% 5%;
         padding-block: 7px;
         border-radius: 14px;
         width: 100%;

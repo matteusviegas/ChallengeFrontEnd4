@@ -228,7 +228,8 @@ margin-top: 0;
 
     .carrossel {
         position: relative;
-        width: 100%;
+        width: 55%;
+        height: 655px;
         max-width: 1010px;
         margin: 12% auto 10%;
         overflow: hidden;

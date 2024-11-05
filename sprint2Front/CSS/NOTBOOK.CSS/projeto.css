@@ -100,14 +100,14 @@
     h2.expandir {
         margin:2%;
         text-align: start;
-        font-size: 3rem !important;
+        font-size: 2.6rem !important;
         line-height: 1.2;
         margin-bottom: 4% !important;
         padding: 0 !important;
     }
 
     .info {
-        width: 88%;
+        width: 82%;
         padding: 15px;
     }
 
@@ -128,7 +128,7 @@ h2.expandir{
     .infoOne {
         line-height: 1.6rem;
         padding: 15px;
-        width: 100%;
+        width: 88%;
         margin: 0;
     }
 
@@ -144,7 +144,7 @@ h2.expandir{
     }
 
     .infoTwo {
-        width: 90%;
+        width: 91%;
         margin: 0;
         margin-left: 2%;
     }
@@ -291,7 +291,7 @@ margin-bottom: 4%;
         display: flex;
         justify-content: center;
         gap: 120px;
-    margin-left: 27%;
+    margin-left: 25%;
     margin-top: 10%;
     margin-bottom:  13%;
     }
