@@ -25,7 +25,9 @@ body{
         display: none;
     }
 
-
+a{
+    text-decoration: none;
+}
 
     /*efeito de transcissao das informaços */
 

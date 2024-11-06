@@ -1,4 +1,4 @@
-@media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: portrait) {
+@media only screen and (min-width: 600px) and (max-width: 998px) and (orientation: portrait) {
 
 
     
@@ -76,6 +76,12 @@
 body{
     background-color: #fff;
 }
+
+
+
+a{
+    text-decoration: none;
+   }
 
     .content-item {
         display: flex;
@@ -212,7 +218,7 @@ body{
     
     .divOne {
         margin: 9% auto 15% 7%;
-        width: 73%;
+        width: 99%;
     }
 
     .divOne h3 {
@@ -263,7 +269,7 @@ margin: 0;
     background-color: #42807D;
     color: white;
     height: 54px;
-    width: 46%;
+    width: 43%;
     border: none;
     border-radius: 11px;
     padding: 0 15px;
