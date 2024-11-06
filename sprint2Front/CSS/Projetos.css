@@ -203,6 +203,7 @@ margin-top: 0;
      
         line-height: 3.4rem;
         margin-left: 5%;
+        width: 92%;
     }
 
 
@@ -261,11 +262,16 @@ margin-top: 0;
         color: white;
         border: none;
         border-radius: 50%;
-        height: auto;
-        width: 3.4%;
+        height: 63px;
+        width: 6.6%;
         cursor: pointer;
         padding: 10px;
         z-index: 1;
+    }
+
+    .botaoo:hover{
+background-color: #fff;
+color:#000;
     }
 
     .prev {
@@ -301,7 +307,7 @@ margin-top: 0;
     .skills-icons i {
         text-align: center;
         color: var(--color-black);
-        font-size: 5.5rem;
+        font-size: 6rem;
         margin-left: 4%;
         padding-left: 0;
         transition: color 0.3s;
@@ -503,13 +509,13 @@ color: #ffffff;
 }
 
 .fot p {
-    margin: 0;
+    margin-bottom: 1%;
     font-size: 17px;
     color: #ffffff;
 }
 
 .fot p a {
-    margin:  33px;
+    margin:  30px;
     
     font-size: 20px;
     
@@ -522,7 +528,7 @@ color: #ffffff;
 }
 
 .fot p:last-of-type {
-    margin-top: 18px;
+    margin-top: 13px;
     font-size: 1.4rem; 
     font-size: 1rem;
     color: #000000;

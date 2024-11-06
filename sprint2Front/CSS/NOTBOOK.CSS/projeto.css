@@ -183,26 +183,41 @@ h2.expandir{
         margin-bottom: 14%;
     }
 
-    .carrossel {
-        display: flex;
-        height: 400px;
-        width: 70%;
-        max-width: 100%;
-        border-radius: 4%;
-        overflow: hidden;
-        margin: 0 auto;
-        margin-bottom: 9%;
+
+
+    .div-ilustrativa{
+        
+        margin-left: 11%;
+        height: 442px;
     }
 
-    .container {
-        display: flex;
-        transition: transform 0.5s ease;
+    
+    .botaoo {
+        position: absolute;
+        top: 25%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.676);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        height: 38px;
+        width: 7%;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1;
     }
 
-    .container img {
-        height: 100%;
-        width: auto;
-        border-radius: 4%;
+    .botaoo:hover{
+background-color: #fff;
+color:#000;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
     }
 
     .sec1 h1 {

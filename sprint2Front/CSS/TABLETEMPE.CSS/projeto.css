@@ -176,27 +176,51 @@
         h2{
             color: #000;
         }
+      
         .carrossel {
             display: flex;
-            height: 360px; 
-            width: 70%; 
+            height: 444px; 
+           
+            width: 100%; 
             max-width: 100%;
             border-radius: 4%;
-            overflow: hidden; 
+            overflow: hidden;
             margin: 0 auto;
         }
-        
-        .container {
-            margin-top: 17%;
-            display: flex;
-            transition: transform 0.5s ease; 
-        }
-        
-        .container img {
-            height: 100%; 
-            width: auto; 
-            border-radius: 4%;
-        }
+
+    .div-ilustrativa{
+        margin-left: 2%;
+        height: 442px;
+        margin-top: 19%;
+    }
+
+    .botaoo {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.676);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        height: 43px;
+        width: 6.6%;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1;
+    }
+
+    .botaoo:hover{
+background-color: #fff;
+color:#000;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
         
     
             .sec1 h1 {

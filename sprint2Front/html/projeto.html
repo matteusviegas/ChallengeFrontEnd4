@@ -101,10 +101,13 @@
     <div class="div-ilustrativa">
     <div class="carrossel">
         <div class="container">
-           <img src="../img/imgmetro1.png" alt="">
-           <img src="../img/imgmetro2.png" alt="">
-           <img src="../img/linha_esmeralda2.jpg" alt="">
-           <img src="../img/metro2.jpg" alt="">
+        <img src="../img/imgmetro1.png" alt="linha_metro">
+        <img src="../img/metro_esmeralda1.jpg" alt="linha_metro2">
+        <img src="../img/metro_linhaAmarela1.jpg" alt="linha_amarela1">
+        <img src="../img/imgmetro2.png" alt="linha_metro">
+        <img src="../img/metro_linhaAmarela3.jpg" alt="linha_amarela3">
+      
+        <img src="../img/linhaAmaela2.jpg" alt="">
         </div>
         <!--botao das imgs-->
         <button class="prev botaoo" onclick="mudaSlide(-1)">&#10094;</button>
@@ -154,6 +157,8 @@
         
                     <button type="submit" class="botao">Enviar Sugestão</button>
                 </form>
+                <p id="successMessage" style="display:none; color: green;">Sugestão enviada com sucesso!</p>
+
             </div>
         </section>
         
@@ -177,7 +182,7 @@
             </div>
 
         </section>
-        <button    id="scrollToTop" >voltar ao topo</button>
+        <button    id="scrollToTop" onclick="scrollToTop()" >voltar ao topo</button>
 
     </main>
 

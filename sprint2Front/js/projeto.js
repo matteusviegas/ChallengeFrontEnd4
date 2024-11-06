@@ -20,68 +20,62 @@ const mudaSlide = (n) => {
 };
 
 
-
-
 document.getElementById('prev').addEventListener('click', () => mudaSlide(-1));
 document.getElementById('next').addEventListener('click', () => mudaSlide(1));
 
-document.getElementById('suggestionForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    document.getElementById('nameError').textContent = '';
-    document.getElementById('emailError').textContent = '';
-    document.getElementById('suggestionError').textContent = '';
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const suggestion = document.getElementById('suggestion').value.trim();
 
-    let valid = true;
 
-    if (name === '') {
-        document.getElementById('nameError').textContent = 'Nome é obrigatório.';
-        valid = false;
-    }
-
-    if (email === '') {
-        document.getElementById('emailError').textContent = 'E-mail é obrigatório.';
-        valid = false;
-    } else if (!validateEmail(email)) {
-        document.getElementById('emailError').textContent = 'E-mail inválido.';
-        valid = false;
-    }
-
-    if (suggestion === '') {
-        document.getElementById('suggestionError').textContent = 'Sugestão é obrigatória.';
-        valid = false;
-    }
-
-    if (valid) {
-        alert(`Obrigado, ${name}! Sua sugestão foi enviada.`);
-        this.reset(); 
-    }
-});
-
-/*logica email*/
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
+function validateName(name) {
+    const nameRegex = /^[A-Za-z\s]+$/;
+    return nameRegex.test(name);
 }
 
-infoButtons.forEach((button, index) => {
-    button.addEventListener('click', () => showCard(index));
-});
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
 
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.info-button') && !e.target.closest('.info-card')) {
-        infoCards.forEach(card => card.classList.remove('active'));
+document.getElementById('suggestionForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const suggestion = document.getElementById('suggestion').value;
+
+    let isValid = true;
+
+    if (!validateName(name)) {
+        document.getElementById('nameError').innerText = "O nome não pode ter números.";
+        isValid = false;
+    } else {
+        document.getElementById('nameError').innerText = "";
+    }
+
+    if (!validateEmail(email)) {
+        document.getElementById('emailError').innerText = "Por favor, insira um email válido.";
+        isValid = false;
+    } else {
+        document.getElementById('emailError').innerText = "";
+    }
+
+    if (suggestion.trim() === "") {
+        document.getElementById('suggestionError').innerText = "A sugestão não pode estar vazia.";
+        isValid = false;
+    } else {
+        document.getElementById('suggestionError').innerText = "";
+    }
+
+    if (isValid) {
+        document.getElementById('successMessage').style.display = "block";
+        document.getElementById('suggestionForm').reset();
     }
 });
 
 
+/*logica do botao voltar ao topo*/
 
 const scrollToTopButton = document.getElementById("scrollToTop");
-
 
 window.onscroll = function () {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -91,11 +85,8 @@ window.onscroll = function () {
     }
 };
 
-scrollToTopButton.onclick = function () {
-    
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' 
-    });
-};
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 

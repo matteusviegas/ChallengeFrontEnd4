@@ -153,25 +153,26 @@
 
 
     .iconsOne{
-      margin-right: 49%;
+      margin-right: 52%;
       top: 18%;
       
     }
     
     .iconsTwo{
-        margin-right: 2%;
+        margin-right: 52%;
         top: 10%;
         right: 21%;
       }
 
       .iconsThree{
-        margin-right: 49%;
+        margin-right: 55%;
         top: 17%;
       }
 
     .descripitionTwo h3 {
         margin-bottom: 3.5%;
     font-size: 2.1rem;
+    margin-bottom: 1%;
     }
     .descripitionTwo p {
         margin-bottom: 0%;

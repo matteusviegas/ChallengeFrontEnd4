@@ -102,7 +102,11 @@ padding-right:3.5% ;
 
 
 
+/*removendo o underline*/
 
+a {
+text-decoration: none;
+}
 
 .header h1 {
     font-size: 4rem;
@@ -184,7 +188,7 @@ section {
 
 .iconsOne{
     position:relative;
-    left:10%;
+    left:13%;
     
     top: 17%;
 }
@@ -229,9 +233,11 @@ section {
 
 .iconsTwo{
     position: relative;
-    top: 7%;
-    right: 2%;
+    top: 1%;
+    left: 16%;
 }
+
+
 
 
 
@@ -291,7 +297,7 @@ margin: 0 ;
 
     position: relative;
     top: 16%;
-    left: 11%;
+    left: 15%;
 
 }
 

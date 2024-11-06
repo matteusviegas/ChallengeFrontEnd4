@@ -1,4 +1,4 @@
-
+/*logica do botao de voltar ao topo */
 const scrollToTopButton = document.getElementById("scrollToTop");
 
 

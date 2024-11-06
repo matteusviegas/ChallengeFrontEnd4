@@ -7,6 +7,7 @@
 *{
     text-align: center;
     margin: auto;
+    box-sizing: border-box;
 }
   
     /* Ocultando o menu */
@@ -17,27 +18,34 @@
         display: none;
     }
 
+
+    .container {
+        width: 100%;
+       
+    }
+
     .header {
         background-color: #42807D;
         height: 198px;
         width: 100%;
+        overflow-x: hidden;
     }
 
     
     .header .title {
         width: 40% !important;
         font-size: 3.3rem !important;
-        margin: 2% 3% 2% 31.5%!important;
+        margin: 0.3% 3% 2% 32%!important;
     }
 
     .navigation ul {
         margin-top: 1%;
-        margin-right: 5.5%;
+        margin-right: 12.5%;
     }
 
 
     .navigation ul li {
-        margin-left: 7%;
+        margin-left: 21%;
     }
 
 
@@ -73,6 +81,7 @@
 
 
 
+
     img {
         width: 45%;
         height: auto;
@@ -99,9 +108,9 @@ margin-bottom: 0%;
 }
     .informationOne {
         font-size: 1.1rem;
-        width: 50%;
+        width: 45%;
        margin-top: 25%;
-       margin-left: 5%;
+       margin-left: 1%;
        margin-right: 0;
        padding: 0;
     }
@@ -117,7 +126,7 @@ margin-bottom: 0%;
         font-size: 1rem;
         width: 50%;
 margin-top: 23.5%;
-        margin-left: 7%;
+        margin-left: 4%;
 
     }
 
@@ -175,7 +184,7 @@ margin-right: 5%;
 
 
 .fot p a {
-   margin: 0 25px;
+   margin: 0 23px;
     font-size: 18px;
     padding: 0;
     
@@ -184,6 +193,23 @@ margin-right: 5%;
 
     font-size: 1rem;
     text-align: center; 
+    margin-top: 0.5%;
 
+}
+
+#scrollToTop {
+    background-color: #42807D;
+    color: white;
+    height: 53px;
+    width: 35%;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+margin: 14% 35%     10% 33%;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+  
 }
 }
