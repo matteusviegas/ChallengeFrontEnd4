@@ -262,15 +262,15 @@ font-size: 1.1rem;
 #scrollToTop {
     background-color: #42807D;
     color: white;
-    height: 73px;
+    height: 66px;
     width: 22%;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 0 15px;
-margin: 8% 41%  9%;
+margin: 8% 27%  9%;
     font-size: 16px;
     cursor: pointer;
-   
+   width: 55%;
     text-align: center;
     display: none;
 }

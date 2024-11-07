@@ -439,6 +439,14 @@ color:#000;
         color: #00ff5e;
     }
     
+    .success-message {
+        color: green;
+        font-size: 1.7rem;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+
     .error {
         color: red;
         font-size: 14px; 
