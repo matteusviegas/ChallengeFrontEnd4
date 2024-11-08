@@ -220,69 +220,35 @@ margin-top: 0;
     }
     
 
-    
-    /* Carrossel das imagens */
+/* Ajustes no carrossel */
+.secao-ilustrativa {
+    margin: auto;
+    margin-left: 11.5%;
+}
 
-    .secao-ilustrativa {
+.carrossel {
+    position: relative;
+    width: 55%;
+    height: 655px;
+    max-width: 1010px;
+    margin: 12% auto 10%;
+    overflow: hidden;
+    border-radius: 12px;
+}
 
-        margin: auto;
-        margin-left: 11.5%;
-    }
+.container {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+    width: 100%;
+}
 
-    .carrossel {
-        position: relative;
-        width: 55%;
-        height: 655px;
-        max-width: 1010px;
-        margin: 12% auto 10%;
-        overflow: hidden;
-        border-radius: 12px;
-    }
-    h2.expandir{
-        color: #000;
-        margin-bottom: 2%;
-    }
+.container img {
+    width: 100%; 
+    height: auto;
+    object-fit: cover;
+}
 
-    .container {
-        display: flex;
-        transition: transform 0.8s ease-in-out;
-        width: 100%;
-        object-fit: cover;
-    }
 
-    .container img {
-        width: 100%;
-        height: auto; 
-        object-fit: cover;
-    }
-
-    .botaoo {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.676);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        height: 63px;
-        width: 6.6%;
-        cursor: pointer;
-        padding: 10px;
-        z-index: 1;
-    }
-
-    .botaoo:hover{
-background-color: #fff;
-color:#000;
-    }
-
-    .prev {
-        left: 10px;
-    }
-
-    .next {
-        right: 10px;
-    }
    
    
    
