@@ -25,6 +25,43 @@ body{
         display: none;
     }
 
+
+
+    .search-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .form-pesquisa {
+        display: flex;
+        align-items: center;
+        transition: width 0.3s;
+    }
+    
+    .search-input {
+        width: 0;
+        padding: 5px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        transition: width 0.4s ease;
+        background-color: #f1f1f1;
+        padding-left: 10px;
+    }
+    
+    .search-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+    
+    .form-pesquisa:hover .search-input,
+    .search-input:focus {
+        width: 150px;
+    }
+    
+
 a{
     text-decoration: none;
 }
@@ -316,34 +353,6 @@ margin-left: 5%;
 }
 
 
-.form-pesquisa {
-    display: flex;           
-    align-items: center;    
-    margin-left: 20px;       
-}
-
-.form-pesquisa input[type="text"] {
-    padding: 8px 12px;           
-    font-size: 14px;            
-    border: 1px solid #ccc;      
-    border-radius: 4px 0 0 4px;  
-    outline: none;               /
-}
-
-.form-pesquisa button {
-    padding: 8px 12px;          
-    font-size: 14px;             
-    border: 1px solid #ccc;      
-    border-left: none;           
-    background-color: #007BFF;   
-    color: #fff;                 
-    border-radius: 0 4px 4px 0;  
-    cursor: pointer;             
-}
-
-.form-pesquisa button:hover {
-    background-color: #0056b3;  
-}
 
 
 /* Terceira seção */

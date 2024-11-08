@@ -44,7 +44,7 @@ document.getElementById('suggestionForm').addEventListener('submit', function (e
     }
 
     if (isValid) {
-       
+
         alert("Sugestão enviada com sucesso!");
         document.getElementById('suggestionForm').reset();
     }
@@ -53,6 +53,7 @@ document.getElementById('suggestionForm').addEventListener('submit', function (e
 
 
 /*logica do botao de voltar ao topo */
+
 const scrollToTopButton = document.getElementById("scrollToTop");
 
 
@@ -66,11 +67,55 @@ window.onscroll = function () {
 
 
 scrollToTopButton.onclick = function () {
-    
+
     window.scrollTo({
         top: 0,
-        behavior: 'smooth' 
+        behavior: 'smooth'
     });
 };
 
 
+//impedimento da submissao do formulario
+
+document.querySelector('.form-pesquisa').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const termoPesquisa = document.getElementById('pesquisa').value.toLowerCase();
+
+    // Mapeamento de palavras-chaves 
+    const rotas = {
+        'projeto': 'html/projeto.html',
+        'equipe': 'html/equipe.html',
+        'ccr': 'html/ccr.html',
+        'home': 'index.html'
+    };
+
+    // Navegação para a URL 
+    if (rotas[termoPesquisa]) {
+        window.location.href = rotas[termoPesquisa];
+    } else {
+        alert('Página não encontrada. Tente "home", "projeto", "equipe" ou "ccr".');
+    }
+});
+
+const box = document.querySelector(".container")
+const img = document.querySelectorAll(".container img")
+
+const active = document.querySelector('.infoOne')
+const elementh2 = document.querySelector('.info expandir')
+
+
+elementh2.addEventListener('click', ()=>{
+    elementh2.classList.toggle('active')
+})
+    let contador = 0 
+const slider =()=>{
+    contador++
+    if(contador > img.length -1){
+        contador =0;
+    }
+box.style.transform = `translateX(${-contador * 466}px)`
+
+}
+
+setInterval(slider, 2000);

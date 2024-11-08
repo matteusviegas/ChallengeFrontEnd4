@@ -18,26 +18,26 @@
 <body>
     <header class="header">
         <div class="div-header">
-         <a href="index.html">
-            <h1 class="title"> FUTURE <span style="color: rgb(255, 255, 255);">STATION</span></h1>
+            <a href="index.html">
+                <h1 class="title"> FUTURE <span style="color: rgb(255, 255, 255);">STATION</span></h1>
 
-         </a>
-            
+            </a>
+
             <nav class="navigation">
                 <ul>
                     <li><a href="#">HOME</a></li>
                     <li><a href="html/projeto.html">PROJETO</a></li>
                     <li><a href="html/equipe.html">EQUIPE</a></li>
                     <li><a href="html/ccr.html">CCR</a></li>
-                    <form action="search.html" method="GET" class="form-pesquisa">
-                        <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar...">
-                        
-                    </form>
-                    
+                    <div class="search-container">
+                        <form action="search.html" method="GET" class="form-pesquisa">
+                            <input type="text" name="pesquisa" id="pesquisa" class="search-input" placeholder="Pesquisar...">
+                            <button type="submit" class="search-button">🔍</button>
+                        </form>
             </nav>
         </div>
         <input type="checkbox" id="menu_toggle" class="menu_toggle">
-        <label class="menu_btn" for="menu_toggle"> 
+        <label class="menu_btn" for="menu_toggle">
             <span></span>
         </label>
 
@@ -59,8 +59,7 @@
             <div class="content-item">
                 <div class="image-container">
                     <h1>Estações de Metrô</h1>
-                    <img src="img/metro_linhaAmarela5.jpg"
-                        alt="trem">
+                    <img src="img/metro_linhaAmarela5.jpg" alt="trem">
                 </div>
                 <div class="description-container">
                     <h3>Linha 4 Amarela</h3>
@@ -72,8 +71,7 @@
             <div class="content-item">
                 <div class="image-container">
                     <h1>Estações de Metrô</h1>
-                    <img src="img/imgmetro1.png"
-                        alt="trem">
+                    <img src="img/imgmetro1.png" alt="trem">
                 </div>
                 <div class="description-container">
                     <h3>Linha 9 Esmeralda.</h3>
@@ -84,8 +82,7 @@
             <div class="content-item">
                 <div class="image-container">
                     <h1>Estações de Metrô</h1>
-                    <img src="img/linha_diamante.jpg"
-                        alt="trem">
+                    <img src="img/linha_diamante.jpg" alt="trem">
                 </div>
                 <div class="description-container">
                     <h3>Linha 8 Diamante</h3>
@@ -98,11 +95,11 @@
 
 
         <!-- segunda secao -->
-   
+
         <section class="sec2">
             <div class="avisos">
 
-        
+
                 <!-- Linha Amarela -->
                 <div class="linha_amarela linha">
                     <div class="amarelas"></div>
@@ -111,7 +108,7 @@
                         <p>Operando normalmente</p>
                     </div>
                 </div>
-        
+
                 <!-- Linha Cinza -->
                 <div class="linha_diamante linha">
                     <div class="cinza"></div>
@@ -120,7 +117,7 @@
                         <p>Operando normalmente</p>
                     </div>
                 </div>
-        
+
                 <!-- Linha Verde -->
                 <div class="linha_esmeralda linha">
                     <div class="verde"></div>
@@ -129,10 +126,10 @@
                         <p>Operando com velocidade reduzida</p>
                     </div>
                 </div>
-        
+
             </div>
         </section>
-        
+
 
         </div>
         <!-- terceira secao -->
@@ -154,7 +151,7 @@
                     recorrendo a boatos, o que aumenta a ansiedade e o estresse no local. </p>
             </div>
 
-            <button    id="scrollToTop" >voltar ao topo</button>
+            <button id="scrollToTop">voltar ao topo</button>
 
         </section>
 

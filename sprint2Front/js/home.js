@@ -33,6 +33,8 @@ const showCard = (index) => {
         infoCards[index].classList.add('active');
     }
 };
+
+
 /*efeito do botao*/
 infoButtons.forEach((button, index) => {
     button.addEventListener('click', () => showCard(index));
@@ -82,6 +84,8 @@ window.addEventListener('scroll', function () {
 });
 
 
+
+
 /*logica das listas*/
 
 
@@ -98,4 +102,27 @@ function mostrarLinhas() {
 window.onscroll = mostrarLinhas;
 mostrarLinhas();
 
+
+
+
+document.querySelector('.form-pesquisa').addEventListener('submit', function (event) {
+    event.preventDefault();  // Evita a submissão padrão do formulário
+    
+    const termoPesquisa = document.getElementById('pesquisa').value.toLowerCase();
+    
+    // Mapeamento de palavras-chave para URLs
+    const rotas = {
+        'projeto': 'html/projeto.html',
+        'equipe': 'html/equipe.html',
+        'ccr': 'html/ccr.html',
+        'home': 'index.html'
+    };
+    
+    // Navegação para a URL correspondente à palavra-chave
+    if (rotas[termoPesquisa]) {
+        window.location.href = rotas[termoPesquisa];
+    } else {
+        alert('Página não encontrada. Tente "home", "projeto", "equipe" ou "ccr".');
+    }
+});
 
