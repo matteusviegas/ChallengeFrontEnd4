@@ -1,101 +1,102 @@
+'use client'
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+<main>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+<section>
+    <div>
+        <div className="w-1/2">
+            <h1 className="ml-4  p-6 text-4xl" >Estações de Metrô</h1>
+            <img className="w-[400px] h-[250px]" src="Image/metro_linhaAmarela5.jpg" alt="metro1" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div>
+            <h3>Linha 4 Amarela</h3>
+            <p>Luz - Vila Sônia</p>
+            <p>04h AM às 00h.</p>
+        </div>
     </div>
+
+    <div>
+        <div>
+            <h1 className="ml-4  p-6 text-4xl">Estações de Metrô</h1>
+            <img className="w-[400px] h-[250px]" src="Image/imgmetro2.png" alt="metro1" />
+
+        </div>
+        <div>
+            <h3>Linha 9 Esmeralda.</h3>
+            <p>Osasco - Grajaú.</p>
+            <p>04h AM às 00h.</p>
+        </div>
+    </div>
+    
+    <div>
+        <div>
+            <h1 className=" ml-4  p-6 text-4xl">Estações de Metrô</h1>
+            <img className="w-[400px] h-[250px]" src="Image/linha_diamante.jpg" alt="metro3" />
+
+        </div>
+        <div>
+            <h3>Linha 8 Diamante</h3>
+            <p>Júlio Prestes - Itapevi</p>
+            <p>04h AM às 00h.</p>
+        </div>
+    </div>
+
+</section>
+
+<section>
+    <div className="bg-[#42807D] w-1/2 p-2.5">
+
+        <div className="flex items-center mb-4 ml-5">
+            <div className="w-5 h-5 rounded-full bg-yellow-400 mr-7 mb-2"></div>
+            <div>
+                <h2 className="text-white text-2xl m-0">LINHA 4 AMARELA</h2>
+                <p className="m-0 text-xl w-1/3">Operando normalmente</p>
+            </div>
+        </div>
+
+        <div className="flex items-center mb-4 ml-5">
+            <div className="w-5 h-5 rounded-full bg-green-400 mr-7 mb-2"></div>
+            <div>
+                <h2 className="text-white text-2xl m-0">LINHA 8 DIAMANTE</h2>
+                <p className="m-0 text-xl w-1/3">Operando normalmente</p>
+            </div>
+        </div>
+
+        <div className="flex items-center mb-4 ml-5">
+            <div className="w-5 h-5 rounded-full bg-red-500 mr-7 mb-2"></div>
+            <div>
+                <h2 className="text-white text-2xl m-0">LINHA 9 ESMERALDA</h2>
+                <p className="m-0 text-xl w-1/3">Operando com velocidade reduzida</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h1 className="m-8 text-center text-6xl ">PROBLEMAS ENFRENTADOS</h1>
+
+    <div className="ml-6 p-4">
+        <h3 className="text-5xl p-7">Superlotação</h3>
+        <p className=" text-2xl">Durante os horários de pico, o fluxo de passageiros nas estações de metrô aumenta consideravelmente, o que pode causar uma superlotação intensa nas plataformas e nos trens. Essa aglomeração dificulta o embarque e desembarque de passageiros, tornando o processo mais demorado e, muitas vezes, desconfortável.</p>
+    </div>
+
+    <div className="ml-6 p-4 text-end mr-10">
+        <h3 className="text-5xl p-7">Falta de respostas ágeis</h3>
+        <p className=" text-2xl">A falta de respostas rápidas e claras em situações de emergência no metrô cria um ambiente de insegurança e desinformação para os passageiros. Sem orientação oficial, muitos acabam recorrendo a boatos, o que aumenta a ansiedade e o estresse no local.</p>
+    </div>
+
+    <button>voltar ao topo</button>
+
+</section>
+
+</main>
+
+    </>
   );
 }
