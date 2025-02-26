@@ -3,7 +3,7 @@ import React from 'react';
 const Skills = () => {
     return (
         <section className="py-16 text-center bg-gray-100">
-            <h2 className="text-4xl mb-8 text-gray-800">Minhas Habilidades</h2>
+            <h1 className="text-[4.5rem] font-bold mb-8 text-gray-800">MY SKILLS</h1>
             <div className="flex justify-center gap-12">
                 <div className="group text-5xl text-orange-600 hover:text-orange-500 transition-all duration-300 transform hover:scale-110">
                     <i className="fab fa-html5"></i>

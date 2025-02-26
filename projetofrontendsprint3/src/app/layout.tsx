@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
+import BotaoTopo from "./Components/BotaoTopo/Botao";
 
 
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body>
         <Header/>
         {children}
+        <BotaoTopo cor={""} texto={""}/>
         <Footer/>
       </body>
     </html>
