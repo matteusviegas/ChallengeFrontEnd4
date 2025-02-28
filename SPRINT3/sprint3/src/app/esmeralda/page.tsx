@@ -20,7 +20,14 @@ const Esmeralda =()=>{
         </ul>
      </div>
         </div>
+        <div className="flex mt-[] flex-col gap-8 text-">
+            <button className="bg-[#42807D] w-[18%] mx-auto text-[1.4rem] text-white rounded-[9px] p-1 "  type="button" > Consultar Fluxo</button>
+        <Link href="/ViagemInicio">
+        <button className="bg-[#42807D] w-[18%] cursor-pointer mx-auto text-[1.4rem] text-white rounded-[9px] p-1 "  type="button" > Começar Viagem</button>
 
+
+        </Link>
+    </div>
 
         </>
     )

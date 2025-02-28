@@ -15,6 +15,10 @@ return (
     <Link href="/amarela">
    <p  className="bg-black  mx-auto mb-4 text-white p-2 rounded-2xl w-[20%]">Linha 4 Amarela</p>
     </Link>
+    <div>
+        <button className="bg-blue-500"  type="button" > Consultar Fluxo</button>
+        <button type="button" >Começar </button>
+    </div>
     </>
 )
 }
