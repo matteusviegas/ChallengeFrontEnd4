@@ -112,6 +112,7 @@ const TelaCadastro = () => {
               className="p-4"
             />
             Ao continuar, você aceita nossa <button className="text-blue-500 hover:underline focus:outline-none">Política de Privacidade</button> e <button className="text-blue-500 hover:underline focus:outline-none">Termos de Uso</button>.
+            <p>oi</p>
           </p>
         </div>
 
