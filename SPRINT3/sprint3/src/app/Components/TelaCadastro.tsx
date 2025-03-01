@@ -12,9 +12,17 @@ const TelaCadastro = () => {
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [aceitouTermos, setAceitouTermos] = useState(false);
   const [erroSenhas, setErroSenhas] = useState('');
+  const [erroCampos, setErroCampos] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!usuario || !dataNascimento || !email || !senha || !confirmarSenha) {
+      setErroCampos('Por favor, preencha todos os campos.');
+      return;
+    } else {
+      setErroCampos('');
+    }
 
     if (senha !== confirmarSenha) {
       setErroSenhas('As senhas não coincidem. Por favor, verifique novamente.');
@@ -23,17 +31,18 @@ const TelaCadastro = () => {
       setErroSenhas('');
     }
 
-    if (usuario && dataNascimento && email && senha && confirmarSenha && aceitouTermos) {
-      router.push('/avisos');
-    } else {
-      alert('Por favor, preencha todos os campos corretamente.');
+    if (!aceitouTermos) {
+      alert('Você deve aceitar os termos de uso e política de privacidade.');
+      return;
     }
+
+    router.push('/avisos');
   };
 
   return (
     <div className="max-w-md text-start mx-auto p-6 bg-white shadow-lg rounded-lg">
       <div>
-        <h1 className="mx-auto mt-6 font-bold text-center mb-[10%] text-5xl">FUTURE <span className="text-[#42807D]">STATION</span></h1>
+        <h1 className="mx-auto mt-6 font-bold text-center mb-[10%] text-4xl sm:text-3xl md:text-4xl lg:text-5xl">FUTURE <span className="text-[#42807D]">STATION</span></h1>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -45,7 +54,7 @@ const TelaCadastro = () => {
             value={usuario}
             onChange={(e) => setUsuario(e.target.value)}
             placeholder="Usuário"
-            className="w-full bg-[#42807D] p-3 border border-gray-300 rounded-[30px] mt-2 text-[#fff] tex-[1.9rem]"
+            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
           />
         </div>
 
@@ -57,7 +66,7 @@ const TelaCadastro = () => {
             name="dataNascimento"
             value={dataNascimento}
             onChange={(e) => setDataNascimento(e.target.value)}
-            className="w-full bg-[#42807D] p-3 border border-gray-300 rounded-[30px] mt-2 text-[#fff] tex-[1.9rem]"
+            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
           />
         </div>
 
@@ -70,7 +79,7 @@ const TelaCadastro = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Digite seu email"
-            className="w-full bg-[#42807D] p-3 border border-gray-300 rounded-[30px] mt-2 text-[#fff] tex-[1.9rem]"
+            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
           />
         </div>
 
@@ -83,7 +92,7 @@ const TelaCadastro = () => {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             placeholder="Digite sua senha"
-            className="w-full bg-[#42807D] p-3 border border-gray-300 rounded-[30px] mt-2 text-[#fff] tex-[1.9rem]"
+            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
           />
         </div>
 
@@ -96,10 +105,12 @@ const TelaCadastro = () => {
             value={confirmarSenha}
             onChange={(e) => setConfirmarSenha(e.target.value)}
             placeholder="Confirme sua senha"
-            className="w-full bg-[#42807D] p-3 border border-gray-300 rounded-[30px] mt-2 text-[#fff] tex-[1.9rem]"
+            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
           />
           {erroSenhas && <p className="text-red-500 text-sm">{erroSenhas}</p>}
         </div>
+
+        {erroCampos && <p className="text-red-500 text-sm">{erroCampos}</p>}
 
         <div className="mb-6">
           <p className="text-sm text-gray-600">
@@ -112,25 +123,21 @@ const TelaCadastro = () => {
               className="p-4"
             />
             Ao continuar, você aceita nossa <button className="text-blue-500 hover:underline focus:outline-none">Política de Privacidade</button> e <button className="text-blue-500 hover:underline focus:outline-none">Termos de Uso</button>.
-            <p>oi</p>
           </p>
         </div>
 
         <div className="mb-6">
-        <Link href="/avisos">
-        <button
+          <button
             type="submit"
-            className="w-full p-3 bg-[#42807D] text-white rounded-[30px] hover:bg-green-500"
+            className="w-full p-3 sm:p-4 md:p-5 lg:p-6 bg-[#42807D] text-white rounded-[30px] hover:bg-green-500 text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
           >
             Cadastrar
           </button>
-        </Link>
-         
         </div>
       </form>
 
       <div className="text-center">
-        <p className="text-sm text-gray-600">Já tem uma conta? <button className="text-[#42807D] hover:underline focus:outline-none">Login</button></p>
+        <p className="text-sm text-gray-600">Já tem uma conta?  <Link href="Login"><button className="text-[#42807D] hover:underline focus:outline-none cursor-pointer">Login</button></Link></p>
       </div>
     </div>
   );

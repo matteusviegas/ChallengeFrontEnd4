@@ -1,23 +1,26 @@
 import Link from "next/link";
 
-const Header =()=>{
-return (
-    <>
-        <h1 className="mx-auto mt-6 w-[30%] font-bold text-5xl">FUTURE <span className="text-[#42807D] ">STATION</span> </h1>
-<h1>oi</h1>
-    <p className="mt-2 text-2xl mb-6 ">Selecione a linha desejada:</p>
-    <Link href="/esmeralda">
-   <p  className="bg-[#42807D]  mx-auto mb-14 text-white p-2 rounded-2xl w-[20%]">Linha 9 Esmeralda</p>
-    </Link>
-    <Link href="/diamante">
-   <p  className="bg-[#42807D]  mx-auto mb-14 text-white p-2 rounded-2xl w-[20%]">Linha 8 Diamante</p>
-    </Link>
-    <Link href="/amarela">
-   <p  className="bg-black  mx-auto mb-4 text-white p-2 rounded-2xl w-[20%]">Linha 4 Amarela</p>
-    </Link>
-    
-    </>
-)
+const Header = () => {
+    return (
+        <>
+            <div className="text-center mt-30 flex-col items-center justify-center">
+                <h1 className="mx-auto mt-6 w-[30%] mb-13 font-bold text-7xl">FUTURE <span className="text-[#42807D] ">STATION</span> </h1>
+
+                <p className="mt-2 text-3xl mb-13">Selecione a linha desejada:</p>
+                <Link href="/esmeralda">
+                    <p className="bg-[#42807D] text-[1.8rem] mx-auto mb-24 text-white p-2 rounded-2xl w-[40%]">Linha 9 Esmeralda</p>
+                </Link>
+                <Link href="/diamante">
+                    <p className="bg-[#42807D] text-[1.8rem] mx-auto mb-24 text-white p-2 rounded-2xl w-[40%]">Linha 8 Diamante</p>
+                </Link>
+                <Link href="/amarela">
+                    <p className="bg-black text-[1.8rem] mx-auto mb-14 text-white p-2 rounded-2xl w-[40%]">Linha 4 Amarela</p>
+                </Link>
+            </div>
+
+
+        </>
+    )
 }
 
 export default Header;

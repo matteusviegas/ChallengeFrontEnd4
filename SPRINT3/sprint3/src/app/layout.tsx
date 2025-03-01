@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Avisos from "./Components/Avisos";
+import Perfil from "./Perfil/page";
 
 
 export const metadata: Metadata = {
@@ -16,8 +18,11 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body
       >
+        <Perfil/>
         {children}
+    
      
+
       </body>
     </html>
   );
