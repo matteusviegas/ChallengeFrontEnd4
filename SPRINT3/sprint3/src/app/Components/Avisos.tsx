@@ -93,14 +93,23 @@ const Avisos = () => {
       </div>
 
       <div className="text-center  flex flex-col mt-12">
-        <h1 className="text-[2rem] font-bold text-[#42807D] mb-4">Sua opinião importa!</h1>
-        <p className="text-lg text-gray-600 mb-6">
-          É importante para que possamos trazer melhorias futuras!
-        </p>
-     <Link href="/sugestao">
-     <p className="cursor-pointer p-8 text-3xl  ">IMAGE AONDE VAI TER O ICONE PRO FORMULARIO </p>
+        <h1 className="text-[3.3rem] font-bold text-[#42807D] mb-4">Sua opinião importa!</h1>
+        <p className="lg:text-4xl text-gray-600 mb-6">
+  É importante para que possamos trazer melhorias futuras!
+</p>
+       
+ <div className="w-[5%] text-center mb-7  mx-auto">
+ 
+ <Link href="/sugestao">
+ 
+
+     <img className="lg:h-[70px] " src="/img_icons/image_form.png" alt="formulario" />
+  
      </Link>
       
+
+ </div>
+  
 
         <Link href="/header">
           <button className=" cursor-pointer py-4 px-8 bg-[#42807D] text-white text-xl rounded-lg hover:bg-green-600 transition duration-200">

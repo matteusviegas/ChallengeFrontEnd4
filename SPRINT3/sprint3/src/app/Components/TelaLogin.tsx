@@ -29,22 +29,21 @@ const TelaLogin = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
-      <div className='mx-auto p-8 border-6 border-solid border-green-800 bg-white border-[2px] w-full max-w-[490px] border-gray-300 rounded-lg'>
+    <div className="flex items-center justify-center min-h-screen  text-start px-4">
+      <div className='mx-auto p-8 border-6 border-solid border-green-800 w-full lg:w-[700px]   lg:h-[644px] bg-white border-[2px] w-full  border-gray-300 rounded-lg'>
         <h1 className="text-2xl font-semibold text-center mb-4">LOGO</h1>
 
-        {/* Exibição da mensagem de erro */}
         {erroLogin && <p className="text-red-500 p-5 text-xl">{erroLogin}</p>}
 
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+          <div className="mb-4 mt-15 lg:w-[90%] mx-auto">
             <label htmlFor="usuario" className="pl-2 block text-[1.1rem] font-medium text-gray-700">Usuário:</label>
             <input 
               type="text" 
               id="usuario" 
               name="usuario" 
               placeholder="Digite seu usuário" 
-              className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1.2rem] sm:text-[1rem] sm:p-3"
+              className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] lg:text-[1.2rem] sm:text-[1rem] sm:p-3"
               value={usuario}
               onChange={(e) => setUsuario(e.target.value)}
             />

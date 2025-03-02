@@ -10,9 +10,9 @@ const Pinheiros=()=>{
 <p className="bg-[#42807D] text-center  text-white w-[30%] p-2 text-[1.5rem] mx-auto">Operando normalmente</p>
      <p className="font-bold text-center m-8 text-[1.4rem]"> Lotação</p>
     <div className="flex w-[20%] mb-[60px] mx-auto">
-    <img className="h-[30px]" src="img/Vector 3.png" alt="vagão1" />
-       <img className="h-[30px]" src="img/Vector 3.png" alt="vagão1" />
-       <img className="h-[30px]" src="img/Vector 3.png" alt="vagão1" />
+    <img className="h-[30px]" src="img_icons/Vector 3.png" alt="vagão1" />
+       <img className="h-[30px]" src="img_icons/Vector 3.png" alt="vagão1" />
+       <img className="h-[30px]" src="img_icons/Vector 3.png" alt="vagão1" />
 
     </div>
     <div className="bg-[#42807D] text-white w-[30%] text-center mx-auto p-4 rounded-2xl">
@@ -32,10 +32,10 @@ const Pinheiros=()=>{
         </ul>
 
     </div>
-<div className="mx-auto mt-[60px] mx-auto">
+<div className="mt-[60px] mx-auto">
  
   <Link href="/esmeralda">
-  <button className="bg-green-400 p-2 cursor-pointe rounded-2xl  w-[30%]  ">Voltar</button> 
+  <button className="bg-green-400  text-white p-4 cursor-pointe lg:text-2xl cursor-pointer mx-auto rounded-2xl  w-[20%]  ">Voltar</button> 
 
   </Link>
     </div>  
