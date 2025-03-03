@@ -65,16 +65,16 @@ const Avisos = () => {
         {noticias.map((noticia) => (
           <div
             key={noticia.id}
-            className={`bg-white h-[300px] p-4 rounded-lg shadow-md overflow-hidden transition-all duration-300 ${
+            className={`bg-white h-[300px]  rounded-[10px] shadow-md overflow-hidden transition-all duration-300 ${
               hoveredId === noticia.id
-                ? "scale-105 opacity-100" 
-                : "opacity-50" 
+                ? "scale-105 cursor-pointer" 
+                : "" 
             }`}
             onMouseEnter={() => setHoveredId(noticia.id)} 
             onMouseLeave={() => setHoveredId(null)}
           >
-            <div className="w-full relative">
-              <div className="absolute top-2 left-2 text-sm text-white bg-black bg-opacity-60 px-2 py-1 rounded">
+            <div className="w-full relative  rounded-[]">
+              <div className="absolute  top-2 left-2 text-sm text-white bg-black bg-opacity-60 px-2 py-1 rounded">
                 {noticia.date === formattedDate
                   ? `${formattedDate} ${formattedTime}`
                   : noticia.date}
@@ -87,32 +87,26 @@ const Avisos = () => {
                 />
               </div>
             </div>
-            <p className="text-sm font-medium">{noticia.description}</p>
+            <p className=" text-[1.2rem] text-center  font-bold">{noticia.description}</p>
           </div>
         ))}
       </div>
 
-      <div className="text-center  flex flex-col mt-12">
-        <h1 className="text-[3.3rem] font-bold text-[#42807D] mb-4">Sua opinião importa!</h1>
-        <p className="lg:text-4xl text-gray-600 mb-6">
-  É importante para que possamos trazer melhorias futuras!
-</p>
-       
- <div className="w-[5%] text-center mb-7  mx-auto">
- 
- <Link href="/sugestao">
- 
-
-     <img className="lg:h-[70px] " src="/img_icons/image_form.png" alt="formulario" />
-  
-     </Link>
-      
-
- </div>
-  
+      <div className="text-center flex flex-col mt-12">
+        <h1 className="text-[3.3rem] font-bold text-black mb-8">Sua opinião importa!</h1>
+        <p className="lg:text-[1.8rem] w-[50%] mb-8 mx-auto leading-snug text-gray-600 mb-6">
+          É importante para que possamos trazer melhorias futuras!
+        </p>
+        
+        <div className="w-[5%] text-center mb-13 mx-auto">
+          <Link href="/sugestao">
+            <img className="lg:h-[66px]" src="/img_icons/image_form.png" alt="formulario" />
+            <p className="text-[1.5rem] pt-4">Formulario</p>
+          </Link>
+        </div>
 
         <Link href="/header">
-          <button className=" cursor-pointer py-4 px-8 bg-[#42807D] text-white text-xl rounded-lg hover:bg-green-600 transition duration-200">
+          <button className="cursor-pointer py-4 px-8 bg-[#42807D] text-white text-xl rounded-lg hover:bg-green-600 transition duration-200">
             Consultar LINHAS CCR
           </button>
         </Link>

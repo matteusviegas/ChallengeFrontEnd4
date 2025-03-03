@@ -40,13 +40,13 @@ const TelaCadastro = () => {
   };
 
   return (
-    <div className="max-w-md text-start mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <div>
-        <h1 className="mx-auto mt-6 font-bold text-center mb-[10%] text-4xl sm:text-3xl md:text-4xl lg:text-5xl">FUTURE <span className="text-[#42807D]">STATION</span></h1>
+    <div className="lg:w-[670px]  border-2 border-solid  border-green-800 text-start mx-auto p-9 bg-white shadow-lg rounded-lg">
+      <div className=' w-[60%]  mx-auto p-4 '> 
+      <h1 className="mx-auto mt-6 lg:w-[86%] w-[100%] mb-13 font-bold text-[2.5rem] lg:text-7xl">FUTURE <span className="text-[#42807D] ">STATION</span> </h1>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="usuario" className="block text-sm font-medium text-gray-700">Nome de Usuário:</label>
+        <div className="mb-10">
+          <label htmlFor="usuario" className="block text-[1.2rem] mb-2 font-medium text-gray-700">Nome de Usuário:</label>
           <input
             type="text"
             id="usuario"
@@ -54,24 +54,24 @@ const TelaCadastro = () => {
             value={usuario}
             onChange={(e) => setUsuario(e.target.value)}
             placeholder="Usuário"
-            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
+            className="w-full bg-[#42807D] p-3 md:p-5 border border-gray-300 rounded-[39px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.1rem] lg:text-[1.3rem] mb-2"
           />
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="dataNascimento" className="block text-sm font-medium text-gray-700">Data de Nascimento:</label>
+        <div className="mb-4 mt-7">
+          <label htmlFor="dataNascimento" className="block text-sm font-medium text-gray-700  text-[1.2rem] mb-3">Data de Nascimento:</label>
           <input
             type="date"
             id="dataNascimento"
             name="dataNascimento"
             value={dataNascimento}
             onChange={(e) => setDataNascimento(e.target.value)}
-            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
+            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-1  mb-3 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] "
           />
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email:</label>
+        <div className="mb-4 mt-7">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700  text-[1.2rem] mb-2">Email:</label>
           <input
             type="email"
             id="email"
@@ -79,12 +79,12 @@ const TelaCadastro = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Digite seu email"
-            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
+            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2  mb-3 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
           />
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="senha" className="block text-sm font-medium text-gray-700">Senha:</label>
+        <div className="mb-4 mt-7">
+          <label htmlFor="senha" className="block text-sm font-medium text-gray-700  text-[1.2rem] mb-2">Senha:</label>
           <input
             type="password"
             id="senha"
@@ -92,12 +92,12 @@ const TelaCadastro = () => {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             placeholder="Digite sua senha"
-            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
+            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2  mb-3 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
           />
         </div>
 
-        <div className="mb-6">
-          <label htmlFor="confirmarSenha" className="block text-sm font-medium text-gray-700">Confirmar Senha:</label>
+        <div className="mb-6 mt-7">
+          <label htmlFor="confirmarSenha" className="block text-sm font-medium text-gray-700 text-[1.2rem] mb-2">Confirmar Senha:</label>
           <input
             type="password"
             id="confirmarSenha"
@@ -105,38 +105,38 @@ const TelaCadastro = () => {
             value={confirmarSenha}
             onChange={(e) => setConfirmarSenha(e.target.value)}
             placeholder="Confirme sua senha"
-            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
+            className="w-full bg-[#42807D] p-3 sm:p-4 md:p-5 border border-gray-300 rounded-[30px] mt-2  mb-3 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
           />
-          {erroSenhas && <p className="text-red-500 text-sm">{erroSenhas}</p>}
+          {erroSenhas && <p className="text-red-500 text-sm p-4 text-[1.2rem]">{erroSenhas}</p>}
         </div>
 
-        {erroCampos && <p className="text-red-500 text-sm">{erroCampos}</p>}
+        {erroCampos && <p className="text-red-500 text-sm text-[1.3rem] p-2">{erroCampos}</p>}
 
         <div className="mb-6">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm lg:text-[1.2rem] pl-3 text-gray-600">
             <input
               type="checkbox"
               name="check"
               id="check"
               checked={aceitouTermos}
               onChange={(e) => setAceitouTermos(e.target.checked)}
-              className="p-4"
+              className="m-3 p-[33px]"
             />
             Ao continuar, você aceita nossa <button className="text-blue-500 hover:underline focus:outline-none">Política de Privacidade</button> e <button className="text-blue-500 hover:underline focus:outline-none">Termos de Uso</button>.
           </p>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-6 lg:w-[84%] mx-auto " >
           <button
             type="submit"
-            className="w-full p-3 sm:p-4 md:p-5 lg:p-6 bg-[#42807D] text-white rounded-[30px] hover:bg-green-500 text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
+            className="lg:w-[94%] p-4 mt-15  bg-[#42807D] text-white rounded-2xl hover:bg-green-500  mx-auto focusoutline-none focus:ring-2 text-[1.5rem]"
           >
             Cadastrar
           </button>
         </div>
       </form>
 
-      <div className="text-center">
+      <div className="text-center ">
         <p className="text-sm text-gray-600">Já tem uma conta?  <Link href="Login"><button className="text-[#42807D] hover:underline focus:outline-none cursor-pointer">Login</button></Link></p>
       </div>
     </div>
