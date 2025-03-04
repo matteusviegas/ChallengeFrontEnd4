@@ -51,30 +51,33 @@ const Avisos = () => {
 
   return (
     <div className="min-h-screen bg-green-50 p-6">
-      <div className="flex justify-between items-center mb-6">
-        <button className="py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-400 transition">
-          Deslogar
-        </button>
-        <h2 className="text-5xl font-bold text-black">Últimas Notícias</h2>
-        <button className="py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
-          Atualizar
-        </button>
+      <div className="relative mb-6 flex flex-col gap-5">
+        <div className="mb-[10%]">
+          <button className="absolute left-0 top-4 py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-400 transition">
+            Deslogar
+          </button>
+
+          <button className="absolute right-0 top-4 py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+            Atualizar
+          </button>
+        </div>
+
+        <div className="flex justify-center mt-10">
+          <h2 className="lg:text-5xl text-[2.6rem]  w-[44%] text-center mb-[7%] font-bold text-black">Últimas Notícias</h2>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 p-8 bg-[#42807D] sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      {/* Noticias */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         {noticias.map((noticia) => (
           <div
             key={noticia.id}
-            className={`bg-white h-[300px]  rounded-[10px] shadow-md overflow-hidden transition-all duration-300 ${
-              hoveredId === noticia.id
-                ? "scale-105 cursor-pointer" 
-                : "" 
-            }`}
-            onMouseEnter={() => setHoveredId(noticia.id)} 
+            className={`bg-white h-[300px] rounded-[10px] shadow-md overflow-hidden transition-all duration-300 ${hoveredId === noticia.id ? "scale-105 cursor-pointer" : ""}`}
+            onMouseEnter={() => setHoveredId(noticia.id)}
             onMouseLeave={() => setHoveredId(null)}
           >
-            <div className="w-full relative  rounded-[]">
-              <div className="absolute  top-2 left-2 text-sm text-white bg-black bg-opacity-60 px-2 py-1 rounded">
+            <div className="w-full relative">
+              <div className="absolute top-2 left-2 text-sm text-white bg-black bg-opacity-60 px-2 py-1 rounded">
                 {noticia.date === formattedDate
                   ? `${formattedDate} ${formattedTime}`
                   : noticia.date}
@@ -87,27 +90,28 @@ const Avisos = () => {
                 />
               </div>
             </div>
-            <p className=" text-[1.2rem] text-center  font-bold">{noticia.description}</p>
+            <p className="text-[1.2rem] text-center font-bold">{noticia.description}</p>
           </div>
         ))}
       </div>
 
+      {/* Opiniao */}
       <div className="text-center flex flex-col mt-12">
-        <h1 className="text-[3.3rem] font-bold text-black mb-8">Sua opinião importa!</h1>
-        <p className="lg:text-[1.8rem] w-[50%] mb-8 mx-auto leading-snug text-gray-600 mb-6">
+        <h1 className="lg:text-[3.3rem] text-[2rem] font-bold text-black mb-8">Sua opinião importa!</h1>
+        <p className="text-[1.3rem] lg:text-[1.8rem] lg:w-[50%] mb-8 mx-auto leading-snug text-gray-600 mb-6">
           É importante para que possamos trazer melhorias futuras!
         </p>
-        
-        <div className="w-[5%] text-center mb-13 mx-auto">
+
+        <div className="lg:w-[5%] text-center mb-13 mx-auto">
           <Link href="/sugestao">
-            <img className="lg:h-[66px]" src="/img_icons/image_form.png" alt="formulario" />
-            <p className="text-[1.5rem] pt-4">Formulario</p>
+            <img className="lg:h-[66px] h-[69px] w-[72px] mx-auto" src="/img_icons/image_form.png" alt="formulario" />
+            <p className="text-[1.2rem] lg:text-[1.5rem] pt-4">Formulario</p>
           </Link>
         </div>
 
         <Link href="/header">
-          <button className="cursor-pointer py-4 px-8 bg-[#42807D] text-white text-xl rounded-lg hover:bg-green-600 transition duration-200">
-            Consultar LINHAS CCR
+          <button className="w-[62%] cursor-pointer py-4 p-2 lg:px-8 bg-[#42807D] text-white lg:text-xl rounded-lg hover:bg-green-600 transition duration-200">
+            Consultar linhas ccr
           </button>
         </Link>
       </div>
