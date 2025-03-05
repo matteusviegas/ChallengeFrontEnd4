@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -127,7 +128,7 @@ const TelaCadastro = () => {
           </p>
         </div>
 
-        <div className="mb-6 lg:w-[84%] flex justify-center">
+        <div className="mb-6 lg:w-[ 64%] flex justify-center">
           <button
             type="submit"
             className="lg:w-[68%] sm:w-[80%] w-[70%] p-2 lg:p-4 mt-10 lg:mt-17 bg-[#42807D] text-white rounded-2xl hover:bg-green-500 mx-auto focus:outline-none focus:ring-2 text-[1.3rem]"
