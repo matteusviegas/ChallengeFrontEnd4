@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -8,6 +8,15 @@ const TelaLogin = () => {
   const [usuario, setUsuario] = useState('');
   const [senha, setSenha] = useState('');
   const [erroLogin, setErroLogin] = useState('');
+  const [fotoPerfil, setFotoPerfil] = useState<string | null>(null);
+
+  useEffect(() => {
+    const usuarioArmazenado = localStorage.getItem('user');
+    if (usuarioArmazenado) {
+      const user = JSON.parse(usuarioArmazenado);
+      setFotoPerfil(user.foto);
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,7 +28,7 @@ const TelaLogin = () => {
 
       if (usuario === user.usuario && senha === user.senha) {
         setErroLogin('');
-        router.push('/perfil');
+        router.push('/visos');
       } else {
         setErroLogin('Usuário ou senha incorretos!');
       }
@@ -30,12 +39,32 @@ const TelaLogin = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen text-start px-4">
-      <div className='mb-[5%] mx-auto p-4 border-6 border-solid border-green-800 lg:w-[670px] md:w-[550px] sm:w-[90%] w-[90%] h-[auto] bg-white border-[2px] border-gray-300 rounded-3xl'>
+      <div className="mb-[5%] mx-auto p-4 border-6 border-solid border-green-800 lg:w-[670px] md:w-[550px] sm:w-[90%] w-[90%] h-[auto] bg-white border-[2px] border-gray-300 rounded-3xl">
         <div className="flex flex-col justify-center items-center">
-          <img className="h-[150px] w-[150px] sm:h-[180px] sm:w-[180px] lg:h-[200px] lg:w-[190px]" src="img_icons/Logo_Fs.png" alt="Logo" />
+          <img
+            className="h-[150px] w-[150px] sm:h-[180px] sm:w-[180px] lg:h-[200px] lg:w-[190px]"
+            src="img_icons/Logo_Fs.png"
+            alt="Logo"
+          />
           <h1 className="lg:text-3xl sm:text-[1.7rem] text-[1.4rem] w-[100%] sm:w-[70%] font-semibold text-center mb-4">
             Seu passageiro virtual nas horas certas!
           </h1>
+
+          {fotoPerfil ? (
+            <div className="flex justify-center mb-4">
+              <img
+                src={fotoPerfil}
+                alt="Foto de Perfil"
+                className="h-16 w-16 rounded-full border-2 border-gray-300"
+              />
+            </div>
+          ) : (
+            <div className="flex justify-center mb-4">
+              <div className="h-16 w-16 rounded-full bg-gray-300 flex items-center justify-center text-white text-xl">
+                {usuario[0]?.toUpperCase()}
+              </div>
+            </div>
+          )}
         </div>
 
         {erroLogin && <p className="text-red-500 p-3 text-[1.4rem] text-center">{erroLogin}</p>}

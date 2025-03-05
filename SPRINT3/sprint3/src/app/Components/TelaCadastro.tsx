@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react';
-
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -14,6 +13,7 @@ const TelaCadastro = () => {
   const [aceitouTermos, setAceitouTermos] = useState(false);
   const [erroSenhas, setErroSenhas] = useState('');
   const [erroCampos, setErroCampos] = useState('');
+  const [fotoPerfil, setFotoPerfil] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -37,7 +37,28 @@ const TelaCadastro = () => {
       return;
     }
 
+    const userData = {
+      usuario,
+      email,
+      senha,
+      dataNascimento,
+      foto: fotoPerfil,
+    };
+
+    localStorage.setItem('user', JSON.stringify(userData));
+
     router.push('/avisos');
+  };
+
+  const handleFotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFotoPerfil(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -128,7 +149,24 @@ const TelaCadastro = () => {
           </p>
         </div>
 
-        <div className="mb-6 lg:w-[ 64%] flex justify-center">
+        <div className="mb-6">
+          <label htmlFor="fotoPerfil" className="ml-2 block text-sm font-medium text-gray-700 text-[1.2rem] mb-2">Foto de Perfil:</label>
+          <input
+            type="file"
+            id="fotoPerfil"
+            name="fotoPerfil"
+            accept="image/*"
+            onChange={handleFotoChange}
+            className="w-full p-2 border border-gray-300 rounded-[30px] mb-3"
+          />
+          {fotoPerfil && (
+            <div className="mb-4">
+              <img src={fotoPerfil} alt="Foto de Perfil" className="w-20 h-20 rounded-full mx-auto" />
+            </div>
+          )}
+        </div>
+
+        <div className="mb-6 lg:w-[64%] flex justify-center">
           <button
             type="submit"
             className="lg:w-[68%] sm:w-[80%] w-[70%] p-2 lg:p-4 mt-10 lg:mt-17 bg-[#42807D] text-white rounded-2xl hover:bg-green-500 mx-auto focus:outline-none focus:ring-2 text-[1.3rem]"

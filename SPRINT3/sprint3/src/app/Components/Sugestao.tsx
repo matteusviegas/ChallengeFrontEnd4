@@ -1,9 +1,8 @@
 'use client'
 
-import React, { useState } from 'react'; // Importando React e useState
+import React, { useState } from 'react'; 
 
 const Sugestoes = () => {
-  // Estado para controlar o feedback do envio
   const [feedback, setFeedback] = useState('');
 
   const handleSubmit = (event) => {
@@ -21,7 +20,7 @@ const Sugestoes = () => {
           Sua sugestão é fundamental para ajudarmos a melhorar cada vez mais!
         </p>
 
-        {/* Feedback de envio */}
+   
         {feedback && (
           <div className="mb-4 p-4 text-center text-white bg-[#4CAF50] rounded-lg">
             {feedback}
@@ -45,7 +44,6 @@ const Sugestoes = () => {
             />
           </div>
 
-          {/* Sugestão */}
           <div>
             <label
               htmlFor="sugestao"
@@ -62,7 +60,7 @@ const Sugestoes = () => {
             />
           </div>
 
-          {/* Botões */}
+       
           <div className="flex flex-col sm:flex-row sm:justify-between items-center">
             <button
               type="submit"

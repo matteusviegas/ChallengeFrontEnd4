@@ -6,7 +6,6 @@ const Viagem = () => {
         </h1>
   
         <div className="flex flex-col justify-center items-center min-h-screen px-4">
-          {/* Seção de seleção da estação de origem */}
           <div className="flex flex-col mb-12 w-full max-w-[600px] mt-8 lg:w-[35%]">
             <label className="mb-2 text-[1.3rem] lg:text-[1.8rem]" htmlFor="origem">
               Selecione a estação de origem:

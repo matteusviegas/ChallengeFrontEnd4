@@ -1,4 +1,5 @@
 'use client'
+import { motion } from "framer-motion"; // Importando framer-motion para animações
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
@@ -55,77 +56,127 @@ const Avisos = () => {
     <div className="min-h-screen bg-green-50 p-6">
       <div className="relative mb-6 flex flex-col gap-5">
         <div className="mb-[10%]">
-          <button 
+          <motion.button 
             className="absolute left-0 top-4 py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-400 transition"
             onClick={() => router.push("/Login")}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
             Deslogar
-          </button>
+          </motion.button>
 
-          <button 
+          <motion.button 
             className="absolute right-0 top-4 py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
             onClick={() => window.location.reload()}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
             Atualizar
-          </button>
+          </motion.button>
         </div>
 
         <div className="flex justify-center mt-10">
-          <h2 className="lg:text-5xl text-[2.6rem] text-center mb-[7%] font-bold text-black w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%]">
+          <motion.h2 
+            className="lg:text-5xl text-[2.6rem] text-center mb-[7%] font-bold text-black w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
             Últimas Notícias
-          </h2>
+          </motion.h2>
         </div>
       </div>
 
+      {/* Grid de Notícias */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         {noticias.map((noticia) => (
-          <div
+          <motion.div
             key={noticia.id}
             className={`bg-white h-[300px] rounded-[10px] shadow-md overflow-hidden transition-all duration-300 ${hoveredId === noticia.id ? "scale-105 cursor-pointer" : ""}`}
             onMouseEnter={() => setHoveredId(noticia.id)}
             onMouseLeave={() => setHoveredId(null)}
+            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
           >
             <div className="w-full relative">
-              <div className="absolute top-2 left-2 text-sm text-white bg-black bg-opacity-60 px-2 py-1 rounded">
+              <motion.div
+                className="absolute top-2 left-2 text-sm text-white bg-black bg-opacity-60 px-2 py-1 rounded"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
                 {noticia.date === formattedDate
                   ? `${formattedDate} ${formattedTime}`
                   : noticia.date}
-              </div>
+              </motion.div>
+
               <div className="w-full h-59 overflow-hidden rounded-lg mb-4 flex items-center justify-center">
-                <img
+                <motion.img
                   src={noticia.imgSrc}
                   alt={`Notícia ${noticia.id}`}
                   className="object-cover w-full h-full"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6 }}
                 />
               </div>
             </div>
-            <p className="text-[1.2rem] sm:text-[1.4rem] md:text-[1.5rem] lg:text-[1.6rem] text-center font-bold">
+
+            <motion.p
+              className="text-[1.2rem] sm:text-[1.4rem] md:text-[1.5rem] lg:text-[1.6rem] text-center font-bold"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4 }}
+            >
               {noticia.description}
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         ))}
       </div>
 
-      {/* Opiniao */}
-      <div className="text-center flex flex-col  mt-12">
-        <h1 className="lg:text-[3.3rem] text-[2rem]  mx-auto  font-bold text-black mb-8 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%]">
+      {/* Seção de Opinião */}
+      <div className="text-center flex flex-col mt-12">
+        <motion.h1
+          className="lg:text-[3.3rem] text-[2rem] mx-auto font-bold text-black mb-8 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           Sua opinião importa!
-        </h1>
-        <p className="text-[1.3rem] lg:text-[1.8rem] lg:w-[50%] mx-auto leading-snug text-gray-600 mb-6">
+        </motion.h1>
+
+        <motion.p
+          className="text-[1.3rem] lg:text-[1.8rem] lg:w-[50%] mx-auto leading-snug text-gray-600 mb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+        >
           É importante para que possamos trazer melhorias futuras!
-        </p>
+        </motion.p>
 
         <div className="lg:w-[5%] text-center mb-13 mx-auto">
           <Link href="/sugestao">
-            <img className="lg:h-[66px] md:h-[69px] xl:h-[69px] w-[72px] mx-auto" src="/img_icons/image_form.png" alt="formulario" />
+            <motion.img
+              className="lg:h-[66px] md:h-[69px] xl:h-[69px] w-[72px] mx-auto"
+              src="/img_icons/image_form.png"
+              alt="formulario"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            />
             <p className="text-[1.2rem] lg:text-[1.5rem] pt-4">Formulario</p>
           </Link>
         </div>
 
         <Link href="/header">
-          <button className="w-[62%] cursor-pointer py-4 p-2 lg:px-8 bg-[#42807D] text text-white lg:text-xl rounded-lg hover:bg-green-600 transition duration-200">
+          <motion.button
+            className="w-[62%] cursor-pointer py-4 p-2 lg:px-8 bg-[#42807D] text text-white lg:text-xl rounded-lg hover:bg-green-600 transition duration-200"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
             Consultar linhas ccr
-          </button>
+          </motion.button>
         </Link>
       </div>
     </div>
