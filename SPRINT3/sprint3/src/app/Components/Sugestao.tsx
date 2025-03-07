@@ -11,16 +11,15 @@ const Sugestoes = () => {
   };
 
   return (
-    <div className="bg-[#F9FAFB] min-h-screen flex justify-center items-center py-10 px-4 sm:px-6 lg:px-8">
-      <div className="bg-white w-full max-w-lg sm:max-w-md lg:max-w-2xl p-8 rounded-xl shadow-lg">
-        <h1 className="text-center text-3xl sm:text-4xl font-bold text-[#42807D] mb-6">
+    <div className="bg-[#F9FAFB] min-h-screen flex justify-center items-center py-10 px-4">
+      <div className="bg-white w-full sm:w-[44%] p-8 rounded-xl shadow-lg">
+        <h1 className="text-center text-3xl font-bold text-[#42807D] mb-6">
           ENVIAR SUA <span className="text-[#2C3E50]">SUGESTÃO</span>
         </h1>
-        <p className="text-center text-base sm:text-lg text-gray-600 mb-6">
+        <p className="text-center text-base text-gray-600 mb-6">
           Sua sugestão é fundamental para ajudarmos a melhorar cada vez mais!
         </p>
 
-   
         {feedback && (
           <div className="mb-4 p-4 text-center text-white bg-[#4CAF50] rounded-lg">
             {feedback}
@@ -60,17 +59,16 @@ const Sugestoes = () => {
             />
           </div>
 
-       
-          <div className="flex flex-col sm:flex-row sm:justify-between items-center">
+          <div className="flex flex-col items-center">
             <button
               type="submit"
-              className="bg-[#42807D] text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-[#365F52] transition-colors w-full sm:w-auto mb-4 sm:mb-0"
+              className="bg-[#42807D] text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-[#365F52] transition-colors w-full mb-4"
             >
               Enviar Sugestão
             </button>
             <button
               type="reset"
-              className="text-[#42807D] py-3 px-6 rounded-lg text-lg font-semibold border-2 border-[#42807D] hover:bg-[#42807D] hover:text-white transition-colors w-full sm:w-auto"
+              className="text-[#42807D] py-3 px-6 rounded-lg text-lg font-semibold border-2 border-[#42807D] hover:bg-[#42807D] hover:text-white transition-colors w-full"
             >
               Limpar
             </button>

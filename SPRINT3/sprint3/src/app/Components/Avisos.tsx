@@ -1,5 +1,5 @@
 'use client'
-import { motion } from "framer-motion"; // Importando framer-motion para animações
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
@@ -77,7 +77,7 @@ const Avisos = () => {
 
         <div className="flex justify-center mt-10">
           <motion.h2 
-            className="lg:text-5xl text-[2.6rem] text-center mb-[7%] font-bold text-black w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%]"
+            className="text-[2.6rem] text-center mb-[7%] font-bold text-black w-[80%]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -87,8 +87,7 @@ const Avisos = () => {
         </div>
       </div>
 
-      {/* Grid de Notícias */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      <div className="grid grid-cols-1 gap-6 mb-6">
         {noticias.map((noticia) => (
           <motion.div
             key={noticia.id}
@@ -125,7 +124,7 @@ const Avisos = () => {
             </div>
 
             <motion.p
-              className="text-[1.2rem] sm:text-[1.4rem] md:text-[1.5rem] lg:text-[1.6rem] text-center font-bold"
+              className="text-[1.2rem] text-center font-bold"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4 }}
@@ -136,10 +135,9 @@ const Avisos = () => {
         ))}
       </div>
 
-      {/* Seção de Opinião */}
       <div className="text-center flex flex-col mt-12">
         <motion.h1
-          className="lg:text-[3.3rem] text-[2rem] mx-auto font-bold text-black mb-8 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%]"
+          className="text-[2rem] mx-auto font-bold text-black mb-8 w-[80%]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -148,7 +146,7 @@ const Avisos = () => {
         </motion.h1>
 
         <motion.p
-          className="text-[1.3rem] lg:text-[1.8rem] lg:w-[50%] mx-auto leading-snug text-gray-600 mb-6"
+          className="text-[1.3rem] mx-auto leading-snug text-gray-600 mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
@@ -156,22 +154,22 @@ const Avisos = () => {
           É importante para que possamos trazer melhorias futuras!
         </motion.p>
 
-        <div className="lg:w-[5%] text-center mb-13 mx-auto">
+        <div className="w-[30%] mx-auto mb-13">
           <Link href="/sugestao">
             <motion.img
-              className="lg:h-[66px] md:h-[69px] xl:h-[69px] w-[72px] mx-auto"
+              className="h-[66px] w-[72px] mx-auto"
               src="/img_icons/image_form.png"
               alt="formulario"
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}
             />
-            <p className="text-[1.2rem] lg:text-[1.5rem] pt-4">Formulario</p>
+            <p className="text-[1.2rem] pt-4">Formulario</p>
           </Link>
         </div>
 
         <Link href="/header">
           <motion.button
-            className="w-[62%] cursor-pointer py-4 p-2 lg:px-8 bg-[#42807D] text text-white lg:text-xl rounded-lg hover:bg-green-600 transition duration-200"
+            className="w-[62%] cursor-pointer py-4 p-2 bg-[#42807D] text text-white rounded-lg hover:bg-green-600 transition duration-200"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >

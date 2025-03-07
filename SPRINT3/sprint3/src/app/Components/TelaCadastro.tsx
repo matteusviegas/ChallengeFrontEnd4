@@ -62,14 +62,16 @@ const TelaCadastro = () => {
   };
 
   return (
-    <div className="lg:w-[670px] md:w-[550px] sm:w-[90%] w-[90%] border-2 border-solid border-green-800 text-start mx-auto p-6 lg:p-9 bg-white shadow-lg rounded-lg">
-      <div className='lg:w-[60%] mx-auto p-2'>
-        <h1 className="mx-auto mt-6 lg:w-[86%] w-[100%] p-2 lg:mb-13 font-bold text-[2.9rem] lg:text-7xl sm:text-4xl text-center">FUTURE <span className="text-[#42807D] ">STATION</span> </h1>
+    <div className="w-[90%] sm:w-[42%]   mx-auto border-2 border-solid border-green-800  p-6 bg-white rounded-lg">
+      <div className=" w-[60%]  mx-auto mt-8 mb-21">
+        <h1 className="font-bold text-center text-4xl sm:text-5xl  ">
+          FUTURE <span className="text-[#42807D]">STATION</span>
+        </h1>
       </div>
 
       <form onSubmit={handleSubmit}>
-        <div className="mb-9 mt-10">
-          <label htmlFor="usuario" className="block text-[1.2rem] mb-2 ml-2 font-medium text-gray-700">Nome de Usuário:</label>
+        <div className="mb-5">
+          <label htmlFor="usuario" className="block ml-2 mb-1 font-medium text-gray-700">Nome de Usuário:</label>
           <input
             type="text"
             id="usuario"
@@ -77,24 +79,24 @@ const TelaCadastro = () => {
             value={usuario}
             onChange={(e) => setUsuario(e.target.value)}
             placeholder="Usuário"
-            className="w-full bg-[#42807D] p-4 lg:p-3 md:p-5 border border-gray-300 rounded-[39px] mt-2 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.1rem] lg:text-[1.3rem] mb-2"
+            className="w-full bg-[#42807D] p-4 border border-gray-300 mb-[4] rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
           />
         </div>
 
-        <div className="mt-5">
-          <label htmlFor="dataNascimento" className="ml-2 block text-sm font-medium text-gray-700 text-[1.2rem] mb-3">Data de Nascimento:</label>
+        <div className="mb-5">
+          <label htmlFor="dataNascimento" className="block ml-2 font-medium text-gray-700">Data de Nascimento:</label>
           <input
             type="date"
             id="dataNascimento"
             name="dataNascimento"
             value={dataNascimento}
             onChange={(e) => setDataNascimento(e.target.value)}
-            className="w-full bg-[#42807D] p-4 lg:p-3 md:p-5 border border-gray-300 rounded-[30px] mt-1 mb-3 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
+            className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
           />
         </div>
 
-        <div className="mb-2 mt-6">
-          <label htmlFor="email" className="ml-2 block text-sm font-medium text-gray-700 text-[1.2rem] mb-2">Email:</label>
+        <div className="mb-5">
+          <label htmlFor="email" className="block ml-2 font-medium text-gray-700">Email:</label>
           <input
             type="email"
             id="email"
@@ -102,12 +104,12 @@ const TelaCadastro = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Digite seu email"
-            className="w-full bg-[#42807D] p-4 lg:p-3 md:p-5 border border-gray-300 rounded-[30px] mt-2 mb-3 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
+            className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
           />
         </div>
 
-        <div className="mb-4 mt-5">
-          <label htmlFor="senha" className="ml-2 block text-sm font-medium text-gray-700 text-[1.2rem] mb-2">Senha:</label>
+        <div className="mb-5">
+          <label htmlFor="senha" className="block ml-2 font-medium text-gray-700">Senha:</label>
           <input
             type="password"
             id="senha"
@@ -115,12 +117,12 @@ const TelaCadastro = () => {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             placeholder="Digite sua senha"
-            className="w-full bg-[#42807D] p-4 lg:p-3 md:p-5 border border-gray-300 rounded-[30px] mt-2 mb-3 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
+            className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
           />
         </div>
 
-        <div className="mb-6 mt-7">
-          <label htmlFor="confirmarSenha" className="ml-2 block text-sm font-medium text-gray-700 text-[1.2rem] mb-2">Confirmar Senha:</label>
+        <div className="mb-5">
+          <label htmlFor="confirmarSenha" className="block ml-2 font-medium text-gray-700">Confirmar Senha:</label>
           <input
             type="password"
             id="confirmarSenha"
@@ -128,48 +130,48 @@ const TelaCadastro = () => {
             value={confirmarSenha}
             onChange={(e) => setConfirmarSenha(e.target.value)}
             placeholder="Confirme sua senha"
-            className="w-full bg-[#42807D] p-4 lg:p-3 md:p-5 border border-gray-300 rounded-[30px] mt-2 mb-3 text-[#fff] text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]"
+            className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
           />
-          {erroSenhas && <p className="text-red-500 text-sm p-4 text-[1.2rem]">{erroSenhas}</p>}
+          {erroSenhas && <p className="text-red-500 text-sm">{erroSenhas}</p>}
         </div>
 
-        {erroCampos && <p className="text-red-500 text-sm text-[1.3rem] p-2">{erroCampos}</p>}
+        {erroCampos && <p className="text-red-500 text-sm">{erroCampos}</p>}
 
-        <div className="mb-6">
-          <p className="text-[1.1rem] lg:text-[1.2rem] pl-3 text-gray-600">
+        <div className="mb-5">
+          <label htmlFor="check" className="block ml-2 font-medium text-gray-700">
             <input
               type="checkbox"
               name="check"
               id="check"
               checked={aceitouTermos}
               onChange={(e) => setAceitouTermos(e.target.checked)}
-              className="m-3 p-[33px]"
+              className="m-2"
             />
-            Ao continuar, você aceita nossa <button className="text-[1.2rem] text-blue-500 hover:underline focus:outline-none">Política de Privacidade</button> e <button className="text-blue-500 hover:underline focus:outline-none">Termos de Uso</button>.
-          </p>
+            Ao continuar, você aceita nossa <span className="text-blue-500 hover:underline">Política de Privacidade</span> e <span className="text-blue-500 hover:underline">Termos de Uso</span>.
+          </label>
         </div>
 
-        <div className="mb-6">
-          <label htmlFor="fotoPerfil" className="ml-2 block text-sm font-medium text-gray-700 text-[1.2rem] mb-2">Foto de Perfil:</label>
+        <div className="mb-5">
+          <label htmlFor="fotoPerfil" className="block ml-2 font-medium text-gray-700">Foto de Perfil:</label>
           <input
             type="file"
             id="fotoPerfil"
             name="fotoPerfil"
             accept="image/*"
             onChange={handleFotoChange}
-            className="w-full p-2 border border-gray-300 rounded-[30px] mb-3"
+            className="w-full p-2 border border-gray-300 rounded-[30px]"
           />
           {fotoPerfil && (
-            <div className="mb-4">
+            <div className="mt-4">
               <img src={fotoPerfil} alt="Foto de Perfil" className="w-20 h-20 rounded-full mx-auto" />
             </div>
           )}
         </div>
 
-        <div className="mb-6 lg:w-[64%] flex justify-center">
+        <div className="flex justify-center mb-5">
           <button
             type="submit"
-            className="lg:w-[68%] sm:w-[80%] w-[70%] p-2 lg:p-4 mt-10 lg:mt-17 bg-[#42807D] text-white rounded-2xl hover:bg-green-500 mx-auto focus:outline-none focus:ring-2 text-[1.3rem]"
+            className="w-3/4 sm:w-2/3 p-3 bg-[#42807D] text-white rounded-2xl hover:bg-green-500"
           >
             Cadastrar
           </button>
@@ -177,7 +179,7 @@ const TelaCadastro = () => {
       </form>
 
       <div className="text-center">
-        <p className="text-[1.1rem] text-gray-600">Já tem uma conta?  <Link href="Login"><button className="text-[#42807D] hover:underline focus:outline-none cursor-pointer">Login</button></Link></p>
+        <p className="text-lg text-gray-600">Já tem uma conta? <Link href="/Login"><span className="text-[#42807D] hover:underline cursor-pointer">Login</span></Link></p>
       </div>
     </div>
   );
