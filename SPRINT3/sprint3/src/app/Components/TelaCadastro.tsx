@@ -13,7 +13,6 @@ const TelaCadastro = () => {
   const [aceitouTermos, setAceitouTermos] = useState(false);
   const [erroSenhas, setErroSenhas] = useState('');
   const [erroCampos, setErroCampos] = useState('');
-  const [fotoPerfil, setFotoPerfil] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,7 +41,6 @@ const TelaCadastro = () => {
       email,
       senha,
       dataNascimento,
-      foto: fotoPerfil,
     };
 
     localStorage.setItem('user', JSON.stringify(userData));
@@ -50,27 +48,16 @@ const TelaCadastro = () => {
     router.push('/avisos');
   };
 
-  const handleFotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFotoPerfil(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   return (
-    <div className="w-[90%] sm:w-[42%]   mx-auto border-2 border-solid border-green-800  p-6 bg-white rounded-lg">
-      <div className=" w-[60%]  mx-auto mt-8 mb-21">
-        <h1 className="font-bold text-center text-4xl sm:text-5xl  ">
+    <div className="w-full max-w-[450px] mx-auto border-4 border-solid border-green-800 p-6 bg-white rounded-lg">
+      <div className="w-[80%] mx-auto mt-8 mb-9">
+        <h1 className="font-bold text-center text-3xl sm:text-4xl">
           FUTURE <span className="text-[#42807D]">STATION</span>
         </h1>
       </div>
 
       <form onSubmit={handleSubmit}>
-        <div className="mb-5">
+        <div className="mb-3">
           <label htmlFor="usuario" className="block ml-2 mb-1 font-medium text-gray-700">Nome de Usuário:</label>
           <input
             type="text"
@@ -79,11 +66,11 @@ const TelaCadastro = () => {
             value={usuario}
             onChange={(e) => setUsuario(e.target.value)}
             placeholder="Usuário"
-            className="w-full bg-[#42807D] p-4 border border-gray-300 mb-[4] rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
+            className="w-full bg-[#42807D] p-4 border border-gray-300 mb-4 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
           />
         </div>
 
-        <div className="mb-5">
+        <div className="mb-7">
           <label htmlFor="dataNascimento" className="block ml-2 font-medium text-gray-700">Data de Nascimento:</label>
           <input
             type="date"
@@ -95,7 +82,7 @@ const TelaCadastro = () => {
           />
         </div>
 
-        <div className="mb-5">
+        <div className="mb-7">
           <label htmlFor="email" className="block ml-2 font-medium text-gray-700">Email:</label>
           <input
             type="email"
@@ -108,7 +95,7 @@ const TelaCadastro = () => {
           />
         </div>
 
-        <div className="mb-5">
+        <div className="mb-7">
           <label htmlFor="senha" className="block ml-2 font-medium text-gray-700">Senha:</label>
           <input
             type="password"
@@ -121,7 +108,7 @@ const TelaCadastro = () => {
           />
         </div>
 
-        <div className="mb-5">
+        <div className="mb-7">
           <label htmlFor="confirmarSenha" className="block ml-2 font-medium text-gray-700">Confirmar Senha:</label>
           <input
             type="password"
@@ -137,7 +124,7 @@ const TelaCadastro = () => {
 
         {erroCampos && <p className="text-red-500 text-sm">{erroCampos}</p>}
 
-        <div className="mb-5">
+        <div className="mb-5 text-[1rem]">
           <label htmlFor="check" className="block ml-2 font-medium text-gray-700">
             <input
               type="checkbox"
@@ -147,25 +134,10 @@ const TelaCadastro = () => {
               onChange={(e) => setAceitouTermos(e.target.checked)}
               className="m-2"
             />
-            Ao continuar, você aceita nossa <span className="text-blue-500 hover:underline">Política de Privacidade</span> e <span className="text-blue-500 hover:underline">Termos de Uso</span>.
+            Ao continuar, você aceita nossa <span className="text-blue-500 hover:underline">
+              
+             <Link href='/TermosUso'>Política de Privacidade  Termos de Uso</Link></span>.
           </label>
-        </div>
-
-        <div className="mb-5">
-          <label htmlFor="fotoPerfil" className="block ml-2 font-medium text-gray-700">Foto de Perfil:</label>
-          <input
-            type="file"
-            id="fotoPerfil"
-            name="fotoPerfil"
-            accept="image/*"
-            onChange={handleFotoChange}
-            className="w-full p-2 border border-gray-300 rounded-[30px]"
-          />
-          {fotoPerfil && (
-            <div className="mt-4">
-              <img src={fotoPerfil} alt="Foto de Perfil" className="w-20 h-20 rounded-full mx-auto" />
-            </div>
-          )}
         </div>
 
         <div className="flex justify-center mb-5">

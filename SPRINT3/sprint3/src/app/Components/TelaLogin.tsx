@@ -1,5 +1,3 @@
-
-
 'use client'
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -30,7 +28,7 @@ const TelaLogin = () => {
 
       if (usuario === user.usuario && senha === user.senha) {
         setErroLogin('');
-        router.push('/visos');
+        router.push('/avisos');
       } else {
         setErroLogin('Usuário ou senha incorretos!');
       }
@@ -40,15 +38,15 @@ const TelaLogin = () => {
   };
 
   return (
-    <div className="flex flex-col items-center  justify-center min-h-screen text-start px-4">
-      <div className="mb-[5%] mx-auto p-4 border-6 border-solid border-green-800 w-[42%] h-[auto] bg-white border-[2px] border-gray-300 rounded-3xl">
+    <div className="flex flex-col items-center justify-center min-h-screen text-start px-4">
+      <div className="mb-6 mx-auto p-6 border-4 border-solid border-green-800 w-full sm:w-[90%] md:w-[50%] lg:w-[42%] h-auto bg-white border-gray-300 rounded-3xl">
         <div className="flex flex-col justify-center items-center">
           <img
-            className="h-[150px] w-[150px]"
+            className="h-[120px] w-[120px] sm:h-[150px] sm:w-[150px]"
             src="img_icons/Logo_Fs.png"
             alt="Logo"
           />
-          <h1 className="text-[1.4rem] w-[100%] font-semibold text-center mb-4">
+          <h1 className= "  text-[1.6rem] sm:text-[1.4rem] lg:w-[100%] w-[80%] font-semibold text-center mb-4">
             Seu passageiro virtual nas horas certas!
           </h1>
 
@@ -69,10 +67,10 @@ const TelaLogin = () => {
           )}
         </div>
 
-        {erroLogin && <p className="text-red-500 p-3 text-[1.4rem] text-center">{erroLogin}</p>}
+        {erroLogin && <p className="text-red-500 p-3 text-[1.2rem] text-center">{erroLogin}</p>}
 
         <form onSubmit={handleSubmit}>
-          <div className="mt-13 w-[90%] mx-auto">
+          <div className="mt-6 w-full mx-auto">
             <label htmlFor="usuario" className="pl-2 block font-medium text-gray-700">Usuário:</label>
             <input
               type="text"
@@ -85,23 +83,23 @@ const TelaLogin = () => {
             />
           </div>
 
-          <div className="mb-4 mt-10 w-[90%] mx-auto">
+          <div className="mb-4 mt-6 w-full mx-auto">
             <label htmlFor="senha" className="pl-2 block font-medium text-gray-700">Senha:</label>
             <input
               type="password"
               id="senha"
               name="senha"
               placeholder="Digite sua senha"
-              className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-1 text-[#fff] text-[1rem]"
+              className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem]"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
             />
           </div>
 
-          <div className="mb-6 mt-10 mx-auto flex justify-center">
+          <div className="mb-6 mt-6 mx-auto flex justify-center">
             <button
               type="submit"
-              className="w-[70%] p-2 mt-10 bg-[#42807D] text-white rounded-2xl hover:bg-green-500 mx-auto focus:outline-none focus:ring-2 text-[1.3rem]"
+              className="w-[80%] sm:w-[70%] p-3 bg-[#42807D] text-white rounded-2xl hover:bg-green-500 mx-auto focus:outline-none focus:ring-2 text-[1.2rem] sm:text-[1.3rem] mt-13"
             >
               Entrar
             </button>
@@ -109,10 +107,10 @@ const TelaLogin = () => {
         </form>
 
         <div>
-          <p className="font-bold pl-4 mt-8 text-center text-[1rem] text-gray-600">
+          <p className="font-bold mt-8 text-center text-[1.1rem] text-gray-600">
             Não tem uma conta?
             <Link href="/Cadastro">
-              <span className="text-center text-green-500 cursor-pointer hover:underline"> Crie uma</span>
+              <span className="text-green-500 cursor-pointer hover:underline"> Crie uma</span>
             </Link>
           </p>
         </div>
