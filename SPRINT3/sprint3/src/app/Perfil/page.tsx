@@ -38,7 +38,6 @@ const PerfilUsuario = () => {
 
   return (
     <div className="relative">
-      {/* Ícone de Foto de Perfil no Canto Direito */}
       <motion.div
         className="cursor-pointer fixed top-4 right-4 z-50"
         onClick={togglePerfil} 
@@ -50,12 +49,10 @@ const PerfilUsuario = () => {
         />
       </motion.div>
 
-      {/* Modal de Exibição de Perfil */}
       {exibirPerfil && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-[90%] sm:w-[60%] flex flex-col items-center">
             <div className="mb-4">
-              {/* Foto de Perfil expandida */}
               <img
                 src={novaFoto || dadosUsuario?.foto || '/img_icons/imgUser.jpg'}
                 alt="Foto de Perfil"
@@ -63,11 +60,9 @@ const PerfilUsuario = () => {
               />
             </div>
 
-            {/* Nome e Email */}
             <h1 className="text-2xl font-bold">{dadosUsuario?.usuario}</h1>
             <p className="text-lg text-gray-600">{dadosUsuario?.email}</p>
 
-            {/* Alterar Foto de Perfil */}
             <div className="mt-6">
               <input
                 type="file"
@@ -84,7 +79,6 @@ const PerfilUsuario = () => {
               </button>
             </div>
 
-            {/* Deslogar */}
             <div className="mt-6">
               <button
                 onClick={deslogar}
@@ -94,7 +88,6 @@ const PerfilUsuario = () => {
               </button>
             </div>
 
-            {/* Fechar Perfil */}
             <button
               onClick={togglePerfil}
               className="mt-4 text-blue-500 hover:underline focus:outline-none"

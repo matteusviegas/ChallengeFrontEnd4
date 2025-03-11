@@ -71,6 +71,12 @@ const Viagem = () => {
     }
   };
 
+  const calcularMediaTempo = () => {
+    if (viagensRealizadas.length === 0) return 0;
+    const somaTempo = viagensRealizadas.reduce((acc, viagem) => acc + viagem.tempo, 0);
+    return somaTempo / viagensRealizadas.length;
+  };
+
   const verRelatorioHandler = () => {
     console.log('Relatório das viagens:', viagensRealizadas); 
     alert('Relatório das viagens realizadas: ' + JSON.stringify(viagensRealizadas, null, 2));
@@ -159,6 +165,10 @@ const Viagem = () => {
             <h3>Tempo estimado de viagem: {tempoPercurso} minutos</h3>
           </div>
         )}
+
+        <div className="mt-6 text-center">
+          <h3>Média de tempo das viagens realizadas: {calcularMediaTempo()} minutos</h3>
+        </div>
       </div>
     </>
   );

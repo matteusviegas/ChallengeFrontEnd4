@@ -13,7 +13,7 @@ const Esmeralda = () => {
 
         <div className="mx-auto mt-[4%] relative">
           <ul className="relative mx-auto flex flex-col gap-4 w-[90%] z-10">
-            <Link href="/Pinheiros">
+            <Link href="/pinheiros">
               <li className="border-[2px] m-3 p-2 text-xl cursor-pointer bg-[#42807D] rounded-[27px]">
                 Pinheiros
               </li>
