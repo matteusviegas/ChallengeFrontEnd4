@@ -11,7 +11,7 @@ const Relatorio = () => {
   }, []);
 
   return (
-    <div className='w-[50%] mx-auto text-center bg-amber-300'>
+    <div className='w-[50%] mx-auto text-center bg-gray-300'>
       <h1>Relatório de Viagens</h1>
       {historicoViagens.length === 0 ? (
         <p>Nenhuma viagem registrada.</p>

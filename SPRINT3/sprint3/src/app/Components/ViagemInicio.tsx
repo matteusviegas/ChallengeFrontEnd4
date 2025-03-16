@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';  
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 type Estacoes =
@@ -44,6 +44,22 @@ const TEMPOS_PERCURSO: TTempoPercurso = {
     'Campo Belo': 60,
     Jabaquara: 65,
   },
+  Quitaúna: {
+    Osasco: 5,
+    Carapicuíba: 5,
+    Manga: 8,
+    'Dom Pedro II': 10,
+    'Vila Progredior': 12,
+    'Presidente Altino': 15,
+    Pinheiros: 20,
+    'Granja Julieta': 25,
+    Morumbi: 30,
+    Butantã: 35,
+    'Santo Amaro': 40,
+    Brooklin: 45,
+    'Campo Belo': 50,
+    Jabaquara: 55,
+  },
 };
 
 const ViagemInicio = () => {
@@ -53,81 +69,113 @@ const ViagemInicio = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    const historicoSalvo = JSON.parse(localStorage.getItem('historicoViagens') || '[]');
+    setHistoricoViagens(historicoSalvo);
+  }, []);
+
   const calcularTempoPercurso = () => {
-    const tempo = TEMPOS_PERCURSO[origem][destino];
-    return tempo !== undefined ? `${tempo} minutos` : 'Tempo não disponível';
+    const tempo = TEMPOS_PERCURSO[origem]?.[destino];
+    return tempo !== undefined ? tempo : 0;
   };
 
   const handleIniciarViagem = () => {
     const tempo = calcularTempoPercurso();
-    alert(`Iniciando viagem de ${origem} para ${destino}. Tempo estimado: ${tempo}`);
+    alert(`Iniciando viagem de ${origem} para ${destino}. Tempo estimado: ${tempo} minutos`);
 
-    const novaViagem = `Origem: ${origem}, Destino: ${destino}, Tempo: ${tempo}`;
+    const novaViagem = `Origem: ${origem}, Destino: ${destino}, Tempo: ${tempo} minutos`;
     const historicoAtual = JSON.parse(localStorage.getItem('historicoViagens') || '[]');
     localStorage.setItem('historicoViagens', JSON.stringify([...historicoAtual, novaViagem]));
     
     setHistoricoViagens([...historicoViagens, novaViagem]);
-  };
 
-  const handleExibirRelatorio = () => {
-    router.push('/relatorio'); 
+    router.push('/ViagemIniciada');
   };
 
   return (
-    <div className=' w-[30%] p-8 text-center mx-auto mt-[10%]'>
-      <h1>Iniciar Viagem</h1>
-      <div className='mb-[7%]'>
-        <label className='border-2 border-black p-3 rounded-2xl'>
-          Origem:
-          <select value={origem} onChange={(e) => setOrigem(e.target.value as Estacoes)}>
-            <option value="Osasco">Osasco</option>
-            <option value="Quitaúna">Quitaúna</option>
-            <option value="Carapicuíba">Carapicuíba</option>
-            <option value="Manga">Manga</option>
-            <option value="Dom Pedro II">Dom Pedro II</option>
-            <option value="Vila Progredior">Vila Progredior</option>
-            <option value="Presidente Altino">Presidente Altino</option>
-            <option value="Pinheiros">Pinheiros</option>
-            <option value="Granja Julieta">Granja Julieta</option>
-            <option value="Morumbi">Morumbi</option>
-            <option value="Butantã">Butantã</option>
-            <option value="Santo Amaro">Santo Amaro</option>
-            <option value="Brooklin">Brooklin</option>
-            <option value="Campo Belo">Campo Belo</option>
-            <option value="Jabaquara">Jabaquara</option>
-          </select>
-        </label>
-      </div>
-      <div className='mt-[16%]'>
-        <label className='border-2 border-black p-3 rounded-2xl'>
-          Destino:
-          <select value={destino} onChange={(e) => setDestino(e.target.value as Estacoes)}>
-            <option value="Osasco">Osasco</option>
-            <option value="Quitaúna">Quitaúna</option>
-            <option value="Carapicuíba">Carapicuíba</option>
-            <option value="Manga">Manga</option>
-            <option value="Dom Pedro II">Dom Pedro II</option>
-            <option value="Vila Progredior">Vila Progredior</option>
-            <option value="Presidente Altino">Presidente Altino</option>
-            <option value="Pinheiros">Pinheiros</option>
-            <option value="Granja Julieta">Granja Julieta</option>
-            <option value="Morumbi">Morumbi</option>
-            <option value="Butantã">Butantã</option>
-            <option value="Santo Amaro">Santo Amaro</option>
-            <option value="Brooklin">Brooklin</option>
-            <option value="Campo Belo">Campo Belo</option>
-            <option value="Jabaquara">Jabaquara</option>
-          </select>
-        </label>
-      </div>
-      <div className='mt-[10%] flex gap-2 mx-auto '>
-      <button className='bg-[#42807D] p-3 cursor-pointer text-white rounded-2xl' onClick={handleIniciarViagem}>Iniciar Viagem</button>
-      <Link href="/Relatorio">
-      <button  className='bg-[#42807D] p-3 cursor-pointer text-white rounded-2xl' onClick={handleExibirRelatorio}>Exibir Relatório</button>
+    <div className="h-screen">
+      <h1 className="mx-auto mt-15 w-[48%] mb-5 font-bold text-[2.9rem]">
+        COMEÇAR <span className="text-[#42807D]">VIAGEM</span>
+      </h1>
+      <div className="w-[22%] p-8 text-start mx-auto mt-[10%]">
+        <div className="mb-6">
+          <label className="text-left text-[1.2rem] font-semibold mb-2">
+            Selecione a estação de origem:
+          </label>
+       
+       
+          <select
+  value={origem}
+  onChange={(e) => setOrigem(e.target.value as Estacoes)}
+  className="w-full bg-gray-300 p-2 rounded-2xl text-[1.2rem] font-semibold"
+>
+  <option value="Osasco">Osasco</option>
+  <option value="Quitaúna">Quitaúna</option>
+  <option value="Carapicuíba">Carapicuíba</option>
+  <option value="Manga">Manga</option>
+  <option value="Dom Pedro II">Dom Pedro II</option>
+  <option value="Vila Progredior">Vila Progredior</option>
+  <option value="Presidente Altino">Presidente Altino</option>
+  <option value="Pinheiros">Pinheiros</option>
+  <option value="Granja Julieta">Granja Julieta</option>
+  <option value="Morumbi">Morumbi</option>
+  <option value="Butantã">Butantã</option>
+  <option value="Santo Amaro">Santo Amaro</option>
+  <option value="Brooklin">Brooklin</option>
+  <option value="Campo Belo">Campo Belo</option>
+  <option value="Jabaquara">Jabaquara</option>
+</select>
 
-      </Link>
+        </div>
+
+        <div className="mb-6">
+          <label className="text-left text-[1.2rem] font-semibold mb-2">
+            Selecione a estação de destino:
+          </label>
+          <select
+  value={destino}
+  onChange={(e) => setDestino(e.target.value as Estacoes)}
+  className="w-full bg-gray-300 p-2 rounded-2xl text-[1.2rem] font-semibold"
+>
+  {Object.keys(TEMPOS_PERCURSO).map((estacao) => (
+    <option key={estacao} value={estacao}>
+      {estacao}
+    </option>
+  ))}
+
+
+  <option value="Osasco">Osasco</option>
+  <option value="Quitaúna">Quitaúna</option>
+  <option value="Carapicuíba">Carapicuíba</option>
+  <option value="Manga">Manga</option>
+  <option value="Dom Pedro II">Dom Pedro II</option>
+  <option value="Vila Progredior">Vila Progredior</option>
+  <option value="Presidente Altino">Presidente Altino</option>
+  <option value="Pinheiros">Pinheiros</option>
+  <option value="Granja Julieta">Granja Julieta</option>
+  <option value="Morumbi">Morumbi</option>
+  <option value="Butantã">Butantã</option>
+  <option value="Santo Amaro">Santo Amaro</option>
+  <option value="Brooklin">Brooklin</option>
+  <option value="Campo Belo">Campo Belo</option>
+  <option value="Jabaquara">Jabaquara</option>
+</select>
+
+        </div>
+
+        <button
+          className="bg-[#42807D] p-3 cursor-pointer text-white rounded-[1.4rem] font-bold"
+          onClick={handleIniciarViagem}
+        >
+          Iniciar Viagem
+        </button>
+
+        <Link href="/Relatorio">
+          <button className="bg-[#000] w-[100%] p-2 cursor-pointer text-white rounded-2xl mt-4">
+            Ver Relatório
+          </button>
+        </Link>
       </div>
-     
     </div>
   );
 };

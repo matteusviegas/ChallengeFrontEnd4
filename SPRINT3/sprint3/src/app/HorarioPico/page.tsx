@@ -1,68 +1,69 @@
-import Link from "next/link";
+'use client';
+
+import React, { useState, useEffect } from 'react';
 
 const HorarioPico = () => {
+  const [fluxos, setFluxos] = useState([]);
+  const [dataHoje, setDataHoje] = useState('');
+  
+  const gerarFluxo = () => {
+    const horas = [
+      "05h00", "06h00", "07h00", "08h00", "09h00", "10h00", "11h00", "12h00",
+      "13h00", "14h00", "15h00", "16h00", "17h00", "18h00", "19h00", "20h00",
+      "21h00", "22h00", "23h00", "00h00"
+    ];
+
+    return horas.map((hora, index) => ({
+      hora,
+      fluxo: index % 2 === 0 ? 'Fluxo alto' : 'Fluxo baixo',
+    }));
+  };
+
+  useEffect(() => {
+    const dataAtual = new Date().toLocaleDateString();
+    setDataHoje(dataAtual);
+    
+    const fluxosGerados = gerarFluxo();
+    setFluxos(fluxosGerados);
+
+    const intervalo = setInterval(() => {
+      const fluxosAtualizados = gerarFluxo();
+      setFluxos(fluxosAtualizados);
+    }, 10000); // Atualiza a cada 10 segundos
+
+    return () => clearInterval(intervalo);
+  }, []);
+
   return (
     <>
-      <div>
-        <h1 className="text-[2.2rem] w-[58%] mt-10 mx-auto font-semibold text-center mb-11">
+      <div className="w-full max-w-md mx-auto p-4">
+        <h1 className="text-[2rem] text-center font-semibold mb-6">
           <span className="text-[#42807D]">Linha 9</span> Esmeralda
         </h1>
-        <img
-          className="h-[190px] mb-[45px] w-[200px] rounded-full object-cover mx-auto"
-          src="img/metro_amarela4.jpg"
-          alt="Imagem da Linha 9"
-        />
 
-        <p className="bg-[#42807D] text-center text-white w-[77%] p-2 text-[1.2rem] mx-auto">
+        <p className="bg-[#42807D] text-center text-white p-2 text-[1rem] mb-6">
           Operando normalmente
         </p>
 
-        <p className="font-bold text-center m-8 text-[1.4rem]">Lotação</p>
-        <div className="flex flex-wrap gap-4 w-[77%] mb-[60px] mx-auto justify-center gap-2">
-          <img className="h-[30px]" src="img_icons/Vector 3.png" alt="Vagão 1" />
-          <img className="h-[30px]" src="img_icons/Vector 3.png" alt="Vagão 2" />
-          <img className="h-[30px]" src="img_icons/Vector 3.png" alt="Vagão 3" />
+        <p className="font-bold text-center mb-6 text-[1.2rem]">Lotação</p>
+        <div className="flex justify-center gap-4 mb-6">
+          <img className="h-[25px]" src="img_icons/Vector 3.png" alt="Vagão 1" />
+          <img className="h-[25px]" src="img_icons/Vector 3.png" alt="Vagão 2" />
+          <img className="h-[25px]" src="img_icons/Vector 3.png" alt="Vagão 3" />
         </div>
 
-        <div className="bg-[#42807D] text-white lg:w-[30%] w-[77%] text-center mx-auto p-4 rounded-2xl">
+        <div className="bg-[#42807D] text-white text-center p-4 rounded-2xl">
           <h2 className="font-bold">Relatório</h2>
-          <p>24/10/24</p>
-          <ul className="flex flex-col gap-2 text-[1rem] font-bold mt-4 mb-4">
-            <li>
-              <span className="bg-white text-black p-2 mr-2 rounded-t-2xl">05h00</span> Fluxo alto
-            </li>
-            <li>
-              <span className="bg-white text-black p-2 mr-2">06h00</span> Fluxo alto
-            </li>
-            <li>
-              <span className="bg-white text-black p-2 mr-2">07h00</span> Fluxo alto
-            </li>
-            <li>
-              <span className="bg-white text-black p-2 mr-2">16h00</span> Fluxo alto
-            </li>
-            <li>
-              <span className="bg-white text-black p-2 mr-2">15h00</span> Fluxo alto
-            </li>
-            <li>
-              <span className="bg-white text-black p-2 mr-2">05h00</span> Fluxo alto
-            </li>
-            <li>
-              <span className="bg-white text-black p-2 mr-2">06h00</span> Fluxo alto
-            </li>
-            <li>
-              <span className="bg-white text-black p-2 mr-2">07h00</span> Fluxo alto
-            </li>
-            <li>
-              <span className="bg-white text-black p-2 mr-2">16h00</span> Fluxo alto
-            </li>
-            <li>
-              <span className="bg-white text-black p-2 mr-2 rounded-b-2xl">15h00</span> Fluxo alto
-            </li>
+          <p>{dataHoje}</p>
+          <ul className="flex flex-col gap-2 mt-4 mb-4">
+            {fluxos.map((fluxo, index) => (
+              <li key={index}>
+                <span className="bg-white text-black p-2 mr-2 rounded-t-2xl">{fluxo.hora}</span>
+                {fluxo.fluxo}
+              </li>
+            ))}
           </ul>
         </div>
-
-       
-         
       </div>
     </>
   );
