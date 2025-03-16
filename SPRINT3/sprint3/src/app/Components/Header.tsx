@@ -15,7 +15,7 @@ const Header = () => {
                     <Link href="/esmeralda">
                         <p className="bg-[#42807D] text-[1.2rem] mx-auto text-white p-6 rounded-2xl">
                             Linha 9 Esmeralda
-                             -  Ativa
+                            
                             
                         </p>
                     </Link>
@@ -25,7 +25,7 @@ const Header = () => {
                             title="Esta linha está inativa no momento"
                         >
                             Linha 8 Diamante 
-                            - Inativa 
+                           
                         </p>
                     </Link>
 
@@ -35,11 +35,21 @@ const Header = () => {
                             title="Esta linha está inativa no momento"
                         >
                             Linha 4 Amarela
-                            - Inativa 
+                           
                         </p>
                     </Link>
                 </div>
 
+                <div className="mt-8">
+          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-10">
+            <Link href="/horariofuncionamento">
+              <div className="text-center">
+                <img className="h-[80px] sm:h-[98px]" src="/img_Icons/image_form.png" alt="Horario de Funcionamento" />
+                <h3 className="font-bold text-sm sm:text-lg">Horario de Funcionamento</h3>
+              </div>
+            </Link>
+          </div>
+        </div>
             </div>
         </>
     );

@@ -19,7 +19,15 @@ type Estacoes =
   | 'Santo Amaro'
   | 'Brooklin'
   | 'Campo Belo'
-  | 'Jabaquara';
+  | 'Jabaquara'
+  | 'Luz'
+  | 'República'
+  | 'Consolação'
+  | 'Paulista'
+  | 'Faria Lima'
+  | 'Barueri'
+  | 'Jandira'
+  | 'Vargem Grande Paulista';
 
 type TTempoPercurso = {
   [key in Estacoes]: {
@@ -43,6 +51,14 @@ const TEMPOS_PERCURSO: TTempoPercurso = {
     Brooklin: 55,
     'Campo Belo': 60,
     Jabaquara: 65,
+    Luz: 30,
+    República: 32,
+    Consolação: 35,
+    Paulista: 38,
+    'Faria Lima': 42,
+    Barueri: 45,
+    Jandira: 50,
+    'Vargem Grande Paulista': 55,
   },
   Quitaúna: {
     Osasco: 5,
@@ -59,6 +75,38 @@ const TEMPOS_PERCURSO: TTempoPercurso = {
     Brooklin: 45,
     'Campo Belo': 50,
     Jabaquara: 55,
+    Luz: 25,
+    República: 28,
+    Consolação: 30,
+    Paulista: 33,
+    'Faria Lima': 37,
+    Barueri: 35,
+    Jandira: 40,
+    'Vargem Grande Paulista': 45,
+  },
+  Carapicuíba: {
+    Osasco: 10,
+    Quitaúna: 5,
+    Manga: 7,
+    'Dom Pedro II': 10,
+    'Vila Progredior': 15,
+    'Presidente Altino': 20,
+    Pinheiros: 25,
+    'Granja Julieta': 30,
+    Morumbi: 35,
+    Butantã: 40,
+    'Santo Amaro': 45,
+    Brooklin: 50,
+    'Campo Belo': 55,
+    Jabaquara: 60,
+    Luz: 35,
+    República: 38,
+    Consolação: 40,
+    Paulista: 43,
+    'Faria Lima': 47,
+    Barueri: 50,
+    Jandira: 55,
+    'Vargem Grande Paulista': 60,
   },
 };
 
@@ -81,16 +129,40 @@ const ViagemInicio = () => {
 
   const handleIniciarViagem = () => {
     const tempo = calcularTempoPercurso();
-    alert(`Iniciando viagem de ${origem} para ${destino}. Tempo estimado: ${tempo} minutos`);
+    if (tempo === 0) {
+      alert('Não há tempo registrado para essa rota.');
+    } else {
+      alert(`Iniciando viagem de ${origem} para ${destino}. Tempo estimado: ${tempo} minutos`);
 
-    const novaViagem = `Origem: ${origem}, Destino: ${destino}, Tempo: ${tempo} minutos`;
-    const historicoAtual = JSON.parse(localStorage.getItem('historicoViagens') || '[]');
-    localStorage.setItem('historicoViagens', JSON.stringify([...historicoAtual, novaViagem]));
+      const novaViagem = `Origem: ${origem}, Destino: ${destino}, Tempo: ${tempo} minutos`;
+      const historicoAtual = JSON.parse(localStorage.getItem('historicoViagens') || '[]');
+      localStorage.setItem('historicoViagens', JSON.stringify([...historicoAtual, novaViagem]));
     
-    setHistoricoViagens([...historicoViagens, novaViagem]);
+      setHistoricoViagens([...historicoViagens, novaViagem]);
 
-    router.push('/ViagemIniciada');
+      router.push(`/ViagemIniciada?origem=${origem}&destino=${destino}`);
+    }
   };
+
+  const linhasEstacoes = {
+    Esmeralda: [
+      'Osasco', 'Quitaúna', 'Carapicuíba', 'Manga', 'Dom Pedro II', 'Vila Progredior', 
+      'Presidente Altino', 'Pinheiros', 'Granja Julieta', 'Morumbi', 'Butantã', 
+      'Santo Amaro', 'Brooklin', 'Campo Belo', 'Jabaquara'
+    ],
+    Amarela: [
+      'Luz', 'República', 'Consolação', 'Paulista', 'Faria Lima', 'Pinheiros', 'Vila Progredior', 'Morumbi'
+    ],
+    Diamante: [
+      'Osasco', 'Quitaúna', 'Carapicuíba', 'Barueri', 'Jandira', 'Vargem Grande Paulista'
+    ]
+  };
+
+  const todasAsEstacoes: Estacoes[] = [
+    ...linhasEstacoes.Esmeralda, 
+    ...linhasEstacoes.Amarela, 
+    ...linhasEstacoes.Diamante
+  ];
 
   return (
     <div className="h-screen">
@@ -102,30 +174,35 @@ const ViagemInicio = () => {
           <label className="text-left text-[1.2rem] font-semibold mb-2">
             Selecione a estação de origem:
           </label>
-       
-       
           <select
-  value={origem}
-  onChange={(e) => setOrigem(e.target.value as Estacoes)}
-  className="w-full bg-gray-300 p-2 rounded-2xl text-[1.2rem] font-semibold"
->
-  <option value="Osasco">Osasco</option>
-  <option value="Quitaúna">Quitaúna</option>
-  <option value="Carapicuíba">Carapicuíba</option>
-  <option value="Manga">Manga</option>
-  <option value="Dom Pedro II">Dom Pedro II</option>
-  <option value="Vila Progredior">Vila Progredior</option>
-  <option value="Presidente Altino">Presidente Altino</option>
-  <option value="Pinheiros">Pinheiros</option>
-  <option value="Granja Julieta">Granja Julieta</option>
-  <option value="Morumbi">Morumbi</option>
-  <option value="Butantã">Butantã</option>
-  <option value="Santo Amaro">Santo Amaro</option>
-  <option value="Brooklin">Brooklin</option>
-  <option value="Campo Belo">Campo Belo</option>
-  <option value="Jabaquara">Jabaquara</option>
-</select>
+            value={origem}
+            onChange={(e) => setOrigem(e.target.value as Estacoes)}
+            className="w-full bg-gray-300 p-2 rounded-2xl text-[1.2rem] font-semibold"
+          >
+            <optgroup label="Linha Esmeralda">
+              {linhasEstacoes.Esmeralda.map((estacao) => (
+                <option key={estacao} value={estacao}>
+                  {estacao}
+                </option>
+              ))}
+            </optgroup>
 
+            <optgroup label="Linha Amarela">
+              {linhasEstacoes.Amarela.map((estacao) => (
+                <option key={estacao} value={estacao}>
+                  {estacao}
+                </option>
+              ))}
+            </optgroup>
+
+            <optgroup label="Linha Diamante">
+              {linhasEstacoes.Diamante.map((estacao) => (
+                <option key={estacao} value={estacao}>
+                  {estacao}
+                </option>
+              ))}
+            </optgroup>
+          </select>
         </div>
 
         <div className="mb-6">
@@ -133,45 +210,45 @@ const ViagemInicio = () => {
             Selecione a estação de destino:
           </label>
           <select
-  value={destino}
-  onChange={(e) => setDestino(e.target.value as Estacoes)}
-  className="w-full bg-gray-300 p-2 rounded-2xl text-[1.2rem] font-semibold"
->
-  {Object.keys(TEMPOS_PERCURSO).map((estacao) => (
-    <option key={estacao} value={estacao}>
-      {estacao}
-    </option>
-  ))}
+            value={destino}
+            onChange={(e) => setDestino(e.target.value as Estacoes)}
+            className="w-full bg-gray-300 p-2 rounded-2xl text-[1.2rem] font-semibold"
+          >
+            <optgroup label="Linha Esmeralda">
+              {linhasEstacoes.Esmeralda.map((estacao) => (
+                <option key={estacao} value={estacao}>
+                  {estacao}
+                </option>
+              ))}
+            </optgroup>
 
+            <optgroup label="Linha Amarela">
+              {linhasEstacoes.Amarela.map((estacao) => (
+                <option key={estacao} value={estacao}>
+                  {estacao}
+                </option>
+              ))}
+            </optgroup>
 
-  <option value="Osasco">Osasco</option>
-  <option value="Quitaúna">Quitaúna</option>
-  <option value="Carapicuíba">Carapicuíba</option>
-  <option value="Manga">Manga</option>
-  <option value="Dom Pedro II">Dom Pedro II</option>
-  <option value="Vila Progredior">Vila Progredior</option>
-  <option value="Presidente Altino">Presidente Altino</option>
-  <option value="Pinheiros">Pinheiros</option>
-  <option value="Granja Julieta">Granja Julieta</option>
-  <option value="Morumbi">Morumbi</option>
-  <option value="Butantã">Butantã</option>
-  <option value="Santo Amaro">Santo Amaro</option>
-  <option value="Brooklin">Brooklin</option>
-  <option value="Campo Belo">Campo Belo</option>
-  <option value="Jabaquara">Jabaquara</option>
-</select>
-
+            <optgroup label="Linha Diamante">
+              {linhasEstacoes.Diamante.map((estacao) => (
+                <option key={estacao} value={estacao}>
+                  {estacao}
+                </option>
+              ))}
+            </optgroup>
+          </select>
         </div>
 
         <button
-          className="bg-[#42807D] p-3 cursor-pointer text-white rounded-[1.4rem] font-bold"
+          className="bg-[#42807D] p-3  w-[100%] cursor-pointer text-white rounded-[1.4rem] font-bold"
           onClick={handleIniciarViagem}
         >
           Iniciar Viagem
         </button>
 
         <Link href="/Relatorio">
-          <button className="bg-[#000] w-[100%] p-2 cursor-pointer text-white rounded-2xl mt-4">
+          <button className="bg-[#000]  w-[100%] p-2 cursor-pointer text-white rounded-2xl mt-4">
             Ver Relatório
           </button>
         </Link>

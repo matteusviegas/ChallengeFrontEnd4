@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
@@ -53,20 +53,34 @@ const Avisos = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen  bg-green-50 p-6">
+    <div className="min-h-screen bg-green-50 p-6">
       <div className="relative mb-6 flex flex-col gap-5">
         <div className="mb-[10%]">
+          {/* Deslogar Button */}
           <motion.button 
-            className="absolute left-0 top-4 w-[40%] py-3 px-4 bg-green-600  text-white rounded-lg hover:bg-green-400 transition"
+            className="absolute left-0 top-4 w-[40%] py-3 px-4 bg-green-600 text-white rounded-lg hover:bg-green-400 transition"
             onClick={() => router.push("/Login")}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
             Deslogar
           </motion.button>
+        </div>
 
+        <div className="flex justify-between items-center mt-10">
+          {/* Últimas Notícias Title */}
+          <motion.h2 
+            className="text-[2.4rem] text-center font-bold text-black w-[80%]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            ÚLTIMAS NOTÍCIAS
+          </motion.h2>
+
+          {/* Atualizar Button */}
           <motion.button 
-            className="absolute right-0 top-4 w-[40%] p-3 py-3  bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+            className="w-[20%] py-3 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
             onClick={() => window.location.reload()}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
@@ -74,20 +88,10 @@ const Avisos = () => {
             Atualizar
           </motion.button>
         </div>
-
-        <div className="flex  justify-center mt-10">
-          <motion.h2 
-            className="text-[2.4rem] mt-7 text-center mb-[7%] font-bold text-black w-[80%]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            ÚLTIMAS NOTÍCIAS
-          </motion.h2>
-        </div>
       </div>
 
-      <div className="grid   lg:w-[86%] mx-auto sm:grid-cols-3 gap-8 mb-6">
+      {/* Noticias List */}
+      <div className="grid lg:w-[86%] mx-auto sm:grid-cols-3 gap-8 mb-6">
         {noticias.map((noticia) => (
           <motion.div
             key={noticia.id}
@@ -111,7 +115,8 @@ const Avisos = () => {
                   : noticia.date}
               </motion.div>
 
-              <div className="w-full h-59 overflow-hidden rounded-lg mb-4 flex items-center justify-center">
+              {/* Div for Image with background color #42807D */}
+              <div className="w-full h-59 overflow-hidden rounded-lg mb-4 flex items-center justify-center bg-[#42807D]">
                 <motion.img
                   src={noticia.imgSrc}
                   alt={`Notícia ${noticia.id}`}
@@ -135,6 +140,7 @@ const Avisos = () => {
         ))}
       </div>
 
+      {/* Opinion Section */}
       <div className="text-center flex flex-col mt-12">
         <motion.h1
           className="text-[2rem] mx-auto font-bold text-black mb-8 w-[99%]"

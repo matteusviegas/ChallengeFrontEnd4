@@ -20,7 +20,7 @@ const Pinheiros = () => {
           {[ 
             { name: "Wi-Fi", icon: "/img_Icons/Wi-fi.png", disabled: true },
             { name: "Banheiro", icon: "/img_Icons/Wi-fi.png", disabled: true },
-            { name: "Acessibilidade", icon: "/img_Icons/Acessibilidade.png", disabled: false, link: "/acessibilidade" }, // Added link for Acessibilidade
+            { name: "Acessibilidade", icon: "/img_Icons/Acessibilidade.png", disabled: false, link: "/acessibilidade" },
             { name: "Achados & Perdidos", icon: "/img_Icons/Wi-fi.png", disabled: true },
             { name: "Pontos turísticos e culturais", icon: "/img_Icons/Wi-fi.png", disabled: true },
             { name: "Mapa CPTM", icon: "/img_Icons/Wi-fi.png", disabled: true },
@@ -30,7 +30,7 @@ const Pinheiros = () => {
             { name: "Aeroportos", icon: "/img_Icons/Wi-fi.png", disabled: true },
             { name: "Banco 24H", icon: "/img_Icons/Wi-fi.png", disabled: true },
           ].map((item, index) => (
-            <div key={index} className="flex flex-col items-center justify-between h-full"> {/* Added h-full and justify-between for alignment */}
+            <div key={index} className="flex flex-col items-center justify-between h-full"> 
               {item.link ? (
                 <Link href={item.link}>
                   <div className="flex flex-col items-center">
@@ -59,7 +59,7 @@ const Pinheiros = () => {
             </div>
           ))}
 
-          <div className="flex flex-col items-center justify-between h-full"> {/* Ensure last item has the same alignment */}
+          <div className="flex flex-col items-center justify-between h-full"> 
             <Link href="/denuncie">
               <div className="flex flex-col items-center">
                 <img 
@@ -75,16 +75,6 @@ const Pinheiros = () => {
 
        
 
-        <div className="mt-8">
-          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-10">
-            <Link href="/horariofuncionamento">
-              <div className="text-center">
-                <img className="h-[80px] sm:h-[98px]" src="/img_Icons/image_form.png" alt="Horario de Funcionamento" />
-                <h3 className="font-bold text-sm sm:text-lg">Horario de Funcionamento</h3>
-              </div>
-            </Link>
-          </div>
-        </div>
       </div>
     </>
   );
