@@ -135,7 +135,7 @@ const HorarioPico = () => {
       </div>
 
       <div className="flex justify-center mt-6">
-        <Link href="/header">
+        <Link href="/esmeralda">
           <button className="bg-[#42807D] text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
             Voltar ao Início
           </button>

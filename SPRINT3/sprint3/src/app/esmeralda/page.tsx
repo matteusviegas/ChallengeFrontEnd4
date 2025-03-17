@@ -26,125 +26,137 @@ const Esmeralda = () => {
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Osasco
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Presidente
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Altino
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Ceasa
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Vila Lobos
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Jaguaré
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Cidade Universitária
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Berrini
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Morumbi
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Granja Julieta
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Santo Amaro
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Socorro
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Jurubatuba
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Autódromo
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Grajaú
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Mendes
             </li>
 
             <li className="m-3 p-2 text-xl bg-gray-400 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100">
-                🚫
+                
               </div>
               Vila Natal
             </li>
           </ul>
         </div>
       </div>
+
+
+      <div className="mt-8">
+                    <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-10">
+                        <Link href="/horariofuncionamento">
+                            <div className="text-center">
+                                <img className="h-[80px] sm:h-[98px] mx-auto" src="/img_Icons/horario.png" alt="Horario de Funcionamento" />
+                                <h3 className="font-bold mt-[5%] text-[1.4rem] sm:text-lg">Horario de Funcionamento</h3>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
 
       <div className="flex text-center mt-17 mb-5  mb-[33%] flex-col gap-9">
         <Link href="/HorarioPico">
@@ -167,6 +179,8 @@ const Esmeralda = () => {
         </Link>
       </div>
         </div>
+
+
       </div>
     </>
   );

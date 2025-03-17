@@ -33,7 +33,7 @@ const PerfilUsuario = () => {
 
   const deslogar = () => {
     localStorage.removeItem('user');
-    router.push('/login');
+    router.push('/Login');
   };
 
   return (
@@ -73,7 +73,7 @@ const PerfilUsuario = () => {
               />
               <button
                 onClick={() => document.getElementById('inputFoto')?.click()}
-                className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                className="p-2 cursor-pointer  bg-[#42807D] text-white rounded-lg hover:bg-[#42707D]"
               >
                 Alterar Foto de Perfil
               </button>
@@ -82,7 +82,7 @@ const PerfilUsuario = () => {
             <div className="mt-6">
               <button
                 onClick={deslogar}
-                className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all"
+                className="p-2 bg-red-500 cursor-pointer text-white rounded-lg hover:bg-red-600 transition-all"
               >
                 Deslogar
               </button>
@@ -90,7 +90,7 @@ const PerfilUsuario = () => {
 
             <button
               onClick={togglePerfil}
-              className="mt-4 text-blue-500 hover:underline focus:outline-none"
+              className="mt-4 cursor-pointer text-[#42807D] hover:underline focus:outline-none"
             >
               Fechar Perfil
             </button>

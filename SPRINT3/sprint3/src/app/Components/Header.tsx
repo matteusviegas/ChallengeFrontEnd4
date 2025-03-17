@@ -38,16 +38,6 @@ const Header = () => {
                     </Link>
                 </div>
 
-                <div className="mt-8">
-                    <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-10">
-                        <Link href="/horariofuncionamento">
-                            <div className="text-center">
-                                <img className="h-[80px] sm:h-[98px] mx-auto" src="/img_Icons/horario.png" alt="Horario de Funcionamento" />
-                                <h3 className="font-bold mt-[5%] text-[1.4rem] sm:text-lg">Horario de Funcionamento</h3>
-                            </div>
-                        </Link>
-                    </div>
-                </div>
 
                 <div className="mt-8 mb-[9%]">
                     <button 
@@ -57,6 +47,13 @@ const Header = () => {
                         Atualizar Página
                     </button>
                 </div>
+                <div className="flex justify-center mt-5">
+          <Link href="/avisos">
+            <button className="bg-[#42807D] text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
+              Voltar
+            </button>
+          </Link>
+        </div>
             </div>
         </>
     );

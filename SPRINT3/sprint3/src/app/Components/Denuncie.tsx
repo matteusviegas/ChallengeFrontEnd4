@@ -14,8 +14,7 @@ const Denuncie = () => {
   };
 
   const handleSubmit = () => {
-    if (image && message) {
-      console.log("Imagem enviada com sucesso:", image.name);
+    if (message) {
       console.log("Mensagem enviada:", message);
       alert("Denúncia enviada com sucesso!");
     } else {
@@ -26,8 +25,8 @@ const Denuncie = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        <div className="w-full bg-[#000] text-white sm:w-[70%] lg:w-[80%] p-4">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-[#000]">
+        <div className="w-full  text-white sm:w-[70%] lg:w-[80%] p-4">
           <img
             src="img_icons/imagex.png"
             alt="Ícone Wi-Fi"
@@ -52,24 +51,26 @@ const Denuncie = () => {
             <div className="mx-auto text-center w-[88%]">
               <button
                 onClick={handleSubmit}
-                className="w-[70%] mt-[10%] bg-[#4ac373] text-black py-3 rounded-lg font-bold text-lg hover:bg-[#35796b] transition duration-300"
+                className="w-[70%] mt-[10%] bg-[#4ac373] text-black py-3 rounded-lg font-bold text-lg hover:bg-[#fff] cursor-pointer transition duration-300"
               >
                 Enviar
               </button>
             </div>
           </div>
+          <div className="w-[80%] sm:w-[33%] flex  items-center text-centerML-[2%] mt-10">
+  <img className="w-[30%] sm:w-full " src="img_Icons/imageseguro.png" alt="img_segurança" />
+  <p className="text-lg sm:text-xl text-center mt-4 mb-6">
+    Sua informação estará protegida!
+  </p>
+</div>
 
-          <p className="text-lg text-center mb-6">
-            Sua informação estará protegida!
-          </p>
-
-          <div className="text-center w-[100%]">
-            <Link href="/pinheiros">
-              <button className="mt-6 bg-[#42807D] text-white py-3 px-6 rounded-lg font-bold text-lg hover:bg-[#35796b] transition duration-300">
-                Voltar
-              </button>
-            </Link>
-          </div>
+          <div className="flex justify-center mt-6">
+        <Link href="/pinheiros">
+          <button className="bg-[#42807D]  cursor-pointer  text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
+            Voltar
+          </button>
+        </Link>
+      </div>
         </div>
       </div>
     </>

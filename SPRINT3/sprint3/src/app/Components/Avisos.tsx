@@ -16,37 +16,37 @@ const Avisos = () => {
       imgSrc: "img/linhaAmaela2.jpg",
       description: "Metrô anuncia nova linha que leva passageiros para a Zona Leste.",
       date: "03/16/2025",
-      aviso: "Aviso: Possível paralisação devido a chuvas fortes.",
+      aviso: "Aviso: Possível paralisação devido a chuvas fortes...",
       details: "A Linha Amarela está enfrentando atrasos devido à chuva intensa. Pedimos que os passageiros planejem suas viagens com antecedência."
     },
     {
       id: 2,
       imgSrc: "img/linha_diamante.jpg",
-      description: "Notícia sobre o evento 2",
+      description: "Falha técnica afeta os trens da Linha Diamante.",
       date: "02/25/2025",
-      aviso: "Aviso: Linhas operando parcialmente devido a falha técnica.",
+      aviso: "Aviso: Linhas operando parcialmente devido a falha técnica...",
       details: "Falha técnica afeta os trens da Linha Diamante. Estações estão sendo monitoradas, e há espera para embarque em várias paradas."
     },
     {
       id: 3,
       imgSrc: "img/imgmetro1.png",
-      description: "Notícia sobre o evento 3",
+      description: "as linhas terão horários reduzidos durante o fim de semana.",
       date: "03/12/2025",
-      aviso: "Aviso: Redução de horário nas linhas durante o final de semana.",
+      aviso: "Aviso: Redução de horário nas linhas durante o final de semana...",
       details: "Devido a manutenções programadas, as linhas terão horários reduzidos durante o fim de semana. Verifique os horários de funcionamento."
     },
     {
       id: 4,
       imgSrc: "img/metro_esmeralda1.jpg",
-      description: "Notícia sobre o evento 4",
+      description: "A linha Esmeralda está operando com atrasos devido a um acidente. ",
       date: "02/18/2025",
-      aviso: "Aviso: Acidente na linha Esmeralda causa atrasos significativos.",
+      aviso: "Aviso: Acidente na linha Esmeralda causa atrasos significativos...",
       details: "A linha Esmeralda está operando com atrasos devido a um acidente. Recomendamos alternativas de transporte."
     },
     {
       id: 5,
       imgSrc: "img/metro_amarela4.jpg",
-      description: "Notícia sobre o evento 5",
+      description: "Interdição parcial da Linha Amarela para reparos.",
       date: "01/10/2025",
       aviso: "Aviso: Interdição parcial na Linha Amarela por manutenção.",
       details: "Interdição parcial da Linha Amarela para reparos. Reprogramação dos horários pode causar impactos nos passageiros."
@@ -54,7 +54,7 @@ const Avisos = () => {
     {
       id: 6,
       imgSrc: "img/metro_linhaAmarela5.jpg",
-      description: "Notícia sobre o evento 6",
+      description: "Novos trens começam a operar na Linha Amarela",
       date: "03/05/2025",
       aviso: "Aviso: Chegada de novos trens na Linha Amarela.",
       details: "Novos trens começam a operar na Linha Amarela, prometendo maior conforto e redução no tempo de viagem."
@@ -205,7 +205,7 @@ const Avisos = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Consultar linhas ccr
+            Consultar linhas CCR
           </motion.button>
         </Link>
 

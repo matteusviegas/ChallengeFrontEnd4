@@ -28,7 +28,8 @@ const Pinheiros = () => {
             { name: "Terminais", icon: "/img_Icons/img8.webp", disabled: true },
             { name: "Sobre", icon: "/img_Icons/img9.webp", disabled: true },
             { name: "Aeroportos", icon: "/img_Icons/img10.webp", disabled: true },
-            { name: "Banco 24H", icon: "/img_Icons/img11.webp", disabled: true },
+            { name: "Banco 24H", icon: "/img_Icons/img12.webp", disabled: true },
+            
           ].map((item, index) => (
             <div key={index} className="flex flex-col items-center justify-between h-full"> 
               {item.link ? (
@@ -64,7 +65,7 @@ const Pinheiros = () => {
               <div className="flex flex-col items-center">
                 <img 
                   className="h-[60px] sm:h-[70px] mb-2" 
-                  src="/img_Icons/Wi-fi.png" 
+                  src="/img_Icons/img11.webp" 
                   alt="Denúncie" 
                 />
                 <h2 className="font-bold text-sm sm:text-lg">Denúncie</h2>
@@ -75,6 +76,13 @@ const Pinheiros = () => {
 
        
 
+      </div>
+      <div className="flex justify-center mt-[19%]">
+        <Link href="/esmeralda">
+          <button className="bg-[#42807D] text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
+            Voltar a estação
+          </button>
+        </Link>
       </div>
     </>
   );
