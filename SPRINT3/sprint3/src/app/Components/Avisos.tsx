@@ -1,9 +1,8 @@
 'use client';
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Avisos = () => {
   const router = useRouter();
@@ -15,50 +14,66 @@ const Avisos = () => {
     {
       id: 1,
       imgSrc: "img/linhaAmaela2.jpg",
-      description: "Metrô anuncia nova linha que leva passageiros para ...",
-      date: formattedDate,
+      description: "Metrô anuncia nova linha que leva passageiros para a Zona Leste.",
+      date: "03/16/2025",
+      aviso: "Aviso: Possível paralisação devido a chuvas fortes.",
+      details: "A Linha Amarela está enfrentando atrasos devido à chuva intensa. Pedimos que os passageiros planejem suas viagens com antecedência."
     },
     {
       id: 2,
       imgSrc: "img/linha_diamante.jpg",
       description: "Notícia sobre o evento 2",
       date: "02/25/2025",
+      aviso: "Aviso: Linhas operando parcialmente devido a falha técnica.",
+      details: "Falha técnica afeta os trens da Linha Diamante. Estações estão sendo monitoradas, e há espera para embarque em várias paradas."
     },
     {
       id: 3,
       imgSrc: "img/imgmetro1.png",
       description: "Notícia sobre o evento 3",
-      date: "02/25/2025",
+      date: "03/12/2025",
+      aviso: "Aviso: Redução de horário nas linhas durante o final de semana.",
+      details: "Devido a manutenções programadas, as linhas terão horários reduzidos durante o fim de semana. Verifique os horários de funcionamento."
     },
     {
       id: 4,
       imgSrc: "img/metro_esmeralda1.jpg",
       description: "Notícia sobre o evento 4",
-      date: "02/25/2025",
+      date: "02/18/2025",
+      aviso: "Aviso: Acidente na linha Esmeralda causa atrasos significativos.",
+      details: "A linha Esmeralda está operando com atrasos devido a um acidente. Recomendamos alternativas de transporte."
     },
     {
       id: 5,
       imgSrc: "img/metro_amarela4.jpg",
       description: "Notícia sobre o evento 5",
-      date: "02/25/2025",
+      date: "01/10/2025",
+      aviso: "Aviso: Interdição parcial na Linha Amarela por manutenção.",
+      details: "Interdição parcial da Linha Amarela para reparos. Reprogramação dos horários pode causar impactos nos passageiros."
     },
     {
       id: 6,
       imgSrc: "img/metro_linhaAmarela5.jpg",
       description: "Notícia sobre o evento 6",
-      date: "02/25/2025",
+      date: "03/05/2025",
+      aviso: "Aviso: Chegada de novos trens na Linha Amarela.",
+      details: "Novos trens começam a operar na Linha Amarela, prometendo maior conforto e redução no tempo de viagem."
     },
   ];
 
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [selectedNews, setSelectedNews] = useState<any | null>(null);
+
+  const handleImageClick = (noticia: any) => {
+    setSelectedNews(noticia);
+  };
 
   return (
-    <div className="min-h-screen bg-green-50 p-6">
-      <div className="relative mb-6 flex flex-col gap-5">
+    <div className="min-h-screen bg-green-50 px-4 sm:px-6">
+      <div className="relative mb-2 flex flex-col gap-5">
         <div className="mb-[10%]">
-          {/* Deslogar Button */}
           <motion.button 
-            className="absolute left-0 top-4 w-[40%] py-3 px-4 bg-green-600 text-white rounded-lg hover:bg-green-400 transition"
+            className="absolute left-0 top-4 w-[30%] py-3 px-4 bg-[#42807D] text-white rounded-lg hover:bg-green-400 transition"
             onClick={() => router.push("/Login")}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
@@ -68,9 +83,8 @@ const Avisos = () => {
         </div>
 
         <div className="flex justify-between items-center mt-10">
-          {/* Últimas Notícias Title */}
           <motion.h2 
-            className="text-[2.4rem] text-center font-bold text-black w-[80%]"
+            className="text-[1.7rem] text-start  font-bold text-black w-full sm:w-[80%]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -78,9 +92,8 @@ const Avisos = () => {
             ÚLTIMAS NOTÍCIAS
           </motion.h2>
 
-          {/* Atualizar Button */}
           <motion.button 
-            className="w-[20%] py-3 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+            className="w-[30%] py-3 px-4 bg-[#42807D] text-white rounded-lg mb-2 hover:bg-green-700 transition"
             onClick={() => window.location.reload()}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
@@ -90,57 +103,70 @@ const Avisos = () => {
         </div>
       </div>
 
-      {/* Noticias List */}
-      <div className="grid lg:w-[86%] mx-auto sm:grid-cols-3 gap-8 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
         {noticias.map((noticia) => (
           <motion.div
             key={noticia.id}
-            className={`bg-white h-[300px] rounded-[10px] shadow-md overflow-hidden transition-all duration-300 ${hoveredId === noticia.id ? "scale-105 cursor-pointer" : ""}`}
-            onMouseEnter={() => setHoveredId(noticia.id)}
-            onMouseLeave={() => setHoveredId(null)}
-            whileHover={{ scale: 1.05 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            className="h-[300px] rounded overflow-hidden duration-300"
           >
-            <div className="w-full relative">
+            <div className="flex flex-col bg-[#42807D] p-4">
               <motion.div
-                className="absolute top-2 left-2 text-sm text-white bg-black bg-opacity-60 px-2 py-1 rounded"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
+                className="text-xs text-[1.3rem] text-start text-black font-bold mb-2"
               >
-                {noticia.date === formattedDate
-                  ? `${formattedDate} ${formattedTime}`
-                  : noticia.date}
+                {noticia.date}
               </motion.div>
 
-              {/* Div for Image with background color #42807D */}
-              <div className="w-full h-59 overflow-hidden rounded-lg mb-4 flex items-center justify-center bg-[#42807D]">
+              {/* Imagem */}
+              <div 
+                className="w-full h-50 mb-4 flex items-center justify-center cursor-pointer"
+                onClick={() => handleImageClick(noticia)}
+              >
                 <motion.img
                   src={noticia.imgSrc}
                   alt={`Notícia ${noticia.id}`}
                   className="object-cover w-full h-full"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6 }}
                 />
               </div>
-            </div>
 
-            <motion.p
-              className="text-[1.2rem] text-center font-bold"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.4 }}
-            >
-              {noticia.description}
-            </motion.p>
+              <div className="text-center text-white">
+                <motion.p
+                  className="text-[1.2rem] text-start font-bold mb-2"
+                >
+                  {noticia.aviso}
+                </motion.p>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
+{/* Modal Ajustado */}
+{selectedNews && (
+  <div className="fixed top-0 left-0 right-0 bottom-0 bg-opacity-60 bg-gray-900 z-50 p-4 sm:p-8 flex justify-center items-center">
+    <div className="bg-white p-4 sm:p-6 rounded-lg w-full sm:w-[80%] max-w-[800px]">
+      <motion.div className="text-center">
+        <motion.img 
+          src={selectedNews.imgSrc} 
+          alt="Notícia detalhada" 
+          className="w-full sm:h-[200px] object-cover mb-4"
+        />
+        <motion.h3 className="text-[1.6rem] sm:text-[1.8rem] font-bold text-black mb-4">
+          {selectedNews.description}
+        </motion.h3>
+        <motion.p className="text-[1rem] sm:text-[1.2rem] text-gray-700">
+          {selectedNews.details}
+        </motion.p>
+        <motion.button
+          className="mt-6 py-3 px-6 bg-red-600 text-white rounded-lg"
+          onClick={() => setSelectedNews(null)}
+        >
+          Fechar
+        </motion.button>
+      </motion.div>
+    </div>
+  </div>
+)}
 
-      {/* Opinion Section */}
+
       <div className="text-center flex flex-col mt-12">
         <motion.h1
           className="text-[2rem] mx-auto font-bold text-black mb-8 w-[99%]"
@@ -175,13 +201,14 @@ const Avisos = () => {
 
         <Link href="/header">
           <motion.button
-            className="w-[62%] cursor-pointer py-4 p-2 bg-[#42807D] text text-white rounded-lg hover:bg-green-600 transition duration-200"
+            className="w-[62%] cursor-pointer py-4 p-2 bg-[#42807D] text text-white rounded-lg hover:bg-green-600 transition duration-200 mb-[18%]"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
             Consultar linhas ccr
           </motion.button>
         </Link>
+
       </div>
     </div>
   );

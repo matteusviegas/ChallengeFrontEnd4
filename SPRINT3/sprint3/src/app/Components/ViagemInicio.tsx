@@ -60,54 +60,6 @@ const TEMPOS_PERCURSO: TTempoPercurso = {
     Jandira: 50,
     'Vargem Grande Paulista': 55,
   },
-  Quitaúna: {
-    Osasco: 5,
-    Carapicuíba: 5,
-    Manga: 8,
-    'Dom Pedro II': 10,
-    'Vila Progredior': 12,
-    'Presidente Altino': 15,
-    Pinheiros: 20,
-    'Granja Julieta': 25,
-    Morumbi: 30,
-    Butantã: 35,
-    'Santo Amaro': 40,
-    Brooklin: 45,
-    'Campo Belo': 50,
-    Jabaquara: 55,
-    Luz: 25,
-    República: 28,
-    Consolação: 30,
-    Paulista: 33,
-    'Faria Lima': 37,
-    Barueri: 35,
-    Jandira: 40,
-    'Vargem Grande Paulista': 45,
-  },
-  Carapicuíba: {
-    Osasco: 10,
-    Quitaúna: 5,
-    Manga: 7,
-    'Dom Pedro II': 10,
-    'Vila Progredior': 15,
-    'Presidente Altino': 20,
-    Pinheiros: 25,
-    'Granja Julieta': 30,
-    Morumbi: 35,
-    Butantã: 40,
-    'Santo Amaro': 45,
-    Brooklin: 50,
-    'Campo Belo': 55,
-    Jabaquara: 60,
-    Luz: 35,
-    República: 38,
-    Consolação: 40,
-    Paulista: 43,
-    'Faria Lima': 47,
-    Barueri: 50,
-    Jandira: 55,
-    'Vargem Grande Paulista': 60,
-  },
 };
 
 const ViagemInicio = () => {
@@ -165,19 +117,18 @@ const ViagemInicio = () => {
   ];
 
   return (
-    <div className="h-screen">
-      <h1 className="mx-auto mt-15 w-[48%] mb-5 font-bold text-[2.9rem]">
-        COMEÇAR <span className="text-[#42807D]">VIAGEM</span>
+    <div className="h-screen flex flex-col items-center bg-gray-100">
+      <h1 className="text-center w-[50%] mx-auto font-bold text-4xl mt-8 mb-4">
+        COMEÇAR <span className="text-[#42807D] w-[50%] mx-auto">VIAGEM</span>
       </h1>
-      <div className="w-[22%] p-8 text-start mx-auto mt-[10%]">
+
+      <div className="w-[80%] max-w-md p-6 mt-13">
         <div className="mb-6">
-          <label className="text-left text-[1.2rem] font-semibold mb-2">
-            Selecione a estação de origem:
-          </label>
+          <label className="block text-lg font-semibold mb-2">Selecione a estação de origem:</label>
           <select
             value={origem}
             onChange={(e) => setOrigem(e.target.value as Estacoes)}
-            className="w-full bg-gray-300 p-2 rounded-2xl text-[1.2rem] font-semibold"
+            className="w-full bg-gray-200 p-3 rounded-lg text-lg mb-10 font-semibold"
           >
             <optgroup label="Linha Esmeralda">
               {linhasEstacoes.Esmeralda.map((estacao) => (
@@ -186,7 +137,6 @@ const ViagemInicio = () => {
                 </option>
               ))}
             </optgroup>
-
             <optgroup label="Linha Amarela">
               {linhasEstacoes.Amarela.map((estacao) => (
                 <option key={estacao} value={estacao}>
@@ -194,7 +144,6 @@ const ViagemInicio = () => {
                 </option>
               ))}
             </optgroup>
-
             <optgroup label="Linha Diamante">
               {linhasEstacoes.Diamante.map((estacao) => (
                 <option key={estacao} value={estacao}>
@@ -205,14 +154,12 @@ const ViagemInicio = () => {
           </select>
         </div>
 
-        <div className="mb-6">
-          <label className="text-left text-[1.2rem] font-semibold mb-2">
-            Selecione a estação de destino:
-          </label>
+        <div className="mb-6 mb-[25%] ">
+          <label className="block text-lg font-semibold mb-2">Selecione a estação de destino:</label>
           <select
             value={destino}
             onChange={(e) => setDestino(e.target.value as Estacoes)}
-            className="w-full bg-gray-300 p-2 rounded-2xl text-[1.2rem] font-semibold"
+            className="w-full bg-gray-200 p-3 rounded-lg text-lg font-semibold"
           >
             <optgroup label="Linha Esmeralda">
               {linhasEstacoes.Esmeralda.map((estacao) => (
@@ -221,7 +168,6 @@ const ViagemInicio = () => {
                 </option>
               ))}
             </optgroup>
-
             <optgroup label="Linha Amarela">
               {linhasEstacoes.Amarela.map((estacao) => (
                 <option key={estacao} value={estacao}>
@@ -229,7 +175,6 @@ const ViagemInicio = () => {
                 </option>
               ))}
             </optgroup>
-
             <optgroup label="Linha Diamante">
               {linhasEstacoes.Diamante.map((estacao) => (
                 <option key={estacao} value={estacao}>
@@ -240,18 +185,27 @@ const ViagemInicio = () => {
           </select>
         </div>
 
-        <button
-          className="bg-[#42807D] p-3  w-[100%] cursor-pointer text-white rounded-[1.4rem] font-bold"
+      
+<div>
+<button
+          className="bg-[#42807D] w-full p-3 rounded-lg text-white font-bold text-lg mb-10"
           onClick={handleIniciarViagem}
         >
           Iniciar Viagem
         </button>
-
-        <Link href="/Relatorio">
-          <button className="bg-[#000]  w-[100%] p-2 cursor-pointer text-white rounded-2xl mt-4">
+         <Link href="/Relatorio ">
+          <button className="bg-black w-full mx-auto  p-2 rounded-lg text-white font-semibold text-lg">
             Ver Relatório
           </button>
         </Link>
+</div>
+<div className="flex justify-center mt-6">
+        <Link href="/esmeralda">
+          <button className="bg-[#42807D] text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
+            Voltar ao Início
+          </button>
+        </Link>
+      </div>
       </div>
     </div>
   );

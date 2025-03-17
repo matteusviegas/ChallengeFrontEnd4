@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link'; // Importando o Link para navegação
 
 const HorarioPico = () => {
   const [fluxos, setFluxos] = useState<{ hora: string; fluxo: string }[]>([]);
@@ -43,12 +44,11 @@ const HorarioPico = () => {
     if (numeroDeFluxosAltos > 10) {
       setStatusOperacao('Atenção: Fluxo Alto!');
     } else if (numeroDeFluxosBaixos < 9) {
-      setStatusOperacao('Fluxo tranquilo');
+      setStatusOperacao('Fluxo baixo');
     } else {
-      setStatusOperacao('fluxo normal');
+      setStatusOperacao('Fluxo normal');
     }
-  };
-
+  }
   useEffect(() => {
     atualizarInformacoes();
 
@@ -61,22 +61,21 @@ const HorarioPico = () => {
 
   return (
     <div className="w-full max-w-md mx-auto p-4">
-      <h1 className="text-[2rem] text-center font-semibold mb-6">
+      <h1 className="text-[2rem] w-[50%] mx-auto text-center font-semibold mb-6">
         <span className="text-[#42807D]">Linha 9</span> Esmeralda
       </h1>
 
       <div className="flex justify-center gap-4 mb-6">
-       
         {fluxosAltos > 10 && (
-          <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/blue.jpg" alt="Imagem Fluxo Alto 1" />
+          <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/triste.png" alt="Imagem Fluxo Alto 1" />
         )}
 
         {fluxosAltos > 5 && fluxosAltos <= 10 && (
-          <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/imagessssss.jpeg" alt="Imagem Fluxo Médio 2" />
+          <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/neutro.jpeg" alt="Imagem Fluxo Médio 2" />
         )}
 
         {fluxosAltos <= 5 && (
-          <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/smales.png" alt="Imagem Fluxo Baixo 3" />
+          <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/feliz.png" alt="Imagem Fluxo Baixo 3" />
         )}
       </div>
 
@@ -121,12 +120,12 @@ const HorarioPico = () => {
       <div className="bg-[#42807D] text-white text-center p-4 rounded-2xl">
         <h2 className="font-bold">Relatório</h2>
         <p>{dataHoje}</p>
-        <ul className="flex flex-col gap-2 mt-4 mb-4">
+        <ul className="flex  flex-col  mt-4 mb-2">
           {fluxos.length > 0 ? (
             fluxos.map((fluxo, index) => (
-              <li key={index} className="flex justify-between items-center p-2">
-                <span className="bg-white text-black p-2 mr-2 rounded-t-2xl">{fluxo.hora}</span>
-                <span>{fluxo.fluxo}</span>
+              <li key={index} className="flex  gap-7 items-center p-1">
+                <span className="bg-white text-black  p-2 mr-2 ">{fluxo.hora}</span>
+                <span className='text-[1.3rem] text-bold'>{fluxo.fluxo}</span>
               </li>
             ))
           ) : (
@@ -134,7 +133,14 @@ const HorarioPico = () => {
           )}
         </ul>
       </div>
-      
+
+      <div className="flex justify-center mt-6">
+        <Link href="/header">
+          <button className="bg-[#42807D] text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
+            Voltar ao Início
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

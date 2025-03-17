@@ -29,12 +29,12 @@ const Denuncie = () => {
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <div className="w-full bg-[#000] text-white sm:w-[70%] lg:w-[80%] p-4">
           <img
-            src="img_icons/Wi-fi.png"
+            src="img_icons/imagex.png"
             alt="Ícone Wi-Fi"
             className="mb-6 mx-auto"
           />
-          <div className="bg-[#42807D] w-[88%] mx-auto">
-            <h1 className="text-[1.3rem] w-[80%] mx-auto sm:text-3xl text-center mb-4">
+          <div className="bg-[#42807D] w-[88%] p-2 mx-auto rounded-2xl">
+            <h1 className="text-[1.3rem] w-[90%] mx-auto sm:text-3xl text-center mb-4">
               Gostaria de fazer uma denúncia ou relatar um problema?
             </h1>
 
@@ -46,12 +46,7 @@ const Denuncie = () => {
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
 
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
-              />
+             
             </div>
 
             <div className="mx-auto text-center w-[88%]">
@@ -68,7 +63,7 @@ const Denuncie = () => {
             Sua informação estará protegida!
           </p>
 
-          <div className="text-center">
+          <div className="text-center w-[100%]">
             <Link href="/pinheiros">
               <button className="mt-6 bg-[#42807D] text-white py-3 px-6 rounded-lg font-bold text-lg hover:bg-[#35796b] transition duration-300">
                 Voltar

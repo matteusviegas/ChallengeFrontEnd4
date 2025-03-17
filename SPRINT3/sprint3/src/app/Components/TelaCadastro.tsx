@@ -6,7 +6,6 @@ import Link from 'next/link';
 const TelaCadastro = () => {
   const router = useRouter();
   const [usuario, setUsuario] = useState('');
-  const [dataNascimento, setDataNascimento] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
@@ -17,7 +16,7 @@ const TelaCadastro = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!usuario || !dataNascimento || !email || !senha || !confirmarSenha) {
+    if (!usuario || !email || !senha || !confirmarSenha) {
       setErroCampos('Por favor, preencha todos os campos.');
       return;
     } else {
@@ -40,7 +39,6 @@ const TelaCadastro = () => {
       usuario,
       email,
       senha,
-      dataNascimento,
     };
 
     localStorage.setItem('user', JSON.stringify(userData));
@@ -49,7 +47,7 @@ const TelaCadastro = () => {
   };
 
   return (
-    <div className="w-full max-w-[450px] mx-auto border-4 border-solid border-green-800 p-6 bg-white rounded-lg">
+    <div className="w-full max-w-[420px] mx-auto border-4 border-solid mt-[23%] border-green-800 p-6 bg-white rounded-lg">
       <div className="w-[80%] mx-auto mt-8 mb-9">
         <h1 className="font-bold text-center text-3xl sm:text-4xl">
           FUTURE <span className="text-[#42807D]">STATION</span>
@@ -67,18 +65,6 @@ const TelaCadastro = () => {
             onChange={(e) => setUsuario(e.target.value)}
             placeholder="Usuário"
             className="w-full bg-[#42807D] p-4 border border-gray-300 mb-4 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
-          />
-        </div>
-
-        <div className="mb-7">
-          <label htmlFor="dataNascimento" className="block ml-2 font-medium text-gray-700">Data de Nascimento:</label>
-          <input
-            type="date"
-            id="dataNascimento"
-            name="dataNascimento"
-            value={dataNascimento}
-            onChange={(e) => setDataNascimento(e.target.value)}
-            className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
           />
         </div>
 
@@ -135,8 +121,8 @@ const TelaCadastro = () => {
               className="m-2"
             />
             Ao continuar, você aceita nossa <span className="text-blue-500 hover:underline">
-              
-             <Link href='/TermosUso'>Política de Privacidade  Termos de Uso</Link></span>.
+              <Link href='/TermosUso'>Política de Privacidade e Termos de Uso</Link>
+            </span>.
           </label>
         </div>
 

@@ -12,6 +12,11 @@ const Relatorio = () => {
     setHistoricoViagens(viagensPassadas);
   }, []);
 
+  const limparHistorico = () => {
+    localStorage.removeItem('historicoViagens');
+    setHistoricoViagens([]);
+  };
+
   return (
     <div className='h-screen flex justify-center items-center'>
       <div className='w-full sm:w-4/5 max-w-4xl bg-grey p-8 rounded-3xl shadow-2xl overflow-auto transform transition duration-500 hover:scale-105'>
@@ -39,12 +44,18 @@ const Relatorio = () => {
           </div>
         )}
 
-        <div className="flex justify-center mt-8">
+        <div className="flex flex-col w-[68%] mx-auto gap-7 justify-center mt-8 space-x-4">
           <button
             className='bg-[#42807D] text-white py-3 px-8 rounded-xl font-semibold w-full md:w-auto hover:bg-[#357c66] transition duration-300 cursor-pointer  transform hover:scale-105'
             onClick={() => router.push('/viagem')}
           >
             Voltar
+          </button>
+          <button
+            className='bg-[#469894] text-white py-3 px-8 rounded-xl font-semibold w-full md:w-auto hover:bg-red-400 transition duration-300 cursor-pointer transform hover:scale-105'
+            onClick={limparHistorico}
+          >
+            Limpar Histórico
           </button>
         </div>
       </div>
