@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Avisos from "./Components/Avisos";
 import Perfil from "./Perfil/page";
-
+import { AppProps } from 'next/app';
+import WatsonChat from "./WhatsonChatBot/WatsonChat";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html  lang="pt-BR">
       <body
       >
+           <WatsonChat /> {/* O Watson Assistant será carregado aqui */}
         <Perfil/>
         {children}
     
