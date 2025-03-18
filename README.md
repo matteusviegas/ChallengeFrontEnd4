@@ -23,14 +23,13 @@ Obrigado por visitar o nosso repositório!
 
 Este projeto tem como objetivo oferecer uma interface de viagem interativa para usuários de transporte público, 
 permitindo calcular e exibir os tempos estimados de viagem entre diferentes estações, registrar essas viagens e
-exibir um histórico completo das viagens realizadas. Além disso, o projeto implementa um sistema de **login e cadastro**
+exibir um histórico completo das viagens realizadas. Além disso, o projeto implementa um sistema de **login, cadastro, previssao de pico, calcular trajeto de uma linha a outra e avisos**
 de usuários utilizando **Next.js** e **TypeScript**.
 
 ---
 
 
 
-### **Sistema de Login e Cadastro com Next.js e TypeScript**
 
 #### **1. Apresentação do Projeto**
 Este projeto é um protótipo de um sistema de login e cadastro de usuários, desenvolvido utilizando **Next.js** e **TypeScript**,
