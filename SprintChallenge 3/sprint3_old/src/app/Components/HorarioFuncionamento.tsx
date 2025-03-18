@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+
 const HorarioFuncionamento = () => {
   return (
     <div className="bg-[#D9D9D9] min-h-screen flex justify-center items-center">

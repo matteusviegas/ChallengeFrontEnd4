@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -43,7 +43,7 @@ const TelaCadastro = () => {
 
     localStorage.setItem('user', JSON.stringify(userData));
 
-    router.push('/avisos');
+    router.push('/Login');
   };
 
   return (

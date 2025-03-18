@@ -1,6 +1,6 @@
-'use client'
+'use client'; 
+
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
 const PerfilUsuario = () => {
@@ -38,16 +38,16 @@ const PerfilUsuario = () => {
 
   return (
     <div className="relative">
-      <motion.div
+      <div
         className="cursor-pointer fixed top-4 right-4 z-50"
-        onClick={togglePerfil} 
+        onClick={togglePerfil}
       >
         <img
           src={novaFoto || dadosUsuario?.foto || '/img_icons/imgUser.jpg'}
           alt="Foto de Perfil"
           className="w-15 h-15 border-[2px] border-black rounded-full cursor-pointer transition-all duration-300 transform hover:scale-110"
         />
-      </motion.div>
+      </div>
 
       {exibirPerfil && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
@@ -73,7 +73,7 @@ const PerfilUsuario = () => {
               />
               <button
                 onClick={() => document.getElementById('inputFoto')?.click()}
-                className="p-2 cursor-pointer  bg-[#42807D] text-white rounded-lg hover:bg-[#42707D]"
+                className="p-2 cursor-pointer bg-[#42807D] text-white rounded-lg hover:bg-[#42707D]"
               >
                 Alterar Foto de Perfil
               </button>
