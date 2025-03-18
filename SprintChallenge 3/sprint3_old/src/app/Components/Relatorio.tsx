@@ -13,8 +13,8 @@ const Relatorio = () => {
   }, []);
 
   return (
-    <div className='h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-200 to-blue-500'>
-      <div className='w-[90%] max-w-4xl bg-[#000] p-8 rounded-3xl shadow-2xl overflow-auto transform transition duration-500 hover:scale-105'>
+    <main className='h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-200 to-blue-500'>
+      <section className='w-[90%] max-w-4xl bg-[#000] p-8 rounded-3xl shadow-2xl overflow-auto transform transition duration-500 hover:scale-105'>
         <h1 className='text-4xl font-extrabold mb-8 text-center text-gray-800'>
           Relatório de Viagens
         </h1>
@@ -40,8 +40,8 @@ const Relatorio = () => {
         >
           Voltar para Viagem
         </button>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

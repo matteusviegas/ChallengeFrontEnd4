@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 const Sugestoes = () => {
   const [feedback, setFeedback] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setFeedback('Sugestão enviada com sucesso!');
   };
@@ -53,7 +53,7 @@ const Sugestoes = () => {
             </label>
             <textarea
               id="sugestao"
-              rows="4"
+              rows={4}
               placeholder="Digite sua sugestão aqui..."
               className="w-full p-4 rounded-lg border-2 border-[#E0E0E0] focus:outline-none focus:ring-2 focus:ring-[#42807D] text-lg"
               required
@@ -82,13 +82,14 @@ const Sugestoes = () => {
             <span className="font-semibold text-[#42807D]">Confiança e privacidade</span>
           </p>
         </div>
+
         <div className="flex justify-center mt-6">
-        <Link href="/avisos">
-          <button className="bg-[#42807D] text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
-            Voltar ao Início
-          </button>
-        </Link>
-      </div>
+          <Link href="/avisos">
+            <button className="bg-[#42807D] text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
+              Voltar ao Início
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

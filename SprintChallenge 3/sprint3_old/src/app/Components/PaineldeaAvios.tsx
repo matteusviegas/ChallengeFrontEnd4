@@ -69,7 +69,7 @@ const Avisos = () => {
   };
 
   return (
-    <div className=" px-4 sm:px-6">
+    <div className="px-4 sm:px-6">
       <div className="relative mb-2 flex flex-col gap-5">
         <div className="flex justify-between items-center mt-10">
           <h2 className="text-[1.7rem] text-center font-bold text-black w-full sm:w-[80%] transition-opacity duration-1000 opacity-100">
@@ -104,7 +104,7 @@ const Avisos = () => {
                   >
                     <img
                       src={noticia.imgSrc}
-                      alt={`Notícia ${noticia.id}`}
+                      alt={noticia.description || "Imagem relacionada à notícia"}
                       className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
                     />
                   </div>
@@ -126,7 +126,7 @@ const Avisos = () => {
               <div className="text-center">
                 <img
                   src={selectedNews.imgSrc}
-                  alt="Notícia detalhada"
+                  alt={selectedNews.description || "Notícia detalhada"}
                   className="w-full sm:h-[200px] object-cover mb-4"
                 />
                 <h3 className="text-[1.6rem] sm:text-[1.8rem] font-bold text-black mb-4">
@@ -145,8 +145,6 @@ const Avisos = () => {
             </div>
           </div>
         )}
-
-       
       </div>
     </div>
   );

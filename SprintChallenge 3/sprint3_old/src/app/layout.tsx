@@ -19,8 +19,7 @@ export default function RootLayout({
     <html  lang="pt-BR">
       <body
       >
-           <WatsonChat /> {/* O Watson Assistant será carregado aqui */}
-        <Perfil/>
+           <WatsonChat /> 
         {children}
     
      

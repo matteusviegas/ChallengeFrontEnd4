@@ -12,15 +12,45 @@ const TelaCadastro = () => {
   const [aceitouTermos, setAceitouTermos] = useState(false);
   const [erroSenhas, setErroSenhas] = useState('');
   const [erroCampos, setErroCampos] = useState('');
+  const [erroUsuario, setErroUsuario] = useState('');
+  const [erroEmail, setErroEmail] = useState('');
+
+  // Validação de email
+  const validateEmail = (email: string) => {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return re.test(email);
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Validações de campos
     if (!usuario || !email || !senha || !confirmarSenha) {
       setErroCampos('Por favor, preencha todos os campos.');
       return;
     } else {
       setErroCampos('');
+    }
+
+    if (usuario.length < 4) {
+      setErroUsuario('O nome de usuário deve ter pelo menos 4 caracteres.');
+      return;
+    } else {
+      setErroUsuario('');
+    }
+
+    if (!validateEmail(email)) {
+      setErroEmail('Por favor, insira um e-mail válido.');
+      return;
+    } else {
+      setErroEmail('');
+    }
+
+    if (senha.length < 6) {
+      setErroSenhas('A senha deve ter pelo menos 6 caracteres.');
+      return;
+    } else {
+      setErroSenhas('');
     }
 
     if (senha !== confirmarSenha) {
@@ -47,7 +77,7 @@ const TelaCadastro = () => {
   };
 
   return (
-    <div className="w-full max-w-[420px] mx-auto border-4 border-solid mt-[23%] border-green-800 p-6 bg-white rounded-lg">
+    <div className="w-full max-w-[420px] mx-auto border-4 border-solid mt-[23%] border-green-800 p-6 bg-white rounded-lg sm:max-w-[350px]">
       <div className="w-[80%] mx-auto mt-8 mb-9">
         <h1 className="font-bold text-center text-3xl sm:text-4xl">
           FUTURE <span className="text-[#42807D]">STATION</span>
@@ -66,6 +96,7 @@ const TelaCadastro = () => {
             placeholder="Usuário"
             className="w-full bg-[#42807D] p-4 border border-gray-300 mb-4 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
           />
+          {erroUsuario && <p className="text-red-500 text-sm">{erroUsuario}</p>}
         </div>
 
         <div className="mb-7">
@@ -79,6 +110,7 @@ const TelaCadastro = () => {
             placeholder="Digite seu email"
             className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
           />
+          {erroEmail && <p className="text-red-500 text-sm">{erroEmail}</p>}
         </div>
 
         <div className="mb-7">
