@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Button from "../Botao/Botao";
 
 const Header = () => {
     return (
@@ -42,13 +43,18 @@ const Header = () => {
             </section>
 
             <footer>
-                <div className="flex justify-center mt-[19%]">
-                    <Link href="/avisos">
-                        <button className="bg-[#42807D] text-white px-26 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
-                            Voltar
-                        </button>
-                    </Link>
-                </div>
+        
+            <div className="flex justify-center mt-[19%]">
+          <Link href="/avisos">
+          
+            <Button
+              label="Voltar"
+              onClick={() => {}}
+              className="bg-[#42807D] cursor-pointer text-white px-26 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
+            />
+          </Link>
+        </div>
+
                 <div className="mt-1 mb-[9%]">
                     <button
                         className="mx-auto px-18 py-4 mt-[10%] bg-[#42807D] text-white rounded-lg hover:bg-green-600 transition"

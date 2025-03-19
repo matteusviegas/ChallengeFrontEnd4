@@ -12,7 +12,6 @@ const Avisos = () => {
 
   return (
     <div className="min-h-screen bg-white px-4 sm:px-6">
-      {/* O elemento main foi adicionado aqui */}
       <main>
         <div className="relative mb-2 flex flex-col gap-5">
           <div className="mb-15 flex justify-center">

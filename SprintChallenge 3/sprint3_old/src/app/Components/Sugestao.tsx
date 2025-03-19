@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import React, { useState } from 'react'; 
+import Button from '../Botao/Botao';
 
 const Sugestoes = () => {
   const [feedback, setFeedback] = useState('');
@@ -9,7 +10,7 @@ const Sugestoes = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setFeedback('Sugestão enviada com sucesso!');
-  };
+  };  
 
   return (
     <div className="bg-[#F9FAFB] min-h-screen flex justify-center items-center py-10 px-4">
@@ -74,6 +75,16 @@ const Sugestoes = () => {
               Limpar
             </button>
           </div>
+          <div className="flex justify-center mt-[19%]">
+          <Link href="/avisos">
+          
+            <Button
+              label="Voltar"
+              onClick={() => {}}
+              className="bg-[#42807D] cursor-pointer text-white px-26 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
+            />
+          </Link>
+        </div>
         </form>
 
         <div className="mt-6 text-center text-sm text-gray-500">
@@ -84,11 +95,8 @@ const Sugestoes = () => {
         </div>
 
         <div className="flex justify-center mt-6">
-          <Link href="/avisos">
-            <button className="bg-[#42807D] text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
-              Voltar ao Início
-            </button>
-          </Link>
+        
+        
         </div>
       </div>
     </div>

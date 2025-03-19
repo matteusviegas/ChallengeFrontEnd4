@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link'; // Importando o Link para navegação
+import Button from '../Botao/Botao';
 
 const HorarioPico = () => {
   const [fluxos, setFluxos] = useState<{ hora: string; fluxo: string }[]>([]);
@@ -134,13 +135,16 @@ const HorarioPico = () => {
         </ul>
       </div>
 
-      <div className="flex justify-center mt-6">
-        <Link href="/esmeralda">
-          <button className="bg-[#42807D] text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
-            Voltar ao Início
-          </button>
-        </Link>
-      </div>
+      <div className="flex justify-center mt-[19%]">
+          <Link href="/esmeralda">
+          
+            <Button
+              label="Voltar"
+              onClick={() => {}}
+              className="bg-[#42807D] cursor-pointer text-white px-26 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
+            />
+          </Link>
+        </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Button from "../Botao/Botao";
 
 const HorarioFuncionamento = () => {
   return (
@@ -29,11 +30,14 @@ const HorarioFuncionamento = () => {
           </ul>
         </div>
 
-        <div className="flex justify-center mt-5">
-          <Link href="/esmeralda">
-            <button className="bg-[#42807D] text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
-              Voltar
-            </button>
+        <div className="flex justify-center mt-[19%]">
+          <Link href="/avisos">
+          
+            <Button
+              label="Voltar"
+              onClick={() => {}}
+              className="bg-[#42807D] cursor-pointer text-white px-26 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
+            />
           </Link>
         </div>
       </section>

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Button from "../Botao/Botao";
 
 const Esmeralda = () => {
   return (
@@ -12,11 +13,14 @@ const Esmeralda = () => {
       </header>
 
       <section>
-        <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-[19%]">
           <Link href="/header">
-            <button className="bg-[#42807D] text-white px-2 py-2 rounded-[9px] text-[1.3rem] hover:bg-[#365d56] transition-all duration-300">
-              Voltar a estação
-            </button>
+          
+            <Button
+              label="Voltar para a estação"
+              onClick={() => {}}
+              className="bg-[#42807D] cursor-pointer text-white px-10 py-4 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
+            />
           </Link>
         </div>
         <div className="border-3 mt-[9%] p-4 w-[80%] flex flex-col gap-7 mx-auto rounded-2xl">
