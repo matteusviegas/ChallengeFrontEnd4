@@ -65,7 +65,14 @@ const Avisos = () => {
             </Link>
           </div>
         </div>
-
+<div className="w-[69%] mt-[15%] rounded-2xl mx-auto p-4 text-center border-2 text-[1.4rem]" >
+  <h1>Pedro Henrique Sena</h1>
+<p>RM561178</p>
+<h1 className="mt-[9%]">Sulamita Viegas Dos Santos</h1>
+<p>RM561089</p>
+<h1 className="mt-[9%]">Matteus Viegas Dos Santos</h1>
+<p>RM561090</p>
+</div>
         <div className="mt-[8%] text-center mb-[8%]">
           <button
             className=" px-28 py-3 sm:w-[1 3%] py-3 px-4 bg-[#42807D] text-white rounded-lg hover:bg-green-400 transition duration-300"
