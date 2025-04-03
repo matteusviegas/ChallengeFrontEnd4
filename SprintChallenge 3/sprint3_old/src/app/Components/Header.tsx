@@ -19,7 +19,7 @@ const Header = () => {
                 <div className="flex flex-col border-2 rounded-2xl p-5 w-[90%] mx-auto gap-12 items-center justify-center mt-[10%]">
                     <Link href="/esmeralda">
                         <p className="bg-[#357063] text-[1.2rem] mx-auto text-white px-18 py-4 rounded-2xl">
-                            Linha 9 Esmeralda
+                            Linha 9 Esmeralda.
                         </p>
                     </Link>
                     <Link href="#" passHref>

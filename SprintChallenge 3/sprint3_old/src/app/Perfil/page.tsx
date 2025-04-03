@@ -1,11 +1,11 @@
-'use client'; 
+'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const PerfilUsuario = () => {
   const [dadosUsuario, setDadosUsuario] = useState<any>(null);
-  const [exibirPerfil, setExibirPerfil] = useState<boolean>(false);  
+  const [exibirPerfil, setExibirPerfil] = useState<boolean>(false);
   const [novaFoto, setNovaFoto] = useState<string | null>(null);
   const router = useRouter();
 
@@ -32,8 +32,16 @@ const PerfilUsuario = () => {
   };
 
   const deslogar = () => {
-    localStorage.removeItem('user');
-    router.push('/Login');
+    try {
+      const confirmar = window.confirm('Tem certeza que deseja sair?');
+      if (confirmar) {
+        localStorage.removeItem('user');
+        router.push('/Login');
+      }
+    } catch (error) {
+      console.error('Erro ao tentar deslogar:', error);
+      alert('Erro ao tentar deslogar. Tente novamente!');
+    }
   };
 
   return (

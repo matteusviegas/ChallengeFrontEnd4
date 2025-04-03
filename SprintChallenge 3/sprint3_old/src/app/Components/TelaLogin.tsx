@@ -116,7 +116,10 @@ const TelaLogin = () => {
           </p>
         </div>
       </div>
-    <PaineldeaAvios/>
+      <div className="flex justify-center items-center w-full mt-10">
+      <PaineldeaAvios/>
+
+      </div>
     </div>
   );
 };
