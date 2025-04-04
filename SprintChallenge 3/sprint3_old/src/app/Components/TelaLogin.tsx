@@ -9,6 +9,7 @@ const TelaLogin = () => {
   const [usuario, setUsuario] = useState('');
   const [senha, setSenha] = useState('');
   const [erroLogin, setErroLogin] = useState('');
+  const [erroCampos, setErroCampos] = useState('');
   const [fotoPerfil, setFotoPerfil] = useState<string | null>(null);
 
   useEffect(() => {
@@ -21,6 +22,13 @@ const TelaLogin = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!usuario || !senha) {
+      setErroCampos('Por favor, preencha todos os campos.');
+      return;
+    } else {
+      setErroCampos('');
+    }
 
     const storedUser = localStorage.getItem('user');
 
@@ -47,7 +55,7 @@ const TelaLogin = () => {
             src="img_icons/Logo_Fs.png"
             alt="Logo"
           />
-          <h1 className= "  text-[1.6rem] sm:text-[1.4rem] lg:w-[100%] w-[80%] font-semibold text-center mb-4">
+          <h1 className="text-[1.6rem] sm:text-[1.4rem] lg:w-[100%] w-[80%] font-semibold text-center mb-4">
             Seu passageiro virtual nas horas certas!
           </h1>
 
@@ -69,6 +77,7 @@ const TelaLogin = () => {
         </div>
 
         {erroLogin && <p className="text-red-500 p-3 text-[1.2rem] text-center">{erroLogin}</p>}
+        {erroCampos && <p className="text-red-500 p-3 text-[1.2rem] text-center">{erroCampos}</p>}
 
         <form onSubmit={handleSubmit}>
           <div className="mt-6 w-full mx-auto">
@@ -117,8 +126,7 @@ const TelaLogin = () => {
         </div>
       </div>
       <div className="flex justify-center items-center w-full mt-10">
-      <PaineldeaAvios/>
-
+        <PaineldeaAvios />
       </div>
     </div>
   );

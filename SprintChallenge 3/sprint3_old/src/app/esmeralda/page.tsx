@@ -29,7 +29,7 @@ const Esmeralda = () => {
           </p>
           <Link href="/HorarioPico">
             <button className="bg-[#42807D] w-[60%] mt-[4%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer" type="button">
-              Consultar Fluxo
+              Previsão Pico
             </button>
           </Link>
 

@@ -121,7 +121,7 @@ const Avisos = () => {
         )}
 
         {selectedNews && (
-          <div className="fixed top-0 left-0 right-0 bottom-0 bg-opacity-60 bg-gray-900 z-50 p-4 sm:p-8 flex justify-center items-center">
+           <div className="fixed top-0 left-0 right-0 bottom-0 bg-opacity-60 bg-gray-900 z-50 p-4 sm:p-8 flex justify-center items-center">
             <div className="bg-white p-4 sm:p-6 rounded-lg w-full sm:w-[80%] max-w-[800px]">
               <div className="text-center">
                 <img
