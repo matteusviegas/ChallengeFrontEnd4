@@ -12,7 +12,7 @@ const Avisos = () => {
   const noticias = [
     {
       id: 1,
-      imgSrc: "img/linhaAmaela2.jpg",
+      imgSrc: "img/paralizacao.jpg",
       description: "Metrô anuncia nova linha que leva passageiros para a Zona Leste.",
       date: "03/16/2025",
       aviso: "Aviso: Possível paralisação devido a chuvas fortes...",
@@ -20,7 +20,7 @@ const Avisos = () => {
     },
     {
       id: 2,
-      imgSrc: "img/linha_diamante.jpg",
+      imgSrc: "img/operando normalmente.jpeg",
       description: "Falha técnica afeta os trens da Linha Diamante.",
       date: "02/25/2025",
       aviso: "Aviso: Linhas operando parcialmente devido a falha técnica...",
@@ -28,7 +28,7 @@ const Avisos = () => {
     },
     {
       id: 3,
-      imgSrc: "img/imgmetro1.png",
+      imgSrc: "img/lentidao.jpeg",
       description: "As linhas terão horários reduzidos durante o fim de semana.",
       date: "03/12/2025",
       aviso: "Aviso: Redução de horário nas linhas durante o final de semana...",
@@ -36,7 +36,7 @@ const Avisos = () => {
     },
     {
       id: 4,
-      imgSrc: "img/metro_esmeralda1.jpg",
+      imgSrc: "img/acidente.jpg",
       description: "A linha Esmeralda está operando com atrasos devido a um acidente.",
       date: "02/18/2025",
       aviso: "Aviso: Acidente na linha Esmeralda causa atrasos significativos...",
@@ -52,7 +52,7 @@ const Avisos = () => {
     },
     {
       id: 6,
-      imgSrc: "img/metro_linhaAmarela5.jpg",
+      imgSrc: "img/novo trem.jpg",
       description: "Novos trens começam a operar na Linha Amarela",
       date: "03/05/2025",
       aviso: "Aviso: Chegada de novos trens na Linha Amarela.",
