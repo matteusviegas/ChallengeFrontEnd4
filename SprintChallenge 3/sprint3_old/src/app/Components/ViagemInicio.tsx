@@ -80,14 +80,21 @@ const ViagemInicio = () => {
     return tempo !== undefined ? tempo : 0;
   };
 
+  const formatarTempo = (tempo: number) => {
+    const minutos = Math.floor(tempo);
+    const segundos = Math.round((tempo - minutos) * 60);
+    return `${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
+  };
+
   const handleIniciarViagem = () => {
     const tempo = calcularTempoPercurso();
     if (tempo === 0) {
       alert('Não há tempo registrado para essa rota.');
     } else {
-      alert(`Iniciando viagem de ${origem} para ${destino}. Tempo estimado: ${tempo} minutos`);
+      const tempoFormatado = formatarTempo(tempo);
+      alert(`Iniciando viagem de ${origem} para ${destino}. Tempo estimado: ${tempoFormatado}`);
 
-      const novaViagem = `Origem: ${origem}, Destino: ${destino}, Tempo: ${tempo} minutos`;
+      const novaViagem = `Origem: ${origem}, Destino: ${destino}, Tempo: ${tempoFormatado}`;
       const historicoAtual = JSON.parse(localStorage.getItem('historicoViagens') || '[]');
       localStorage.setItem('historicoViagens', JSON.stringify([...historicoAtual, novaViagem]));
     
@@ -123,7 +130,7 @@ const ViagemInicio = () => {
         COMEÇAR <span className="text-[#42807D] w-[50%] mx-auto">VIAGEM</span>
       </h1>
 
-      <div className="w-[80%] max-w-md p-6 mt-13">
+      <div className="w-[80%] border-3 rounded-2xl border-[#42807d] max-w-md p-6 mt-13">
         <div className="mb-6">
           <label className="block text-lg font-semibold mb-2">Selecione a estação de origem:</label>
           <select
@@ -186,30 +193,29 @@ const ViagemInicio = () => {
           </select>
         </div>
 
-      
-<div>
-<button
-          className="bg-[#42807D] w-full p-3 rounded-lg text-white font-bold text-lg mb-10"
-          onClick={handleIniciarViagem}
-        >
-          Iniciar Viagem
-        </button>
-         <Link href="/Relatorio ">
-          <button className="bg-black w-full mx-auto  p-2 rounded-lg text-white font-semibold text-lg">
-            Ver Relatório
+        <div>
+          <button
+            className="bg-[#42807D] w-full p-3 rounded-lg text-white font-bold text-lg mb-10"
+            onClick={handleIniciarViagem}
+          >
+            Iniciar Viagem
           </button>
-        </Link>
-</div>
-<div className="flex justify-center mt-[19%]">
-          <Link href="/avisos">
-          
-            <Button
-              label="Voltar"
-              onClick={() => {}}
-              className="bg-[#42807D] cursor-pointer text-white px-26 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
-            />
+          <Link href="/Relatorio ">
+            <button className="bg-black w-full mx-auto  p-2 rounded-lg text-white font-semibold text-lg">
+              Ver Relatório
+            </button>
           </Link>
         </div>
+      </div>
+
+      <div className="flex justify-center mt-[19%]">
+        <Link href="/avisos">
+          <Button
+            label="Voltar"
+            onClick={() => {}}
+            className="bg-[#42807D] cursor-pointer text-white px-26 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all mb-8 duration-300"
+          />
+        </Link>
       </div>
     </div>
   );

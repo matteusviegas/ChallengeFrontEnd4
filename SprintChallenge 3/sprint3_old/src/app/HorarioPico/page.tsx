@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link'; // Importando o Link para navegação
+import Link from 'next/link';
 import Button from '../Botao/Botao';
 
 const HorarioPico = () => {
@@ -20,10 +20,12 @@ const HorarioPico = () => {
 
     return horas.map((hora) => {
       let fluxo;
-      if (hora === "00h00" || hora === "23h00") {
-        fluxo = 'Fluxo baixo';
+      if (Math.random() > 0.7) {
+        fluxo = 'Fluxo alto';
+      } else if (Math.random() > 0.4) {
+        fluxo = 'Fluxo normal';
       } else {
-        fluxo = Math.random() > 0.5 ? 'Fluxo alto' : 'Fluxo baixo';
+        fluxo = 'Fluxo baixo';
       }
       return { hora, fluxo };
     });
@@ -44,12 +46,13 @@ const HorarioPico = () => {
 
     if (numeroDeFluxosAltos > 10) {
       setStatusOperacao('Atenção: Fluxo Alto!');
-    } else if (numeroDeFluxosBaixos < 9) {
-      setStatusOperacao('Fluxo baixo');
+    } else if (numeroDeFluxosBaixos > numeroDeFluxosAltos) {
+      setStatusOperacao('Fluxo Baixo');
     } else {
-      setStatusOperacao('Fluxo normal');
+      setStatusOperacao('Fluxo Normal');
     }
-  }
+  };
+
   useEffect(() => {
     atualizarInformacoes();
 
@@ -60,6 +63,37 @@ const HorarioPico = () => {
     return () => clearInterval(intervalo);
   }, []);
 
+  const calcularAlturaGrafico = () => {
+    const maxHeight = 100;
+    if (fluxosAltos > 10) {
+      return maxHeight;
+    } else if (fluxosBaixos > fluxosAltos) {
+      return 30;
+    } else {
+      return 50;
+    }
+  };
+
+  const corGrafico = () => {
+    if (fluxosAltos > 10) {
+      return 'bg-red-600';
+    } else if (fluxosBaixos > fluxosAltos) {
+      return 'bg-green-600';
+    } else {
+      return 'bg-yellow-400';
+    }
+  };
+
+  const exibirCarinha = () => {
+    if (fluxosAltos > 10) {
+      return <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/triste.png" alt="Imagem Fluxo Alto" />;
+    } else if (fluxosBaixos > fluxosAltos) {
+      return <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/feliz.png" alt="Imagem Fluxo Baixo" />;
+    } else {
+      return <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/neutro.jpeg" alt="Imagem Fluxo Normal" />;
+    }
+  };
+
   return (
     <div className="w-full max-w-md mx-auto p-4">
       <h1 className="text-[2rem] w-[50%] mx-auto text-center font-semibold mb-6">
@@ -67,66 +101,37 @@ const HorarioPico = () => {
       </h1>
 
       <div className="flex justify-center gap-4 mb-6">
-        {fluxosAltos > 10 && (
-          <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/triste.png" alt="Imagem Fluxo Alto 1" />
-        )}
-
-        {fluxosAltos > 5 && fluxosAltos <= 10 && (
-          <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/neutro.jpeg" alt="Imagem Fluxo Médio 2" />
-        )}
-
-        {fluxosAltos <= 5 && (
-          <img className="w-[80px] h-[80px] object-cover rounded-full" src="img_icons/feliz.png" alt="Imagem Fluxo Baixo 3" />
-        )}
+        {exibirCarinha()}
       </div>
 
       <p className={`bg-[#42807D] text-center text-white p-2 text-[1rem] mb-6`}>
         {statusOperacao}
       </p>
 
-      <p className="font-bold text-center mb-6 text-[1.2rem]">Lotação</p>
-      <div className="flex justify-center gap-4 mb-6">
-        <div className="relative w-[80px] h-[40px]">
-          <img className="w-full h-full object-contain" src="img_icons/Vector 3.png" alt="Vagão 1" />
-          <div
-            className="absolute bottom-0 left-0 w-full bg-green-500"
-            style={{
-              height: `${(fluxosAltos / fluxos.length) * 100}%`,
-              transition: 'height 0.3s ease',
-            }}
-          ></div>
-        </div>
-        <div className="relative w-[80px] h-[40px]">
-          <img className="w-full h-full object-contain" src="img_icons/Vector 3.png" alt="Vagão 2" />
-          <div
-            className="absolute bottom-0 left-0 w-full bg-green-500"
-            style={{
-              height: `${(fluxosAltos / fluxos.length) * 100}%`,
-              transition: 'height 0.3s ease',
-            }}
-          ></div>
-        </div>
-        <div className="relative w-[80px] h-[40px]">
-          <img className="w-full h-full object-contain" src="img_icons/Vector 3.png" alt="Vagão 3" />
-          <div
-            className="absolute bottom-0 left-0 w-full bg-green-500"
-            style={{
-              height: `${(fluxosAltos / fluxos.length) * 100}%`,
-              transition: 'height 0.3s ease',
-            }}
-          ></div>
-        </div>
+      <p className="font-bold text-center mb-6 text-[1.2rem]">Gráfico de Fluxo</p>
+      
+      <div className="flex justify-center gap-6 mb-6">
+        {[...Array(3)].map((_, index) => (
+          <div key={index} className="relative w-[80px] h-[200px] bg-gray-200 rounded-lg overflow-hidden">
+            <div
+              className={`absolute bottom-0 w-full transition-all ease-in-out duration-300 ${corGrafico()}`}
+              style={{
+                height: `${calcularAlturaGrafico()}%`,
+              }}
+            ></div>
+          </div>
+        ))}
       </div>
 
       <div className="bg-[#42807D] text-white text-center p-4 rounded-2xl">
         <h2 className="font-bold">Relatório</h2>
         <p>{dataHoje}</p>
-        <ul className="flex  flex-col  mt-4 mb-2">
+        <ul className="flex flex-col mt-4 mb-2">
           {fluxos.length > 0 ? (
             fluxos.map((fluxo, index) => (
-              <li key={index} className="flex  gap-7 items-center p-1">
-                <span className="bg-white text-black  p-2 mr-2 ">{fluxo.hora}</span>
-                <span className='text-[1.3rem] text-bold'>{fluxo.fluxo}</span>
+              <li key={index} className="flex gap-7 items-center p-1">
+                <span className="bg-white text-black p-2 mr-2">{fluxo.hora}</span>
+                <span className='text-[1.3rem] font-bold'>{fluxo.fluxo}</span>
               </li>
             ))
           ) : (
@@ -136,15 +141,14 @@ const HorarioPico = () => {
       </div>
 
       <div className="flex justify-center mt-[19%]">
-          <Link href="/esmeralda">
-          
-            <Button
-              label="Voltar"
-              onClick={() => {}}
-              className="bg-[#42807D] cursor-pointer text-white px-26 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
-            />
-          </Link>
-        </div>
+        <Link href="/esmeralda">
+          <Button
+            label="Voltar"
+            onClick={() => {}}
+            className="bg-[#42807D] cursor-pointer text-white px-26 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
+          />
+        </Link>
+      </div>
     </div>
   );
 };

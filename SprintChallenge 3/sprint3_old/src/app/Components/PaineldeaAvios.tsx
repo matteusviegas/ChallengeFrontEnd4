@@ -1,13 +1,11 @@
 'use client';
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { AiOutlineWarning } from "react-icons/ai";
+import { motion } from "framer-motion"; 
 
 const Avisos = () => {
-  const router = useRouter();
-  const currentDate = new Date();
-  const formattedDate = currentDate.toLocaleDateString();
-  const formattedTime = currentDate.toLocaleTimeString();
+  const [showAvisos, setShowAvisos] = useState(false); 
+  const [selectedNews, setSelectedNews] = useState<any | null>(null);
 
   const noticias = [
     {
@@ -60,10 +58,6 @@ const Avisos = () => {
     },
   ];
 
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
-  const [selectedNews, setSelectedNews] = useState<any | null>(null);
-  const [showAvisos, setShowAvisos] = useState(false); 
-
   const handleImageClick = (noticia: any) => {
     setSelectedNews(noticia);
   };
@@ -77,52 +71,82 @@ const Avisos = () => {
           </h2>
         </div>
 
-        <div className="flex justify-center mt-6">
-          <button
-            className="bg-[#42807D] mb-[16%] text-white px-6 py-4 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
-            onClick={() => setShowAvisos(!showAvisos)} 
+        <div className="flex justify-center mt-6 border-3  border-[#42807D] mx-auto w-[33%] pt-2 pb-3 rounded-[20%] ">
+          <motion.div
+            initial={{ x: 200 }}
+            animate={{ x: 0 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+            onClick={() => setShowAvisos(!showAvisos)}
+            className="cursor-pointer text-4xl text-[#42807D]"
           >
-            Ver Avisos Importantes
-          </button>
+            <AiOutlineWarning />
+          </motion.div>
         </div>
 
         {showAvisos && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-            {noticias.map((noticia) => (
-              <div
-                key={noticia.id}
-                className="h-[300px] rounded overflow-hidden duration-300 hover:shadow-lg"
-              >
-                <div className="flex flex-col bg-[#42807D] p-4">
-                  <div className="text-xs text-[1.3rem] text-start text-black font-bold mb-2">
-                    {noticia.date}
-                  </div>
+  <motion.div
+    className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 z-40"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+    onClick={() => setShowAvisos(false)}
+  />
+)}
 
+
+        {showAvisos && (
+          <motion.div
+            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg w-[80%] sm:w-[60%] lg:w-[40%] z-50 overflow-y-auto max-h-[80vh]"
+            initial={{ x: '100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: '100%', opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+          >
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-4">Avisos Importantes</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                {noticias.map((noticia) => (
                   <div
-                    className="w-full h-50 mb-4 flex items-center justify-center cursor-pointer"
+                    key={noticia.id}
+                    className="h-[330px] rounded-2xl  overflow-hidden cursor-pointer duration-300 hover:shadow-lg"
                     onClick={() => handleImageClick(noticia)}
                   >
-                    <img
-                      src={noticia.imgSrc}
-                      alt={noticia.description || "Imagem relacionada à notícia"}
-                      className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-                    />
-                  </div>
+                    <div className="flex flex-col bg-[#42807D] p-4">
+                      <div className="text-xs text-[1.3rem] text-start text-black font-bold mb-2">
+                        {noticia.date}
+                      </div>
 
-                  <div className="text-center text-white">
-                    <p className="text-[1.2rem] text-start font-bold mb-2">
-                      {noticia.aviso}
-                    </p>
+                      <div className="w-full h-50 mb-4 flex items-center justify-center">
+                        <img
+                          src={noticia.imgSrc}
+                          alt={noticia.description || "Imagem relacionada à notícia"}
+                          className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                        />
+                      </div>
+
+                      <div className="text-center text-white">
+                        <p className="text-[1.1rem] text-center font-bold mb-2">
+                          {noticia.aviso}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          </motion.div>
         )}
 
         {selectedNews && (
-           <div className="fixed top-0 left-0 right-0 bottom-0 bg-opacity-60 bg-gray-900 z-50 p-4 sm:p-8 flex justify-center items-center">
-            <div className="bg-white p-4 sm:p-6 rounded-lg w-full sm:w-[80%] max-w-[800px]">
+          <motion.div
+            className="fixed top-0 left-0 right-0 bottom-0 bg-opacity-60 bg-gray-900 z-50 p-4 sm:p-8 flex justify-center items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="bg-white p-4 sm:p-6 rounded-lg w-full sm:w-[80%] max-w-[800px] overflow-y-auto max-h-[80vh]">
               <div className="text-center">
                 <img
                   src={selectedNews.imgSrc}
@@ -132,7 +156,7 @@ const Avisos = () => {
                 <h3 className="text-[1.6rem] sm:text-[1.8rem] font-bold text-black mb-4">
                   {selectedNews.description}
                 </h3>
-                <p className="text-[1rem] sm:text-[1.2rem] text-gray-700">
+                <p className="text-[1rem] sm:text-[1.2rem] text-gray-700 mb-4">
                   {selectedNews.details}
                 </p>
                 <button
@@ -143,7 +167,7 @@ const Avisos = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>

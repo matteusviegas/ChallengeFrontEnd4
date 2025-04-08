@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Button from "../Botao/Botao";
+import { motion } from "framer-motion";
 
 const Esmeralda = () => {
   return (
@@ -13,14 +14,18 @@ const Esmeralda = () => {
       </header>
 
       <section>
-      <div className="flex justify-center mt-[19%]">
+        <div className="flex justify-center mt-[19%]">
           <Link href="/header">
-          
-            <Button
-              label="Voltar para a estação"
-              onClick={() => {}}
-              className="bg-[#42807D] cursor-pointer text-white px-10 py-4 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
-            />
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Button
+                label="Voltar para a estação"
+                onClick={() => {}}
+                className="bg-[#42807D] cursor-pointer text-white px-10 py-4 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
+              />
+            </motion.div>
           </Link>
         </div>
         <div className="border-3 mt-[9%] p-4 w-[80%] flex flex-col gap-7 mx-auto rounded-2xl">
@@ -28,15 +33,25 @@ const Esmeralda = () => {
             Escolha a estação desejada:
           </p>
           <Link href="/HorarioPico">
-            <button className="bg-[#42807D] w-[60%] mt-[4%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer" type="button">
+            <motion.button
+              className="bg-[#42807D] w-[60%] mt-[4%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
+              type="button"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
               Previsão Pico
-            </button>
+            </motion.button>
           </Link>
 
           <Link href="/viagem">
-            <button className="bg-[#42807D] mb-10 w-[60%] mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer" type="button">
+            <motion.button
+              className="bg-[#42807D] mb-10 w-[60%] mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
+              type="button"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
               Começar Viagem
-            </button>
+            </motion.button>
           </Link>
         </div>
       </section>
@@ -56,106 +71,187 @@ const Esmeralda = () => {
 
       <section className="mx-auto mt-[1%] relative">
         <h3 className="font-bold text-[1.9rem] mb-10">Estações</h3>
-        <ul className="relative mx-auto flex flex-col gap-4 w-[90%] z-10">
-          <Link href="/pinheiros">
-            <li className="border-[2px] m-3 p-2 text-xl cursor-pointer bg-[#42807D] text-white rounded-[27px]">
-              Pinheiros
-            </li>
-          </Link>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Osasco
-          </li>
+        <div className="overflow-y-auto max-h-[300px] w-[90%] mx-auto">
+          <ul className="relative flex flex-col gap-4 z-10">
+            <Link href="/pinheiros">
+              <motion.li
+                className="border-[2px] m-3 p-2 text-xl cursor-pointer bg-[#42807D] text-white rounded-[27px]"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                whileTap={{ scale: 0.95 }} // Efeito de clique
+              >
+                Pinheiros
+              </motion.li>
+            </Link>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Presidente
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Osasco
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Altino
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Presidente
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Ceasa
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Altino
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Vila Lobos
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Ceasa
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Jaguaré
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Vila Lobos
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Cidade Universitária
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Jaguaré
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Berrini
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Cidade Universitária
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Morumbi
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Berrini
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Granja Julieta
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Morumbi
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Santo Amaro
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Granja Julieta
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Socorro
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Santo Amaro
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Jurubatuba
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Socorro
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Autódromo
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Jurubatuba
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Grajaú
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Autódromo
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Mendes
-          </li>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Grajaú
+            </motion.li>
 
-          <li className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500">
-            <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
-            Vila Natal
-          </li>
-        </ul>
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Mendes
+            </motion.li>
+
+            <motion.li
+              className="m-3 p-2 text-xl bg-gray-400 text-gray-600 rounded-[27px] cursor-not-allowed relative hover:bg-gray-500"
+              whileHover={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl opacity-0 hover:opacity-100"></div>
+              Vila Natal
+            </motion.li>
+          </ul>
+        </div>
       </section>
 
       <footer>
         <div className="flex mt-10 justify-center mt-6 mb-[33%]">
           <Link href="/header">
-            <button className="bg-[#42807D] text-white px-23 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300">
+            <motion.button
+              className="bg-[#42807D] text-white px-23 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              whileTap={{ scale: 0.95 }} // Efeito de clique
+            >
               Voltar
-            </button>
+            </motion.button>
           </Link>
         </div>
       </footer>
