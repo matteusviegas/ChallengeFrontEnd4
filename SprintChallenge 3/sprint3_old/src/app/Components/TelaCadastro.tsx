@@ -14,6 +14,7 @@ const TelaCadastro = () => {
   const [erroCampos, setErroCampos] = useState('');
   const [erroUsuario, setErroUsuario] = useState('');
   const [erroEmail, setErroEmail] = useState('');
+  const [loading, setLoading] = useState(false);
 
   // Validação de email
   const validateEmail = (email: string) => {
@@ -21,7 +22,7 @@ const TelaCadastro = () => {
     return re.test(email);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Validações de campos
@@ -65,15 +66,38 @@ const TelaCadastro = () => {
       return;
     }
 
+    // Dados do usuário a serem enviados para o banco
     const userData = {
       usuario,
       email,
       senha,
     };
 
-    localStorage.setItem('user', JSON.stringify(userData));
+    try {
+      setLoading(true);
+      const res = await fetch('/api/cadastrar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
 
-    router.push('/Login');
+      const data = await res.json();
+
+      if (res.ok) {
+        // Se cadastro for bem-sucedido, redireciona para a página de login
+        router.push('/Login');
+      } else {
+        // Exibe o erro retornado pela API, se houver
+        alert(data.error || 'Erro ao cadastrar');
+      }
+    } catch (error) {
+      console.error('Erro no cadastro:', error);
+      alert('Erro ao cadastrar. Tente novamente!');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -162,8 +186,9 @@ const TelaCadastro = () => {
           <button
             type="submit"
             className="w-3/4 sm:w-2/3 p-3 bg-[#42807D] text-white rounded-2xl hover:bg-green-500"
+            disabled={loading}
           >
-            Cadastrar
+            {loading ? 'Cadastrando...' : 'Cadastrar'}
           </button>
         </div>
       </form>

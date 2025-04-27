@@ -1,5 +1,5 @@
-'use client'
-import React, { useState, useEffect } from 'react';
+'use client';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import PaineldeaAvios from './PaineldeaAvios';
@@ -10,19 +10,12 @@ const TelaLogin = () => {
   const [senha, setSenha] = useState('');
   const [erroLogin, setErroLogin] = useState('');
   const [erroCampos, setErroCampos] = useState('');
-  const [fotoPerfil, setFotoPerfil] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const usuarioArmazenado = localStorage.getItem('user');
-    if (usuarioArmazenado) {
-      const user = JSON.parse(usuarioArmazenado);
-      setFotoPerfil(user.foto);
-    }
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Validação de campos vazios
     if (!usuario || !senha) {
       setErroCampos('Por favor, preencha todos os campos.');
       return;
@@ -30,19 +23,32 @@ const TelaLogin = () => {
       setErroCampos('');
     }
 
-    const storedUser = localStorage.getItem('user');
+    try {
+      setLoading(true);
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ usuario, senha }), // Enviando os dados para a API
+      });
 
-    if (storedUser) {
-      const user = JSON.parse(storedUser);
+      const data = await res.json();
 
-      if (usuario === user.usuario && senha === user.senha) {
-        setErroLogin('');
+      if (res.ok) {
+        // Se o login for bem-sucedido, armazena o usuário logado no localStorage
+        localStorage.setItem('user', JSON.stringify(data.user));
+        // Redireciona para a página de avisos
         router.push('/avisos');
       } else {
-        setErroLogin('Usuário ou senha incorretos!');
+        // Exibe erro de login
+        setErroLogin(data.error || 'Usuário ou senha incorretos!');
       }
-    } else {
-      setErroLogin('Nenhum usuário cadastrado!');
+    } catch (error) {
+      console.error('Erro no login:', error);
+      setErroLogin('Erro ao realizar login. Tente novamente!');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -58,22 +64,6 @@ const TelaLogin = () => {
           <h1 className="text-[1.6rem] sm:text-[1.4rem] lg:w-[100%] w-[80%] font-semibold text-center mb-4">
             Seu passageiro virtual nas horas certas!
           </h1>
-
-          {fotoPerfil ? (
-            <div className="flex justify-center mb-4">
-              <img
-                src={fotoPerfil}
-                alt="Foto de Perfil"
-                className="h-16 w-16 rounded-full border-2 border-gray-300"
-              />
-            </div>
-          ) : (
-            <div className="flex justify-center mb-4">
-              <div className="h-16 w-16 rounded-full bg-gray-300 flex items-center justify-center text-white text-xl">
-                {usuario[0]?.toUpperCase()}
-              </div>
-            </div>
-          )}
         </div>
 
         {erroLogin && <p className="text-red-500 p-3 text-[1.2rem] text-center">{erroLogin}</p>}
@@ -110,8 +100,9 @@ const TelaLogin = () => {
             <button
               type="submit"
               className="w-[80%] sm:w-[70%] p-3 bg-[#42807D] text-white rounded-2xl hover:bg-green-500 mx-auto focus:outline-none focus:ring-2 text-[1.2rem] sm:text-[1.3rem] mt-13"
+              disabled={loading}
             >
-              Entrar
+              {loading ? 'Entrando...' : 'Entrar'}
             </button>
           </div>
         </form>
