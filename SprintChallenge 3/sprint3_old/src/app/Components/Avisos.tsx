@@ -147,7 +147,7 @@ const Avisos = () => {
           ))}
         </motion.div>
 
-        <div className="mt-[8%] text-center mb-[8%]">
+        <div className="mtd-[8%] text-center mb-[8%]">
           <motion.button
             className="px-28 py-3 sm:w-[13%] py-3 px-4 bg-[#42807D] text-white rounded-lg hover:bg-green-400 transition duration-300"
             onClick={() => router.push("/Login")}
