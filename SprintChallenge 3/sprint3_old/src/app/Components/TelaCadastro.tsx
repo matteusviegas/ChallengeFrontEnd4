@@ -16,7 +16,6 @@ const TelaCadastro = () => {
   const [erroEmail, setErroEmail] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Validação de email
   const validateEmail = (email: string) => {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return re.test(email);
@@ -25,7 +24,6 @@ const TelaCadastro = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validações de campos
     if (!usuario || !email || !senha || !confirmarSenha) {
       setErroCampos('Por favor, preencha todos os campos.');
       return;
@@ -66,39 +64,43 @@ const TelaCadastro = () => {
       return;
     }
 
-    // Dados do usuário a serem enviados para o banco
     const userData = {
       usuario,
       email,
       senha,
     };
-
-    try {
-      setLoading(true);
-      const res = await fetch('/api/cadastrar', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        // Se cadastro for bem-sucedido, redireciona para a página de login
-        router.push('/Login');
-      } else {
-        // Exibe o erro retornado pela API, se houver
-        alert(data.error || 'Erro ao cadastrar');
+   
+      try {
+        setLoading(true);
+        console.log('Enviando dados para a API...');
+        const res = await fetch('/api/cadastro', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userData),
+        });
+    
+        if (!res.ok) {
+          throw new Error('Falha ao cadastrar usuário');
+        }
+    
+        const data = await res.json();
+        console.log('Resposta da API:', data);
+    
+        if (res.ok) {
+          router.push('/Login');
+        } else {
+          setErroCampos(data.error || 'Erro ao cadastrar');
+        }
+      } catch (error) {
+        console.error('Erro no cadastro:', error);
+        setErroCampos('Erro ao cadastrar. Tente novamente!');
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error('Erro no cadastro:', error);
-      alert('Erro ao cadastrar. Tente novamente!');
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
+    
 
   return (
     <div className="w-full max-w-[420px] mx-auto border-4 border-solid mt-[23%] border-green-800 p-6 bg-white rounded-lg sm:max-w-[350px]">
@@ -118,7 +120,7 @@ const TelaCadastro = () => {
             value={usuario}
             onChange={(e) => setUsuario(e.target.value)}
             placeholder="Usuário"
-            className="w-full bg-[#42807D] p-4 border border-gray-300 mb-4 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
+            className={`w-full bg-[#42807D] p-4 border ${erroUsuario ? 'border-red-500' : 'border-gray-300'} mb-4 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base`}
           />
           {erroUsuario && <p className="text-red-500 text-sm">{erroUsuario}</p>}
         </div>
@@ -132,7 +134,7 @@ const TelaCadastro = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Digite seu email"
-            className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
+            className={`w-full bg-[#42807D] p-4 border ${erroEmail ? 'border-red-500' : 'border-gray-300'} rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base`}
           />
           {erroEmail && <p className="text-red-500 text-sm">{erroEmail}</p>}
         </div>
@@ -146,7 +148,7 @@ const TelaCadastro = () => {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             placeholder="Digite sua senha"
-            className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
+            className={`w-full bg-[#42807D] p-4 border ${erroSenhas ? 'border-red-500' : 'border-gray-300'} rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base`}
           />
         </div>
 
@@ -159,7 +161,7 @@ const TelaCadastro = () => {
             value={confirmarSenha}
             onChange={(e) => setConfirmarSenha(e.target.value)}
             placeholder="Confirme sua senha"
-            className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base"
+            className={`w-full bg-[#42807D] p-4 border ${erroSenhas ? 'border-red-500' : 'border-gray-300'} rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base`}
           />
           {erroSenhas && <p className="text-red-500 text-sm">{erroSenhas}</p>}
         </div>

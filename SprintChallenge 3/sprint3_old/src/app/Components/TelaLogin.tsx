@@ -15,7 +15,6 @@ const TelaLogin = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validação de campos vazios
     if (!usuario || !senha) {
       setErroCampos('Por favor, preencha todos os campos.');
       return;
@@ -30,22 +29,18 @@ const TelaLogin = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ usuario, senha }), // Enviando os dados para a API
+        body: JSON.stringify({ email: usuario, senha }),
       });
 
       const data = await res.json();
 
       if (res.ok) {
-        // Se o login for bem-sucedido, armazena o usuário logado no localStorage
         localStorage.setItem('user', JSON.stringify(data.user));
-        // Redireciona para a página de avisos
         router.push('/avisos');
       } else {
-        // Exibe erro de login
         setErroLogin(data.error || 'Usuário ou senha incorretos!');
       }
     } catch (error) {
-      console.error('Erro no login:', error);
       setErroLogin('Erro ao realizar login. Tente novamente!');
     } finally {
       setLoading(false);
