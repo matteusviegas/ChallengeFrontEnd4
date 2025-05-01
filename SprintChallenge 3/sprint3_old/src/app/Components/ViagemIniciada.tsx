@@ -20,79 +20,6 @@ type Estacoes =
   | 'Campo Belo'
   | 'Jabaquara';
 
-type TabelaTempos = {
-  [key in Estacoes]: {
-    [key in Estacoes]?: number;
-  };
-};
-
-const TEMPOS_ENTRE_ESTACOES: TabelaTempos = {
-  Osasco: {
-    Quitaúna: 5,
-    Carapicuíba: 10,
-    Manga: 12,
-    'Dom Pedro II': 15,
-    'Vila Progredior': 20,
-    'Presidente Altino': 25,
-    Pinheiros: 30,
-    'Granja Julieta': 35,
-    Morumbi: 40,
-    Butantã: 45,
-    'Santo Amaro': 50,
-    Brooklin: 55,
-    'Campo Belo': 60,
-    Jabaquara: 65,
-  },
-  Quitaúna: {
-    Osasco: 5,
-    Carapicuíba: 5,
-    Manga: 8,
-    'Dom Pedro II': 10,
-    'Vila Progredior': 12,
-    'Presidente Altino': 15,
-    Pinheiros: 20,
-    'Granja Julieta': 25,
-    Morumbi: 30,
-    Butantã: 35,
-    'Santo Amaro': 40,
-    Brooklin: 45,
-    'Campo Belo': 50,
-    Jabaquara: 55,
-  },
-  Carapicuíba: {
-    Quitaúna: 5,
-    Osasco: 10,
-    Manga: 4,
-    'Dom Pedro II': 7,
-    'Vila Progredior': 10,
-    'Presidente Altino': 13,
-    Pinheiros: 18,
-    'Granja Julieta': 22,
-    Morumbi: 27,
-    Butantã: 32,
-    'Santo Amaro': 37,
-    Brooklin: 42,
-    'Campo Belo': 47,
-    Jabaquara: 52,
-  },
-  Manga: {
-    Carapicuíba: 4,
-    Quitaúna: 8,
-    Osasco: 12,
-    'Dom Pedro II': 5,
-    'Vila Progredior': 8,
-    'Presidente Altino': 12,
-    Pinheiros: 17,
-    'Granja Julieta': 20,
-    Morumbi: 25,
-    Butantã: 30,
-    'Santo Amaro': 35,
-    Brooklin: 40,
-    'Campo Belo': 45,
-    Jabaquara: 50,
-  },
-};
-
 const ViagemIniciada = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -132,30 +59,38 @@ const ViagemIniciada = () => {
   };
 
   useEffect(() => {
-    if (!origem || !destino || !TEMPOS_ENTRE_ESTACOES[origem]?.[destino]) {
-      console.error('Origem ou destino inválidos');
-      return;
-    }
+    if (!origem || !destino) return;
 
-    const tempo = TEMPOS_ENTRE_ESTACOES[origem][destino];
-    setDuracaoTotal(tempo * 60);
+    const obterDuracaoViagem = async () => {
+      try {
+        const response = await fetch(`http://localhost:8080/api/mapa/linha9?origem=${origem}&destino=${destino}`);
+        const data = await response.json();
 
-    calcularHoraChegada(tempo * 60);
+        if (data && data.duracao) {
+          const tempo = data.duracao;
+          setDuracaoTotal(tempo);
+          calcularHoraChegada(tempo);
+          calcularHoraInicio();
 
-    calcularHoraInicio();
-
-    const intervalo = setInterval(() => {
-      setTempoAtual((prev) => {
-        if (prev >= tempo * 60) {
-          clearInterval(intervalo);
-          setChegouAoDestino(true);
-          return prev;
+          const intervalo = setInterval(() => {
+            setTempoAtual((prev) => {
+              if (prev >= tempo) {
+                clearInterval(intervalo);
+                setChegouAoDestino(true);
+                return prev;
+              }
+              return prev + 1;
+            });
+          }, 1000);
+        } else {
+          throw new Error('Erro ao obter dados de viagem');
         }
-        return prev + 1;
-      });
-    }, 1000);
+      } catch (error) {
+        console.error('Erro ao buscar dados de viagem:', error);
+      }
+    };
 
-    return () => clearInterval(intervalo);
+    obterDuracaoViagem();
   }, [origem, destino]);
 
   useEffect(() => {

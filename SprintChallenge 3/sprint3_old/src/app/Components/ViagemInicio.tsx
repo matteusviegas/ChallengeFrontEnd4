@@ -1,219 +1,98 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Button from '../Botao/Botao';
 
-type Estacoes =
-  | 'Osasco'
-  | 'Quitaúna'
-  | 'Carapicuíba'
-  | 'Manga'
-  | 'Dom Pedro II'
-  | 'Vila Progredior'
-  | 'Presidente Altino'
-  | 'Pinheiros'
-  | 'Granja Julieta'
-  | 'Morumbi'
-  | 'Butantã'
-  | 'Santo Amaro'
-  | 'Brooklin'
-  | 'Campo Belo'
-  | 'Jabaquara'
-  | 'Luz'
-  | 'República'
-  | 'Consolação'
-  | 'Paulista'
-  | 'Faria Lima'
-  | 'Barueri'
-  | 'Jandira'
-  | 'Vargem Grande Paulista';
-
-type TTempoPercurso = {
-  [key in Estacoes]: {
-    [key in Estacoes]?: number;
-  };
+type Fluxo = {
+  horario: string;
+  passageiros: number;
 };
 
-const TEMPOS_PERCURSO: TTempoPercurso = {
-  Osasco: {
-    Quitaúna: 5,
-    Carapicuíba: 10,
-    Manga: 12,
-    'Dom Pedro II': 15,
-    'Vila Progredior': 20,
-    'Presidente Altino': 25,
-    Pinheiros: 30,
-    'Granja Julieta': 35,
-    Morumbi: 40,
-    Butantã: 45,
-    'Santo Amaro': 50,
-    Brooklin: 55,
-    'Campo Belo': 60,
-    Jabaquara: 65,
-    Luz: 30,
-    República: 32,
-    Consolação: 35,
-    Paulista: 38,
-    'Faria Lima': 42,
-    Barueri: 45,
-    Jandira: 50,
-    'Vargem Grande Paulista': 55,
-  },
-};
+const PrevisaoPico = () => {
+  const [fluxo, setFluxo] = useState<Fluxo | null>(null);
+  const [statusOperacao, setStatusOperacao] = useState('');
+  const [grafico, setGrafico] = useState<any>(null);
+  const [diamanteStatus, setDiamanteStatus] = useState<any>(null);
 
-const ViagemInicio = () => {
-  const [origem, setOrigem] = useState<Estacoes>('Osasco');
-  const [destino, setDestino] = useState<Estacoes>('Quitaúna');
-  const [historicoViagens, setHistoricoViagens] = useState<string[]>([]);
+  const obterDados = async () => {
+    try {
+      const fluxoResponse = await fetch('http://localhost:8080/api/previsao?estacao=Esmeralda');
+      const fluxoData: Fluxo = await fluxoResponse.json();
+      setFluxo(fluxoData);
 
-  const router = useRouter();
+      const graficoResponse = await fetch('http://localhost:8080/api/previsao/grafico');
+      const graficoData = await graficoResponse.json();
+      setGrafico(graficoData);
 
-  useEffect(() => {
-    const historicoSalvo = JSON.parse(localStorage.getItem('historicoViagens') || '[]');
-    setHistoricoViagens(historicoSalvo);
-  }, []);
+      const diamanteResponse = await fetch('http://localhost:8080/status-linhas/diamante');
+      const diamanteData = await diamanteResponse.json();
+      setDiamanteStatus(diamanteData);
 
-  const calcularTempoPercurso = () => {
-    const tempo = TEMPOS_PERCURSO[origem]?.[destino];
-    return tempo !== undefined ? tempo : 0;
-  };
-
-  const formatarTempo = (tempo: number) => {
-    const minutos = Math.floor(tempo);
-    const segundos = Math.round((tempo - minutos) * 60);
-    return `${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
-  };
-
-  const handleIniciarViagem = () => {
-    const tempo = calcularTempoPercurso();
-    if (tempo === 0) {
-      alert('Não há tempo registrado para essa rota.');
-    } else {
-      const tempoFormatado = formatarTempo(tempo);
-      alert(`Iniciando viagem de ${origem} para ${destino}. Tempo estimado: ${tempoFormatado}`);
-
-      const novaViagem = `Origem: ${origem}, Destino: ${destino}, Tempo: ${tempoFormatado}`;
-      const historicoAtual = JSON.parse(localStorage.getItem('historicoViagens') || '[]');
-      localStorage.setItem('historicoViagens', JSON.stringify([...historicoAtual, novaViagem]));
-    
-      setHistoricoViagens([...historicoViagens, novaViagem]);
-
-      router.push(`/ViagemIniciada?origem=${origem}&destino=${destino}`);
+      if (fluxoData.passageiros > 80) {
+        setStatusOperacao('Atenção: Fluxo Alto!');
+      } else if (fluxoData.passageiros <= 40) {
+        setStatusOperacao('Fluxo Baixo');
+      } else {
+        setStatusOperacao('Operando normalmente');
+      }
+    } catch (error) {
+      console.error('Erro ao buscar dados da API Java:', error);
+      setStatusOperacao('Erro ao carregar previsão');
     }
   };
 
-  const linhasEstacoes = {
-    Esmeralda: [
-      'Osasco', 'Quitaúna', 'Carapicuíba', 'Manga', 'Dom Pedro II', 'Vila Progredior', 
-      'Presidente Altino', 'Pinheiros', 'Granja Julieta', 'Morumbi', 'Butantã', 
-      'Santo Amaro', 'Brooklin', 'Campo Belo', 'Jabaquara'
-    ],
-    Amarela: [
-      'Luz', 'República', 'Consolação', 'Paulista', 'Faria Lima', 'Pinheiros', 'Vila Progredior', 'Morumbi'
-    ],
-    Diamante: [
-      'Osasco', 'Quitaúna', 'Carapicuíba', 'Barueri', 'Jandira', 'Vargem Grande Paulista'
-    ]
-  };
-
-  const todasAsEstacoes: Estacoes[] = [
-    ...linhasEstacoes.Esmeralda, 
-    ...linhasEstacoes.Amarela, 
-    ...linhasEstacoes.Diamante
-  ];
+  useEffect(() => {
+    obterDados();
+    const intervalo = setInterval(obterDados, 5000);
+    return () => clearInterval(intervalo);
+  }, []);
 
   return (
-    <div className="h-screen flex flex-col items-center bg-gray-100">
-      <h1 className="text-center w-[50%] mx-auto font-bold text-4xl mt-8 mb-4">
-        COMEÇAR <span className="text-[#42807D] w-[50%] mx-auto">VIAGEM</span>
+    <div className="w-full max-w-md mx-auto p-4">
+      <h1 className="text-[2rem] w-[50%] mx-auto text-center font-semibold mb-6">
+        <span className="text-[#42807D]">Linha 9</span> Esmeralda
       </h1>
 
-      <div className="w-[80%] border-3 rounded-2xl border-[#42807d] max-w-md p-6 mt-13">
-        <div className="mb-6">
-          <label className="block text-lg font-semibold mb-2">Selecione a estação de origem:</label>
-          <select
-            value={origem}
-            onChange={(e) => setOrigem(e.target.value as Estacoes)}
-            className="w-full bg-gray-200 p-3 rounded-lg text-lg mb-10 font-semibold"
-          >
-            <optgroup label="Linha Esmeralda">
-              {linhasEstacoes.Esmeralda.map((estacao) => (
-                <option key={estacao} value={estacao}>
-                  {estacao}
-                </option>
-              ))}
-            </optgroup>
-            <optgroup label="Linha Amarela">
-              {linhasEstacoes.Amarela.map((estacao) => (
-                <option key={estacao} value={estacao}>
-                  {estacao}
-                </option>
-              ))}
-            </optgroup>
-            <optgroup label="Linha Diamante">
-              {linhasEstacoes.Diamante.map((estacao) => (
-                <option key={estacao} value={estacao}>
-                  {estacao}
-                </option>
-              ))}
-            </optgroup>
-          </select>
-        </div>
-
-        <div className="mb-6 mb-[25%] ">
-          <label className="block text-lg font-semibold mb-2">Selecione a estação de destino:</label>
-          <select
-            value={destino}
-            onChange={(e) => setDestino(e.target.value as Estacoes)}
-            className="w-full bg-gray-200 p-3 rounded-lg text-lg font-semibold"
-          >
-            <optgroup label="Linha Esmeralda">
-              {linhasEstacoes.Esmeralda.map((estacao) => (
-                <option key={estacao} value={estacao}>
-                  {estacao}
-                </option>
-              ))}
-            </optgroup>
-            <optgroup label="Linha Amarela">
-              {linhasEstacoes.Amarela.map((estacao) => (
-                <option key={estacao} value={estacao}>
-                  {estacao}
-                </option>
-              ))}
-            </optgroup>
-            <optgroup label="Linha Diamante">
-              {linhasEstacoes.Diamante.map((estacao) => (
-                <option key={estacao} value={estacao}>
-                  {estacao}
-                </option>
-              ))}
-            </optgroup>
-          </select>
-        </div>
-
-        <div>
-          <button
-            className="bg-[#42807D] w-full p-3 rounded-lg text-white font-bold text-lg mb-10"
-            onClick={handleIniciarViagem}
-          >
-            Iniciar Viagem
-          </button>
-          <Link href="/Relatorio ">
-            <button className="bg-black w-full mx-auto  p-2 rounded-lg text-white font-semibold text-lg">
-              Ver Relatório
-            </button>
-          </Link>
-        </div>
+      <div className="bg-[#42807D] text-center text-white p-2 text-[1rem] mb-6">
+        {statusOperacao}
       </div>
 
-      <div className="flex justify-center mt-[19%]">
-        <Link href="/avisos">
+      <div className="flex flex-col gap-4">
+        {fluxo && (
+          <div className="flex justify-between">
+            <span>{fluxo.horario}</span>
+            <span>
+              {fluxo.passageiros > 80
+                ? 'Fluxo Alto'
+                : fluxo.passageiros <= 40
+                ? 'Fluxo Baixo'
+                : 'Fluxo Normal'}
+            </span>
+          </div>
+        )}
+
+        {grafico && (
+          <div className="mt-4">
+            <h2 className="text-xl">Previsão de Fluxo (Gráfico)</h2>
+            <pre>{JSON.stringify(grafico, null, 2)}</pre>
+          </div>
+        )}
+
+        {diamanteStatus && (
+          <div className="mt-4">
+            <h2 className="text-xl">Status da Linha Diamante</h2>
+            <pre>{JSON.stringify(diamanteStatus, null, 2)}</pre>
+          </div>
+        )}
+      </div>
+
+      <div className="flex justify-center mt-4">
+        <Link href="/esmeralda">
           <Button
             label="Voltar"
             onClick={() => {}}
-            className="bg-[#42807D] cursor-pointer text-white px-26 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all mb-8 duration-300"
+            className="bg-[#42807D] cursor-pointer text-white px-6 py-3 rounded-[9px] text-xl hover:bg-[#365d56] transition-all duration-300"
           />
         </Link>
       </div>
@@ -221,4 +100,4 @@ const ViagemInicio = () => {
   );
 };
 
-export default ViagemInicio;
+export default PrevisaoPico;
