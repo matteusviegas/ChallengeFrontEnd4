@@ -2,26 +2,34 @@ import oracledb from 'oracledb';
 import bcrypt from 'bcrypt';
 import { NextResponse } from 'next/server';
 
+oracledb.thin = true;
+
 const connectionConfig = {
-  user: 'FIAP',
-  password: 'fiap25',
-  connectString: 'localhost:1521/xe',
+  user: 'rm561090',                        
+  password: 'fiap25',                      
+  connectString: 'oracle.fiap.com.br:1521/orcl',
 };
 
 async function connectToDb() {
-  return await oracledb.getConnection(connectionConfig);
+  try {
+    return await oracledb.getConnection(connectionConfig);
+  } catch (error) {
+    console.error('Erro ao conectar ao banco de dados:', error);
+    throw new Error('Erro ao conectar ao banco de dados');
+  }
 }
 
 export async function POST(request: Request) {
   let connection;
   try {
+    
     const { nome, email, senha } = await request.json();
 
     connection = await connectToDb();
 
     const result = await connection.execute(
-      `SELECT COUNT(*) AS TOTAL FROM USUARIO_CHALLENGE WHERE EMAIL = :email`,
-      { email },
+      'SELECT COUNT(*) AS total FROM Usuario_Challenge WHERE email = :email',
+      [email],
       { outFormat: oracledb.OUT_FORMAT_OBJECT }
     );
 
@@ -37,13 +45,9 @@ export async function POST(request: Request) {
     const hashedPassword = await bcrypt.hash(senha, 10);
 
     await connection.execute(
-      `INSERT INTO USUARIO_CHALLENGE (ID_USUARIO, NOME, EMAIL, SENHA)
-       VALUES (GERADOR_ID_CHALL.NEXTVAL, :nome, :email, :senha)`,
-      {
-        nome,
-        email,
-        senha: hashedPassword,
-      },
+      `INSERT INTO Usuario_Challenge (id_usuario, nome, email, senha)
+       VALUES (gerador_id_chall.NEXTVAL, :nome, :email, :senha)`,
+      { nome, email, senha: hashedPassword },
       { autoCommit: true }
     );
 
@@ -52,9 +56,11 @@ export async function POST(request: Request) {
       { status: 200 }
     );
   } catch (error) {
-    const msg = error instanceof Error ? error.message : 'Erro ao cadastrar usuário.';
+    const err = error as Error;
+    console.error('Erro ao cadastrar:', err.message);
+
     return new NextResponse(
-      JSON.stringify({ error: msg }),
+      JSON.stringify({ error: err.message || 'Erro ao cadastrar usuário.' }),
       { status: 500 }
     );
   } finally {

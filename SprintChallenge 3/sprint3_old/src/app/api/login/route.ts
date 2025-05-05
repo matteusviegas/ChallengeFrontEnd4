@@ -2,66 +2,75 @@ import oracledb from 'oracledb';
 import bcrypt from 'bcrypt';
 import { NextResponse } from 'next/server';
 
+// ✅ Modo Thin ativado (sem necessidade do Oracle Instant Client)
+oracledb.thin = true;
+
+// ✅ Configurações de conexão
 const connectionConfig = {
-  user: 'fiap',
-  password: 'fiap25',
-  connectString: 'localhost:1521/xe',
+  user: 'rm561090', // Seu usuário do banco
+  password: 'fiap25', // Sua senha
+  connectString: 'oracle.fiap.com.br:1521/orcl', // String de conexão
 };
 
+// ✅ Função para conectar ao banco
 async function connectToDb() {
   try {
     return await oracledb.getConnection(connectionConfig);
-  } catch (error) {
+  } catch (error: unknown) { // Tratando o erro como `unknown`
     console.error('Erro ao conectar ao banco de dados:', error);
     throw new Error('Erro ao conectar ao banco de dados');
   }
 }
 
+// ✅ Endpoint POST para login
 export async function POST(request: Request) {
   let connection;
   try {
-    const { nome, email, senha } = await request.json();
+    const { email, senha } = await request.json();
 
     connection = await connectToDb();
 
+    // 🔍 Busca o usuário pelo email
     const result = await connection.execute(
-      'SELECT COUNT(*) AS total FROM Usuario_Challenge WHERE email = :email',
-      [email],
+      `SELECT senha FROM Usuario_Challenge WHERE email = :email`,
+      { email },
       { outFormat: oracledb.OUT_FORMAT_OBJECT }
     );
 
-    const count = result.rows && result.rows.length > 0 ? result.rows[0].TOTAL : 0;
-
-    if (count > 0) {
+    if (!result.rows || result.rows.length === 0) {
       return new NextResponse(
-        JSON.stringify({ error: 'Email já cadastrado.' }),
-        { status: 400 }
+        JSON.stringify({ error: 'Usuário não encontrado.' }),
+        { status: 404 }
       );
     }
 
-    const hashedPassword = await bcrypt.hash(senha, 10);
+    const hashedPassword = result.rows[0].SENHA;
 
-    await connection.execute(
-      `INSERT INTO Usuario_Challenge (id_usuario, nome, email, senha)
-       VALUES (gerador_id_chall.NEXTVAL, :nome, :email, :senha)`,
-      { nome, email, senha: hashedPassword },
-      { autoCommit: true }
-    );
+    // 🔐 Compara a senha enviada com a senha do banco
+    const isMatch = await bcrypt.compare(senha, hashedPassword);
+
+    if (!isMatch) {
+      return new NextResponse(
+        JSON.stringify({ error: 'Senha incorreta.' }),
+        { status: 401 }
+      );
+    }
 
     return new NextResponse(
-      JSON.stringify({ success: 'Usuário cadastrado com sucesso!' }),
+      JSON.stringify({ success: 'Login bem-sucedido!' }),
       { status: 200 }
     );
 
-  } catch (error) {
-    const err = error as Error;
-    console.error('Erro ao cadastrar:', err.message);
+  } catch (error: unknown) { // Tratando o erro como `unknown`
+    const msg = error instanceof Error ? error.message : 'Erro ao fazer login.';
+    console.error('Erro no login:', msg);
 
     return new NextResponse(
-      JSON.stringify({ error: err.message || 'Erro ao cadastrar usuário.' }),
+      JSON.stringify({ error: msg }),
       { status: 500 }
     );
   } finally {
     if (connection) await connection.close();
   }
 }
+  

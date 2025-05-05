@@ -20,6 +20,25 @@ type Estacoes =
   | 'Campo Belo'
   | 'Jabaquara';
 
+// 🗺 Mapeamento de nomes para IDs fictícios (substitua pelos corretos do backend)
+const estacaoIdMap: Record<Estacoes, number> = {
+  'Osasco': 101,
+  'Quitaúna': 102,
+  'Carapicuíba': 103,
+  'Manga': 104,
+  'Dom Pedro II': 105,
+  'Vila Progredior': 106,
+  'Presidente Altino': 107,
+  'Pinheiros': 108,
+  'Granja Julieta': 109,
+  'Morumbi': 110,
+  'Butantã': 111,
+  'Santo Amaro': 112,
+  'Brooklin': 113,
+  'Campo Belo': 114,
+  'Jabaquara': 115,
+};
+
 const ViagemIniciada = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -72,6 +91,32 @@ const ViagemIniciada = () => {
           calcularHoraChegada(tempo);
           calcularHoraInicio();
 
+          // 🔥 POST para iniciar viagem
+          const iniciarViagem = async () => {
+            try {
+              const res = await fetch('http://localhost:8080/api/viagem/iniciar', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  usuarioId: 221, // Troque pelo ID real se necessário
+                  estacaoOrigemId: estacaoIdMap[origem],
+                  estacaoDestinoId: estacaoIdMap[destino],
+                  hPartida: new Date().toISOString(),
+                }),
+              });
+
+              const postData = await res.json();
+              console.log('Viagem registrada:', postData);
+            } catch (err) {
+              console.error('Erro ao registrar viagem:', err);
+            }
+          };
+
+          iniciarViagem();
+
+          // 🕒 Simulação de viagem
           const intervalo = setInterval(() => {
             setTempoAtual((prev) => {
               if (prev >= tempo) {
@@ -150,3 +195,4 @@ const ViagemIniciada = () => {
 };
 
 export default ViagemIniciada;
+  

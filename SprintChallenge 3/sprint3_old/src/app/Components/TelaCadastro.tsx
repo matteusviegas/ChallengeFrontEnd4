@@ -65,42 +65,46 @@ const TelaCadastro = () => {
     }
 
     const userData = {
-      usuario,
+      nome: usuario,
       email,
       senha,
     };
-   
-      try {
-        setLoading(true);
-        console.log('Enviando dados para a API...');
-        const res = await fetch('/api/cadastro', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(userData),
-        });
-    
-        if (!res.ok) {
-          throw new Error('Falha ao cadastrar usuário');
-        }
-    
+
+    try {
+      setLoading(true);
+      console.log('Enviando dados para a API...');
+
+      // A solicitação agora é feita com o correto tratamento da resposta
+      const res = await fetch('/api/cadastro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      // Verifica se a resposta foi ok
+      if (!res.ok) {
+        // Se não foi, lida com o erro
         const data = await res.json();
-        console.log('Resposta da API:', data);
-    
-        if (res.ok) {
-          router.push('/Login');
-        } else {
-          setErroCampos(data.error || 'Erro ao cadastrar');
-        }
-      } catch (error) {
-        console.error('Erro no cadastro:', error);
-        setErroCampos('Erro ao cadastrar. Tente novamente!');
-      } finally {
-        setLoading(false);
+        console.error('Erro ao cadastrar:', data.error);
+        setErroCampos(data.error || 'Erro ao cadastrar');
+        return;
       }
-    };
-    
+
+      // Se a resposta for bem-sucedida
+      const data = await res.json();
+      console.log('Cadastro bem-sucedido:', data);
+
+      // Redireciona para a página de login
+      router.push('/Login');
+    } catch (error) {
+      console.error('Erro no cadastro:', error);
+      setErroCampos('Erro ao cadastrar. Tente novamente!');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="w-full max-w-[420px] mx-auto border-4 border-solid mt-[23%] border-green-800 p-6 bg-white rounded-lg sm:max-w-[350px]">

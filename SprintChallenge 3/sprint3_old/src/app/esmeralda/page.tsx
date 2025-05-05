@@ -42,17 +42,17 @@ const Esmeralda = () => {
               Previsão Pico
             </motion.button>
           </Link>
+          <Link href="/viagem/iniciada?origem=Osasco&destino=Dom+Pedro+II">
+  <motion.button
+    className="bg-[#42807D] mb-10 w-[60%] mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
+    type="button"
+    whileHover={{ scale: 1.05 }}
+    transition={{ duration: 0.3 }}
+  >
+    Começar Viagem
+  </motion.button>
+</Link>
 
-          <Link href="/viagem">
-            <motion.button
-              className="bg-[#42807D] mb-10 w-[60%] mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
-              type="button"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              Começar Viagem
-            </motion.button>
-          </Link>
         </div>
       </section>
 

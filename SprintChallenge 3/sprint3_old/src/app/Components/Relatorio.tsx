@@ -17,12 +17,11 @@ const Relatorio = () => {
   useEffect(() => {
     const obterHistoricoViagens = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/relatorio/viagens');
-        if (!response.ok) {
-          throw new Error('Falha ao carregar o histórico de viagens');
-        }
-        const data: Viagem[] = await response.json();
-        setHistoricoViagens(data);
+        const response = await fetch(`http://localhost:8080/relatorio/usuario/162?nome=Fulano`);
+        if (!response.ok) throw new Error('Falha ao carregar o histórico de viagens');
+
+        const data: { viagens: Viagem[] } = await response.json();
+        setHistoricoViagens(data.viagens); // assume que backend retorna { viagens: [...] }
       } catch (error) {
         setError('Erro ao carregar histórico de viagens.');
         console.error('Erro na requisição para o histórico de viagens', error);

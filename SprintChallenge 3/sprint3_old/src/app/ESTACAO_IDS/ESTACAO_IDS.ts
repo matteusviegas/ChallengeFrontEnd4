@@ -1,0 +1,27 @@
+const ESTACAO_IDS: Record<string, number> = {
+    Osasco: 1,
+    Quitaúna: 2,
+    Carapicuíba: 3,
+    Manga: 4,
+    'Dom Pedro II': 5,
+    'Vila Progredior': 6,
+    'Presidente Altino': 7,
+    Pinheiros: 8,
+    'Granja Julieta': 9,
+    Morumbi: 10,
+    Butantã: 11,
+    'Santo Amaro': 12,
+    Brooklin: 13,
+    'Campo Belo': 14,
+    Jabaquara: 15,
+    Luz: 16,
+    República: 17,
+    Consolação: 18,
+    Paulista: 19,
+    'Faria Lima': 20,
+    Barueri: 21,
+    Jandira: 22,
+    'Vargem Grande Paulista': 23,
+  };
+  export default ESTACAO_IDS;
+  
