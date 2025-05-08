@@ -1,48 +1,28 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
+const BASE_URL = 'http://localhost:8080/api/viagem/iniciar';
+
 type Estacoes =
-  | 'Osasco'
-  | 'Quitaúna'
-  | 'Carapicuíba'
-  | 'Manga'
-  | 'Dom Pedro II'
-  | 'Vila Progredior'
-  | 'Presidente Altino'
-  | 'Pinheiros'
-  | 'Granja Julieta'
-  | 'Morumbi'
-  | 'Butantã'
-  | 'Santo Amaro'
-  | 'Brooklin'
-  | 'Campo Belo'
-  | 'Jabaquara';
+  | 'Osasco' | 'Quitaúna' | 'Carapicuíba' | 'Manga' | 'Dom Pedro II'
+  | 'Vila Progredior' | 'Presidente Altino' | 'Pinheiros' | 'Granja Julieta'
+  | 'Morumbi' | 'Butantã' | 'Santo Amaro' | 'Brooklin' | 'Campo Belo'
+  | 'Jabaquara' | 'Luz' | 'República' | 'Consolação' | 'Paulista'
+  | 'Faria Lima' | 'Barueri' | 'Jandira' | 'Vargem Grande Paulista';
 
 const estacaoIdMap: Record<Estacoes, number> = {
-  'Osasco': 101,
-  'Quitaúna': 102,
-  'Carapicuíba': 103,
-  'Manga': 104,
-  'Dom Pedro II': 105,
-  'Vila Progredior': 106,
-  'Presidente Altino': 107,
-  'Pinheiros': 108,
-  'Granja Julieta': 109,
-  'Morumbi': 110,
-  'Butantã': 111,
-  'Santo Amaro': 112,
-  'Brooklin': 113,
-  'Campo Belo': 114,
-  'Jabaquara': 115,
+  'Osasco': 101, 'Quitaúna': 102, 'Carapicuíba': 103, 'Manga': 104, 'Dom Pedro II': 105,
+  'Vila Progredior': 106, 'Presidente Altino': 107, 'Pinheiros': 108, 'Granja Julieta': 109,
+  'Morumbi': 110, 'Butantã': 111, 'Santo Amaro': 112, 'Brooklin': 113, 'Campo Belo': 114,
+  'Jabaquara': 115, 'Luz': 116, 'República': 117, 'Consolação': 118, 'Paulista': 119,
+  'Faria Lima': 120, 'Barueri': 121, 'Jandira': 122, 'Vargem Grande Paulista': 123,
 };
 
 const ViagemIniciada = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const origem = searchParams.get('origem') as Estacoes;
-  const destino = searchParams.get('destino') as Estacoes;
 
   const [tempoAtual, setTempoAtual] = useState(0);
   const [duracaoTotal, setDuracaoTotal] = useState(0);
@@ -51,6 +31,12 @@ const ViagemIniciada = () => {
   const [horaChegada, setHoraChegada] = useState('');
   const [horaInicio, setHoraInicio] = useState('');
   const [erro, setErro] = useState('');
+  const [viagemFinalizada, setViagemFinalizada] = useState(false);
+  const intervaloRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Verificação segura dos parâmetros de busca
+  const origem = searchParams?.get('origem') as Estacoes | null;
+  const destino = searchParams?.get('destino') as Estacoes | null;
 
   const formatarHora = (hora: number, minutos: number) => {
     let periodo = 'AM';
@@ -65,34 +51,42 @@ const ViagemIniciada = () => {
   const calcularHoraChegada = (tempoTotal: number) => {
     const agora = new Date();
     const chegada = new Date(agora.getTime() + tempoTotal * 1000);
-    const hora = chegada.getHours();
-    const minutos = chegada.getMinutes();
-    setHoraChegada(formatarHora(hora, minutos));
+    setHoraChegada(formatarHora(chegada.getHours(), chegada.getMinutes()));
   };
 
   const calcularHoraInicio = () => {
     const agora = new Date();
-    const hora = agora.getHours();
-    const minutos = agora.getMinutes();
-    setHoraInicio(formatarHora(hora, minutos));
+    setHoraInicio(formatarHora(agora.getHours(), agora.getMinutes()));
   };
 
   useEffect(() => {
+    if (!searchParams) return;
+
     if (!origem || !destino) {
-      setErro('Origem ou destino inválido.');
+      setErro('Origem ou destino não informados.');
       return;
     }
+
+    if (!(origem in estacaoIdMap) || !(destino in estacaoIdMap)) {
+      setErro('Estação de origem ou destino inválida.');
+      return;
+    }
+
+    setErro('');
+    setTempoAtual(0);
+    setDuracaoTotal(0);
+    setPercentualConcluido(0);
+    setChegouAoDestino(false);
+    setViagemFinalizada(false);
 
     const obterDuracaoViagem = async () => {
       try {
         const response = await fetch(`http://localhost:8080/api/mapa/linha9?origem=${encodeURIComponent(origem)}&destino=${encodeURIComponent(destino)}`);
-        if (!response.ok) {
-          throw new Error('Erro ao buscar dados da viagem. Verifique o backend.');
-        }
+        if (!response.ok) throw new Error('Erro ao buscar dados da viagem.');
 
         const data = await response.json();
 
-        if (!data || !data.duracao) {
+        if (!data?.duracao) {
           setErro('Não foi possível obter a duração da viagem.');
           return;
         }
@@ -103,43 +97,41 @@ const ViagemIniciada = () => {
         calcularHoraInicio();
 
         try {
-          const res = await fetch('http://localhost:8080/api/viagem/iniciar', {
+          await fetch(BASE_URL, {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               usuarioId: 221,
               estacaoOrigemId: estacaoIdMap[origem],
               estacaoDestinoId: estacaoIdMap[destino],
             }),
           });
-          
-          const postData = await res.json();
-          console.log('Viagem registrada:', postData);
         } catch (err) {
-          console.error('Erro ao registrar viagem:', err);
-          setErro('Erro ao registrar a viagem.');
+          console.error('Erro ao registrar viagem (ignorado para não quebrar UI)');
         }
 
-        const intervalo = setInterval(() => {
+        intervaloRef.current = setInterval(() => {
           setTempoAtual((prev) => {
             if (prev >= tempo) {
-              clearInterval(intervalo);
+              if (intervaloRef.current) clearInterval(intervaloRef.current);
               setChegouAoDestino(true);
+              setViagemFinalizada(true);
               return prev;
             }
             return prev + 1;
           });
         }, 1000);
       } catch (error) {
-        console.error('Erro ao buscar dados de viagem:', error);
-        setErro('Erro ao buscar dados da viagem. Verifique o servidor.');
+        setErro('Erro ao buscar dados da viagem.');
       }
     };
 
     obterDuracaoViagem();
-  }, [origem, destino]);
+
+    return () => {
+      if (intervaloRef.current) clearInterval(intervaloRef.current);
+    };
+  }, [searchParams, origem, destino]);
 
   useEffect(() => {
     const progresso = duracaoTotal > 0 ? (tempoAtual / duracaoTotal) * 100 : 0;
@@ -147,22 +139,26 @@ const ViagemIniciada = () => {
   }, [tempoAtual, duracaoTotal]);
 
   const finalizarViagem = () => {
-    router.push('/viagem');
+    router.push('/viagem/EscolherEstacao');
   };
 
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center text-center px-4">
       <h1 className="text-2xl font-bold mb-4">Viagem em andamento</h1>
-      <p className="mb-2">{`De ${origem} para ${destino}`}</p>
-      <p className="mb-2">{`Início: ${horaInicio || '---'}`}</p>
+      {origem && destino && !erro && (
+        <>
+          <p className="mb-2">{`De ${origem} para ${destino}`}</p>
+          <p className="mb-2">{`Início: ${horaInicio || '---'}`}</p>
+        </>
+      )}
 
-      {erro && (
+      {erro && !viagemFinalizada && (
         <div className="text-red-500 mt-4">
           <p>⚠️ {erro}</p>
         </div>
       )}
 
-      {!erro && (
+      {!erro || viagemFinalizada ? (
         <>
           {chegouAoDestino ? (
             <p className="text-green-600 mt-4 font-semibold">Viagem concluída!</p>
@@ -170,38 +166,23 @@ const ViagemIniciada = () => {
             <div className="mt-4 w-full max-w-xs">
               <div className="relative w-full bg-gray-300 h-2 rounded-full">
                 <div
-                  style={{
-                    width: `${percentualConcluido}%`,
-                    transition: 'width 0.1s ease-out',
-                  }}
-                  className="bg-[#42807D] h-full rounded-full"
-                ></div>
-                <div
-                  className="absolute top-0 -translate-x-1/2 -translate-y-1/2"
-                  style={{
-                    left: `${percentualConcluido}%`,
-                    transform: `translateX(-50%)`,
-                    width: '20px',
-                    height: '20px',
-                    backgroundColor: '#42807D',
-                    borderRadius: '50%',
-                    transition: 'left 0.1s ease-out',
-                  }}
-                ></div>
+                  className="absolute top-0 left-0 h-2 bg-blue-600 rounded-full"
+                  style={{ width: `${percentualConcluido}%` }}
+                />
               </div>
-              <p className="mt-2">{`${Math.floor(percentualConcluido)}% concluído`}</p>
-              <p>{`Tempo decorrido: ${Math.floor(tempoAtual / 60)}m ${tempoAtual % 60}s`}</p>
-              <p>{`Hora prevista de chegada: ${horaChegada || '---'}`}</p>
+              <p>{`Progresso: ${percentualConcluido.toFixed(0)}%`}</p>
             </div>
           )}
-
-          <button
-            className="mt-6 bg-[#42807D] text-white px-6 py-3 rounded-xl"
-            onClick={finalizarViagem}
-          >
-            {chegouAoDestino ? 'Finalizar Viagem' : 'Cancelar Viagem'}
-          </button>
         </>
+      ) : null}
+
+      {chegouAoDestino && (
+        <button
+          className="mt-6 bg-blue-500 text-white px-6 py-2 rounded-full"
+          onClick={finalizarViagem}
+        >
+          Finalizar Viagem
+        </button>
       )}
     </div>
   );

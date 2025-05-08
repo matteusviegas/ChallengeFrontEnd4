@@ -20,7 +20,6 @@ type Estacoes =
   | 'Campo Belo'
   | 'Jabaquara';
 
-// 🗺 Mapeamento de nomes para IDs fictícios (substitua pelos corretos do backend)
 const estacaoIdMap: Record<Estacoes, number> = {
   'Osasco': 101,
   'Quitaúna': 102,
@@ -100,7 +99,7 @@ const ViagemIniciada = () => {
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                  usuarioId: 221, // Troque pelo ID real se necessário
+                  usuarioId: 221,
                   estacaoOrigemId: estacaoIdMap[origem],
                   estacaoDestinoId: estacaoIdMap[destino],
                   hPartida: new Date().toISOString(),

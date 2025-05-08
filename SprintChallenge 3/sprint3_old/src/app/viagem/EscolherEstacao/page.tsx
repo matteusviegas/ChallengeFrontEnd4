@@ -1,11 +1,6 @@
-import EscolherEstacao from './EscolherEstacao';
-
-const Page = () => {
-  return (
-    <div>
-      <EscolherEstacao />
-    </div>
-  );
+import EscolherViagem from "./EscolherEstacao";
+const PageViagem = () => {
+  return <EscolherViagem />;
 };
 
-export default Page;
+export default PageViagem;
