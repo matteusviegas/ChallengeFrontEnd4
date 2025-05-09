@@ -35,7 +35,7 @@ const Esmeralda = () => {
           </p>
           <Link href="/HorarioPico">
             <motion.button
-              className="bg-[#42807D] w-[60%] mt-[4%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
+              className="bg-[#42807D] w-[90%] mt-[4%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
               type="button"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
@@ -46,7 +46,7 @@ const Esmeralda = () => {
             <Link href="/ViagemInicio
   ">
     <motion.button
-      className="bg-[#42807D] mb-2     w-[60%] mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
+      className="bg-[#42807D] mb-2    w-[90%]  mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
       type="button"
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
@@ -58,7 +58,7 @@ const Esmeralda = () => {
   <Link href="/Relatorio
   ">
     <motion.button
-      className="bg-[#42807D] mb-2     w-[60%] mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
+      className="bg-[#42807D] mb-2      w-[90%]  mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
       type="button"
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
@@ -70,7 +70,7 @@ const Esmeralda = () => {
 
 <Link href="/mapaLinha">
             <motion.button
-              className="bg-[#42807D] w-[60%] mt-[4%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
+              className="bg-[#42807D]  w-[90%] mt-[4%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
               type="button"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}

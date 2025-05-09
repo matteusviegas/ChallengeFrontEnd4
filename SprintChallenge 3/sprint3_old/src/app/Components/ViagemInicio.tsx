@@ -4,7 +4,10 @@ import { useRouter } from 'next/navigation';
 
 const estacoes = [
   { id: 1, nome: 'Osasco' },
-  { id: 2, nome: 'Quitaúna' },
+  { id: 2, nome: 'Presidente Altino' },
+  { id: 3, nome: 'Cease' },
+  { id: 4, nome: 'Quitaúna' },
+
   { id: 3, nome: 'Carapicuíba' },
   { id: 4, nome: 'Manga' },
   { id: 5, nome: 'Dom Pedro II' },
@@ -15,7 +18,6 @@ const estacoes = [
   { id: 10, nome: 'Morumbi' },
   { id: 11, nome: 'Butantã' },
   { id: 12, nome: 'Santo Amaro' },
-  { id: 13, nome: 'Brooklin' },
   { id: 14, nome: 'Campo Belo' },
   { id: 15, nome: 'Jabaquara' },
 ];

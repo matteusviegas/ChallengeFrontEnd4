@@ -108,8 +108,8 @@ const Header = () => {
 
 
 
-      <MapaLinha />
 
+     
 
       <h1 className="text-[1.7rem] sm:text-[1.8rem] mx-auto font-bold text-black mb-8">
             Sua opinião importa!
@@ -117,7 +117,7 @@ const Header = () => {
           <p className="text-[1.2rem] sm:text-[1.1rem] mx-auto leading-snug text-gray-600 mb-6 px-4 sm:px-8">
             Sua contribuição é essencial para que possamos melhorar nossos serviços no futuro!
           </p>
-
+          <div className="flex flex-col sm:flex-row justify-center border-3 mx-auto rounded-2xl p-5 w-[80%] mt-[8%] gap-6 sm:gap-10">
           <div className="w-[70%] mx-auto mb-7">
             <Link href="/sugestao">
               <motion.img
@@ -131,6 +131,7 @@ const Header = () => {
               </p>
             </Link>
           
+          </div>
           </div>
         
 
@@ -154,13 +155,7 @@ const Header = () => {
           </Link>
         </div>
       <footer className="w-full mt-20 flex flex-col items-center">
-        <Link href="/avisos">
-          <Button
-            label="Voltar"
-            onClick={() => {}}
-            className="bg-[#42807D] hover:bg-[#2f5e59] transition-all duration-300 text-white px-10 py-3 rounded-lg text-lg shadow-md hover:scale-105"
-          />
-        </Link>
+      
 
         <button
           onClick={() => window.location.reload()}
