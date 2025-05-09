@@ -1,26 +1,7 @@
-'use client';
+'use client'
+
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-
-const estacoes = [
-  { id: 1, nome: 'Osasco' },
-  { id: 2, nome: 'Presidente Altino' },
-  { id: 3, nome: 'Cease' },
-  { id: 4, nome: 'Quitaúna' },
-
-  { id: 3, nome: 'Carapicuíba' },
-  { id: 4, nome: 'Manga' },
-  { id: 5, nome: 'Dom Pedro II' },
-  { id: 6, nome: 'Vila Progredior' },
-  { id: 7, nome: 'Presidente Altino' },
-  { id: 8, nome: 'Pinheiros' },
-  { id: 9, nome: 'Granja Julieta' },
-  { id: 10, nome: 'Morumbi' },
-  { id: 11, nome: 'Butantã' },
-  { id: 12, nome: 'Santo Amaro' },
-  { id: 14, nome: 'Campo Belo' },
-  { id: 15, nome: 'Jabaquara' },
-];
 
 const ViagemInicio = () => {
   const router = useRouter();
@@ -28,6 +9,19 @@ const ViagemInicio = () => {
   const [destinoId, setDestinoId] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [erro, setErro] = useState('');
+
+  // Estações da Linha 9 Esmeralda
+  const estacoes = [
+    { id: 1, nome: 'Osasco' },
+    { id: 2, nome: ' Presidente Altino' },
+    { id: 3, nome: 'Padre Manoel da Nóbrega' },
+    { id: 4, nome: 'Quitaúna' },
+    { id: 5, nome: 'Carapicuíba' },
+    { id: 6, nome: 'Jandira' },
+    { id: 7, nome: 'Barueri' },
+    { id: 8, nome: 'Alphaville' },
+    { id: 9, nome: 'Centro' },
+  ];
 
   const iniciarViagem = async () => {
     if (!origemId || !destinoId) {
@@ -51,8 +45,8 @@ const ViagemInicio = () => {
           estacaoOrigemId: parseInt(origemId),
           estacaoDestinoId: parseInt(destinoId),
           usuarioId: 1, 
-          hPartida: new Date().toISOString()
-        })
+          hPartida: new Date().toISOString(),
+        }),
       });
 
       if (!resposta.ok) {
@@ -61,12 +55,8 @@ const ViagemInicio = () => {
 
       const viagemData = await resposta.json();
       router.push(`/viagem/iniciada?viagemId=${viagemData.id}`);
-    } catch (err) {
-      if (err instanceof Error) {
-        setErro(err.message);
-      } else {
-        setErro('Erro desconhecido');
-      }
+    } catch (err: unknown) {
+      setErro(err instanceof Error ? err.message : 'Erro desconhecido');
     } finally {
       setIsLoading(false);
     }
