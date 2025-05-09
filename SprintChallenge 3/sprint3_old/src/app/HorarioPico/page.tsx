@@ -1,5 +1,5 @@
-'use client'
-import React, { useEffect, useState } from 'react';
+'use client';
+import React, { useState } from 'react';
 
 type Fluxo = {
   estacao: string;
@@ -7,151 +7,112 @@ type Fluxo = {
   passageiros: number;
 };
 
-const estacoes = [
-  'Osasco', 'Pinheiros', 'Luz', 'Fradique Coutinho', 'Itapevi',
-  'Presidente Altino', 'Ceasa', 'Villa-Lobos–Jaguaré', 'Cidade Universitária',
-  'Hebraica–Rebouças', 'Cidade Jardim', 'Vila Olímpia', 'Berrini',
-  'Morumbi', 'Granja Julieta', 'Santo Amaro', 'Socorro', 'Jurubatuba',
-  'Autódromo', 'Interlagos', 'Grajaú', 'República', 'Paulista', 'Consolação',
-  'Fradique Coutinho', 'Faria Lima', 'Pinheiros', 'Butantã', 'São Paulo–Morumbi',
-  'Vila Sônia', 'Júlio Prestes', 'Palmeiras–Barra Funda', 'Lapa',
-  'Domingos de Moraes', 'Imperatriz Leopoldina', 'Comandante Sampaio', 'Quitaúna',
-  'General Miguel Costa', 'Carapicuíba', 'Santa Terezinha', 'Antonio João',
-  'Barueri', 'Jardim Belval', 'Jardim Silveira', 'Jandira', 'Sagrado Coração'
+const estacoesLinha9 = [
+  'Osasco', 'Presidente Altino', 'Ceasa', 'Villa-Lobos–Jaguaré', 'Cidade Universitária',
+  'Pinheiros', 'Hebraica–Rebouças', 'Cidade Jardim', 'Vila Olímpia', 'Berrini',
+  'Morumbi', 'Granja Julieta', 'João Dias', 'Santo Amaro', 'Socorro',
+  'Jurubatuba', 'Autódromo', 'Primavera–Interlagos', 'Grajaú',
+  'Bruno Covas/Mendes–Vila Natal', 'Varginha'
 ];
 
 const PrevisaoPicoAuto = () => {
-  const [dados, setDados] = useState<Fluxo[]>([]);
-  const [dadosOcultos, setDadosOcultos] = useState<Fluxo[]>([]);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [dadosAntigos, setDadosAntigos] = useState<Fluxo[]>([]);
+  const [estacaoSelecionada, setEstacaoSelecionada] = useState('');
+  const [horarioSelecionado, setHorarioSelecionado] = useState('');
+  const [fluxo, setFluxo] = useState<Fluxo | null>(null);
+  const [erro, setErro] = useState('');
+  const [carregando, setCarregando] = useState(false);
 
-  const obterTodosFluxos = async () => {
+  const obterFluxo = async () => {
+    if (!estacaoSelecionada || !horarioSelecionado) {
+      setErro('Por favor, selecione uma estação e um horário.');
+      setFluxo(null);
+      return;
+    }
+
+    setCarregando(true);
+    setErro('');
+    setFluxo(null);
+
     try {
-      const promessas = estacoes.map(async (estacao) => {
-        const response = await fetch(`http://localhost:8080/api/previsao?estacao=${estacao}&horario=08:00`);
-
-        if (!response.ok) {
-          console.error(`Erro ao buscar dados para ${estacao}: ${response.status}`);
-          return null;
-        }
-
-        const texto = await response.text();
-        if (!texto) {
-          console.error(`Resposta vazia para ${estacao}`);
-          return null;
-        }
-
-        try {
-          const data = JSON.parse(texto);
-          if (data.passageiros > 0) {
-            return data;
-          }
-          return null;
-        } catch (e) {
-          console.error(`Erro ao parsear JSON para ${estacao}: ${e}`);
-          return null;
-        }
-      });
-
-      const resultados = await Promise.all(promessas);
-      const fluxosFiltrados = resultados.filter((fluxo) => fluxo !== null) as Fluxo[];
-
-      const metade = Math.ceil(fluxosFiltrados.length / 2);
-      setDados(fluxosFiltrados.slice(0, metade));
-      setDadosOcultos(fluxosFiltrados.slice(metade));
-      setDadosAntigos(fluxosFiltrados.slice(0, metade));
-    } catch (error) {
-      console.error('Erro ao buscar previsões:', error);
+      const response = await fetch(`http://localhost:8080/api/previsao?estacao=${encodeURIComponent(estacaoSelecionada)}&horario=${encodeURIComponent(horarioSelecionado)}`);
+      if (!response.ok) {
+        throw new Error('Erro ao buscar dados.');
+      }
+      const data = await response.json();
+      setFluxo(data);
+    } catch (err) {
+      setErro('Não foi possível obter os dados. Tente novamente mais tarde.');
+    } finally {
+      setCarregando(false);
     }
   };
 
-  useEffect(() => {
-    obterTodosFluxos();
-    const intervalo = setInterval(() => {
-      if (!isTransitioning && dados.length > 0 && dadosOcultos.length > 0) {
-        setIsTransitioning(true);
-
-        const novasVisiveis = [...dados];
-        const novasOcultas = [...dadosOcultos];
-
-        const quantidadeTrocas = Math.floor(Math.random() * 2) + 1;
-
-        for (let i = 0; i < quantidadeTrocas; i++) {
-          if (novasOcultas.length === 0 || novasVisiveis.length === 0) break;
-
-          const idxOculto = Math.floor(Math.random() * novasOcultas.length);
-          const novaEstacao = novasOcultas.splice(idxOculto, 1)[0];
-
-          const idxVisivel = Math.floor(Math.random() * novasVisiveis.length);
-          const antigaEstacao = novasVisiveis[idxVisivel];
-
-          novasVisiveis[idxVisivel] = novaEstacao;
-          novasOcultas.push(antigaEstacao);
-        }
-
-        setDadosAntigos(dados);
-        setDados(novasVisiveis);
-        setDadosOcultos(novasOcultas);
-
-        setTimeout(() => setIsTransitioning(false), 1000);
-      }
-    }, 3000); 
-
-    return () => clearInterval(intervalo);
-  }, [dados, dadosOcultos, isTransitioning]);
-
-  const compararDados = (dadosNovos: Fluxo[], dadosAntigos: Fluxo[]) => {
-    return dadosNovos.map((fluxo, index) => {
-      const foiAlterado =
-        fluxo.estacao !== dadosAntigos[index]?.estacao ||
-        fluxo.passageiros !== dadosAntigos[index]?.passageiros;
-      return {
-        ...fluxo,
-        foiAlterado
-      };
-    });
-  };
-
   return (
-    <div className="w-full max-w-md mx-auto p-4">
-      <h1 className="text-2xl text-center font-bold mb-6">Previsão Geral de Pico</h1>
+    <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto', padding: '16px' }}>
+      <h1 style={{ fontSize: '24px', textAlign: 'center', fontWeight: 'bold', marginBottom: '24px' }}>Previsão de Pico por Estação</h1>
 
-      {dados.length === 0 ? (
-        <p className="text-center">Carregando dados...</p>
-      ) : (
-        <div className="space-y-4">
-          {compararDados(dados, dadosAntigos).map((fluxo) => (
-            <div
-              key={fluxo.estacao}
-              className={`transition-all duration-1000 transform ${fluxo.foiAlterado ? 'scale-110 opacity-100' : ''} p-4 border rounded shadow`}
-              style={{ transition: 'transform 0.5s ease, opacity 0.5s ease' }}
-            >
-              <h2 className="text-xl font-semibold mb-2">{fluxo.estacao}</h2>
-              <p><strong>Horário:</strong> {fluxo.horario}</p>
-              <p><strong>Passageiros:</strong> {fluxo.passageiros}</p>
-              <p>
-                <strong>Status:</strong>{' '}
-                {fluxo.passageiros > 80
-                  ? 'Atenção: Fluxo Alto!'
-                  : fluxo.passageiros <= 40
-                    ? 'Fluxo Baixo'
-                    : 'Operando normalmente'}
-              </p>
-            </div>
+      <div style={{ marginBottom: '16px' }}>
+        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Estação:</label>
+        <select
+          style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+          value={estacaoSelecionada}
+          onChange={(e) => setEstacaoSelecionada(e.target.value)}
+        >
+          <option value="">Selecione uma estação</option>
+          {estacoesLinha9.map((estacao) => (
+            <option key={estacao} value={estacao}>
+              {estacao}
+            </option>
           ))}
-        </div>
-      )}
-
-      <div className="hidden">
-        {dadosOcultos.map((fluxo) => (
-          <div key={fluxo.estacao} className="p-4 border rounded shadow">
-            <h2 className="text-xl font-semibold mb-2">{fluxo.estacao}</h2>
-            <p><strong>Horário:</strong> {fluxo.horario}</p>
-            <p><strong>Passageiros:</strong> {fluxo.passageiros}</p>
-          </div>
-        ))}
+        </select>
       </div>
+
+      <div style={{ marginBottom: '16px' }}>
+        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Horário:</label>
+        <input
+          type="time"
+          style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+          value={horarioSelecionado}
+          onChange={(e) => setHorarioSelecionado(e.target.value)}
+        />
+      </div>
+
+      <button
+        style={{
+          width: '100%',
+          backgroundColor: '#42807D',
+          color: '#fff',
+          padding: '12px',
+          borderRadius: '4px',
+          border: 'none',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s',
+        }}
+        onClick={obterFluxo}
+        disabled={carregando}
+      >
+        {carregando ? 'Carregando...' : 'Ver Previsão'}
+      </button>
+
+      {erro && <p style={{ marginTop: '16px', color: 'red' }}>{erro}</p>}
+
+      {fluxo && (
+        <><div style={{ marginTop: '24px', padding: '16px', border: '1px solid #ddd', borderRadius: '4px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+          <h2 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '8px' }}>{fluxo.estacao}</h2>
+          <p><strong>Horário:</strong> {fluxo.horario}</p>
+          <p><strong>Passageiros:</strong> {fluxo.passageiros}</p>
+          <p>
+            <strong>Status:</strong>{' '}
+            {fluxo.passageiros > 80
+              ? 'Atenção: Fluxo Alto!'
+              : fluxo.passageiros <= 40
+                ? 'Fluxo Baixo'
+                : 'Operando normalmente'}
+          </p>
+        </div>
+        </>
+        
+      )}
     </div>
   );
 };

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Button from "../Botao/Botao";
 import { motion } from "framer-motion";
+import router from "next/router";
 
 const Esmeralda = () => {
   return (
@@ -42,32 +43,44 @@ const Esmeralda = () => {
               Previsão Pico
             </motion.button>
           </Link>
-          <Link href="/viagem/EscolherEstacao
-">
-  <motion.button
-    className="bg-[#42807D] mb-10 w-[60%] mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
-    type="button"
-    whileHover={{ scale: 1.05 }}
-    transition={{ duration: 0.3 }}
-  >
-    Começar Viagem
-  </motion.button>
-</Link>
+            <Link href="/ViagemInicio
+  ">
+    <motion.button
+      className="bg-[#42807D] mb-2     w-[60%] mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
+      type="button"
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
+    >
+      Começar Viagem
+    </motion.button>
+    
+  </Link>
+  <Link href="/Relatorio
+  ">
+    <motion.button
+      className="bg-[#42807D] mb-2     w-[60%] mt-[2%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
+      type="button"
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
+    >
+      Ver Relatorio de viagem
+    </motion.button>
+    
+  </Link>
 
+<Link href="/mapaLinha">
+            <motion.button
+              className="bg-[#42807D] w-[60%] mt-[4%] text-[1rem] text-white rounded-[9px] p-4 cursor-pointer"
+              type="button"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              Mapa Linha
+            </motion.button>
+          </Link>
         </div>
-      </section>
 
-      <section className="flex text-center mt-10 mb-5 mb-[33%] flex-col gap-9">
-        <div className="mt-8">
-          <div className="flex flex-col sm:flex-row justify-center border-3 mx-auto rounded-2xl p-5 w-[80%] mt-[8%] gap-6 sm:gap-10">
-            <Link href="/horariofuncionamento">
-              <div className="text-center">
-                <img className="h-[80px] sm:h-[98px] mx-auto" src="/img_Icons/horario.png" alt="Horario de Funcionamento" />
-                <h3 className="font-bold mt-[5%] text-[1.4rem] sm:text-lg">Horario de Funcionamento</h3>
-              </div>
-            </Link>
-          </div>
-        </div>
+        
       </section>
 
       <section className="mx-auto mt-[1%] relative">

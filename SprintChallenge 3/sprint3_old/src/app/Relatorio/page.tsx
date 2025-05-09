@@ -47,7 +47,7 @@ const Relatorio = () => {
         <div className="flex flex-col w-[68%] mx-auto gap-7 justify-center mt-8 space-x-4">
           <button
             className='bg-[#42807D] text-white py-3 px-8 rounded-xl font-semibold w-full md:w-auto hover:bg-[#357c66] transition duration-300 cursor-pointer  transform hover:scale-105'
-            onClick={() => router.push('/viagem/EscolherEstacao')}
+            onClick={() => router.push('/esmeralda')}
           >
             Voltar
           </button>

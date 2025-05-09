@@ -1,197 +1,75 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-type Estacoes =
-  | 'Osasco'
-  | 'Quitaúna'
-  | 'Carapicuíba'
-  | 'Manga'
-  | 'Dom Pedro II'
-  | 'Vila Progredior'
-  | 'Presidente Altino'
-  | 'Pinheiros'
-  | 'Granja Julieta'
-  | 'Morumbi'
-  | 'Butantã'
-  | 'Santo Amaro'
-  | 'Brooklin'
-  | 'Campo Belo'
-  | 'Jabaquara';
+interface Usuario {
+  nome: string;
+}
 
-const estacaoIdMap: Record<Estacoes, number> = {
-  'Osasco': 101,
-  'Quitaúna': 102,
-  'Carapicuíba': 103,
-  'Manga': 104,
-  'Dom Pedro II': 105,
-  'Vila Progredior': 106,
-  'Presidente Altino': 107,
-  'Pinheiros': 108,
-  'Granja Julieta': 109,
-  'Morumbi': 110,
-  'Butantã': 111,
-  'Santo Amaro': 112,
-  'Brooklin': 113,
-  'Campo Belo': 114,
-  'Jabaquara': 115,
-};
+interface Viagem {
+  id: number;
+  estacaoOrigem: string;
+  estacaoDestino: string;
+  hPartida: string;
+  hChegadaEstimada: string;
+  usuario: Usuario;
+}
 
 const ViagemIniciada = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const origem = searchParams.get('origem') as Estacoes;
-  const destino = searchParams.get('destino') as Estacoes;
+  const viagemId = searchParams.get('viagemId');
 
-  const [tempoAtual, setTempoAtual] = useState(0);
-  const [duracaoTotal, setDuracaoTotal] = useState(0);
-  const [percentualConcluido, setPercentualConcluido] = useState(0);
-  const [chegouAoDestino, setChegouAoDestino] = useState(false);
-  const [horaChegada, setHoraChegada] = useState('');
-  const [horaInicio, setHoraInicio] = useState('');
-
-  const formatarHora = (hora: number, minutos: number) => {
-    let periodo = 'AM';
-    if (hora >= 12) {
-      periodo = 'PM';
-      if (hora > 12) hora -= 12;
-    }
-    if (hora === 0) hora = 12;
-    return `${hora}:${minutos < 10 ? '0' + minutos : minutos} ${periodo}`;
-  };
-
-  const calcularHoraChegada = (tempoTotal: number) => {
-    const agora = new Date();
-    const chegada = new Date(agora.getTime() + tempoTotal * 1000);
-    const hora = chegada.getHours();
-    const minutos = chegada.getMinutes();
-    setHoraChegada(formatarHora(hora, minutos));
-  };
-
-  const calcularHoraInicio = () => {
-    const agora = new Date();
-    const hora = agora.getHours();
-    const minutos = agora.getMinutes();
-    setHoraInicio(formatarHora(hora, minutos));
-  };
+  const [viagem, setViagem] = useState<Viagem | null>(null);
+  const [erro, setErro] = useState('');
 
   useEffect(() => {
-    if (!origem || !destino) return;
-
-    const obterDuracaoViagem = async () => {
+    const fetchViagem = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/mapa/linha9?origem=${origem}&destino=${destino}`);
-        const data = await response.json();
-
-        if (data && data.duracao) {
-          const tempo = data.duracao;
-          setDuracaoTotal(tempo);
-          calcularHoraChegada(tempo);
-          calcularHoraInicio();
-
-          // 🔥 POST para iniciar viagem
-          const iniciarViagem = async () => {
-            try {
-              const res = await fetch('http://localhost:8080/api/viagem/iniciar', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  usuarioId: 221,
-                  estacaoOrigemId: estacaoIdMap[origem],
-                  estacaoDestinoId: estacaoIdMap[destino],
-                  hPartida: new Date().toISOString(),
-                }),
-              });
-
-              const postData = await res.json();
-              console.log('Viagem registrada:', postData);
-            } catch (err) {
-              console.error('Erro ao registrar viagem:', err);
-            }
-          };
-
-          iniciarViagem();
-
-          // 🕒 Simulação de viagem
-          const intervalo = setInterval(() => {
-            setTempoAtual((prev) => {
-              if (prev >= tempo) {
-                clearInterval(intervalo);
-                setChegouAoDestino(true);
-                return prev;
-              }
-              return prev + 1;
-            });
-          }, 1000);
-        } else {
-          throw new Error('Erro ao obter dados de viagem');
+        const resposta = await fetch(`http://localhost:8080/api/viagem/${viagemId}`);
+        if (!resposta.ok) {
+          throw new Error('Erro ao carregar dados da viagem');
         }
-      } catch (error) {
-        console.error('Erro ao buscar dados de viagem:', error);
+
+        const viagemData = await resposta.json();
+        setViagem(viagemData);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setErro(err.message);
+        } else {
+          setErro('Erro desconhecido');
+        }
       }
     };
 
-    obterDuracaoViagem();
-  }, [origem, destino]);
+    if (viagemId) fetchViagem();
+  }, [viagemId]);
 
-  useEffect(() => {
-    const progresso = (tempoAtual / duracaoTotal) * 100;
-    setPercentualConcluido(progresso);
-  }, [tempoAtual, duracaoTotal]);
-
-  const finalizarViagem = () => {
-    router.push('/viagem');
-  };
+  if (erro) return <div className="text-red-500">{erro}</div>;
+  if (!viagem) return <div>Carregando...</div>;
 
   return (
-    <div className="h-screen w-full flex flex-col justify-center items-center">
-      <h1>Viagem em andamento...</h1>
-      <p className="mt-2">{`Viagem de ${origem} para ${destino}`}</p>
-      <p className="mt-2">{`Início: ${horaInicio}`}</p>
+    <div className="min-h-screen flex flex-col justify-center items-center px-4">
+      <h1 className="text-2xl font-bold mb-6">Viagem Iniciada</h1>
 
-      {chegouAoDestino ? (
-        <p className="mt-2 text-green-500">Viagem concluída!</p>
-      ) : (
-        <div className="mt-4 w-full max-w-xs">
-          <div className="relative w-full bg-gray-300 h-2 rounded-full">
-            <div
-              style={{
-                width: `${percentualConcluido}%`,
-                transition: 'width 0.1s ease-out',
-              }}
-              className="bg-[#42807D] h-full rounded-full"
-            ></div>
-            <div
-              className="absolute top-0 -translate-x-1/2 -translate-y-1/2"
-              style={{
-                left: `${percentualConcluido}%`,
-                transform: `translateX(-50%)`,
-                width: '20px',
-                height: '20px',
-                backgroundColor: '#42807D',
-                borderRadius: '50%',
-                transition: 'left 0.1s ease-out',
-              }}
-            ></div>
-          </div>
-          <p className="mt-2 text-center">{`${Math.floor(percentualConcluido)}% Concluído`}</p>
-          <p className="mt-2">{`Tempo decorrido: ${Math.floor(tempoAtual / 60)} minutos ${tempoAtual % 60} segundos`}</p>
-          <p className="mt-2">{`Hora prevista de chegada: ${horaChegada}`}</p>
-        </div>
-      )}
+      <div className="mb-4 bg-white shadow-md rounded-xl p-6">
+        <p><strong>ID da Viagem:</strong> {viagem.id}</p>
+        <p><strong>Estação de Origem:</strong> {viagem.estacaoOrigem}</p>
+        <p><strong>Estação de Destino:</strong> {viagem.estacaoDestino}</p>
+        <p><strong>Hora de Partida:</strong> {new Date(viagem.hPartida).toLocaleTimeString()}</p>
+        <p><strong>Hora Estimada de Chegada:</strong> {new Date(viagem.hChegadaEstimada).toLocaleTimeString()}</p>
+        <p><strong>Usuário:</strong> {viagem.usuario?.nome || 'Desconhecido'}</p>
+      </div>
 
       <button
-        className="mt-4 bg-[#42807D] text-white p-3 rounded-xl"
-        onClick={finalizarViagem}
+        onClick={() => router.push('/')}
+        className="bg-[#42807D] text-white px-6 py-3 rounded-xl hover:bg-[#32615e] transition"
       >
-        {chegouAoDestino ? 'Finalizar Viagem' : 'Cancelar Viagem'}
+        Voltar para Início
       </button>
     </div>
   );
 };
 
 export default ViagemIniciada;
-  

@@ -21,7 +21,7 @@ const Relatorio = () => {
         if (!response.ok) throw new Error('Falha ao carregar o histórico de viagens');
 
         const data: { viagens: Viagem[] } = await response.json();
-        setHistoricoViagens(data.viagens); // assume que backend retorna { viagens: [...] }
+        setHistoricoViagens(data.viagens); 
       } catch (error) {
         setError('Erro ao carregar histórico de viagens.');
         console.error('Erro na requisição para o histórico de viagens', error);
