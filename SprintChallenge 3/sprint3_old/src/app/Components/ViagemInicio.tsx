@@ -10,7 +10,6 @@ const ViagemInicio = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [erro, setErro] = useState('');
 
-  // Estações da Linha 9 Esmeralda
   const estacoes = [
     { id: 1, nome: 'Osasco' },
     { id: 2, nome: ' Presidente Altino' },

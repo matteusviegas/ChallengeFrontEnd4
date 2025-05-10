@@ -8,27 +8,31 @@ const TelaLogin = () => {
   const router = useRouter();
   const [usuario, setUsuario] = useState('');
   const [senha, setSenha] = useState('');
-  const [erroLogin, setErroLogin] = useState('');
-  const [erroCampos, setErroCampos] = useState('');
+  const [mensagemErro, setMensagemErro] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const isEmailValid = (email: string) => /\S+@\S+\.\S+/.test(email);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!usuario || !senha) {
-      setErroCampos('Por favor, preencha todos os campos.');
+      setMensagemErro('Por favor, preencha todos os campos.');
       return;
-    } else {
-      setErroCampos('');
     }
 
+    if (!isEmailValid(usuario)) {
+      setMensagemErro('Por favor, insira um e-mail válido.');
+      return;
+    }
+
+    setMensagemErro('');
+    setLoading(true);
+
     try {
-      setLoading(true);
       const res = await fetch('/api/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: usuario, senha }),
       });
 
@@ -38,80 +42,74 @@ const TelaLogin = () => {
         localStorage.setItem('user', JSON.stringify(data.user));
         router.push('/avisos');
       } else {
-        setErroLogin(data.error || 'Usuário ou senha incorretos!');
+        setMensagemErro(data.error || 'Usuário ou senha incorretos!');
       }
     } catch (error) {
-      setErroLogin('Erro ao realizar login. Tente novamente!');
+      setMensagemErro('Erro ao realizar login. Tente novamente!');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-start px-4">
-      <div className="mb-6 mx-auto p-6 border-4 border-solid border-green-800 w-full sm:w-[90%] md:w-[50%] lg:w-[42%] h-auto bg-white border-gray-300 rounded-3xl">
-        <div className="flex flex-col justify-center items-center">
-          <img
-            className="h-[120px] w-[120px] sm:h-[150px] sm:w-[150px]"
-            src="img_icons/Logo_Fs.png"
-            alt="Logo"
-          />
-          <h1 className="text-[1.6rem] sm:text-[1.4rem] lg:w-[100%] w-[80%] font-semibold text-center mb-4">
-            Seu passageiro virtual nas horas certas!
-          </h1>
+    <div className="flex flex-col items-center justify-center min-h-screen px-4">
+      <div className="p-6 border-4 border-green-800 w-full sm:w-[90%] md:w-[50%] lg:w-[35%] xl:w-[30%] bg-white rounded-3xl">
+        <div className="flex flex-col items-center">
+          <img src="/img_icons/Logo_Fs.png" alt="Logo" className="h-[120px] w-[120px] sm:h-[150px] sm:w-[150px]" />
+          <h1 className="text-[1.6rem] font-semibold text-center mb-4">Seu passageiro virtual nas horas certas!</h1>
         </div>
 
-        {erroLogin && <p className="text-red-500 p-3 text-[1.2rem] text-center">{erroLogin}</p>}
-        {erroCampos && <p className="text-red-500 p-3 text-[1.2rem] text-center">{erroCampos}</p>}
+        {mensagemErro && <p className="text-red-500 text-center">{mensagemErro}</p>}
 
-        <form onSubmit={handleSubmit}>
-          <div className="mt-6 w-full mx-auto">
-            <label htmlFor="usuario" className="pl-2 block font-medium text-gray-700">Usuário:</label>
+        <form onSubmit={handleSubmit} className="mt-6 space-y-6">
+          <div>
+            <label htmlFor="usuario" className="block text-gray-700 font-medium">E-mail:</label>
             <input
-              type="text"
+              type="email"
               id="usuario"
               name="usuario"
-              placeholder="Digite seu usuário"
-              className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem]"
+              aria-label="Campo de e-mail"
+              placeholder="Digite seu e-mail"
+              className={`w-full p-4 rounded-[30px] bg-[#42807D] text-white border ${!isEmailValid(usuario) && usuario ? 'border-red-500' : 'border-gray-300'}`}
               value={usuario}
               onChange={(e) => setUsuario(e.target.value)}
             />
           </div>
 
-          <div className="mb-4 mt-6 w-full mx-auto">
-            <label htmlFor="senha" className="pl-2 block font-medium text-gray-700">Senha:</label>
+          <div>
+            <label htmlFor="senha" className="block text-gray-700 font-medium">Senha:</label>
             <input
               type="password"
               id="senha"
               name="senha"
+              aria-label="Campo de senha"
               placeholder="Digite sua senha"
-              className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-[#fff] text-[1rem]"
+              className={`w-full p-4 rounded-[30px] bg-[#42807D] text-white border ${mensagemErro && !senha ? 'border-red-500' : 'border-gray-300'}`}
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
             />
           </div>
 
-          <div className="mb-6 mt-6 mx-auto flex justify-center">
+          <div className="flex justify-center">
             <button
               type="submit"
-              className="w-[80%] sm:w-[70%] p-3 bg-[#42807D] text-white rounded-2xl hover:bg-green-500 mx-auto focus:outline-none focus:ring-2 text-[1.2rem] sm:text-[1.3rem] mt-13"
               disabled={loading}
+              className="w-[80%] p-3 bg-[#42807D] text-white rounded-2xl hover:bg-green-500 focus:outline-none focus:ring-2 text-[1.2rem]"
             >
               {loading ? 'Entrando...' : 'Entrar'}
             </button>
           </div>
         </form>
 
-        <div>
-          <p className="font-bold mt-8 text-center text-[1.1rem] text-gray-600">
-            Não tem uma conta?
-            <Link href="/Cadastro">
-              <span className="text-green-500 cursor-pointer hover:underline"> Crie uma</span>
-            </Link>
-          </p>
-        </div>
+        <p className="mt-6 text-center text-gray-600">
+          Não tem uma conta?
+          <Link href="/Cadastro">
+            <span className="text-green-500 hover:underline cursor-pointer"> Crie uma</span>
+          </Link>
+        </p>
       </div>
-      <div className="flex justify-center items-center w-full mt-10">
+
+      <div className="w-full mt-10 flex justify-center">
         <PaineldeaAvios />
       </div>
     </div>
