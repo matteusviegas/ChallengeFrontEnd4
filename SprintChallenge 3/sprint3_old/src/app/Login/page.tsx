@@ -1,7 +1,7 @@
-import TelaLogin from '../Components/TelaLogin'; 
+import TelaLogin from "../Components/TelaLogin";
 
-const Login = () => {
+const LoginPage = () => {
   return <TelaLogin />; 
 };
 
-export default Login;
+export default LoginPage;

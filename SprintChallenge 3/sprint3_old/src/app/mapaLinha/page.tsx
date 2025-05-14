@@ -15,6 +15,19 @@ const MapaLinha = () => {
   const [estacoes, setEstacoes] = useState<Estacao[]>([]);
   const [hovered, setHovered] = useState<number | null>(null);
 
+  const obterZona = (nome: string): string => {
+    const nomeEstacao = nome.toLowerCase();
+
+    if (['osasco', 'jaguaré', 'villa lobos - jaguaré', 'pinheiros', 'butantã', 'lapa', 'são paulo-morumbi'].includes(nomeEstacao)) {
+      return 'Zona Oeste - SP';
+    } 
+    if (['morumbi', 'campo limpo', 'santo amaro'].includes(nomeEstacao)) {
+      return 'Zona Sul - SP';
+    }
+
+    return 'Zona Oeste - SP';
+  };
+
   useEffect(() => {
     fetch('http://localhost:8080/api/mapa/linha9')
       .then(res => res.json())
@@ -22,8 +35,8 @@ const MapaLinha = () => {
         const estacoesFormatadas = data.estacoes.map((nome: string, index: number) => ({
           id_estacao: index,
           nome,
-          localizacao: 'Zona Sul - SP',
-          passageirosSimulados: Math.floor(Math.random() * 1000)
+          localizacao: obterZona(nome),
+          passageirosSimulados: Math.floor(Math.random() * 1000),
         }));
         setEstacoes(estacoesFormatadas);
       });
@@ -38,7 +51,7 @@ const MapaLinha = () => {
           animate={{
             y: hovered !== null
               ? `${(hovered) * 80}px` 
-              : `${(estacoes.length - 1) * 80}px`, // Caso contrário, o trem continua se movendo.
+              : `${(estacoes.length - 1) * 80}px`, 
           }}
           transition={{
             duration: 6,
@@ -50,7 +63,6 @@ const MapaLinha = () => {
           <TrainFront className="w-8 h-8 animate-pulse" />
         </motion.div>
 
-        {/* Estações */}
         {estacoes.map((estacao, index) => (
           <div
             key={estacao.id_estacao}

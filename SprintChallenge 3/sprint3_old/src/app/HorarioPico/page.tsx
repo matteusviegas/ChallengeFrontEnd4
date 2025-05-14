@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 type Fluxo = {
   estacao: string;
@@ -35,26 +36,32 @@ const PrevisaoPicoAuto = () => {
 
     try {
       const response = await fetch(`http://localhost:8080/api/previsao?estacao=${encodeURIComponent(estacaoSelecionada)}&horario=${encodeURIComponent(horarioSelecionado)}`);
-      if (!response.ok) {
-        throw new Error('Erro ao buscar dados.');
-      }
+      if (!response.ok) throw new Error();
       const data = await response.json();
       setFluxo(data);
-    } catch (err) {
+    } catch {
       setErro('Não foi possível obter os dados. Tente novamente mais tarde.');
     } finally {
       setCarregando(false);
     }
   };
 
-  return (
-    <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto', padding: '16px' }}>
-      <h1 style={{ fontSize: '24px', textAlign: 'center', fontWeight: 'bold', marginBottom: '24px' }}>Previsão de Pico por Estação</h1>
+  const status = fluxo
+    ? fluxo.passageiros > 80
+      ? 'alto'
+      : fluxo.passageiros <= 40
+        ? 'baixo'
+        : 'normal'
+    : null;
 
-      <div style={{ marginBottom: '16px' }}>
-        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Estação:</label>
+  return (
+    <div className="w-full max-w-md mx-auto px-4 pt-6 pb-28 min-h-screen bg-white relative">
+      <h1 className="text-2xl font-bold text-center mb-6">Previsão de Pico</h1>
+
+      <div className="mb-4">
+        <label className="block mb-2 font-medium">Estação</label>
         <select
-          style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+          className="w-full p-3 rounded border border-gray-300"
           value={estacaoSelecionada}
           onChange={(e) => setEstacaoSelecionada(e.target.value)}
         >
@@ -67,52 +74,63 @@ const PrevisaoPicoAuto = () => {
         </select>
       </div>
 
-      <div style={{ marginBottom: '16px' }}>
-        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Horário:</label>
+      <div className="mb-4">
+        <label className="block mb-2 font-medium">Horário</label>
         <input
           type="time"
-          style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+          className="w-full p-3 rounded border border-gray-300"
           value={horarioSelecionado}
           onChange={(e) => setHorarioSelecionado(e.target.value)}
         />
       </div>
 
       <button
-        style={{
-          width: '100%',
-          backgroundColor: '#42807D',
-          color: '#fff',
-          padding: '12px',
-          borderRadius: '4px',
-          border: 'none',
-          cursor: 'pointer',
-          transition: 'background-color 0.3s',
-        }}
+        className="w-full bg-[#42807D] text-white py-3 rounded font-medium hover:bg-[#365d56] transition"
         onClick={obterFluxo}
         disabled={carregando}
       >
         {carregando ? 'Carregando...' : 'Ver Previsão'}
       </button>
 
-      {erro && <p style={{ marginTop: '16px', color: 'red' }}>{erro}</p>}
+      {erro && <p className="mt-4 text-red-600 font-semibold">{erro}</p>}
 
       {fluxo && (
-        <><div style={{ marginTop: '24px', padding: '16px', border: '1px solid #ddd', borderRadius: '4px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
-          <h2 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '8px' }}>{fluxo.estacao}</h2>
-          <p><strong>Horário:</strong> {fluxo.horario}</p>
-          <p><strong>Passageiros:</strong> {fluxo.passageiros}</p>
-          <p>
-            <strong>Status:</strong>{' '}
-            {fluxo.passageiros > 80
-              ? 'Atenção: Fluxo Alto!'
-              : fluxo.passageiros <= 40
-                ? 'Fluxo Baixo'
-                : 'Operando normalmente'}
-          </p>
+        <div className="mt-6 p-4 rounded-lg border shadow">
+          <h2 className="text-xl font-semibold text-[#42807D] mb-2">{fluxo.estacao}</h2>
+          <p className="text-gray-700 mb-1"><span className="font-semibold">Horário:</span> {fluxo.horario}</p>
+          <p className="text-gray-700 mb-4"><span className="font-semibold">Passageiros:</span> {fluxo.passageiros}</p>
+
+          <div className="relative w-full bg-gray-200 h-6 rounded-full overflow-hidden mb-3">
+            <div
+              className={`
+                h-full
+                ${fluxo.passageiros > 80 ? 'bg-red-500' : fluxo.passageiros <= 40 ? 'bg-green-500' : 'bg-yellow-500'}
+              `}
+              style={{ width: `${Math.min(fluxo.passageiros, 100)}%` }}
+            ></div>
+          </div>
+
+          <div className="text-center text-sm font-medium">
+            {fluxo.passageiros === 0 ? (
+              <span className="text-gray-500">Sem fluxo registrado para esse horário.</span>
+            ) : status === 'alto' ? (
+              <span className="text-red-600">Atenção: fluxo muito alto!</span>
+            ) : status === 'baixo' ? (
+              <span className="text-green-600">Fluxo tranquilo</span>
+            ) : (
+              <span className="text-yellow-600">Fluxo moderado</span>
+            )}
+          </div>
         </div>
-        </>
-        
       )}
+
+      <footer className="fixed bottom-4 left-0 w-full px-4">
+        <Link href="/esmeralda">
+          <button className="w-full bg-[#42807D] text-white py-3 rounded font-medium hover:bg-[#365d56] transition">
+            Voltar
+          </button>
+        </Link>
+      </footer>
     </div>
   );
 };

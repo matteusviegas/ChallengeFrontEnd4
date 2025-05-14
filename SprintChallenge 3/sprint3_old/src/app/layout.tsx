@@ -4,6 +4,8 @@ import Avisos from "./Components/Avisos";
 import Perfil from "./Perfil/page";
 import { AppProps } from 'next/app';
 import WatsonChat from "./WhatsonChatBot/WatsonChat";
+import Register from "../app/pages/register";  // Importação correta para exportação padrão
+import TelaCadastro from "./Components/TelaCadastro";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +21,6 @@ export default function RootLayout({
     <html  lang="pt-BR">
       <body
       >
- 
         {children}
     
      

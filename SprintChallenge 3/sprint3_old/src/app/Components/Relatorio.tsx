@@ -65,6 +65,7 @@ const Relatorio = () => {
         >
           Voltar para Viagem
         </button>
+        
       </section>
     </main>
   );

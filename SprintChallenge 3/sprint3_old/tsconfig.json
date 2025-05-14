@@ -15,6 +15,7 @@
     "incremental": true,
     "baseUrl": ".",                          // 👈 necessário
     "paths": {
+    
       "@/*": ["src/*"]                       // 👈 necessário
     },
     "plugins": [{ "name": "next" }]
@@ -26,4 +27,5 @@
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
+
 }

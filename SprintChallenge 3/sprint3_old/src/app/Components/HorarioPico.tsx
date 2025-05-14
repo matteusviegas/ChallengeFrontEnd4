@@ -14,7 +14,6 @@ const PrevisaoPico = () => {
   const [fluxo, setFluxo] = useState<Fluxo | null>(null);
   const [statusOperacao, setStatusOperacao] = useState('');
 
-  // Função para buscar o fluxo de passageiros da API
   const obterFluxo = async () => {
     try {
       const response = await fetch('http://localhost:8080/api/previsao?estacao=Osasco&horario=08:00');
@@ -23,7 +22,6 @@ const PrevisaoPico = () => {
       console.log('Resposta da API:', data);
       setFluxo(data);
 
-      // Determina o status com base na quantidade de passageiros
       if (data.passageiros > 80) {
         setStatusOperacao('Atenção: Fluxo Alto!');
       } else if (data.passageiros <= 40) {

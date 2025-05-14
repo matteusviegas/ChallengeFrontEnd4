@@ -24,39 +24,34 @@ const TelaCadastro = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    setErroCampos('');
+    setErroUsuario('');
+    setErroEmail('');
+    setErroSenhas('');
+
     if (!usuario || !email || !senha || !confirmarSenha) {
       setErroCampos('Por favor, preencha todos os campos.');
       return;
-    } else {
-      setErroCampos('');
     }
 
     if (usuario.length < 4) {
       setErroUsuario('O nome de usuário deve ter pelo menos 4 caracteres.');
       return;
-    } else {
-      setErroUsuario('');
     }
 
     if (!validateEmail(email)) {
       setErroEmail('Por favor, insira um e-mail válido.');
       return;
-    } else {
-      setErroEmail('');
     }
 
     if (senha.length < 6) {
       setErroSenhas('A senha deve ter pelo menos 6 caracteres.');
       return;
-    } else {
-      setErroSenhas('');
     }
 
     if (senha !== confirmarSenha) {
       setErroSenhas('As senhas não coincidem. Por favor, verifique novamente.');
       return;
-    } else {
-      setErroSenhas('');
     }
 
     if (!aceitouTermos) {
@@ -74,8 +69,7 @@ const TelaCadastro = () => {
       setLoading(true);
       console.log('Enviando dados para a API...');
 
-      // A solicitação agora é feita com o correto tratamento da resposta
-      const res = await fetch('/api/cadastro', {
+      const res = await fetch('/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -83,20 +77,14 @@ const TelaCadastro = () => {
         body: JSON.stringify(userData),
       });
 
-      // Verifica se a resposta foi ok
       if (!res.ok) {
-        // Se não foi, lida com o erro
-        const data = await res.json();
-        console.error('Erro ao cadastrar:', data.error);
-        setErroCampos(data.error || 'Erro ao cadastrar');
-        return;
+        const errorText = await res.text(); // Captura o erro mesmo que seja HTML
+        throw new Error(`Erro no cadastro: ${errorText}`);
       }
 
-      // Se a resposta for bem-sucedida
       const data = await res.json();
       console.log('Cadastro bem-sucedido:', data);
 
-      // Redireciona para a página de login
       router.push('/Login');
     } catch (error) {
       console.error('Erro no cadastro:', error);
@@ -184,7 +172,7 @@ const TelaCadastro = () => {
             />
             Ao continuar, você aceita nossa <span className="text-blue-500 hover:underline">
               <Link href='/TermosUso'>Política de Privacidade e Termos de Uso</Link>
-            </span>.
+            </span> .
           </label>
         </div>
 
