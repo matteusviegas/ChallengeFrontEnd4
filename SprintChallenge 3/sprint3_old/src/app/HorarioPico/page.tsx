@@ -46,13 +46,17 @@ const PrevisaoPicoAuto = () => {
     }
   };
 
-  const status = fluxo
-    ? fluxo.passageiros > 80
-      ? 'alto'
-      : fluxo.passageiros <= 40
-        ? 'baixo'
-        : 'normal'
-    : null;
+  const capacidadeTotal = 1000;
+
+  // Porcentagem de ocupação, mas limitada no máximo a 100%
+  const percentualFluxo = fluxo ? Math.min((fluxo.passageiros / capacidadeTotal) * 100, 100) : 0;
+
+  // Classificação baseada na porcentagem calculada
+  const fluxoStatus = percentualFluxo <= 40
+    ? 'baixo'
+    : percentualFluxo <= 80
+      ? 'moderado'
+      : 'alto';
 
   return (
     <div className="w-full max-w-md mx-auto px-4 pt-6 pb-28 min-h-screen bg-white relative">
@@ -102,24 +106,28 @@ const PrevisaoPicoAuto = () => {
 
           <div className="relative w-full bg-gray-200 h-6 rounded-full overflow-hidden mb-3">
             <div
-              className={`
-                h-full
-                ${fluxo.passageiros > 80 ? 'bg-red-500' : fluxo.passageiros <= 40 ? 'bg-green-500' : 'bg-yellow-500'}
+              className={`h-full transition-all duration-500
+                ${fluxoStatus === 'alto' ? 'bg-red-500' : fluxoStatus === 'moderado' ? 'bg-yellow-500' : 'bg-green-500'}
               `}
-              style={{ width: `${Math.min(fluxo.passageiros, 100)}%` }}
+              style={{ width: `${percentualFluxo}%` }}
             ></div>
           </div>
 
           <div className="text-center text-sm font-medium">
             {fluxo.passageiros === 0 ? (
               <span className="text-gray-500">Sem fluxo registrado para esse horário.</span>
-            ) : status === 'alto' ? (
+            ) : fluxoStatus === 'alto' ? (
               <span className="text-red-600">Atenção: fluxo muito alto!</span>
-            ) : status === 'baixo' ? (
-              <span className="text-green-600">Fluxo tranquilo</span>
-            ) : (
+            ) : fluxoStatus === 'moderado' ? (
               <span className="text-yellow-600">Fluxo moderado</span>
+            ) : (
+              <span className="text-green-600">Fluxo tranquilo</span>
             )}
+          </div>
+
+          <div className="mt-4 text-center">
+            <p className="font-semibold text-xl">{Math.round(percentualFluxo)}%</p>
+            <p className="text-gray-600">Capacidade atual de passageiros.</p>
           </div>
         </div>
       )}

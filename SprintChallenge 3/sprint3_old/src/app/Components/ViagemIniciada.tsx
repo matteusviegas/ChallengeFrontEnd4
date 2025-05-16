@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { Link } from 'lucide-react';
 
 interface Usuario {
   nome: string;
@@ -61,13 +62,13 @@ const ViagemIniciada = () => {
         <p><strong>Hora Estimada de Chegada:</strong> {new Date(viagem.hChegadaEstimada).toLocaleTimeString()}</p>
         <p><strong>Usuário:</strong> {viagem.usuario?.nome || 'Desconhecido'}</p>
       </div>
-
-      <button
-        onClick={() => router.push('/')}
-        className="bg-[#42807D] text-white px-6 py-3 rounded-xl hover:bg-[#32615e] transition"
-      >
-        Voltar para Início
-      </button>
+ <footer className="fixed bottom-4 left-0 w-full px-4">
+      <Link href="/pinheiro">
+    <button className="bg-[#42807D] text-white w-[99%] py-3 px-21 rounded-[9px] text-base hover:bg-[#365d56] mt-6">
+      Voltar
+    </button>
+  </Link>
+      </footer>
     </div>
   );
 };

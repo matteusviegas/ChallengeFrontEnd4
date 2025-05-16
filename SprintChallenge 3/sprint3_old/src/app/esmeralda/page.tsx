@@ -110,17 +110,16 @@ const Esmeralda = () => {
                 onMouseLeave={() => setHoverIndex(null)}
               >
                 {estacao.link ? (
-                  // Para Pinheiros, link dinâmico com [info] na URL
                   <Link href={estacao.link}>
                     {estacao.nome}
                   </Link>
                 ) : (
                   estacao.nome
                 )}
-                
+
                 {hoverIndex === i && (
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-md text-xs text-gray-700">
-                    Informações sobre {estacao.nome}
+                  <div className="absolute top-[-28px] left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded shadow text-xs text-gray-800 z-50">
+                    {estacao.nome}
                   </div>
                 )}
               </motion.div>
@@ -166,7 +165,7 @@ const Esmeralda = () => {
       <footer className="fixed bottom-4 left-0 w-full px-4">
         <Link href="/header">
           <motion.button
-            className="bg-[#42807D] text-white w-full py-3 rounded-[9px] text-base hover:bg-[#365d56]"
+            className="bg-[#42807D] text-white w-[58%] py-4 rounded-[9px] text-base hover:bg-[#365d56]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

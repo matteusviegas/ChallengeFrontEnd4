@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 const Relatorio = () => {
-  const [historicoViagens, setHistoricoViagens] = useState<string[]>([]);
+  const [historicoViagens, setHistoricoViagens] = useState<any[]>([]); // Mudança para um array de qualquer tipo
   const [carregando, setCarregando] = useState<boolean>(true);
   const [erro, setErro] = useState<string>('');
   const router = useRouter();
@@ -17,7 +17,13 @@ const Relatorio = () => {
           throw new Error('Falha ao carregar histórico');
         }
         const dados = await response.json();
-        setHistoricoViagens(dados);
+        
+        // Garantir que a resposta seja um array
+        if (Array.isArray(dados)) {
+          setHistoricoViagens(dados);
+        } else {
+          setHistoricoViagens([]); // Em caso de dados não serem um array
+        }
       } catch (error) {
         setErro('Erro ao carregar histórico');
       } finally {
@@ -34,10 +40,10 @@ const Relatorio = () => {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center bg-gradient-to-r from-blue-500 via-teal-500 to-green-500">
-      <div className="w-full sm:w-4/5 max-w-4xl bg-white p-8 rounded-3xl shadow-2xl overflow-auto transform transition duration-500 hover:scale-105">
+    <div className="h-screen flex justify-center items-center">
+      <div className="w-[90%] sm:w-/5 max-w-4xl bg-white p-8 rounded-3xl shadow-2xl overflow-auto transform transition duration-500 hover:scale-105">
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-6 sm:mb-8 text-center text-black">Relatório de Viagens</h1>
-        <p className="mb-4 sm:mb-6 text-base sm:text-lg text-start font-semibold">Última viagem</p>
+        <p className="mb-4 sm:mb-6 text-base sm:text-lg text-start font-semibold">Última viagem:</p>
 
         {carregando ? (
           <p className="text-lg sm:text-xl text-center text-black">Carregando...</p>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TrainFront } from 'lucide-react';
+import { useRouter } from 'next/navigation'; // ✅ Aqui está a correção
 
 interface Estacao {
   id_estacao: number;
@@ -14,6 +15,7 @@ interface Estacao {
 const MapaLinha = () => {
   const [estacoes, setEstacoes] = useState<Estacao[]>([]);
   const [hovered, setHovered] = useState<number | null>(null);
+  const router = useRouter(); // ✅ Aqui também
 
   const obterZona = (nome: string): string => {
     const nomeEstacao = nome.toLowerCase();
@@ -43,9 +45,8 @@ const MapaLinha = () => {
   }, []);
 
   return (
-    <div className="flex justify-center w-full py-10 bg-gray-50">
-      <div className="relative border-l-4 border-green-600 pl-6 space-y-14">
-        
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
+      <div className="relative border-l-4 border-green-600 pl-6 space-y-14 mt-10">
         <motion.div
           className="absolute -left-5 top-0 z-10 text-green-600"
           animate={{
@@ -63,7 +64,7 @@ const MapaLinha = () => {
           <TrainFront className="w-8 h-8 animate-pulse" />
         </motion.div>
 
-        {estacoes.map((estacao, index) => (
+        {estacoes.map((estacao) => (
           <div
             key={estacao.id_estacao}
             className="relative flex flex-col items-start group"
@@ -71,12 +72,11 @@ const MapaLinha = () => {
             onMouseLeave={() => setHovered(null)}
           >
             <div className="flex items-center space-x-4">
-              <div className="w-5 h-5 bg-green-600 rounded-full z-10 transition-transform shadow-md"></div>
+              <div className="w-5 h-5 bg-green-600 rounded-full z-10 shadow-md"></div>
               <div className="text-sm sm:text-base text-gray-800 font-medium">{estacao.nome}</div>
               <div className="ml-auto text-xs text-gray-500">👥 {estacao.passageirosSimulados}</div>
             </div>
 
-            {/* Info box animada */}
             <AnimatePresence>
               {hovered === estacao.id_estacao && (
                 <motion.div
@@ -93,6 +93,15 @@ const MapaLinha = () => {
             </AnimatePresence>
           </div>
         ))}
+      </div>
+
+      <div className="mt-12 w-full max-w-md px-6">
+        <button
+          onClick={() => router.push('/esmeralda')}
+          className="bg-[#42807D] text-white w-[80%] ml-[9%] py-3 rounded-[9px] text-base hover:bg-[#365d56] transition-all duration-300"
+        >
+          Voltar
+        </button>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -59,35 +60,13 @@ const TelaCadastro = () => {
       return;
     }
 
-    const userData = {
-      nome: usuario,
-      email,
-      senha,
-    };
+    const userData = { nome: usuario, email, senha };
 
     try {
       setLoading(true);
-      console.log('Enviando dados para a API...');
-
-      const res = await fetch('/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
-
-      if (!res.ok) {
-        const errorText = await res.text(); // Captura o erro mesmo que seja HTML
-        throw new Error(`Erro no cadastro: ${errorText}`);
-      }
-
-      const data = await res.json();
-      console.log('Cadastro bem-sucedido:', data);
-
+      localStorage.setItem('usuarioCadastrado', JSON.stringify(userData));
       router.push('/Login');
     } catch (error) {
-      console.error('Erro no cadastro:', error);
       setErroCampos('Erro ao cadastrar. Tente novamente!');
     } finally {
       setLoading(false);
@@ -108,11 +87,10 @@ const TelaCadastro = () => {
           <input
             type="text"
             id="usuario"
-            name="usuario"
             value={usuario}
             onChange={(e) => setUsuario(e.target.value)}
             placeholder="Usuário"
-            className={`w-full bg-[#42807D] p-4 border ${erroUsuario ? 'border-red-500' : 'border-gray-300'} mb-4 rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base`}
+            className={`w-full bg-[#42807D] p-4 border ${erroUsuario ? 'border-red-500' : 'border-gray-300'} mb-4 rounded-[30px] mt-2 text-white text-sm`}
           />
           {erroUsuario && <p className="text-red-500 text-sm">{erroUsuario}</p>}
         </div>
@@ -122,11 +100,10 @@ const TelaCadastro = () => {
           <input
             type="email"
             id="email"
-            name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Digite seu email"
-            className={`w-full bg-[#42807D] p-4 border ${erroEmail ? 'border-red-500' : 'border-gray-300'} rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base`}
+            className={`w-full bg-[#42807D] p-4 border ${erroEmail ? 'border-red-500' : 'border-gray-300'} rounded-[30px] mt-2 text-white text-sm`}
           />
           {erroEmail && <p className="text-red-500 text-sm">{erroEmail}</p>}
         </div>
@@ -136,11 +113,10 @@ const TelaCadastro = () => {
           <input
             type="password"
             id="senha"
-            name="senha"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             placeholder="Digite sua senha"
-            className={`w-full bg-[#42807D] p-4 border ${erroSenhas ? 'border-red-500' : 'border-gray-300'} rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base`}
+            className={`w-full bg-[#42807D] p-4 border ${erroSenhas ? 'border-red-500' : 'border-gray-300'} rounded-[30px] mt-2 text-white text-sm`}
           />
         </div>
 
@@ -149,11 +125,10 @@ const TelaCadastro = () => {
           <input
             type="password"
             id="confirmarSenha"
-            name="confirmarSenha"
             value={confirmarSenha}
             onChange={(e) => setConfirmarSenha(e.target.value)}
             placeholder="Confirme sua senha"
-            className={`w-full bg-[#42807D] p-4 border ${erroSenhas ? 'border-red-500' : 'border-gray-300'} rounded-[30px] mt-2 text-[#fff] text-sm sm:text-base`}
+            className={`w-full bg-[#42807D] p-4 border ${erroSenhas ? 'border-red-500' : 'border-gray-300'} rounded-[30px] mt-2 text-white text-sm`}
           />
           {erroSenhas && <p className="text-red-500 text-sm">{erroSenhas}</p>}
         </div>
@@ -164,15 +139,12 @@ const TelaCadastro = () => {
           <label htmlFor="check" className="block ml-2 font-medium text-gray-700">
             <input
               type="checkbox"
-              name="check"
               id="check"
               checked={aceitouTermos}
               onChange={(e) => setAceitouTermos(e.target.checked)}
               className="m-2"
             />
-            Ao continuar, você aceita nossa <span className="text-blue-500 hover:underline">
-              <Link href='/TermosUso'>Política de Privacidade e Termos de Uso</Link>
-            </span> .
+            Ao continuar, você aceita nossa <Link href='/TermosUso'><span className="text-blue-500 hover:underline">Política de Privacidade e Termos de Uso</span></Link>.
           </label>
         </div>
 

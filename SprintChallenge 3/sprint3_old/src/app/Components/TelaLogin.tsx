@@ -1,116 +1,85 @@
 'use client';
+
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import PaineldeaAvios from './PaineldeaAvios';
 
 const TelaLogin = () => {
   const router = useRouter();
-  const [usuario, setUsuario] = useState('');
+  const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [mensagemErro, setMensagemErro] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [erro, setErro] = useState('');
 
-  const isEmailValid = (email: string) => /\S+@\S+\.\S+/.test(email);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setErro('');
 
-    if (!usuario || !senha) {
-      setMensagemErro('Por favor, preencha todos os campos.');
+    const usuarioSalvo = localStorage.getItem('usuarioCadastrado');
+
+    if (!usuarioSalvo) {
+      setErro('Nenhum usuário cadastrado.');
       return;
     }
 
-    if (!isEmailValid(usuario)) {
-      setMensagemErro('Por favor, insira um e-mail válido.');
-      return;
-    }
+    const dados = JSON.parse(usuarioSalvo);
 
-    setMensagemErro('');
-    setLoading(true);
-
-    try {
-      const res = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: usuario, senha }),
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        localStorage.setItem('user', JSON.stringify(data.user));
-        router.push('/avisos');
-      } else {
-        setMensagemErro(data.error || 'Usuário ou senha incorretos!');
-      }
-    } catch (error) {
-      setMensagemErro('Erro ao realizar login. Tente novamente!');
-    } finally {
-      setLoading(false);
+    if (email === dados.email && senha === dados.senha) {
+      localStorage.setItem('usuarioLogado', JSON.stringify(dados));
+      router.push('/avisos');
+    } else {
+      setErro('Email ou senha incorretos.');
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4">
-      <div className="p-6 border-4 border-green-800 w-full sm:w-[90%] md:w-[50%] lg:w-[35%] xl:w-[30%] bg-white rounded-3xl">
-        <div className="flex flex-col items-center">
-          <img src="/img_icons/Logo_Fs.png" alt="Logo" className="h-[120px] w-[120px] sm:h-[150px] sm:w-[150px]" />
-          <h1 className="text-[1.6rem] font-semibold text-center mb-4">Seu passageiro virtual nas horas certas!</h1>
-        </div>
-
-        {mensagemErro && <p className="text-red-500 text-center">{mensagemErro}</p>}
-
-        <form onSubmit={handleSubmit} className="mt-6 space-y-6">
-          <div>
-            <label htmlFor="usuario" className="block text-gray-700 font-medium">E-mail:</label>
-            <input
-              type="email"
-              id="usuario"
-              name="usuario"
-              aria-label="Campo de e-mail"
-              placeholder="Digite seu e-mail"
-              className={`w-full p-4 rounded-[30px] bg-[#42807D] text-white border ${!isEmailValid(usuario) && usuario ? 'border-red-500' : 'border-gray-300'}`}
-              value={usuario}
-              onChange={(e) => setUsuario(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="senha" className="block text-gray-700 font-medium">Senha:</label>
-            <input
-              type="password"
-              id="senha"
-              name="senha"
-              aria-label="Campo de senha"
-              placeholder="Digite sua senha"
-              className={`w-full p-4 rounded-[30px] bg-[#42807D] text-white border ${mensagemErro && !senha ? 'border-red-500' : 'border-gray-300'}`}
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-            />
-          </div>
-
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-[80%] p-3 bg-[#42807D] text-white rounded-2xl hover:bg-green-500 focus:outline-none focus:ring-2 text-[1.2rem]"
-            >
-              {loading ? 'Entrando...' : 'Entrar'}
-            </button>
-          </div>
-        </form>
-
-        <p className="mt-6 text-center text-gray-600">
-          Não tem uma conta?
-          <Link href="/Cadastro">
-            <span className="text-green-500 hover:underline cursor-pointer"> Crie uma</span>
-          </Link>
-        </p>
+    <div className="w-full max-w-[420px] mx-auto border-4 border-solid mt-[23%] border-green-800 p-6 bg-white rounded-lg sm:max-w-[350px]">
+      <div className="w-[80%] mx-auto mt-8 mb-9">
+        <h1 className="font-bold text-center text-3xl sm:text-4xl">
+          FUTURE <span className="text-[#42807D]">STATION</span>
+        </h1>
       </div>
 
-      <div className="w-full mt-8 flex justify-center">
-        <PaineldeaAvios />
+      <form onSubmit={handleSubmit}>
+        <div className="mb-5">
+          <label htmlFor="email" className="block ml-2 font-medium text-gray-700">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Digite seu email"
+            className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-white text-sm"
+          />
+        </div>
+
+        <div className="mb-7">
+          <label htmlFor="senha" className="block ml-2 font-medium text-gray-700">Senha:</label>
+          <input
+            type="password"
+            id="senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            placeholder="Digite sua senha"
+            className="w-full bg-[#42807D] p-4 border border-gray-300 rounded-[30px] mt-2 text-white text-sm"
+          />
+        </div>
+
+        {erro && <p className="text-red-500 text-sm mb-4">{erro}</p>}
+
+        <div className="flex justify-center mb-5">
+          <button
+            type="submit"
+            className="w-3/4 sm:w-2/3 p-3 bg-[#42807D] text-white rounded-2xl hover:bg-green-500"
+          >
+            Entrar
+          </button>
+        </div>
+      </form>
+
+      <div className="text-center">
+        <p className="text-lg text-gray-600">
+          Ainda não tem uma conta? <Link href="/cadastro"><span className="text-[#42807D] hover:underline cursor-pointer">Cadastre-se</span></Link>
+        </p>
       </div>
     </div>
   );

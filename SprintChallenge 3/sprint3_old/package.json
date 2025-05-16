@@ -12,6 +12,7 @@
     "@azure/app-configuration": "^1.9.0",
     "@azure/identity": "^4.9.1",
     "@azure/keyvault-secrets": "^4.9.0",
+    "@heroicons/react": "^2.2.0",
     "@radix-ui/react-label": "^2.1.6",
     "@radix-ui/react-slot": "^1.2.2",
     "@supabase/supabase-js": "^2.49.4",

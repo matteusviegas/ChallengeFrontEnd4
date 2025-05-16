@@ -91,7 +91,7 @@ const Denuncie = () => {
           </div>
 
           <div className="flex justify-center mt-[19%]">
-            <Link href="/avisos">
+            <Link href="/pinheiro">
               <Button
                 label="Voltar"
                 onClick={() => {}}

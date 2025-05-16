@@ -76,7 +76,7 @@ const Sugestoes = () => {
             </button>
           </div>
           <div className="flex justify-center mt-[19%]">
-          <Link href="/avisos">
+          <Link href="/header">
           
             <Button
               label="Voltar"

@@ -13,10 +13,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",                          // 👈 necessário
+    "baseUrl": ".",  // Necessário para os aliases
     "paths": {
-    
-      "@/*": ["src/*"]                       // 👈 necessário
+      "@/*": ["src/*"]  // Alias configurado para usar @/ em vez de caminhos relativos
     },
     "plugins": [{ "name": "next" }]
   },
@@ -27,5 +26,4 @@
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
-
 }

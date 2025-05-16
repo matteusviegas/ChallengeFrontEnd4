@@ -1,6 +1,7 @@
 import Header from "./Components/Header";
 import TelaCadastro from "./Components/TelaCadastro";
 import TelaLogin from "./Components/TelaLogin";
+import LoginPage from "./Login/page";
 
 export default function Home() {
   return (
@@ -10,8 +11,7 @@ export default function Home() {
     
  <div className="bg-wshite">
   <button className="mx-auto bg-[#42807D] mt-6 w-[15%] p-3  text-white rounded-2xl font-bold text-1xl">Atualizar</button>
-
-<TelaLogin/>
+       <TelaLogin/>
  </div>
     </div>
 
