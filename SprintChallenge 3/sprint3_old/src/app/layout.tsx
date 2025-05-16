@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import "./globals.css";
-import Avisos from "./Components/Avisos";
-import Perfil from "./Perfil/page";
-import { AppProps } from 'next/app';
-import WatsonChat from "./WhatsonChatBot/WatsonChat";
-import Register from "../app/pages/register";  // Importação correta para exportação padrão
-import TelaCadastro from "./Components/TelaCadastro";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,18 +9,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html  lang="pt-BR">
-      <body
-      >
-        {children}
-    
-     
-
-      </body>
+    <html lang="pt-BR">
+      <body>
+        {children}</body> 
     </html>
   );
 }

@@ -18,11 +18,10 @@ const Relatorio = () => {
         }
         const dados = await response.json();
         
-        // Garantir que a resposta seja um array
         if (Array.isArray(dados)) {
           setHistoricoViagens(dados);
         } else {
-          setHistoricoViagens([]); // Em caso de dados não serem um array
+          setHistoricoViagens([]); 
         }
       } catch (error) {
         setErro('Erro ao carregar histórico');

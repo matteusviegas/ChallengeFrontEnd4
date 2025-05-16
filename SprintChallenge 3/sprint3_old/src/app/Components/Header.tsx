@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Header = () => {
   const [status, setStatus] = useState({
@@ -10,10 +11,6 @@ const Header = () => {
     esmeralda: "Carregando...",
     amarela: "Carregando..."
   });
-
-  const handleRefresh = () => {
-  window.location.reload();
-};
 
   useEffect(() => {
     const fetchStatus = async () => {
@@ -35,7 +32,7 @@ const Header = () => {
           esmeralda: esmeralda[0]?.status || "Indisponível",
           amarela: amarela[0]?.status || "Indisponível"
         });
-      } catch (err) {
+      } catch {
         setStatus({
           diamante: "Erro ao carregar",
           esmeralda: "Erro ao carregar",
@@ -65,53 +62,30 @@ const Header = () => {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col items-center text-center group">
-            <svg
-              className="w-12 h-12 text-gray-700 mb-4 transition-transform duration-300 group-hover:scale-110"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
+          {[
+            { nome: "Linha 8 Diamante", cor: "text-gray-700", status: status.diamante },
+            { nome: "Linha 9 Esmeralda", cor: "text-emerald-600", status: status.esmeralda },
+            { nome: "Linha 4 Amarela", cor: "text-yellow-500", status: status.amarela }
+          ].map((linha, index) => (
+            <div
+              key={index}
+              className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col items-center text-center group"
             >
-              <path d="M9 20l-5.447-2.724A2 2 0 013 15.382V6.618a2 2 0 011.553-1.894L9 2.118m0 17.882l6-3m-6 3V2.118m6 15.764l5.447-2.724A2 2 0 0021 15.382V6.618a2 2 0 00-1.553-1.894L15 2.118m0 17.882V2.118" />
-            </svg>
-            <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-[#357063]">
-              Linha 8 Diamante
-            </h3>
-            <p className="text-sm font-medium text-gray-600">{status.diamante}</p>
-          </div>
-
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col items-center text-center group">
-            <svg
-              className="w-12 h-12 text-emerald-600 mb-4 transition-transform duration-300 group-hover:scale-110"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M4.5 20.25l7.5-16.5 7.5 16.5m-15 0h15" />
-            </svg>
-            <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-[#357063]">
-              Linha 9 Esmeralda
-            </h3>
-            <p className="text-sm font-medium text-gray-600">{status.esmeralda}</p>
-          </div>
-
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col items-center text-center group">
-            <svg
-              className="w-12 h-12 text-yellow-500 mb-4 transition-transform duration-300 group-hover:scale-110"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 9v2.25m0 4.5h.008v-.008H12v.008zm-.75 4.5A9 9 0 1112 21a9 9 0 01-.75-1.5z" />
-            </svg>
-            <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-[#357063]">
-              Linha 4 Amarela
-            </h3>
-            <p className="text-sm font-medium text-gray-600">{status.amarela}</p>
-          </div>
+              <svg
+                className={`w-12 h-12 ${linha.cor} mb-4 transition-transform duration-300 group-hover:scale-110`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 9v2.25m0 4.5h.008v-.008H12v.008zm-.75 4.5A9 9 0 1112 21a9 9 0 01-.75-1.5z" />
+              </svg>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-[#357063]">
+                {linha.nome}
+              </h3>
+              <p className="text-sm font-medium text-gray-600">{linha.status}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -129,7 +103,6 @@ const Header = () => {
 
           <button
             className="bg-[#6c6960] text-white text-[1.2rem] px-10 py-4 rounded-xl cursor-not-allowed opacity-70 shadow-md"
-            title="Esta linha está inativa no momento"
             disabled
           >
             Linha 8 Diamante
@@ -137,7 +110,6 @@ const Header = () => {
 
           <button
             className="bg-[#e6e94d] text-[#333] text-[1.2rem] px-10 py-4 rounded-xl cursor-not-allowed opacity-80 shadow-md"
-            title="Esta linha está inativa no momento"
             disabled
           >
             Linha 4 Amarela
@@ -151,12 +123,18 @@ const Header = () => {
       <p className="text-[1.2rem] sm:text-[1.1rem] mx-auto leading-snug text-gray-600  px-4 sm:px-8">
         Confira os horários de abertura e fechamento das estações de cada linha.
       </p>
+
       <section className="flex text-center mt-10 flex-col gap-2">
         <div className="mt-4">
           <div className="flex bg-[#fff] flex-col gap-6 items-center justify-center border-2 border-[#cce5e3] rounded-2xl p-13 shadow-lg">
             <Link href="/horariofuncionamento">
               <div className="text-center">
-                <img className="h-[80px] sm:h-[98px] mx-auto" src="/img_Icons/horario.png" alt="Horario de Funcionamento" />
+                <Image
+                  src="/img_Icons/horario.png"
+                  alt="Horario de Funcionamento"
+                  width={98}
+                  height={98}
+                />
                 <h3 className="font-bold mt-[5%] text-[1.4rem] sm:text-lg">Horario de Funcionamento</h3>
               </div>
             </Link>
@@ -170,18 +148,22 @@ const Header = () => {
       <p className="text-[1.2rem] sm:text-[1.1rem] mx-auto leading-snug text-gray-600 mb-6 px-4 sm:px-8">
         Sua contribuição é essencial para que possamos melhorar nossos serviços no futuro!
       </p>
+
       <div className="flex flex-col gap-6 bg-[#fff] items-center justify-center border-2 border-[#cce5e3] rounded-2xl p-11 py-10 px-17 shadow-lg">
         <div className="w-[100%] mx-auto mb-7">
           <Link href="/sugestao">
-            <motion.img
-              className="h-[66px] w-[72px] mx-auto transition-transform duration-300 hover:scale-110"
-              src="/img_icons/image_form.png"
-              alt="formulario"
-              whileHover={{ rotate: 10 }}
-            />
-            <p className="font-bold mt-[5%] text-[1.4rem] sm:text-lg">
-              Deixe aqui sua opinião!
-            </p>
+            <motion.div whileHover={{ rotate: 10 }}>
+              <Image
+                src="/img_icons/image_form.png"
+                alt="formulario"
+                width={72}
+                height={66}
+                className="transition-transform duration-300 hover:scale-110 mx-auto"
+              />
+              <p className="font-bold mt-[5%] text-[1.4rem] sm:text-lg">
+                Deixe aqui sua opinião!
+              </p>
+            </motion.div>
           </Link>
         </div>
       </div>
@@ -209,18 +191,16 @@ const Header = () => {
         </Link>
       </div>
 
-     <div className="flex justify-center mt-10  mb-[30%] w-full px-4">
-  <motion.button
-    onClick={() => window.location.reload()}
-    className="w-full max-w-sm bg-[#42807D] text-white text-lg sm:text-xl py-3 rounded-lg hover:bg-[#365d56] transition-all duration-300"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.98 }}
-  >
-     Atualizar Página
-  </motion.button>
-</div>
-
-
+      <div className="flex justify-center mt-10 mb-[30%] w-full px-4">
+        <motion.button
+          onClick={() => window.location.reload()}
+          className="w-full max-w-sm bg-[#42807D] text-white text-lg sm:text-xl py-3 rounded-lg hover:bg-[#365d56] transition-all duration-300"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          Atualizar Página
+        </motion.button>
+      </div>
     </main>
   );
 };

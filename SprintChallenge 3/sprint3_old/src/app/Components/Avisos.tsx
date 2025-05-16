@@ -1,16 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PerfilUsuario from '../Perfil/page';
 import WatsonChat from '../WhatsonChatBot/WatsonChat';
+import Image from 'next/image';
 
 const Avisos = () => {
-  const router = useRouter();
-  const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedUserIndex, setSelectedUserIndex] = useState<number | null>(null);
 
   const users = [
@@ -27,11 +25,11 @@ const Avisos = () => {
     {
       name: 'Sulamita Viegas Dos Santos',
       rm: 'RM561089',
-      role: ' UX/UI Designer & Inteligência Artificia',
-      contributions: 'Criou a identidade visual e IA .',
+      role: 'UX/UI Designer & Inteligência Artificial',
+      contributions: 'Criou a identidade visual e IA.',
       details: 'Sulamita foi uma das principais responsáveis pela criação da identidade visual do projeto, liderando o design de interface de usuário clara e acessível.',
       github: 'https://github.com/SulamitaViegas123',
-      linkedin: 'https://www.linkedin.com/in/sulamita-viegas-dos-santos-280210223/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      linkedin: 'https://www.linkedin.com/in/sulamita-viegas-dos-santos-280210223/',
       photo: '/img/sulamita.png',
     },
     {
@@ -45,11 +43,6 @@ const Avisos = () => {
       photo: '/img/matteuss.png',
     },
   ];
-
-  useEffect(() => {
-    const interval = setInterval(() => setCurrentDate(new Date()), 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] px-4 py-6 flex flex-col items-center relative overflow-hidden">
@@ -106,12 +99,16 @@ const Avisos = () => {
                 whileHover={{ scale: 1.05 }}
                 onClick={() => setSelectedUserIndex(index)}
               >
-                <img
-                  src={user.photo}
-                  alt={user.name}
-                  className="absolute top-[-48px] left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover"
-                />
-                <h1 className="font-bold text-xl text-[#42807D]">{user.name}</h1>
+                <div className="absolute top-[-48px] left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full border-4 border-white shadow-lg overflow-hidden">
+                  <Image
+                    src={user.photo}
+                    alt={user.name}
+                    width={96}
+                    height={96}
+                    className="object-cover rounded-full"
+                  />
+                </div>
+                <h1 className="font-bold text-xl text-[#42807D] mt-3">{user.name}</h1>
                 <p className="text-sm text-gray-500">{user.rm}</p>
                 <div className="flex justify-center gap-4 mt-2">
                   <motion.a
@@ -167,14 +164,14 @@ const Avisos = () => {
           )}
         </AnimatePresence>
 
-         <Link href="/Login">
-            <motion.button
-              className="w-[76%] mt-[15%] mx-[12%] sm:w-2/3 py-3 bg-[#42807D] p-15 text-white mb-5 rounded-lg hover:bg-[#357066] transition duration-300"
-              whileHover={{ scale: 1.05 }}
-            >
-              Sair
-            </motion.button>
-          </Link>
+        <Link href="/Login">
+          <motion.button
+            className="w-[76%] mt-[15%] mx-[12%] sm:w-2/3 py-3 bg-[#42807D] p-15 text-white mb-5 rounded-lg hover:bg-[#357066] transition duration-300"
+            whileHover={{ scale: 1.05 }}
+          >
+            Sair
+          </motion.button>
+        </Link>
 
         <WatsonChat />
       </main>
