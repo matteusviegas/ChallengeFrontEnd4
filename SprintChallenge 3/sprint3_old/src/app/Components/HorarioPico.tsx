@@ -42,7 +42,7 @@ const PrevisaoPico = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-md mx-auto p-4">
+    <div className="w-full max-w-md mx-auto p-5">
       <h1 className="text-[2rem] w-[50%] mx-auto text-center font-semibold mb-6">
         <span className="text-[#42807D]">Estação</span> {fluxo?.estacao || 'Carregando...'}
       </h1>
