@@ -27,7 +27,7 @@ const Denuncie = () => {
         .send('SEU_SERVICE_ID', 'SEU_TEMPLATE_ID', templateParams, 'SEU_PUBLIC_KEY')
         .then((response: { status: any; text: any; }) => {
           console.log('Mensagem enviada com sucesso!', response.status, response.text);
-          alert('Denúncia enviada com sucesso! Verifique seu e-mail para a confirmação.');
+          alert('Denúncia enviada com sucesso! Verifique seu e-mail para a confirmação!');
           setMessage('');
           setEmail('');
         })
