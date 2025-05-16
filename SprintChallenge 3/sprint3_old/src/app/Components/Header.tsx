@@ -193,7 +193,7 @@ const Header = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          ↑ Voltar ao Topo
+          ↑ Voltar ao Topo.
         </motion.button>
       </div>
 

@@ -60,7 +60,7 @@ const Relatorio = () => {
         )}
 
         <button
-          className="mt-8 bg-[#42807D] text-white py-3 px-8 rounded-xl font-semibold w-full md:w-auto hover:bg-[#357c66] transition duration-300 transform hover:scale-105"
+          className="mt-8 bg-[#a] text-white py-3 px-8 rounded-xl font-semibold w-full md:w-auto hover:bg-[#357c66] transition duration-300 transform hover:scale-105"
           onClick={() => router.push('/ViagemInicio')}
         >
           Voltar para Viagem
