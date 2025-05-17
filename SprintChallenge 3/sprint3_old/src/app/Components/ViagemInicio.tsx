@@ -3,10 +3,20 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+interface Usuario {
+  id: number;
+  nome: string;
+}
+
+interface Estacao {
+  nome: string;
+  linha?: string;
+}
+
 const ViagemInicio = () => {
-  const [usuarios, setUsuarios] = useState<any[]>([]);
-  const [estacoesAPI, setEstacoesAPI] = useState<any[]>([]);
-  const [usuarioId, setUsuariosId] = useState('1');
+  const [usuarios, setUsuarios] = useState<Usuario[]>([]);
+  const [estacoesAPI, setEstacoesAPI] = useState<Estacao[]>([]);
+  const [usuarioId, setUsuarioId] = useState('1');
   const [origem, setOrigem] = useState('');
   const [destino, setDestino] = useState('');
   const [hpartida, setHpartida] = useState('');
@@ -14,7 +24,7 @@ const ViagemInicio = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const estacoesLinha9Manual = [
+  const estacoesLinha9Manual: Estacao[] = [
     { nome: 'Osasco' },
     { nome: 'Presidente Altino' },
     { nome: 'Ceasa' },
@@ -42,22 +52,22 @@ const ViagemInicio = () => {
     const fetchData = async () => {
       try {
         const [usuariosResponse, estacoesResponse] = await Promise.all([
-          fetch('http://localhost:8080/api/usuario/todos'),
-          fetch('http://localhost:8080/api/estacao/todas'),
+          fetch('/api/usuario/todos'),
+          fetch('/api/estacao/todas'),
         ]);
 
         if (!usuariosResponse.ok || !estacoesResponse.ok) {
           throw new Error('Falha ao carregar os dados');
         }
 
-        const usuariosData = await usuariosResponse.json();
-        const estacoesData = await estacoesResponse.json();
+        const usuariosData: Usuario[] = await usuariosResponse.json();
+        const estacoesData: Estacao[] = await estacoesResponse.json();
 
         setUsuarios(usuariosData);
         setEstacoesAPI(estacoesData);
 
         if (usuariosData.length > 0) {
-          setUsuariosId(usuariosData[0].id.toString());
+          setUsuarioId(usuariosData[0].id.toString());
         }
 
         const agora = new Date();
@@ -86,7 +96,7 @@ const ViagemInicio = () => {
     setErro('');
 
     try {
-      const resposta = await fetch('http://localhost:8080/api/viagem/iniciar', {
+      const resposta = await fetch('/api/viagem/iniciar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -97,12 +107,13 @@ const ViagemInicio = () => {
         }),
       });
 
+      const json = await resposta.json();
+
       if (!resposta.ok) {
-        throw new Error('Falha ao iniciar a viagem');
+        throw new Error(json.message || 'Falha ao iniciar a viagem');
       }
 
-      const viagemData = await resposta.json();
-      router.push(`/viagem/iniciada?viagemId=${viagemData.id}`);
+      router.push(`/viagem/iniciada?viagemId=${json.id}`);
     } catch (err: unknown) {
       setErro(err instanceof Error ? err.message : 'Erro desconhecido');
     } finally {
@@ -110,17 +121,22 @@ const ViagemInicio = () => {
     }
   };
 
-  // Prioriza estações da Linha 9, filtradas da API (fallback para manual)
   const estacoesLinha9 = estacoesAPI.length > 0
     ? estacoesAPI.filter((estacao) => estacao.linha === '9 Esmeralda')
     : estacoesLinha9Manual;
 
-  if (isLoading) return <div>Carregando...</div>;
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <div className="text-lg font-semibold">Carregando...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center px-4">
       <h1 className="text-2xl font-bold mb-6">Iniciar Viagem</h1>
-      {erro && <p className="text-red-500">{erro}</p>}
+      {erro && <p className="text-red-500 mb-4">{erro}</p>}
 
       <form onSubmit={(e) => e.preventDefault()} className="w-full max-w-md space-y-4">
         <div>
@@ -131,8 +147,8 @@ const ViagemInicio = () => {
             className="w-full p-2 border rounded"
           >
             <option value="">Selecione a origem</option>
-            {estacoesLinha9.map((estacao, index) => (
-              <option key={index} value={estacao.nome}>
+            {estacoesLinha9.map((estacao) => (
+              <option key={estacao.nome} value={estacao.nome}>
                 {estacao.nome}
               </option>
             ))}
@@ -147,8 +163,8 @@ const ViagemInicio = () => {
             className="w-full p-2 border rounded"
           >
             <option value="">Selecione o destino</option>
-            {estacoesLinha9.map((estacao, index) => (
-              <option key={index} value={estacao.nome}>
+            {estacoesLinha9.map((estacao) => (
+              <option key={estacao.nome} value={estacao.nome}>
                 {estacao.nome}
               </option>
             ))}
@@ -159,7 +175,7 @@ const ViagemInicio = () => {
           type="button"
           onClick={iniciarViagem}
           disabled={isLoading}
-          className="w-full bg-[#42807D] text-white py-2 rounded"
+          className="w-full bg-[#42807D] text-white py-2 rounded hover:bg-[#365d56]"
         >
           {isLoading ? 'Iniciando...' : 'Iniciar Viagem'}
         </button>
@@ -168,7 +184,7 @@ const ViagemInicio = () => {
       <div className="mt-4">
         <button
           onClick={() => router.back()}
-          className="bg-[#42807D] text-white w-[100%] py-3 px-23 mt-11 rounded-[9px] text-base hover:bg-[#365d56]"
+          className="bg-[#42807D] text-white w-full py-3 mt-6 rounded-[9px] text-base hover:bg-[#365d56]"
         >
           Voltar
         </button>

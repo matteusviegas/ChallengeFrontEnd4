@@ -1,9 +1,9 @@
 'use client';
 import Link from "next/link";
 import { useState } from "react";
-import Button from "../Botao/Botao";
-import emailjs from 'emailjs-com';
 import Image from "next/image";
+import emailjs from 'emailjs-com';
+import Button from "../Botao/Botao";
 
 const Denuncie = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -29,14 +29,12 @@ const Denuncie = () => {
     emailjs
       .send('SEU_SERVICE_ID', 'SEU_TEMPLATE_ID', templateParams, 'SEU_PUBLIC_KEY')
       .then((response) => {
-        console.log('Mensagem enviada com sucesso!', response.status, response.text);
         alert('Denúncia enviada com sucesso! Verifique seu e-mail para a confirmação.');
         setMessage('');
         setEmail('');
         setImage(null);
       })
       .catch((err) => {
-        console.error('Erro ao enviar:', err);
         alert('Erro ao enviar. Tente novamente.');
       });
   };
@@ -46,8 +44,8 @@ const Denuncie = () => {
       <div className="w-full max-w-3xl text-white p-4">
         <div className="mb-6 mx-auto w-20 sm:w-32">
           <Image
-            src="/img_icons/imagex.png"
-            alt="Ícone Wi-Fi"
+            src="/img_Icons/imagex.png"
+            alt="Ícone"
             width={128}
             height={128}
             className="w-full h-auto"
@@ -73,7 +71,7 @@ const Denuncie = () => {
               placeholder="Digite sua mensagem aqui..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-            ></textarea>
+            />
 
             <input
               type="file"

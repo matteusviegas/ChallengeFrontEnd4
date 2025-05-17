@@ -17,6 +17,14 @@ const PerfilUsuario = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (novaFoto && dadosUsuario) {
+      const dadosAtualizados = { ...dadosUsuario, foto: novaFoto };
+      setDadosUsuario(dadosAtualizados);
+      localStorage.setItem('user', JSON.stringify(dadosAtualizados));
+    }
+  }, [novaFoto]);
+
   const togglePerfil = () => {
     setExibirPerfil(!exibirPerfil);
   };
