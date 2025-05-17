@@ -64,10 +64,27 @@ const TelaCadastro = () => {
 
     try {
       setLoading(true);
-      localStorage.setItem('usuarioCadastrado', JSON.stringify(userData));
+      
+      const response = await fetch('http://localhost:8080/api/usuario/cadastrar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro ao cadastrar');
+      }
+
+      const data = await response.json();
+      console.log('Usuário cadastrado com sucesso:', data);
+
       router.push('/Login');
-    } catch (error) {
-      setErroCampos('Erro ao cadastrar. Tente novamente!');
+    } catch (error: any) {
+      console.error(error);
+      setErroCampos(error.message || 'Erro ao cadastrar. Tente novamente!');
     } finally {
       setLoading(false);
     }

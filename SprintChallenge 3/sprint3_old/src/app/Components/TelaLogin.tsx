@@ -9,25 +9,34 @@ const TelaLogin = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErro('');
+    setLoading(true);
 
-    const usuarioSalvo = localStorage.getItem('usuarioCadastrado');
+    try {
+      const response = await fetch('http://localhost:8080/api/usuario/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, senha }),
+      });
 
-    if (!usuarioSalvo) {
-      setErro('Nenhum usuário cadastrado.');
-      return;
-    }
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro no login');
+      }
 
-    const dados = JSON.parse(usuarioSalvo);
-
-    if (email === dados.email && senha === dados.senha) {
-      localStorage.setItem('usuarioLogado', JSON.stringify(dados));
+      const user = await response.json();
+      localStorage.setItem('usuarioLogado', JSON.stringify(user));
       router.push('/avisos');
-    } else {
-      setErro('Email ou senha incorretos.');
+    } catch (error: any) {
+      setErro(error.message || 'Email ou senha incorretos.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -70,8 +79,9 @@ const TelaLogin = () => {
           <button
             type="submit"
             className="w-3/4 sm:w-2/3 p-3 bg-[#42807D] text-white rounded-2xl hover:bg-green-500"
+            disabled={loading}
           >
-            Entrar
+            {loading ? 'Entrando...' : 'Entrar'}
           </button>
         </div>
       </form>

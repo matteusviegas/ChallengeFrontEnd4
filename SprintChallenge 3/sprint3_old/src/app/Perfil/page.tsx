@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const PerfilUsuario = () => {
   const [dadosUsuario, setDadosUsuario] = useState<any>(null);
@@ -44,16 +45,20 @@ const PerfilUsuario = () => {
     }
   };
 
+  const fotoPerfil = novaFoto || dadosUsuario?.foto || '/img_icons/imgUser.jpg';
+
   return (
     <div className="relative">
       <div
         className="cursor-pointer fixed top-4 right-4 z-50"
         onClick={togglePerfil}
       >
-        <img
-          src={novaFoto || dadosUsuario?.foto || '/img_icons/imgUser.jpg'}
+        <Image
+          src={fotoPerfil}
           alt="Foto de Perfil"
-          className="w-15 h-15 border-[2px] border-black rounded-full cursor-pointer transition-all duration-300 transform hover:scale-110"
+          width={60}
+          height={60}
+          className="w-15 h-15 border-[2px] border-black rounded-full cursor-pointer transition-all duration-300 transform hover:scale-110 object-cover"
         />
       </div>
 
@@ -61,10 +66,12 @@ const PerfilUsuario = () => {
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-[90%] sm:w-[60%] flex flex-col items-center">
             <div className="mb-4">
-              <img
-                src={novaFoto || dadosUsuario?.foto || '/img_icons/imgUser.jpg'}
+              <Image
+                src={fotoPerfil}
                 alt="Foto de Perfil"
-                className="w-32 h-32 border-[2px] border-black rounded-full mx-auto"
+                width={128}
+                height={128}
+                className="w-32 h-32 border-[2px] border-black rounded-full mx-auto object-cover"
               />
             </div>
 
