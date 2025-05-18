@@ -88,7 +88,7 @@ const TelaLogin = () => {
 
       <div className="text-center">
         <p className="text-lg text-gray-600">
-          Ainda não tem uma conta? <Link href="/cadastro"><span className="text-[#42807D] hover:underline cursor-pointer">Cadastre-se</span></Link>
+          Ainda não tem uma conta? <Link href="/Cadastro"><span className="text-[#42807D] hover:underline cursor-pointer">Cadastre-se</span></Link>
         </p>
       </div>
     </div>
