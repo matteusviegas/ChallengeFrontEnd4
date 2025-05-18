@@ -42,7 +42,7 @@ const ViagemInicio = () => {
     { nome: 'Socorro' },
     { nome: 'Jurubatuba' },
     { nome: 'Autódromo' },
-    { nome: 'Primavera–Interlagos' },
+    { nome: 'Primavera–Interlago' },
     { nome: 'Grajaú' },
     { nome: 'Bruno Covas/Mendes–Vila Natal' },
     { nome: 'Varginha' },
