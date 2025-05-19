@@ -124,18 +124,18 @@ const Header = () => {
         Confira os horários de abertura e fechamento das estações de cada linha.
       </p>
 
-      <section className="flex text-center mt-10 flex-col gap-2">
-        <div className="mt-4">
+      <section className="flex text-center align-center mt-10 flex-col gap-2">
+        <div className="mt-4">  
           <div className="flex bg-[#fff] flex-col gap-6 items-center justify-center border-2 border-[#cce5e3] rounded-2xl p-13 shadow-lg">
             <Link href="/horariofuncionamento">
-              <div className="text-center">
+              <div className="display-flex  flex-center text-center">
                 <Image
                   src="/img_Icons/horario.png"
                   alt="Horario de Funcionamento"
                   width={98}
                   height={98}
                 />
-                <h3 className="font-bold mt-[5%] text-[1.4rem] sm:text-lg">Horario de Funcionamento</h3>
+                <h3 className="font-bold mt-[5%] text-[1.4rem] sm:text-lg">Horario de Funcionamento!</h3>
               </div>
             </Link>
           </div>
