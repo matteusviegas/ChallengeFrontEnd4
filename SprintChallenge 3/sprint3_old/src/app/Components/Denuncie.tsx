@@ -6,20 +6,17 @@ import emailjs from 'emailjs-com';
 import Button from "../Botao/Botao";
 
 const Denuncie = () => {
-  const [image, setImage] = useState<File | null>(null);
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
-
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0] || null;
-    setImage(file);
-  };
+  const [sending, setSending] = useState(false);
 
   const handleSubmit = () => {
-    if (!message || !email) {
+    if (!message.trim() || !email.trim()) {
       alert("Por favor, preencha todos os campos!");
       return;
     }
+
+    setSending(true);
 
     const templateParams = {
       from_email: email,
@@ -32,10 +29,12 @@ const Denuncie = () => {
         alert('Denúncia enviada com sucesso! Verifique seu e-mail para a confirmação.');
         setMessage('');
         setEmail('');
-        setImage(null);
       })
       .catch(() => {
         alert('Erro ao enviar. Tente novamente.');
+      })
+      .finally(() => {
+        setSending(false);
       });
   };
 
@@ -64,6 +63,7 @@ const Denuncie = () => {
               placeholder="Digite seu e-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              disabled={sending}
             />
 
             <textarea
@@ -71,20 +71,17 @@ const Denuncie = () => {
               placeholder="Digite sua mensagem aqui..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              disabled={sending}
             />
 
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="w-full mb-4 text-sm"
-            />
+            {/* Input de imagem removido pra evitar erro */}
 
             <button
               onClick={handleSubmit}
-              className="w-full bg-[#4ac373] text-black py-3 rounded-lg font-bold text-lg hover:bg-white transition duration-300"
+              className={`w-full bg-[#4ac373] text-black py-3 rounded-lg font-bold text-lg hover:bg-white transition duration-300 ${sending ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={sending}
             >
-              Enviar
+              {sending ? "Enviando..." : "Enviar"}
             </button>
           </div>
         </div>
@@ -103,7 +100,7 @@ const Denuncie = () => {
         </div>
 
         <div className="flex justify-center mt-10">
-          <Link href="/pinheiro">
+          <Link href="/pinheiro" passHref>
             <Button
               label="Voltar"
               onClick={() => {}}
