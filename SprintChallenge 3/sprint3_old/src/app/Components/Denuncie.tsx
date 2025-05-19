@@ -28,13 +28,13 @@ const Denuncie = () => {
 
     emailjs
       .send('SEU_SERVICE_ID', 'SEU_TEMPLATE_ID', templateParams, 'SEU_PUBLIC_KEY')
-      .then((response) => {
+      .then(() => {
         alert('Denúncia enviada com sucesso! Verifique seu e-mail para a confirmação.');
         setMessage('');
         setEmail('');
         setImage(null);
       })
-      .catch((err) => {
+      .catch(() => {
         alert('Erro ao enviar. Tente novamente.');
       });
   };
