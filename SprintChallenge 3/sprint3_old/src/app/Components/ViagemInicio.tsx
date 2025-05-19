@@ -24,29 +24,28 @@ const ViagemInicio = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const estacoesLinha9Manual: Estacao[] = [
-    { nome: 'Osasco' },
-    { nome: 'Presidente Altino' },
-    { nome: 'Ceasa' },
-    { nome: 'Villa-Lobos–Jaguaré' },
-    { nome: 'Cidade Universitária' },
-    { nome: 'Pinheiros' },
-    { nome: 'Hebraica–Rebouças' },
-    { nome: 'Cidade Jardim' },
-    { nome: 'Vila Olímpia' },
-    { nome: 'Berrini' },
-    { nome: 'Morumbi' },
-    { nome: 'Granja Julieta' },
-    { nome: 'João Dias' },
-    { nome: 'Santo Amaro' },
-    { nome: 'Socorro' },
-    { nome: 'Jurubatuba' },
-    { nome: 'Autódromo' },
-    { nome: 'Primavera–Interlago' },
-    { nome: 'Grajaú' },
-    { nome: 'Bruno Covas/Mendes–Vila Natal' },
-    { nome: 'Varginha' },
-  ];
+ const estacoesLinha9Corretas: Estacao[] = [
+  { nome: 'Osasco' },
+  { nome: 'Presidente Altino' },
+  { nome: 'Ceasa' },
+  { nome: 'Villa-Lobos–Jaguaré' },
+  { nome: 'Cidade Universitária' },
+  { nome: 'Pinheiros' },
+  { nome: 'Hebraica–Rebouças' },
+  { nome: 'Cidade Jardim' },
+  { nome: 'Vila Olímpia' },
+  { nome: 'Berrini' },
+  { nome: 'Morumbi' },
+  { nome: 'Granja Julieta' },
+  { nome: 'Santo Amaro' },
+  { nome: 'Socorro' },
+  { nome: 'Jurubatuba–Senac' }, 
+  { nome: 'Autódromo' },
+  { nome: 'Primavera–Interlagos' },
+  { nome: 'Grajaú' },
+  { nome: 'Bruno Covas–Mendes–Vila Natal' },
+  { nome: 'Varginha' },
+];
 
   useEffect(() => {
     const fetchData = async () => {
